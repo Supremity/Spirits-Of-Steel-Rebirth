@@ -32,17 +32,10 @@ var max_path_length: int = 0
 func _input(event) -> void:
 	if not map_sprite: return
 
-	# ───── NEW: BLOCK INPUT WHEN MOUSE IS OVER UI ─────
-	if event is InputEventMouseButton or event is InputEventMouseMotion:
-		var hovered_ui = get_viewport().gui_get_hovered_control()
-		if hovered_ui != null:
-			# Mouse is over a button, label, panel, sidemenu, etc. → ignore map input
-			return
-	# ─────────────────────────────────────────────────────
-
 	# LEFT CLICK: Selection
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		_handle_left_mouse(event)
+
 
 	# RIGHT CLICK: Path Trace
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
@@ -51,7 +44,14 @@ func _input(event) -> void:
 	if event is InputEventMouseMotion:
 		if dragging:
 			drag_end = get_global_mouse_position()
+
+			# NEW: Perform live selection if we've moved far enough
+			var drag_distance = drag_start.distance_to(drag_end)
+			if drag_distance >= CLICK_THRESHOLD:
+				_perform_selection()  # This now updates selection LIVE!
+
 			queue_redraw()
+
 		if right_dragging:
 			if drag_start.distance_to(get_global_mouse_position()) >= CLICK_THRESHOLD:
 				_sample_province_under_mouse()
@@ -69,65 +69,58 @@ func _handle_left_mouse(event: InputEventMouseButton) -> void:
 	else:
 		if not dragging:
 			return
-			
+
 		drag_end = get_global_mouse_position()
 		var drag_distance = drag_start.distance_to(drag_end)
-		
-		if drag_distance < CLICK_THRESHOLD:
-			# This was just a plain left-click → treat as deselect / do nothing
-			right_path
-			# MusicManager.play_sfx(MusicManager.SFX.CLICK)  # optional
-		else:
-			# Real drag → perform normal selection box
-			_perform_selection()
-		
+
+		# If it WAS a real drag, selection was already updated live in _input()
+		# So we just clean up
 		dragging = false
 		queue_redraw()
+	
+				# 🎯 PLAY SOUND HERE, ONLY ON MOUSE-UP AFTER DRAG
+		if drag_distance >= CLICK_THRESHOLD and SelectionManager.is_a_troop_selected():
+			MusicManager.play_sfx(MusicManager.SFX.TROOP_SELECTED)
 
 func _perform_selection() -> void:
 	if not map_sprite: return
-	
+
 	var world_rect := Rect2(drag_start, drag_end - drag_start).abs()
 	var texture_width := map_sprite.texture.get_width()
 	var offset := map_sprite.texture.get_size() * 0.5
-	
 	var cam = get_viewport().get_camera_2d()
 	var inv_zoom = 1.0 / cam.zoom.x if cam else 1.0
 
 	var selected_list: Array[TroopData] = []
-	
 	var flag_size = Vector2(FLAG_WIDTH_BASE, FLAG_HEIGHT_BASE) * inv_zoom
 	var pad = PADDING_BASE * inv_zoom
-	
+
 	for t in TroopManager.troops:
+		if t.country_name.to_lower() != CurrentPlayer.country_name:
+			continue
+
 		var label = str(t.divisions)
 		var text_size = font.get_string_size(label, FONT_SIZE_BASE) * inv_zoom
-		
 		var w = flag_size.x + (GAP_BASE * inv_zoom) + text_size.x + (pad * 2)
 		var h = max(flag_size.y, text_size.y) + (pad * 2)
 		var box_size = Vector2(w, h)
-
 		var troop_world_center = t.position - offset
 		var troop_rect = Rect2(troop_world_center - box_size * 0.5, box_size)
-		
+
 		if _check_rect_intersection(world_rect, troop_rect, t.position.x, texture_width):
-			if (t.country_name.to_lower() == CurrentPlayer.country_name):
-				
-				selected_list.append(t)
+			selected_list.append(t)
 
+	# LIVE UPDATE: Always apply current selection (even mid-drag)
 	var additive = Input.is_key_pressed(KEY_SHIFT)
-	if len(selected_list) > 0:
-		MusicManager.play_sfx(MusicManager.SFX.TROOP_SELECTED)
-		SelectionManager.select_troops(selected_list, additive)
 
-	# --- UPDATE MAX PATH LENGTH AFTER SELECTION ---
-	# Calculate the maximum provinces we can split across
-	# Each troop must have at least 1 division, so max_path_length = total divisions
+	SelectionManager.select_troops(selected_list, additive)
+
+	# Update max_path_length based on current live selection
 	max_path_length = 0
 	for troop in selected_list:
 		max_path_length += troop.divisions
-	
-	print("Selected %d troops with %d total divisions. Max path provinces: %d" % [selected_list.size(), max_path_length, max_path_length])
+
+	#print("Live selection: %d troops, %d divisions" % [selected_list.size(), max_path_length])
 	
 func _check_rect_intersection(selection_rect: Rect2, troop_rect: Rect2, tx: float, tex_w: float) -> bool:
 	# Standard check
@@ -150,7 +143,7 @@ func _check_rect_intersection(selection_rect: Rect2, troop_rect: Rect2, tx: floa
 # Right-click Path Logic (With Split Support)
 # ---------------------------
 func _handle_right_mouse(event: InputEventMouseButton) -> void:
-	if event.pressed and SelectionManager.is_troop_selected():
+	if event.pressed and SelectionManager.is_a_troop_selected():
 		right_dragging = true
 		drag_start = get_global_mouse_position()  # reuse drag_start for threshold
 		right_path.clear()
@@ -228,10 +221,6 @@ func _perform_path_assignment() -> void:
 	var total_divisions = 0
 	for troop in selected_troops:
 		total_divisions += troop.divisions
-	
-	# SMART ASSIGNMENT LOGIC WITH DIVISION LIMITS:
-	# Each province gets exactly 1 division (or remaining if fewer divisions than provinces)
-	# This ensures every troop keeps at least 1 division
 	
 	if path_pids.size() == 0:
 		print("No provinces in path!")
@@ -313,9 +302,8 @@ func _draw() -> void:
 			var start_local = t.position - tex_offset
 			var end_local = t.target_position - tex_offset
 			
+			var current_visual_pos = start_local.lerp(end_local, t.get_meta("visual_progress", 0.0))
+			draw_line(start_local, current_visual_pos, Color(0, 1, 0, 0.8), 2.0)
+			#draw_line(start_local, current_visual_pos, Color(0, 1, 0, 0.8), 2.0)
 			draw_line(start_local, end_local, Color(1.0, 0.2, 0.2, 1), 1.0)
 			
-			var current_visual_pos = start_local.lerp(end_local, t.progress if "progress" in t else 0.0)
-			
-			draw_line(start_local, current_visual_pos, Color(0, 1, 0, 0.8), 2.0)
-			draw_circle(end_local, 1.0, Color(0, 1, 0, 0.5))

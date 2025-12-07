@@ -4,6 +4,8 @@ signal province_hovered(province_id: int, country_name: String)
 signal province_clicked(province_id: int, country_name: String)
 signal map_ready()
 
+# Emitted when a click couldn't be processed (so likely sea or border)
+signal close_sidemenu
 # --- CONSTANTS ---
 const GRID_COLOR_THRESHOLD = 0.001 
 
@@ -32,8 +34,6 @@ const CACHE_FOLDER = "res://map_data/"
 
 var map_data: MapData
 
-# --- PATH CACHE SYSTEM ---
-var path_cache: Dictionary = {} # {(start_pid, end_pid): [path_array]}
 
 func _ready() -> void:
 
@@ -126,20 +126,20 @@ func initialize_map(region_tex: Texture2D, culture_tex: Texture2D) -> void:
 			var r_color = r_img.get_pixel(x, y)
 			var c_color = c_img.get_pixel(x, y)
 
-			# --- PRIORITY 1: SEA DETECTION ---
-			# We check this FIRST. If it is the Sea Raster color, 
-			# we force it to ID 0 immediately. This prevents it from becoming a black border.
+			# --- SEA DETECTION ---
+			# Sea color becomes ID 0 to distinguish it from country borders 
+			# 
 			if _is_sea(c_color):
 				_write_id(x, y, 0) 
 				continue
 
-			# --- PRIORITY 2: GRID LINE ---
+			# --- GRID LINE ---
 			# Now we check if it's a black line in regions.png
 			if r_color.r < GRID_COLOR_THRESHOLD and r_color.g < GRID_COLOR_THRESHOLD and r_color.b < GRID_COLOR_THRESHOLD:
 				_write_id(x, y, 1) 
 				continue
 
-			# --- PRIORITY 3: LAND PROVINCE ---
+			# --- LAND PROVINCE ---
 			var key = r_color.to_html(false)
 			if not unique_regions.has(key):
 				unique_regions[key] = next_id
@@ -171,7 +171,7 @@ func draw_province_centroids(image: Image, color: Color = Color(0,1,0,1)) -> voi
 		var x = int(round(center.x))
 		var y = int(round(center.y))
 
-		# Ensure we stay inside bounds
+		# stay inside bounds
 		if x >= 0 and x < image.get_width() and y >= 0 and y < image.get_height():
 			image.set_pixel(x, y, color)
 
@@ -302,14 +302,38 @@ func update_hover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 
 
 
-
 func handle_click(global_pos: Vector2, map_sprite: Sprite2D) -> void:
-	if _is_mouse_over_ui():          
-		return                        
-	
-	var pid = get_province_at_pos(global_pos, map_sprite)
+	if _is_mouse_over_ui():
+		return
+
+	var pid = get_province_with_radius(global_pos, map_sprite, 5)
 	if pid > 1:
+		if len(SelectionManager.selected_troops) > 0:
+			return
 		province_clicked.emit(pid, province_to_country.get(pid, ""))
+	else:
+		emit_signal("close_sidemenu")
+		
+# To probe around and still register a click if we hit province/coutnry border
+func get_province_with_radius(center: Vector2, map_sprite: Sprite2D, radius: int) -> int:
+	var offsets = [
+		Vector2(0, 0),
+		Vector2(radius, 0),
+		Vector2(-radius, 0),
+		Vector2(0, radius),
+		Vector2(0, -radius),
+		Vector2(radius, radius),
+		Vector2(radius, -radius),
+		Vector2(-radius, radius),
+		Vector2(-radius, -radius),
+	]
+
+	for off in offsets:
+		var pid = get_province_at_pos(center + off, map_sprite)
+		if pid > 1:
+			return pid
+
+	return -1		
 
 func _update_lookup(pid: int, color: Color) -> void:
 	state_color_image.set_pixel(pid, 0, color)
@@ -409,25 +433,23 @@ func _build_adjacency_list() -> void:
 
 
 func _scan_across_border(x: int, y: int, pid: int) -> int:
-	var w = id_map_image.get_width()
-	var h = id_map_image.get_height()
-
-	# Look in 3×3 around this border pixel
-	for oy in range(-1, 2):
-		for ox in range(-1, 2):
-			if ox == 0 and oy == 0:
-				continue
-
-			var nx = x + ox
-			var ny = y + oy
-			if nx < 0 or ny < 0 or nx >= w or ny >= h:
-				continue
-
-			var n = _get_pid_fast(nx, ny)
-			if n > 1 and n != pid:
-				return n
-
+	var w: int = id_map_image.get_width()
+	var h: int = id_map_image.get_height()
+	
+	# Check right
+	if x + 1 < w:
+		var n: int = _get_pid_fast(x + 1, y)
+		if n > 1 and n != pid:
+			return n
+	
+	# Check down
+	if y + 1 < h:
+		var n: int = _get_pid_fast(x, y + 1)
+		if n > 1 and n != pid:
+			return n
+	
 	return -1
+
 
 
 # Faster direct pid fetch
@@ -438,8 +460,10 @@ func _get_pid_fast(x: int, y: int) -> int:
 	return r + g * 256
 
 
+# --- Pathfinding section kinda. Should be in own file tbh.. ---#
 
 # === CACHED A* PATHFINDING (MODIFIED) ===
+var path_cache: Dictionary = {}
 
 # Added 'allowed_countries' parameter. Defaults to empty [] (no restrictions).
 func find_path(start_pid: int, end_pid: int, allowed_countries: Array[String] = []) -> Array[int]:
@@ -450,26 +474,22 @@ func find_path(start_pid: int, end_pid: int, allowed_countries: Array[String] = 
 		return []
 
 	# --- CACHE LOGIC ---
-	# Only use cache if there are NO restrictions. 
-	# Dynamic restrictions are too complex to cache efficiently without bloating memory.
+	# We use Vector2i(start, end) as the key. 
+	# This avoids String allocation ("%d_%d") entirely.
 	var use_cache = allowed_countries.is_empty()
-	var cache_key = ""
+	var cache_key := Vector2i(start_pid, end_pid)
 
-	if use_cache:
-		cache_key = _get_cache_key(start_pid, end_pid)
-		if path_cache.has(cache_key):
-			return path_cache[cache_key].duplicate()
+	if use_cache and path_cache.has(cache_key):
+		return path_cache[cache_key].duplicate()
 
 	# --- CALCULATE PATH ---
 	var path = _find_path_astar(start_pid, end_pid, allowed_countries)
 
 	# --- STORE IN CACHE ---
-	# Only cache if this was a standard, unrestricted path
-	if use_cache:
+	if use_cache and not path.is_empty():
 		path_cache[cache_key] = path.duplicate()
 
 	return path
-
 
 func _find_path_astar(start_pid: int, end_pid: int, allowed_countries: Array[String]) -> Array[int]:
 	

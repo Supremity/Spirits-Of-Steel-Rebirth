@@ -22,6 +22,7 @@ enum MenuContext { SELF, WAR, DIPLOMACY }
 @export var label_merge_status: Label
 
 
+var player: CountryData = null
 
 # Animation
 @export var slide_duration: float = 0.2
@@ -50,41 +51,49 @@ var menus := {
 }
 
 func _ready() -> void:
+
 	pos_open = sidemenu.position
 	pos_closed = Vector2(pos_open.x - sidemenu.size.x, pos_open.y)
 	sidemenu.position = pos_closed
 	
-	await get_tree().process_frame  # Wait for singletons
+	await get_tree().process_frame
 	
 	_connect_signals()
-	_update_ui()
 
 
 @onready var plus: Button = $GameSpeedControl/Plus
 @onready var minus: Button = $GameSpeedControl/Minus
 func _connect_signals() -> void:
-	if CurrentPlayer:
-		CurrentPlayer.stats_changed.connect(_on_stats_changed)
 	if MainClock:
 		MainClock.hour_passed.connect(_on_time_passed)
 	if MapManager:
 		MapManager.province_clicked.connect(_on_province_clicked)
+		MapManager.close_sidemenu.connect(close_menu)
 	if KeyboardManager:
 		KeyboardManager.toggle_menu.connect(toggle_menu)
+	if CountryManager:
+		CountryManager.player_stats_changed.connect(_on_stats_changed)
+		CountryManager.player_country_changed.connect(_on_player_change)
+		
 		
 	plus.pressed.connect(_on_speed_button_pressed.bind(true))
 	minus.pressed.connect(_on_speed_button_pressed.bind(false))
 
 
+func _on_player_change() -> void: 
+	player = CountryManager.player_country 
+	_update_flag()
+	print("UI Player changed to: ", player.country_name) 
+	_on_stats_changed()
 
 func _on_province_clicked(pid: int, country: String) -> void:
 	selected_country = country        
 	sidemenu_flag.texture = TroopManager.get_flag(country)
 	label_country_sidemenu.text = country
 	
-	if country == CurrentPlayer.country_name:
+	if country == player.country_name:
 		open_menu(MenuContext.SELF)
-	elif WarManager.is_at_war(CurrentPlayer.country_name, country):
+	elif WarManager.is_at_war(player.country_name, country):
 		open_menu(MenuContext.WAR)
 	else:
 		open_menu(MenuContext.DIPLOMACY)
@@ -93,20 +102,22 @@ func toggle_menu(context := MenuContext.SELF) -> void:
 	if is_open:
 		close_menu()
 	else:
-		selected_country = CurrentPlayer.country_name   # ← For SELF menu
-		label_country_sidemenu.text = CurrentPlayer.country_name
+		selected_country = player.country_name   # ← For SELF menu
+		label_country_sidemenu.text = player.country_name
 		sidemenu_flag.texture = nation_flag.texture
 		open_menu(context)
 
 # ── Menu Control ──────────────────────────────────────
 func open_menu(context: MenuContext) -> void:
 	build_menu(context)
+	if !is_open:
+		MusicManager.play_sfx(MusicManager.SFX.OPEN_MENU)
 	slide_in()
-	MusicManager.play_sfx(MusicManager.SFX.OPEN_MENU)
 
 func close_menu() -> void:
+	if is_open:
+		MusicManager.play_sfx(MusicManager.SFX.CLOSE_MENU)
 	slide_out()
-	MusicManager.play_sfx(MusicManager.SFX.CLOSE_MENU)
 		
 
 func slide_in() -> void:
@@ -134,10 +145,9 @@ func build_menu(context: MenuContext) -> void:
 
 func _refresh_buttons() -> void:
 	if not is_open: return
-	var pp = CurrentPlayer.get_stats().get("political_power", 0)
 	for btn in actions_container.get_children():
 		if btn.has_method("check_affordability"):
-			btn.check_affordability(pp)
+			btn.check_affordability(player.political_power)
 
 # ── UI Updates ────────────────────────────────────────
 func _update_ui() -> void:
@@ -147,20 +157,18 @@ func _update_ui() -> void:
 	_on_stats_changed()
 
 func _on_stats_changed() -> void:
-	var s = CurrentPlayer.get_stats()
-	label_politicalpower.text = str(s.get("political_power", 0))
-	label_manpower.text       = str(s.get("manpower", 0))
-	label_money.text          = str(s.get("money", 0))
-	label_stability.text      = str(s.get("stability", 0))
+	label_politicalpower.text = str(player.political_power)
+	label_manpower.text       = str(player.manpower)
+	label_money.text          = str(player.money)
+	label_stability.text      = str(player.stability)
 	_refresh_buttons()
 
 func _on_time_passed(_h := 0) -> void:
 	label_date.text = MainClock.get_datetime_string()
 
 func _update_flag() -> void:
-	var country = CurrentPlayer.get_country()
-	if country.is_empty(): return
-	var path = "res://assets/flags/%s_flag.png" % country.to_lower()
+	if !player: return
+	var path = "res://assets/flags/%s_flag.png" % player.country_name.to_lower()
 	if ResourceLoader.exists(path):
 		nation_flag.texture = load(path)
 
@@ -170,7 +178,7 @@ func _update_merge_label() -> void:
 
 # ── Action Callbacks ──────────────────────────────────
 func _declare_war():
-	WarManager.declare_war(CurrentPlayer.country_name, selected_country)
+	WarManager.declare_war(player.country_name, selected_country)
 	open_menu(MenuContext.WAR)
 func _send_aid():         print("Sending aid!")
 func _improve_relations(): print("Improving relations")

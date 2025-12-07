@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 MapManager="*res://Managers/MapManager.gd"
 MainClock="*res://Managers/MainClock.gd"
+CountryManager="*res://Managers/CountryManager.gd"
 TroopManager="*res://Managers/TroopManager.gd"
 CurrentPlayer="*res://Managers/CurrentPlayer.gd"
 MusicManager="*res://Managers/MusicManager.gd"

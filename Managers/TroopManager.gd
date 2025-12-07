@@ -3,7 +3,7 @@ extends Node
 # --- CONFIGURATION ---
 const USE_SMOOTH_MOVEMENT := true # Keep this True for smooth movement
 var BASE_SPEED = MainClock.time_scale               # Updated by MainClock
-var AUTO_MERGE = true             # Auto-merge adjacent troops
+var AUTO_MERGE = false             # Auto-merge adjacent troops
 
 # --- DATA STRUCTURES (Optimized Indexes) ---
 var troops: Array = []                     # Master list of all troops
@@ -61,27 +61,36 @@ func _process(delta: float) -> void:
 # MOVEMENT LOGIC
 # =============================================================
 
-## Handles the continuous linear interpolation (LERP) movement.
 func _update_smooth(troop: TroopData, delta: float) -> void:
 	var start = troop.get_meta("start_pos", troop.position)
 	var end = troop.target_position
 	var total_dist = start.distance_to(end)
-	
 	if total_dist < 0.001:
 		_arrive_at_leg_end(troop)
 		return
 
-	var speed_factor = BASE_SPEED * delta / total_dist
-	var progress = troop.get_meta("progress", 0.0) + speed_factor
+	# --- Stage 1: Visual indicator ---
+	var visual_progress = troop.get_meta("visual_progress", 0.0)
+	visual_progress += BASE_SPEED * delta / total_dist
+	if visual_progress > 1.0:
+		visual_progress = 1.0  # cap at 1
+	troop.set_meta("visual_progress", visual_progress)
+
+	# --- Stage 2: Actual troop movement ---
+	var move_progress = troop.get_meta("progress", 0.0)
+	if visual_progress >= 1.0:
+		move_progress += BASE_SPEED * delta / total_dist
+		if move_progress >= 1.0:
+			troop.position = end
+			troop.set_meta("progress", 0.0)
+			troop.set_meta("visual_progress", 0.0)
+			_arrive_at_leg_end(troop)
+		else:
+			troop.position = start.lerp(end, move_progress)
+			troop.set_meta("progress", move_progress)
 	
-	if progress >= 1.0:
-		troop.position = end
-		troop.set_meta("progress", 0.0)
-		_arrive_at_leg_end(troop)
-	else:
-		troop.position = start.lerp(end, progress)
-		troop.set_meta("progress", progress)
-		needs_redraw = true
+	needs_redraw = true
+
 
 ## Handles the consequence of reaching the end of one path segment.
 func _arrive_at_leg_end(troop: TroopData) -> void:
@@ -111,7 +120,7 @@ func _arrive_at_leg_end(troop: TroopData) -> void:
 	else:
 		_start_next_leg(troop)
 		needs_redraw = true
-
+	
 ## Prepares the troop for the next segment of its journey.
 func _start_next_leg(troop: TroopData) -> void:
 	if troop.path.is_empty():
@@ -151,94 +160,113 @@ func _stop_troop(troop: TroopData) -> void:
 func order_move_troop(troop: TroopData, target_pid: int) -> void:
 	command_move_assigned([ { "troop": troop, "province_id": target_pid } ])
 
-## Public entry point for executing complex move/split commands.
+var unique_paths_needed: Dictionary = {}
 func command_move_assigned(payload: Array) -> void:
 	if payload.is_empty(): return
 
+	# 1. Setup Allowed Countries
 	var country = payload[0].get('troop').country_name
-	var allowedCountries: Array[String] = [country] as Array[String] + WarManager.get_enemies(country)
+	var allowedCountries: Array[String] = [country]
+	if WarManager:
+		allowedCountries.append_array(WarManager.get_enemies(country))
 
+	# 2. Data containers
+	# maps: troop -> { "targets": [id, id], "paths": { target_id: path_array } }
+	var troop_to_targets: Dictionary = {} 
 	
-	# --- STEP 1: Process and Group ---
-	var troop_to_targets: Dictionary = {}
-	var unique_paths_needed: Dictionary = {} # Tracks unique (start_id, target_id) pairs
+	# Track unique paths to calculate only once per batch
+	# Key: Vector2i(start, end), Value: path_array (or null initially)
+	var unique_paths_needed: Dictionary = {} 
 
-  
+	var sfx_played = false
 
-
+	# --- PHASE 1: Grouping & Identification ---
 	for entry in payload:
 		var troop = entry.get("troop")
 		var target_pid = entry.get("province_id")
-		if not troop or target_pid <= 0: continue
 		
-		# SFX (only for the current player's troops)
-		if troop.country_name == CurrentPlayer.country_name:
-			if MusicManager: MusicManager.play_sfx(MusicManager.SFX.TROOP_MOVE) 
+		if not troop or target_pid <= 0: continue
+
+		# Play SFX only once
+		if not sfx_played and troop.country_name == CurrentPlayer.country_name:
+			if MusicManager: MusicManager.play_sfx(MusicManager.SFX.TROOP_MOVE)
+			sfx_played = true
 
 		var start_id = troop.province_id
-		var key = "%d_%d" % [start_id, target_pid]
 		
+		# STOP CONDITION: Don't move if already there
+		if start_id == target_pid: continue
+
+		# Initialize troop data if new
 		if not troop_to_targets.has(troop):
 			troop_to_targets[troop] = { "targets": [], "paths": {} }
+		
 		var data = troop_to_targets[troop]
 		
+		# Add target if unique for this troop
 		if not data["targets"].has(target_pid):
 			data["targets"].append(target_pid)
-		data["paths"][target_pid] = null
-		unique_paths_needed[key] = true
+			
+		# Mark this path as "needed"
+		# OPTIMIZATION: Vector2i Key
+		var path_key = Vector2i(start_id, target_pid)
+		unique_paths_needed[path_key] = null 
 
-	
-	# --- STEP 2: Batch Pathfinding (efficiently uses cache) ---
-	var pre_calculated_paths: Dictionary = {} # { "start_target": path }
+	# --- PHASE 2: Batch Pathfinding ---
+	# We calculate each unique path exactly once
 	for key in unique_paths_needed.keys():
-		var parts = key.split("_")
-		var start = int(parts[0])
-		var target = int(parts[1])
-		pre_calculated_paths[key] = _get_cached_path(start, target, allowedCountries)
+		var start = key.x
+		var end = key.y
+		# Call our optimized cache getter
+		unique_paths_needed[key] = _get_cached_path(start, end, allowedCountries)
 
-	# --- STEP 3: Assign Paths and Execute Movement ---
-	for troop in troop_to_targets.keys():
+	# --- PHASE 3: Assignment & Execution ---
+	for troop in troop_to_targets:
 		var data = troop_to_targets[troop]
 		var targets = data["targets"]
-
-		# 3a. Assign pre-calculated paths to troop data structure
-		for target_pid in targets:
-			var key = "%d_%d" % [troop.province_id, target_pid]
-			data["paths"][target_pid] = pre_calculated_paths.get(key)
-
-		# 3b. Execute move or split
-		if targets.size() == 1:
-			var path = data["paths"][targets[0]]
-			if path and path.size() > 1:
-				troop.path = path.duplicate()
-				troop.path.pop_front()
-				_start_next_leg(troop)
-		else:
-			_split_and_send_troop(troop, targets, data["paths"])
-
-	# Final cleanup and drawing
-	if not moving_troops.is_empty(): set_process(true)
-	needs_redraw = true
-	get_tree().call_group("TroopRenderer", "queue_redraw")
-
-func _get_cached_path(start_id: int, target_id: int,  allowed_countries: Array[String]) -> Array:
-	if start_id == target_id:
-		return [] # no movement needed
-
-	if not path_cache.has(start_id):
-		path_cache[start_id] = {}
 		
-	if path_cache[start_id].has(target_id):
-		# return duplicate to avoid external mutation
-		return path_cache[start_id][target_id].duplicate()
+		# Collect the calculated paths for this troop
+		var valid_paths = {}
+		var valid_targets = []
+		
+		for t_pid in targets:
+			var key = Vector2i(troop.province_id, t_pid)
+			var path = unique_paths_needed.get(key)
+			
+			if path and not path.is_empty():
+				valid_paths[t_pid] = path
+				valid_targets.append(t_pid)
+
+		# Execute Split or Move
+		if valid_targets.size() > 1:
+			_split_and_send_troop(troop, valid_targets, valid_paths)
+		elif valid_targets.size() == 1:
+			var target = valid_targets[0]
+			var final_path = valid_paths[target]
+			
+			# Apply path to troop
+			troop.path = final_path.duplicate()
+			# IMPORTANT: Pop the first node (current location) immediately
+			if not troop.path.is_empty() and troop.path[0] == troop.province_id:
+				troop.path.pop_front()
+				
+			_start_next_leg(troop)
+
+func _get_cached_path(start_id: int, target_id: int, allowed_countries: Array[String]) -> Array:
+	if start_id == target_id: return []
+
+	var key = Vector2i(start_id, target_id)
+	if path_cache.has(key):
+		return path_cache[key].duplicate()
 	
 	var path = MapManager.find_path(start_id, target_id, allowed_countries)
 
-	# sanitize path (remove leading start nodes)
-	path = _sanitize_path_for_troop(path, start_id)
+	if not path.is_empty() and path[0] == start_id:
+		path.pop_front()
 
-	if path.size() > 0:
-		path_cache[start_id][target_id] = path.duplicate()
+	if not path.is_empty():
+		path_cache[key] = path.duplicate()
+		
 	return path
 
 
@@ -246,47 +274,63 @@ func _get_cached_path(start_id: int, target_id: int,  allowed_countries: Array[S
 # SPLIT & MANEUVER
 # =============================================================
 
-## Splits a troop into multiple new troops and sends them to different targets.
 func _split_and_send_troop(original_troop: TroopData, target_pids: Array, paths: Dictionary) -> void:
 	var total_divs = original_troop.divisions
 	var num_targets = target_pids.size()
-	if num_targets <= 1 or total_divs < num_targets:
-		return # Cannot split or only one target
-
 	
+	if num_targets == 0: return
+	# Prevent splitting if we don't have enough troops for 1 per target
+	if total_divs < num_targets: return 
+
 	var base_divs = total_divs / num_targets
 	var remainder = total_divs % num_targets
+	
+	# We use this flag to ensure we reuse the 'original_troop' exactly once
+	var original_reused = false
 
 	for i in range(num_targets):
 		var target_pid = target_pids[i]
-		if target_pid == original_troop.province_id:
-			continue  # Skip splitting to same province
-
-		var path = paths.get(target_pid)
-		if not path or path.size() <= 1:
-			continue
-
+		
+		# 1. Calculate Division Count
 		var divs = base_divs
-		if i < remainder: divs += 1 # Distribute remainder divisions
-
+		if i < remainder: divs += 1
+		
+		# 2. Assign Troop Object
+		# We try to reuse the original object for the first chunk (i=0) to save memory/processing
 		var troop_to_move: TroopData
-
-		if i == 0:
-			# Reuse the original troop for the first split
+		
+		if not original_reused:
 			troop_to_move = original_troop
 			troop_to_move.divisions = divs
+			original_reused = true
 		else:
-			# Create a brand new troop for subsequent splits
 			troop_to_move = _create_new_split_troop(original_troop, divs)
+		
+		# 3. Handle Movement
+		if target_pid == original_troop.province_id:
+			# Case: Troop stays here
+			troop_to_move.path.clear()
+			_stop_troop(troop_to_move)
+			# Force auto-merge check since we might have just created a new stack here
+			if AUTO_MERGE:
+				_auto_merge_in_province(target_pid, troop_to_move.country_name)
+		else:
+			# Case: Troop moves away
+			var path = paths.get(target_pid)
+			
+			# Only move if we actually have a valid path
+			if path and path.size() > 0:
+				troop_to_move.path = path.duplicate()
+				
+				# Sanitize: If path[0] is where we are, remove it
+				if not troop_to_move.path.is_empty() and troop_to_move.path[0] == troop_to_move.province_id:
+					troop_to_move.path.pop_front()
+				
+				_start_next_leg(troop_to_move)
+			else:
+				# Fallback: Path failed, just stay put (don't lose the troops!)
+				_stop_troop(troop_to_move)
 
-		troop_to_move.path = path.duplicate()
-		troop_to_move.path.pop_front()
-		_start_next_leg(troop_to_move)
-		#if troop_to_move.path.is_empty():
-			#troop_to_move.target_position = troop_to_move.position # Ensure target is synced
-			#_stop_troop(troop_to_move)
-		#else:
-			#_start_next_leg(troop_to_move)
 	print("Split %s (%d divs) into %d armies" % [original_troop.country_name, total_divs, num_targets])
 
 ## Creates and registers a new troop object resulting from a split.
@@ -470,7 +514,7 @@ func get_province_division_count(pid: int) -> int:
 
 func clear_path_cache() -> void:
 	path_cache.clear()
-	print("Pathfinding cache cleared.")
+	print ("Pathfinding cache cleared")
 
 # Remove leading waypoints that are equal to the troop's current province.
 func _sanitize_path_for_troop(path: Array, start_pid: int) -> Array:

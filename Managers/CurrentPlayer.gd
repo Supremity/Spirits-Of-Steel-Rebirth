@@ -23,6 +23,8 @@ var MANPOWER_GROWTH_DAILY := 600       # example: 25/hour * 24
 
 
 
+func get_country():
+	return self.country_name.to_lower()
 func _ready() -> void:
 	await get_tree().process_frame  # wait until all singletons are ready
 	if MainClock and not MainClock.is_connected("day_passed", Callable(self, "_on_day_passed")):
@@ -30,8 +32,6 @@ func _ready() -> void:
 
 
 
-func get_country():
-	return self.country_name.to_lower()
 
 # Connected to day_passed signal of gameclock
 func _on_day_passed(day, month, year) -> void:

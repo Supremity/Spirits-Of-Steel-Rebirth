@@ -11,11 +11,9 @@ var map_width: float = 0.0
 
 
 func _ready() -> void:
-	# MapManager is now an Autoload and handles everything itself
-	# Just connect to the signal (one-shot because it's emitted only once)
-	MapManager.map_ready.connect(_on_map_ready, CONNECT_ONE_SHOT)
+	#MapManager.map_ready.connect(_on_map_ready, CONNECT_ONE_SHOT)
+	await get_tree().process_frame # wait for Managers (singletons) to load
 	
-	# If MapManager already finished loading (e.g. from cache), trigger immediately
 	if MapManager.id_map_image != null:
 		_on_map_ready()
 	
@@ -52,7 +50,8 @@ func _on_map_ready() -> void:
 		push_error("TroopRenderer node not found!")
 	
 	
-	CurrentPlayer.country_name = "spain"
+	CountryManager.initialize_countries()
+	CountryManager.set_player_country("spain")
 
 	for c in ["netherlands", "france", "portugal", "spain", "germany"]:
 		var provinces = MapManager.country_to_provinces.get(c, []).duplicate()
@@ -64,16 +63,6 @@ func _on_map_ready() -> void:
 	#WarManager.declare_war("turkey", "iraq")
 	#WarManager.declare_war("iraq", "bulgaria")
 	#PopupManager.show_alert('war', 'netherlands', 'france')
-
-
-
-	#for c in MapManager.country_to_provinces.keys():
-		#var provinces = MapManager.country_to_provinces[c].duplicate()
-		#provinces.shuffle()
-		#var num_troops = min(10, provinces.size())
-		#var selected_provinces = provinces.slice(0, num_troops)
-		#for pid in selected_provinces:
-			#TroopManager.create_troop(c, randi_range(1, 10), pid)
 
 
 func _create_ghost_map(offset: Vector2, material: ShaderMaterial) -> void:
@@ -92,7 +81,6 @@ func _process(_delta: float) -> void:
 	elif camera.position.x < -map_width:
 		camera.position.x += map_width
 
-	# Hover update (uncomment when you're ready to use it)
 #	MapManager.update_hover(get_global_mouse_position(), map_sprite)
 
 

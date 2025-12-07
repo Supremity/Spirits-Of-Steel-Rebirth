@@ -24,6 +24,7 @@ offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 28
+disabled = true
 text = "Declare War"
 
 [node name="ColorRect2" type="ColorRect" parent="."]

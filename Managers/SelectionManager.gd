@@ -21,5 +21,5 @@ func clear_selection() -> void:
 func get_selected_troops():
 	return selected_troops
 	
-func is_troop_selected() -> bool:
+func is_a_troop_selected() -> bool:
 	return len(selected_troops) > 0
