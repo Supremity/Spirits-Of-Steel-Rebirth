@@ -1,8 +1,5 @@
 extends Node2D
 
-###
-# I've generated this whole file with ChatGPT
-###
 
 # ==============================================================================
 # 1. CONFIGURATION
@@ -52,19 +49,22 @@ var _font: Font = preload("res://font/TTT-Regular.otf")
 var map_sprite: Sprite2D
 var map_width: float = 0.0
 
-# Runtime State
 var _current_inv_zoom := 1.0
+var old_cam_x = 0
 
 func _ready() -> void:
 	add_to_group("TroopRenderer")
 	z_index = 20
 
-func _process(_delta: float) -> void:
+func _process(_delta):
 	var cam := get_viewport().get_camera_2d()
-	if cam:
-		var raw_scale = 1.0 / cam.zoom.x
+	
+	if cam.zoom.x != old_cam_x:
+		old_cam_x = cam.zoom.x
+		var raw_scale = 1.0 / old_cam_x
 		_current_inv_zoom = clamp(raw_scale, ZOOM_LIMITS.min_scale, ZOOM_LIMITS.max_scale)
-	queue_redraw()
+		queue_redraw()
+
 
 # ==============================================================================
 # 3. DRAWING LOOP

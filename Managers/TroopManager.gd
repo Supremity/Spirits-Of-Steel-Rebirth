@@ -1,11 +1,10 @@
 extends Node
 
 # --- CONFIGURATION ---
-const USE_SMOOTH_MOVEMENT := true # Keep this True for smooth movement
 var BASE_SPEED = MainClock.time_scale               # Updated by MainClock
 var AUTO_MERGE = false             # Auto-merge adjacent troops
 
-# --- DATA STRUCTURES (Optimized Indexes) ---
+# --- DATA STRUCTURES ---
 var troops: Array = []                     # Master list of all troops
 var moving_troops: Array = []              # Subset for _process updates
 var troops_by_province: Dictionary = {}    # { province_id: [TroopData, ...] }
@@ -18,7 +17,7 @@ var needs_redraw := false                  # Used to throttle redraw calls
 # NOTE(pol): Unused
 #var unique_paths_needed: Dictionary = {}
 
-# =============================================================
+# =========================================f====================
 # LIFECYCLE & TIME MANAGEMENT
 # =============================================================
 
@@ -54,10 +53,7 @@ func _process(delta: float) -> void:
 		if not troops.has(troop):
 			continue # Troop was removed (e.g., by combat)
 
-		if USE_SMOOTH_MOVEMENT:
-			_update_smooth(troop, delta)
-		# We explicitly skip the teleport update since USE_SMOOTH_MOVEMENT is hardcoded True
-		# else: _update_teleport(troop, delta) 
+		_update_smooth(troop, delta)
 
 	if needs_redraw:
 		get_tree().call_group("TroopRenderer", "queue_redraw")
@@ -138,9 +134,7 @@ func _start_next_leg(troop: TroopData) -> void:
 	troop.target_position = MapManager.province_centers.get(int(next_pid), troop.position)
 	troop.set_meta("start_pos", troop.position)
 	
-	# Reset progress for smooth movement
-	if USE_SMOOTH_MOVEMENT:
-		troop.set_meta("progress", 0.0)
+	troop.set_meta("progress", 0.0)
 	
 	# Enable processing
 	troop.is_moving = true

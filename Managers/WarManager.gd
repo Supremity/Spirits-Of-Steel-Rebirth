@@ -30,13 +30,6 @@ class Battle:
 		province_id = pid
 		participants = [country_a, country_b]
 		manager = p_manager
-		_print_battle_start()
-
-	func _print_battle_start() -> void:
-		print_rich("[color=yellow]════════════════════════════════════════════════════════════════[/color]")
-		print_rich("[color=orange][b]BATTLE STARTED[/b][/color] → Province [b]%d[/b]" % province_id)
-		print_rich("       [color=cyan][b]%s[/b][/color]  ⚔  [color=red][b]%s[/b][/color]" % [participants[0], participants[1]])
-		print_rich("[color=yellow]════════════════════════════════════════════════════════════════[/color]")
 
 	# Called every frame by WarManager
 	func tick(delta: float) -> void:
@@ -53,10 +46,6 @@ class Battle:
 		
 		var total_a = group_a.reduce(func(acc, t): return acc + t.divisions, 0)
 		var total_b = group_b.reduce(func(acc, t): return acc + t.divisions, 0)
-		
-		print_rich("\n[color=purple]▛▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▜[/color]")
-		print_rich("[color=purple]                 BATTLE ROUND - Province %d                 [/color]" % province_id)
-		print_rich("[color=cyan]%s[/color]: [b]%d[/b] divisions   |   [color=red]%s[/color]: [b]%d[/b] divisions" % [participants[0], total_a, participants[1], total_b])
 		
 		# Check for victory
 		if total_a <= 0:
