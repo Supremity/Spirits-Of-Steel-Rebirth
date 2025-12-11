@@ -8,7 +8,7 @@ var font: Font = preload("res://font/TTT-Regular.otf")
 const TROOP_DATA_TYPE = preload("res://Scripts/TroopData.gd")
 
 # --- Constants ---
-const FLAG_WIDTH_BASE := 32.0
+const FLAG_WIDTH_BASE := 24.0
 const FLAG_HEIGHT_BASE := 20.0
 const PADDING_BASE := 6.0
 const GAP_BASE := 8.0

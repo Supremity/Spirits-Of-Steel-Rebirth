@@ -8,8 +8,8 @@ extends Control
 
 # Internal Data Variables
 var _type: String = ""
-var _c1: String = ""
-var _c2: String = ""
+var _c1: CountryData = null
+var _c2: CountryData = null
 
 # 1. We call this BEFORE adding to the tree. 
 # It just stores data. It does NOT touch the UI.
@@ -26,18 +26,18 @@ func _ready():
 
 func _update_ui():
 	# Handle the "Empty String" error you saw earlier
-	if _c1 == "" or _c2 == "":
-		push_warning("Popup Alert created with empty country name")
+	if _c1 == null or _c2 == null:
+		push_warning("Popup Alert created with empty country")
 		return
 
-	var flag1 = _get_flag(_c1)
-	var flag2 = _get_flag(_c2)
+	var flag1 = _get_flag(_c1.name)
+	var flag2 = _get_flag(_c2.name)
 	
 	if flag1: flag_left.texture = flag1
 	if flag2: flag_right.texture = flag2
 
 	if _type == "war":
-		description.text = "%s has declared war on %s" % [_c1, _c2]
+		description.text = "%s has declared war on %s" % [_c1.name, _c2.name]
 
 func _on_ok():
 	queue_free()

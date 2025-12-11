@@ -63,7 +63,7 @@ func _process(_delta):
 		old_cam_x = cam.zoom.x
 		var raw_scale = 1.0 / old_cam_x
 		_current_inv_zoom = clamp(raw_scale, ZOOM_LIMITS.min_scale, ZOOM_LIMITS.max_scale)
-		queue_redraw()
+	queue_redraw()
 
 
 # ==============================================================================
@@ -108,6 +108,10 @@ func _draw() -> void:
 			for j in [-1, 0, 1]:
 				var scroll_offset = Vector2(map_width * j, 0)
 				_draw_single_troop_visual(t, offset_pos + scroll_offset, player_country)
+	
+	for battle in WarManager.active_battles:
+		var battle_draw_position = battle.position - map_offset     
+		draw_circle(battle_draw_position, 1, Color.RED)
 
 
 func _group_troops_by_position(troops: Array, radius: float) -> Dictionary:

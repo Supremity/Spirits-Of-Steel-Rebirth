@@ -12,14 +12,13 @@ func _ready():
 	ui_layer.layer = 100
 	add_child(ui_layer)
 
-func show_alert(type: String, country1: String, country2: String):
+func show_alert(type: String, country1: CountryData, country2: CountryData):
 	var popup = AlertPopupScene.instantiate()
 	
 	# 1. Set Data
 	popup.set_data(type, country1, country2)
 
-	# 2. Add to the CanvasLayer (NOT get_tree().root)
-	# This fixes the camera issue.
+	# 2. Add to the CanvasLayer
 	ui_layer.add_child(popup)
 
 	# 3. Position and Track

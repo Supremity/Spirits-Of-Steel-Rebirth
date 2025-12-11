@@ -30,7 +30,7 @@ var is_open := false
 var pos_open := Vector2.ZERO
 var pos_closed := Vector2.ZERO
 
-var selected_country: String = ""
+var selected_country: CountryData = null
 # Menu Data
 var menus := {
 	MenuContext.SELF: [
@@ -88,13 +88,13 @@ func _on_player_change() -> void:
 
 
 func _on_province_clicked(pid: int, country: String) -> void:
-	selected_country = country        
+	selected_country = CountryManager.get_country(country)
 	sidemenu_flag.texture = TroopManager.get_flag(country)
 	label_country_sidemenu.text = country
 	
 	if country == player.country_name:
 		open_menu(MenuContext.SELF)
-	elif WarManager.is_at_war(player.country_name, country):
+	elif WarManager.is_at_war(CountryManager.player_country, CountryManager.get_country(country)):
 		open_menu(MenuContext.WAR)
 	else:
 		open_menu(MenuContext.DIPLOMACY)
@@ -104,7 +104,7 @@ func toggle_menu(context := MenuContext.SELF) -> void:
 	if is_open:
 		close_menu()
 	else:
-		selected_country = player.country_name   # ← For SELF menu
+		selected_country = player
 		label_country_sidemenu.text = player.country_name
 		sidemenu_flag.texture = nation_flag.texture
 		open_menu(context)
@@ -180,7 +180,7 @@ func _update_merge_label() -> void:
 
 # ── Action Callbacks ──────────────────────────────────
 func _declare_war():
-	WarManager.declare_war(player.country_name, selected_country)
+	WarManager.declare_war(CountryManager.player_country, selected_country)
 	open_menu(MenuContext.WAR)
 func _send_aid():         print("Sending aid!")
 func _improve_relations(): print("Improving relations")

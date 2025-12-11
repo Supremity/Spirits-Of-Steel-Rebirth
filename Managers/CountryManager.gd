@@ -40,6 +40,16 @@ func initialize_countries() -> void:
 	print("CountryManager: Initialized %d countries." % countries.size())
 
 
+
+
+
+func get_country(c_name: String) -> CountryData:
+	c_name = c_name.to_lower()
+	if countries.has(c_name):
+		return countries[c_name]
+	push_error("CountryManager: Requested non-existent country '%s'" % c_name)	
+	return null
+
 func set_player_country(country_name: String) -> void:
 	var country := countries.get(country_name.to_lower()) as CountryData
 	if !country:

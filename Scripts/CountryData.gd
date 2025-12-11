@@ -15,9 +15,13 @@ var daily_money_income: float = 1000
 var daily_manpower_growth: int = 600
 
 
+var allowedCountries: Array[String] = [] # for pathfinding (country names)
+
+
 func _init(p_name: String) -> void:
 	country_name = p_name
-
+	self.name = p_name 
+	allowedCountries.append(p_name)
 
 # Called by country manager
 func process_turn() -> void:
