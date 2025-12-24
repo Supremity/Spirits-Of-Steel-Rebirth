@@ -94,25 +94,42 @@ func _on_exit_button_button_up() -> void:
 
 
 
-# Mouse handling inside the decision tree
-# Pan with left or middle button. Zoom with scroll
+# Control inside decision tree
+@export_group("Zoom Settings")
 @export var zoom_step := 0.1
 @export var min_zoom := 0.5
 @export var max_zoom := 2.5
 
+@export_group("Movement Settings")
+@export var pan_speed := 500.0
+
 var is_panning := false
 
+func _process(delta: float) -> void:
+	_handle_keyboard_pan(delta)
+
 func _gui_input(event: InputEvent) -> void:
+
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT or event.button_index == MOUSE_BUTTON_MIDDLE:
+		var is_pan_button = event.button_index in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_MIDDLE]
+		if is_pan_button:
 			is_panning = event.pressed
 		
-		elif event.pressed and (event.button_index == MOUSE_BUTTON_WHEEL_UP or event.button_index == MOUSE_BUTTON_WHEEL_DOWN):
+		elif event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
 			var direction := 1 if event.button_index == MOUSE_BUTTON_WHEEL_UP else -1
 			_zoom_at_point(direction, event.position)
 
 	elif event is InputEventMouseMotion and is_panning:
 		tree_content.position += event.relative
+
+func _handle_keyboard_pan(delta: float) -> void:
+	
+	# Project Settings -> Input map
+	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	
+
+	if input_dir != Vector2.ZERO:
+		tree_content.position -= input_dir * pan_speed * delta
 
 func _zoom_at_point(direction: int, mouse_pos: Vector2) -> void:
 	var prev_scale := tree_content.scale.x
@@ -121,7 +138,6 @@ func _zoom_at_point(direction: int, mouse_pos: Vector2) -> void:
 	if prev_scale == new_scale:
 		return
 
-	# Zoom relative to mouse position
 	var pivot = (mouse_pos - tree_content.position) / prev_scale
 	tree_content.scale = Vector2.ONE * new_scale
 	tree_content.position = mouse_pos - pivot * new_scale

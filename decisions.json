@@ -2,6 +2,7 @@
   "categories": {
 	"Economy": [
 	  {
+		"id": "eco_1",
 		"title": "Build Industry",
 		"pos": [100, 150],
 		"clicked": false,
@@ -11,6 +12,7 @@
 		}
 	  },
 	  {
+		"id": "eco_2",
 		"title": "Expand Resource Extraction",
 		"pos": [100, 250],
 		"clicked": false,
@@ -23,6 +25,7 @@
 	],
 	"Military": [
 	  {
+		"id": "mil_1",
 		"title": "Professional Army",
 		"pos": [400, 150],
 		"clicked": false,
@@ -34,6 +37,7 @@
 	],
 	"Political": [
 	  {
+		"id": "pol_1",
 		"title": "Increase Daily PP",
 		"pos": [700, 150],
 		"clicked": false,
