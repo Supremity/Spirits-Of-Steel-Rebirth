@@ -11,7 +11,7 @@ func _ready():
 	hide()
 	load_and_build_tree()
 
-
+	
 func load_and_build_tree():
 	var json_data = JSON.parse_string(FileAccess.get_file_as_string(json_path))
 	if json_data == null:
@@ -90,3 +90,38 @@ func _on_exit_button_button_up() -> void:
 	hide()
 	GameState.decision_tree_open = false
 	MainClock.set_process(true)
+	
+
+
+
+# Mouse handling inside the decision tree
+# Pan with left or middle button. Zoom with scroll
+@export var zoom_step := 0.1
+@export var min_zoom := 0.5
+@export var max_zoom := 2.5
+
+var is_panning := false
+
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT or event.button_index == MOUSE_BUTTON_MIDDLE:
+			is_panning = event.pressed
+		
+		elif event.pressed and (event.button_index == MOUSE_BUTTON_WHEEL_UP or event.button_index == MOUSE_BUTTON_WHEEL_DOWN):
+			var direction := 1 if event.button_index == MOUSE_BUTTON_WHEEL_UP else -1
+			_zoom_at_point(direction, event.position)
+
+	elif event is InputEventMouseMotion and is_panning:
+		tree_content.position += event.relative
+
+func _zoom_at_point(direction: int, mouse_pos: Vector2) -> void:
+	var prev_scale := tree_content.scale.x
+	var new_scale = clamp(prev_scale + (direction * zoom_step), min_zoom, max_zoom)
+	
+	if prev_scale == new_scale:
+		return
+
+	# Zoom relative to mouse position
+	var pivot = (mouse_pos - tree_content.position) / prev_scale
+	tree_content.scale = Vector2.ONE * new_scale
+	tree_content.position = mouse_pos - pivot * new_scale
