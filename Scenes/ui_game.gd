@@ -86,7 +86,7 @@ func _on_player_change() -> void:
 func _on_province_clicked(_pid: int, country: String) -> void:
 	selected_country = CountryManager.get_country(country)
 	sidemenu_flag.texture = TroopManager.get_flag(country)
-	label_country_sidemenu.text = country
+	label_country_sidemenu.text = country.capitalize().replace('_', ' ')
 	
 	if country == player.country_name:
 		open_menu(MenuContext.SELF)

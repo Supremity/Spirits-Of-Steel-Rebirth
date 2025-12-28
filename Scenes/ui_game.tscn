@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dgfixe44dvfny"]
+[gd_scene load_steps=22 format=3 uid="uid://dgfixe44dvfny"]
 
 [ext_resource type="Script" uid="uid://dqvjehbri1br0" path="res://Scenes/ui_game.gd" id="1_rp7y5"]
 [ext_resource type="Texture2D" uid="uid://bd1tehujs0p3u" path="res://assets/flags/abkhazia_flag.png" id="1_xar7q"]
@@ -16,6 +16,7 @@
 [ext_resource type="Theme" uid="uid://c38ivksvf4is0" path="res://button_theme.tres" id="13_sdmnd"]
 [ext_resource type="Script" uid="uid://dksnbn8a7o5je" path="res://Scenes/decision_tree_button.gd" id="13_uqxsi"]
 [ext_resource type="Texture2D" uid="uid://blvp32r1imoh" path="res://assets/ui/inverted_corner.png" id="14_yp111"]
+[ext_resource type="FontFile" uid="uid://cfsmiwr5bc70" path="res://font/Google_Sans/static/GoogleSans-Medium.ttf" id="15_yp111"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqxsi"]
 bg_color = Color(0, 0, 0, 1)
@@ -25,6 +26,11 @@ corner_radius_bottom_left = 30
 shadow_color = Color(0, 0, 0, 0.18039216)
 
 [sub_resource type="Theme" id="Theme_uqxsi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6c76w"]
+bg_color = Color(0.20990813, 0.20990813, 0.20990801, 1)
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdmnd"]
 corner_radius_top_left = 15
@@ -212,7 +218,7 @@ offset_bottom = 648.0
 color = Color(0.09803922, 0.09803922, 0.09803922, 1)
 
 [node name="BottomCorner" type="Sprite2D" parent="Sidemenu"]
-position = Vector2(297, 29)
+position = Vector2(297, 30)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("14_yp111")
 
@@ -234,38 +240,32 @@ texture = ExtResource("2_xsn6u")
 position = Vector2(135, 233)
 texture = ExtResource("4_dw8mh")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Sidemenu"]
+[node name="Panel" type="Panel" parent="Sidemenu"]
 layout_mode = 0
-offset_left = 5.0
+offset_left = 1.0
 offset_top = 269.0
-offset_right = 259.0
+offset_right = 242.0
 offset_bottom = 319.0
-
-[node name="ColorRect" type="ColorRect" parent="Sidemenu/HBoxContainer"]
-custom_minimum_size = Vector2(200, 10)
-layout_mode = 2
 theme = ExtResource("13_sdmnd")
-color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_6c76w")
 
-[node name="Label" type="Label" parent="Sidemenu/HBoxContainer/ColorRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.60700005
-anchor_top = 0.5
-anchor_right = 0.60700005
-anchor_bottom = 0.5
-offset_left = -100.40001
-offset_top = -15.0
-offset_right = 100.59999
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("13_sdmnd")
-text = "Diplomacy Actions"
-
-[node name="TextureRect" type="TextureRect" parent="Sidemenu/HBoxContainer"]
-layout_mode = 2
+[node name="TextureRect" type="TextureRect" parent="Sidemenu/Panel"]
+layout_mode = 0
+offset_left = 184.0
+offset_right = 234.00003
+offset_bottom = 50.0
 texture = ExtResource("2_xsn6u")
+
+[node name="Label" type="Label" parent="Sidemenu/Panel"]
+layout_mode = 0
+offset_top = 13.0
+offset_right = 192.0
+offset_bottom = 39.0
+theme = ExtResource("13_sdmnd")
+theme_override_fonts/font = ExtResource("4_uqxsi")
+text = "Diplomacy Actions"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Sidemenu"]
 layout_mode = 1
@@ -294,7 +294,7 @@ offset_top = 8.0
 offset_right = 62.5
 offset_bottom = 37.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("4_uqxsi")
+theme_override_fonts/font = ExtResource("15_yp111")
 theme_override_font_sizes/font_size = 24
 text = "country1"
 horizontal_alignment = 1

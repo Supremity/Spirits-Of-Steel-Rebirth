@@ -21,7 +21,7 @@ anchor_bottom = 0.5
 offset_left = -100.0
 offset_top = -25.0
 offset_right = 100.0
-offset_bottom = 25.0
+offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_ycgp7")
@@ -31,10 +31,9 @@ text = "Declare War"
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 0
-offset_left = 204.0
-offset_top = 10.0
-offset_right = 227.0
-offset_bottom = 40.0
+offset_left = 210.0
+offset_right = 233.0
+offset_bottom = 39.0
 theme = ExtResource("2_ycgp7")
 theme_override_font_sizes/font_size = 25
 text = "25"
