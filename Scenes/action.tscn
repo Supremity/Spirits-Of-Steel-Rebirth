@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d054r2umstj43"]
+[gd_scene load_steps=3 format=3 uid="uid://d054r2umstj43"]
 
 [ext_resource type="Script" uid="uid://81s14oqoxwa6" path="res://Scenes/action.gd" id="1_0hb5u"]
+[ext_resource type="Theme" uid="uid://c38ivksvf4is0" path="res://button_theme.tres" id="2_ycgp7"]
 
 [node name="HBoxContainer" type="HBoxContainer"]
 script = ExtResource("1_0hb5u")
@@ -8,7 +9,7 @@ script = ExtResource("1_0hb5u")
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-color = Color(0.11858133, 0.11858142, 0.11858133, 1)
+color = Color(0.11764706, 0.11764706, 0.11764706, 0)
 
 [node name="Button" type="Button" parent="ColorRect"]
 layout_mode = 1
@@ -23,19 +24,18 @@ offset_right = 100.0
 offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 28
+theme = ExtResource("2_ycgp7")
+theme_override_font_sizes/font_size = 24
 disabled = true
 text = "Declare War"
 
-[node name="ColorRect2" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Label" type="Label" parent="ColorRect2"]
+[node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 0
-offset_right = 51.0
-offset_bottom = 49.0
+offset_left = 204.0
+offset_top = 10.0
+offset_right = 227.0
+offset_bottom = 40.0
+theme = ExtResource("2_ycgp7")
 theme_override_font_sizes/font_size = 25
 text = "25"
 horizontal_alignment = 1

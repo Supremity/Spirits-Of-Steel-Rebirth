@@ -1,19 +1,36 @@
-[gd_scene load_steps=15 format=3 uid="uid://dgfixe44dvfny"]
+[gd_scene load_steps=20 format=3 uid="uid://dgfixe44dvfny"]
 
 [ext_resource type="Script" uid="uid://dqvjehbri1br0" path="res://Scenes/ui_game.gd" id="1_rp7y5"]
 [ext_resource type="Texture2D" uid="uid://bd1tehujs0p3u" path="res://assets/flags/abkhazia_flag.png" id="1_xar7q"]
+[ext_resource type="Texture2D" uid="uid://c4l0ecosgnbm2" path="res://assets/ui/inverted_corner_black.png" id="2_vxity"]
 [ext_resource type="Texture2D" uid="uid://blu52vb3afbc1" path="res://assets/icons/political_power_icon.png" id="2_xsn6u"]
 [ext_resource type="Texture2D" uid="uid://vmj131bo8hna" path="res://assets/icons/man_power_icon.png" id="3_liin1"]
 [ext_resource type="Texture2D" uid="uid://ckpgpc1x6ceh4" path="res://assets/icons/money_icon.png" id="4_dw8mh"]
+[ext_resource type="FontFile" uid="uid://c1jnrhadjfe68" path="res://font/Google_Sans/static/GoogleSans-Regular.ttf" id="4_uqxsi"]
 [ext_resource type="Texture2D" uid="uid://bxtbl3puq8nwe" path="res://assets/icons/industry_icon.png" id="5_rp7y5"]
 [ext_resource type="Texture2D" uid="uid://c6fo2o462ff25" path="res://assets/icons/nonaligned_icon.png" id="6_okksu"]
 [ext_resource type="Texture2D" uid="uid://d0jobkwbqofhx" path="res://assets/icons/liberal_icon.png" id="8_okksu"]
 [ext_resource type="Texture2D" uid="uid://ddbgdqwtqoole" path="res://assets/icons/plus_icon.png" id="10_lnl2f"]
 [ext_resource type="Texture2D" uid="uid://bggny42m0dmo1" path="res://assets/icons/minus_icon.png" id="11_6bnrr"]
-[ext_resource type="FontFile" uid="uid://cee8mbnpx3w3h" path="res://font/arial.TTF" id="12_6bnrr"]
 [ext_resource type="PackedScene" uid="uid://bxwbym5vybefv" path="res://decision_tree.tscn" id="13_364vl"]
 [ext_resource type="Theme" uid="uid://c38ivksvf4is0" path="res://button_theme.tres" id="13_sdmnd"]
 [ext_resource type="Script" uid="uid://dksnbn8a7o5je" path="res://Scenes/decision_tree_button.gd" id="13_uqxsi"]
+[ext_resource type="Texture2D" uid="uid://blvp32r1imoh" path="res://assets/ui/inverted_corner.png" id="14_yp111"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqxsi"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 0.18039216)
+
+[sub_resource type="Theme" id="Theme_uqxsi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdmnd"]
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_rp7y5")
@@ -23,6 +40,11 @@ offset_right = 1153.0
 offset_bottom = 35.0
 size_flags_horizontal = 0
 color = Color(0.09803922, 0.09803922, 0.09803922, 1)
+
+[node name="right" type="Sprite2D" parent="Topbar"]
+position = Vector2(1123, 64)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_vxity")
 
 [node name="MarginContainer" type="MarginContainer" parent="Topbar"]
 layout_mode = 1
@@ -41,6 +63,7 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("1_xar7q")
 expand_mode = 3
+stretch_mode = 5
 
 [node name="icon_politicalpower" type="TextureRect" parent="Topbar/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -49,7 +72,8 @@ expand_mode = 3
 
 [node name="label_politicalpower" type="Label" parent="Topbar/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
+theme_override_fonts/font = ExtResource("4_uqxsi")
+theme_override_font_sizes/font_size = 20
 text = "100"
 
 [node name="icon_manpower" type="TextureRect" parent="Topbar/MarginContainer/HBoxContainer"]
@@ -59,7 +83,8 @@ expand_mode = 3
 
 [node name="label_manpower" type="Label" parent="Topbar/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
+theme_override_fonts/font = ExtResource("4_uqxsi")
+theme_override_font_sizes/font_size = 20
 text = "100"
 
 [node name="icon_money" type="TextureRect" parent="Topbar/MarginContainer/HBoxContainer"]
@@ -69,7 +94,8 @@ expand_mode = 3
 
 [node name="label_money" type="Label" parent="Topbar/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
+theme_override_fonts/font = ExtResource("4_uqxsi")
+theme_override_font_sizes/font_size = 20
 text = "100"
 
 [node name="icon_industry" type="TextureRect" parent="Topbar/MarginContainer/HBoxContainer"]
@@ -79,7 +105,8 @@ expand_mode = 3
 
 [node name="label_industry" type="Label" parent="Topbar/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
+theme_override_fonts/font = ExtResource("4_uqxsi")
+theme_override_font_sizes/font_size = 20
 text = "100"
 
 [node name="icon_stability" type="TextureRect" parent="Topbar/MarginContainer/HBoxContainer"]
@@ -89,7 +116,8 @@ expand_mode = 3
 
 [node name="label_stability" type="Label" parent="Topbar/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
+theme_override_fonts/font = ExtResource("4_uqxsi")
+theme_override_font_sizes/font_size = 20
 text = "100"
 
 [node name="MarginContainer2" type="MarginContainer" parent="Topbar"]
@@ -102,9 +130,13 @@ offset_right = -1.0
 offset_bottom = 35.0
 grow_horizontal = 0
 
+[node name="Panel" type="Panel" parent="Topbar/MarginContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uqxsi")
+
 [node name="ColorRect" type="ColorRect" parent="Topbar/MarginContainer2"]
 layout_mode = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="Topbar/MarginContainer2/ColorRect"]
 layout_mode = 0
@@ -125,9 +157,11 @@ tooltip_text = "World tension meter"
 layout_mode = 0
 offset_right = 161.0
 offset_bottom = 35.0
+theme = ExtResource("13_sdmnd")
 
 [node name="label_date" type="Label" parent="Topbar/MarginContainer2/ColorRect/MarginContainer"]
 layout_mode = 2
+theme = SubResource("Theme_uqxsi")
 theme_override_font_sizes/font_size = 21
 
 [node name="label_tension" type="Label" parent="Topbar/MarginContainer2/ColorRect"]
@@ -142,6 +176,7 @@ offset_top = -11.5
 offset_bottom = 11.5
 grow_horizontal = 0
 grow_vertical = 2
+theme = ExtResource("13_sdmnd")
 text = "20%"
 
 [node name="GameSpeedControl" type="VBoxContainer" parent="."]
@@ -174,14 +209,25 @@ flat = true
 offset_top = 35.0
 offset_right = 268.0
 offset_bottom = 648.0
-color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+color = Color(0.09803922, 0.09803922, 0.09803922, 1)
+
+[node name="BottomCorner" type="Sprite2D" parent="Sidemenu"]
+position = Vector2(297, 29)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_yp111")
+
+[node name="TopCorner" type="Sprite2D" parent="Sidemenu"]
+position = Vector2(297, 584)
+rotation = -1.5707964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_yp111")
 
 [node name="ManPowerIcon" type="Sprite2D" parent="Sidemenu"]
-position = Vector2(206, 231)
+position = Vector2(206, 233)
 texture = ExtResource("3_liin1")
 
 [node name="PoliticalPowerIcon" type="Sprite2D" parent="Sidemenu"]
-position = Vector2(67, 232)
+position = Vector2(67, 233)
 texture = ExtResource("2_xsn6u")
 
 [node name="MoneyIcon" type="Sprite2D" parent="Sidemenu"]
@@ -198,22 +244,23 @@ offset_bottom = 319.0
 [node name="ColorRect" type="ColorRect" parent="Sidemenu/HBoxContainer"]
 custom_minimum_size = Vector2(200, 10)
 layout_mode = 2
+theme = ExtResource("13_sdmnd")
 color = Color(0.19607843, 0.19607843, 0.19607843, 1)
 
 [node name="Label" type="Label" parent="Sidemenu/HBoxContainer/ColorRect"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = -1
+anchor_left = 0.60700005
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 0.60700005
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -9.5
-offset_right = 20.0
-offset_bottom = 9.5
+offset_left = -100.40001
+offset_top = -15.0
+offset_right = 100.59999
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 24
+theme = ExtResource("13_sdmnd")
 text = "Diplomacy Actions"
 
 [node name="TextureRect" type="TextureRect" parent="Sidemenu/HBoxContainer"]
@@ -247,24 +294,26 @@ offset_top = 8.0
 offset_right = 62.5
 offset_bottom = 37.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("12_6bnrr")
+theme_override_fonts/font = ExtResource("4_uqxsi")
 theme_override_font_sizes/font_size = 24
 text = "country1"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Sidemenu"]
-custom_minimum_size = Vector2(180, 90)
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -90.0
+[node name="Flag" type="PanelContainer" parent="Sidemenu"]
+clip_children = 1
+layout_mode = 0
+offset_left = 44.0
 offset_top = 45.0
-offset_right = 90.0
+offset_right = 224.0
 offset_bottom = 135.0
-grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sdmnd")
+
+[node name="TextureRect" type="TextureRect" parent="Sidemenu/Flag"]
+custom_minimum_size = Vector2(180, 90)
+layout_mode = 2
 texture = ExtResource("1_xar7q")
 expand_mode = 1
+stretch_mode = 5
 
 [node name="Label2" type="Label" parent="Sidemenu"]
 layout_mode = 0
@@ -272,6 +321,7 @@ offset_left = 46.0
 offset_top = 153.0
 offset_right = 176.0
 offset_bottom = 192.0
+theme_override_fonts/font = ExtResource("4_uqxsi")
 theme_override_font_sizes/font_size = 22
 text = "Military Access: No"
 

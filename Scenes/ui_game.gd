@@ -13,7 +13,7 @@ enum MenuContext { SELF, WAR, DIPLOMACY }
 
 # ── Side Menu Nodes ───────────────────────────────────
 @onready var sidemenu: Control = $Sidemenu
-@onready var sidemenu_flag: TextureRect = $Sidemenu/TextureRect
+@onready var sidemenu_flag: TextureRect = $Sidemenu/Flag/TextureRect
 @onready var label_country_sidemenu: Label = $Sidemenu/Label
 @onready var actions_container: VBoxContainer = $Sidemenu/ScrollContainer/ActionsList
 
