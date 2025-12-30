@@ -5,29 +5,29 @@ enum Context { SELF, WAR, DIPLOMACY }
 enum Category { GENERAL, ECONOMY, MILITARY }
 
 # ── Top Bar Nodes ─────────────────────────────────────
-@onready var nation_flag: TextureRect = $Topbar/MarginContainer/HBoxContainer/nation_flag
+@onready var nation_flag: TextureRect = $Topbar/nation_flag
 @onready var label_date: Label = $Topbar/MarginContainer2/ColorRect/MarginContainer/label_date
 # Grouping stats for easier updates
 @onready var stats_labels := {
-	"pp": $Topbar/MarginContainer/HBoxContainer/label_politicalpower,
-	"manpower": $Topbar/MarginContainer/HBoxContainer/label_manpower,
-	"money": $Topbar/MarginContainer/HBoxContainer/label_money,
-	"industry": $Topbar/MarginContainer/HBoxContainer/label_industry,
-	"stability": $Topbar/MarginContainer/HBoxContainer/label_stability
+	"pp": $Topbar/MarginContainer/HBoxContainer/PoliticalPower/HBoxContainer/label_politicalpower,
+	"manpower": $Topbar/MarginContainer/HBoxContainer/Manpower/HBoxContainer/label_manpower,
+	"money": $Topbar/MarginContainer/HBoxContainer/Money/HBoxContainer/label_money,
+	"industry": $Topbar/MarginContainer/HBoxContainer/Industry/HBoxContainer/label_industry,
+	"stability": $Topbar/MarginContainer/HBoxContainer/Stability/HBoxContainer/label_stability
 }
 
 # ── Side Menu Nodes ───────────────────────────────────
-@onready var sidemenu: Control = $Sidemenu
-@onready var sidemenu_flag: TextureRect = $Sidemenu/Flag/TextureRect
-@onready var label_country_sidemenu: Label = $Sidemenu/Label
-@onready var label_category: Label = $Sidemenu/Panel/label_category
-@onready var actions_container: VBoxContainer = $Sidemenu/ScrollContainer/ActionsList
+@onready var sidemenu: Control = $SidemenuBG/Sidemenu
+@onready var sidemenu_flag: TextureRect = $SidemenuBG/Sidemenu/PanelContainer/VBoxContainer/Flag/TextureRect
+@onready var label_country_sidemenu: Label = $SidemenuBG/Sidemenu/PanelContainer/VBoxContainer/Label
+@onready var label_category: Label = $SidemenuBG/Sidemenu/Panel/label_category
+@onready var actions_container: VBoxContainer = $SidemenuBG/Sidemenu/ScrollContainer/ActionsList
 
 @export var action_scene: PackedScene = preload("res://Scenes/action.tscn")
 
 # ── Speed Controls ────────────────────────────────────
-@onready var plus: Button = $GameSpeedControl/Plus
-@onready var minus: Button = $GameSpeedControl/Minus
+@onready var plus: Button = $SpeedPanel/GameSpeedControl/Plus
+@onready var minus: Button = $SpeedPanel/GameSpeedControl/Minus
 
 # ── State Variables ───────────────────────────────────
 var player: CountryData = null
