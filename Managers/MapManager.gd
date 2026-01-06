@@ -20,8 +20,15 @@ var id_map_image: Image
 var state_color_image: Image
 var state_color_texture: ImageTexture
 var max_province_id: int = 0
+
+
+var color_to_pop_map: Dictionary = {} # Stores {"(0, 10, 255)": 764}
+
 var province_to_country: Dictionary = {}
 var country_to_provinces: Dictionary = {}
+var province_objects: Dictionary = {} 
+
+
 var last_hovered_pid: int = -1
 var original_hover_color: Color
 var province_centers: Dictionary = {} # Stores {ID: Vector2(x, y)}
@@ -32,45 +39,30 @@ const CACHE_FOLDER = "res://map_data/"
 
 @export var region_texture: Texture2D
 @export var culture_texture: Texture2D
-
+@export var population_texture: Texture2D
 
 func _ready() -> void:
 	_load_country_colors()
+	_load_population_json()
 
 	var dir = DirAccess.open("res://")
-	if dir:
-		if not dir.dir_exists(CACHE_FOLDER):
-			var err = dir.make_dir_recursive(CACHE_FOLDER)
-			if err != OK:
-				push_error("Failed to create cache folder: %s" % err)
-			else:
-				print("MapManager: Created cache folder at %s" % CACHE_FOLDER)
-	else:
-		push_error("MapManager: Cannot access res:// filesystem!")
+	if dir and not dir.dir_exists(CACHE_FOLDER):
+		dir.make_dir_recursive(CACHE_FOLDER)
 
-	
-	# --- Try to load cached data ---
 	if _try_load_cached_data():
-		print("MapManager: Loaded precomputed map data instantly!")
+		print("MapManager: Loaded cached data with Province Objects.")
 		map_ready.emit()
 		return
 
-	# --- First time: generate and cache ---
 	var region = region_texture if region_texture else preload("res://maps/regions.png")
 	var culture = culture_texture if culture_texture else preload("res://maps/cultures.png")
+	var population = population_texture if population_texture else preload("res://maps/population_color_map.png")
 
-	if not region or not culture:
-		push_error("MapManager: Missing region or culture texture!")
-		return
+	_generate_and_save.call_deferred(region, culture, population)
 
-	print("MapManager: First-time setup — parsing map (this may take 5–15 seconds)...")
-	_generate_and_save.call_deferred(region, culture)
+func _generate_and_save(region: Texture2D, culture: Texture2D, population: Texture2D) -> void:
+	initialize_map(region, culture, population)
 
-
-func _generate_and_save(region: Texture2D, culture: Texture2D) -> void:
-	initialize_map(region, culture)  # Your existing heavy parsing code
-
-	# Save everything
 	var map_data := MapData.new()
 	map_data.province_centers = province_centers.duplicate()
 	map_data.adjacency_list = adjacency_list.duplicate(true)
@@ -78,90 +70,78 @@ func _generate_and_save(region: Texture2D, culture: Texture2D) -> void:
 	map_data.country_to_provinces = country_to_provinces.duplicate()
 	map_data.max_province_id = max_province_id
 	map_data.id_map_image = id_map_image.duplicate()
+	map_data.province_objects = province_objects.duplicate()
 
-	var err = ResourceSaver.save(map_data, MAP_DATA_PATH)
-	if err == OK:
-		print("MapManager: Precomputed map data saved → future loads will be instant!")
-	else:
-		push_error("Failed to save MapData.tres: %s" % err)
-
+	ResourceSaver.save(map_data, MAP_DATA_PATH)
 	map_ready.emit()
 
-
 func _try_load_cached_data() -> bool:
-	if not ResourceLoader.exists(MAP_DATA_PATH):
-		return false
-
+	if not ResourceLoader.exists(MAP_DATA_PATH): return false
 	var loaded = ResourceLoader.load(MAP_DATA_PATH) as MapData
-	if not loaded:
-		return false
+	if not loaded: return false
 
-	province_centers = loaded.province_centers.duplicate()
-	adjacency_list = loaded.adjacency_list.duplicate(true)
-	province_to_country = loaded.province_to_country.duplicate()
-	country_to_provinces = loaded.country_to_provinces.duplicate()
+	province_centers = loaded.province_centers
+	adjacency_list = loaded.adjacency_list
+	province_to_country = loaded.province_to_country
+	country_to_provinces = loaded.country_to_provinces
 	max_province_id = loaded.max_province_id
-	id_map_image = loaded.id_map_image.duplicate()
+	id_map_image = loaded.id_map_image
+	province_objects = loaded.province_objects
 
 	_build_lookup_texture()
-	MapDebugOverlay.set_centers(province_centers)
-
 	return true
 
-
-func initialize_map(region_tex: Texture2D, culture_tex: Texture2D) -> void:
+func initialize_map(region_tex: Texture2D, culture_tex: Texture2D, population_tex: Texture2D) -> void:
 	var r_img = region_tex.get_image()
 	var c_img = culture_tex.get_image()
+	var p_img = population_tex.get_image()
 	
 	var w = r_img.get_width()
 	var h = r_img.get_height()
+	
+	# Safety check for the crash you saw
+	var pw = p_img.get_width()
+	var ph = p_img.get_height()
 
 	id_map_image = Image.create(w, h, false, Image.FORMAT_RGB8)
-	
 	var unique_regions = {}
-	var next_id = 2 # ID 0=Sea, ID 1=Land Grid
-	
-	print("MapManager: Parsing map with Priority Sea Detection...")
+	var next_id = 2 
 
 	for y in range(h):
 		for x in range(w):
-			var r_color = r_img.get_pixel(x, y)
 			var c_color = c_img.get_pixel(x, y)
-
-			# --- SEA DETECTION ---
-			# Sea color becomes ID 0 to distinguish it from country borders 
-			# 
 			if _is_sea(c_color):
-				_write_id(x, y, 0) 
+				_write_id(x, y, 0)
 				continue
 
-			# --- GRID LINE ---
-			# Now we check if it's a black line in regions.png
+			var r_color = r_img.get_pixel(x, y)
 			if r_color.r < GRID_COLOR_THRESHOLD and r_color.g < GRID_COLOR_THRESHOLD and r_color.b < GRID_COLOR_THRESHOLD:
-				_write_id(x, y, 1) 
+				_write_id(x, y, 1)
 				continue
 
-			# --- LAND PROVINCE ---
 			var key = r_color.to_html(false)
 			if not unique_regions.has(key):
 				unique_regions[key] = next_id
-				var country = _identify_country(c_color)
-				if country != "":
-					province_to_country[next_id] = country
+				
+				var province = Province.new()
+				province.id = next_id
+				province.country = _identify_country(c_color)
+				
+				# Use MIN to prevent index errors even if images differ by 1 pixel
+				var p_color = p_img.get_pixel(min(x, pw-1), min(y, ph-1))
+				province.population = _get_pop_from_color(p_color)
+				
+				province_objects[next_id] = province
+				province_to_country[next_id] = province.country
 				next_id += 1
 
-			var pid = unique_regions[key]
-			_write_id(x, y, pid)
+			_write_id(x, y, unique_regions[key])
 
 	max_province_id = next_id - 1
-	_build_lookup_texture()
-	_calculate_province_centroids()
+	_calculate_province_centroids() 
 	_build_country_to_provinces()
-	_build_adjacency_list()
-	
-	MapDebugOverlay.set_centers(province_centers)
-	map_ready.emit()
-	print("MapManager: Done.")
+	_build_adjacency_list() 
+	_build_lookup_texture()
 
 func draw_province_centroids(image: Image, color: Color = Color(0,1,0,1)) -> void:
 	if not image:
@@ -425,21 +405,19 @@ func _calculate_province_centroids() -> void:
 			
 			# Store the resulting centroid as a Vector2
 			province_centers[pid] = Vector2(center_x, center_y)
+			if province_objects.has(pid):
+				province_objects[pid].center = Vector2(center_x, center_y)
 
 	print("MapManager: Centroids calculated for %d provinces." % province_centers.size())
 
 
-# === FIXED ADJACENCY + PATHFINDING ===
 func _build_adjacency_list() -> void:
 	var w = id_map_image.get_width()
 	var h = id_map_image.get_height()
 
 	adjacency_list.clear()
 
-	# Prepare dictionary
-	for pid in range(2, max_province_id + 1):
-		adjacency_list[pid] = []
-
+	# Prepare dictionary for unique tracking
 	var unique_neighbors := {}
 
 	for y in range(h):
@@ -465,22 +443,34 @@ func _build_adjacency_list() -> void:
 
 				var neighbor = _get_pid_fast(nx, ny)
 
-				# Normal adjacency
+				# Normal adjacency (Land-to-Land)
 				if neighbor > 1 and neighbor != pid:
 					unique_neighbors[pid][neighbor] = true
 					continue
 
-				# Border pixel? (ID=1)
+				# Border pixel scan (ID=1)
 				if neighbor == 1:
 					var across = _scan_across_border(nx, ny, pid)
 					if across > 1 and across != pid:
 						unique_neighbors[pid][across] = true
 
-	# Convert sets to arrays
+	# --- THE FIX: Convert to Typed Arrays and Populate Objects ---
 	for pid in unique_neighbors:
-		adjacency_list[pid] = unique_neighbors[pid].keys()
+		var neighbors_keys = unique_neighbors[pid].keys()
+		
+		# Create a typed array for the Province resource
+		var typed_list: Array[int] = []
+		for n_id in neighbors_keys:
+			typed_list.append(int(n_id))
+		
+		# Store in the global dictionary (can remain untyped for pathfinding)
+		adjacency_list[pid] = typed_list
+		
+		# Sync to the Province object
+		if province_objects.has(pid):
+			province_objects[pid].neighbors = typed_list
 
-	print("MapManager: Adjacency list built (with border scan).")
+	print("MapManager: Adjacency list built and synced to Province objects.")
 
 
 func _scan_across_border(x: int, y: int, pid: int) -> int:
@@ -666,6 +656,64 @@ func _is_mouse_over_ui() -> bool:
 	var hovered = get_viewport().gui_get_hovered_control()
 	return hovered != null
 
+func _get_heatmap_color(pop: int, max_pop: float) -> Color:
+	# If population is 0, return a neutral "empty" color (dark slate/gray)
+	if pop <= 0:
+		return Color(0.1, 0.1, 0.15, 1.0)
+	
+	# Calculate intensity based on the REAL maximum in your current data
+	var intensity = clamp(float(pop) / max_pop, 0.0, 1.0)
+	
+	# We create a multi-stop gradient:
+	# Low: Cyan/Green -> Mid: Yellow -> High: Red
+	var col: Color
+	if intensity < 0.5:
+		# Blend from a "Low Density" Teal to Yellow
+		col = Color.DARK_CYAN.lerp(Color.YELLOW, intensity * 2.0)
+	else:
+		# Blend from Yellow to a "High Density" Deep Red
+		col = Color.YELLOW.lerp(Color.RED, (intensity - 0.5) * 2.0)
+	
+	return col
+
+func show_population_map() -> void:
+	if province_objects.is_empty():
+		return
+
+	var current_max_pop: float = 1.0 
+	for province in province_objects.values():
+		if province.population > current_max_pop:
+			current_max_pop = float(province.population)
+
+	for pid in province_objects.keys():
+		var province = province_objects[pid]
+		
+		if pid <= 1: continue 
+			
+		var pop_color = _get_heatmap_color(province.population, current_max_pop)
+		state_color_image.set_pixel(pid, 0, pop_color)
+	
+	state_color_texture.update(state_color_image)
+	print("MapManager: Population View Updated. Max Pop found: ", current_max_pop)
+
+
+func show_countries_map() -> void:
+	state_color_image.set_pixel(0, 0, SEA_MAIN)   # ID 0: Sea
+	state_color_image.set_pixel(1, 0, Color.BLACK) # ID 1: Borders/Grid
+
+	for pid in province_objects.keys():
+		if pid <= 1: continue
+		
+		var province = province_objects[pid]
+		var country_name = province.country
+		
+		var country_color = COUNTRY_COLORS.get(country_name, Color.GRAY)
+		
+		state_color_image.set_pixel(pid, 0, country_color)
+	
+	state_color_texture.update(state_color_image)
+	print("MapManager: Switched to Political (Country) View")
+
 
 var COUNTRY_COLORS: Dictionary = {}
 func _load_country_colors() -> void:
@@ -686,3 +734,54 @@ func _load_country_colors() -> void:
 		if rgb == null or rgb.size() != 3:
 			continue
 		COUNTRY_COLORS[country_name] = Color8(rgb[0], rgb[1], rgb[2])
+
+func _load_population_json() -> void:
+	var path = "res://map_data/population_color_map.json"
+	if not FileAccess.file_exists(path):
+		push_error("Population JSON missing!")
+		return
+		
+	var file = FileAccess.open(path, FileAccess.READ)
+	var json_data = JSON.parse_string(file.get_as_text())
+	if json_data is Dictionary:
+		color_to_pop_map = json_data
+
+func _get_pop_from_color(c: Color) -> int:
+	var r = int(round(c.r * 255.0))
+	var g = int(round(c.g * 255.0))
+	var b = int(round(c.b * 255.0))
+	
+	var exact_key = "(%d, %d, %d)" % [r, g, b]
+	
+	# 1. Try Exact Match
+	if color_to_pop_map.has(exact_key):
+		return color_to_pop_map[exact_key]
+	
+	# 2. Try match without spaces (common JSON difference)
+	var tight_key = "(%d,%d,%d)" % [r, g, b]
+	if color_to_pop_map.has(tight_key):
+		return color_to_pop_map[tight_key]
+
+	# 3. Fuzzy Match (Only if exact fails)
+	# We look for the color in our map with the smallest RGB distance
+	var best_match = 0
+	var min_dist = 999999.0
+	
+	for color_str in color_to_pop_map.keys():
+		var target_rgb = _parse_color_string(color_str)
+		var dist = (Vector3(r, g, b) - target_rgb).length_squared()
+		
+		if dist < min_dist:
+			min_dist = dist
+			best_match = color_to_pop_map[color_str]
+			
+	# If the closest color is reasonably similar, use it
+	if min_dist < 100: # Threshold for "close enough"
+		return best_match
+		
+	return 0
+
+func _parse_color_string(s: String) -> Vector3:
+	var cleaned = s.replace("(", "").replace(")", "").replace(" ", "")
+	var parts = cleaned.split(",")
+	return Vector3(float(parts[0]), float(parts[1]), float(parts[2]))

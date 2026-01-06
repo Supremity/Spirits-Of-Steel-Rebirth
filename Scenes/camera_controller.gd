@@ -6,9 +6,10 @@ extends Node
 @export var base_speed: float = 600.0
 
 @export_group("Zoom Settings")
-@export var zoom_step: float = 0.9  # Linear step
+@export var zoom_factor: float = 0.1  # 10% per scroll
 @export var min_zoom: float = 0.3
 @export var max_zoom: float = 9.0
+
 
 var is_dragging := false
 var is_paused := false
@@ -47,10 +48,13 @@ func _handle_keyboard_movement(delta: float) -> void:
 	camera.position += input_dir * (base_speed / camera.zoom.x) * delta
 
 func _perform_zoom(direction: int) -> void:
-	var mouse_pos_before = camera.get_global_mouse_position()
-	
-	var new_zoom_val = clamp(camera.zoom.x + (direction * zoom_step), min_zoom, max_zoom)
-	camera.zoom = Vector2.ONE * new_zoom_val
-	
-	var mouse_pos_after = camera.get_global_mouse_position()
-	camera.position += (mouse_pos_before - mouse_pos_after)
+	var mouse_pos_before := camera.get_global_mouse_position()
+
+	var zoom_multiplier := 1.0 + zoom_factor * direction
+	var new_zoom := camera.zoom.x * zoom_multiplier
+	new_zoom = clamp(new_zoom, min_zoom, max_zoom)
+
+	camera.zoom = Vector2.ONE * new_zoom
+
+	var mouse_pos_after := camera.get_global_mouse_position()
+	camera.position += mouse_pos_before - mouse_pos_after

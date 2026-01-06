@@ -2,13 +2,17 @@
 
 [ext_resource type="Script" uid="uid://pcq6svrgye6v" path="res://Scenes/world.gd" id="1_go701"]
 [ext_resource type="PackedScene" uid="uid://dgfixe44dvfny" path="res://Scenes/ui_game.tscn" id="2_fo5ed"]
-[ext_resource type="Texture2D" uid="uid://b1bonv2ujcxxi" path="res://maps/cultures.png" id="2_go701"]
-[ext_resource type="Texture2D" uid="uid://ct2rdn4ldt5ks" path="res://maps/regions.png" id="3_5a7ea"]
 [ext_resource type="Script" uid="uid://cvkc8n0kgyk3c" path="res://Scenes/camera_controller.gd" id="4_8j60k"]
 [ext_resource type="Script" uid="uid://bko55up7cjg3g" path="res://Scenes/custom_renderer.gd" id="5_o06y3"]
 [ext_resource type="Script" uid="uid://dx8iwvng5oypc" path="res://Scripts/troop_selection.gd" id="6_5ukr8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8j60k"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fo5ed"]
+load_path = "res://.godot/imported/cultures.png-f9255a05eddadc8a9aa0dedbe091def9.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5ukr8"]
+load_path = "res://.godot/imported/regions.png-75b8193867ba7ee4418b242a7a7efe49.ctex"
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_go701")
@@ -19,12 +23,12 @@ script = ExtResource("1_go701")
 
 [node name="CultureSprite" type="Sprite2D" parent="MapContainer"]
 material = SubResource("ShaderMaterial_8j60k")
-texture = ExtResource("2_go701")
+texture = SubResource("CompressedTexture2D_fo5ed")
 centered = false
 
 [node name="RegionSprite" type="Sprite2D" parent="MapContainer"]
 visible = false
-texture = ExtResource("3_5a7ea")
+texture = SubResource("CompressedTexture2D_5ukr8")
 centered = false
 
 [node name="CustomRenderer" type="Node2D" parent="MapContainer"]
