@@ -250,13 +250,14 @@ scale = Vector2(0.6, 0.6)
 [node name="Plus" type="Button" parent="GameSpeedControl"]
 layout_mode = 2
 tooltip_text = "Increase game speed"
-action_mode = 0
+focus_mode = 0
 icon = ExtResource("10_lnl2f")
 flat = true
 
 [node name="Minus" type="Button" parent="GameSpeedControl"]
 layout_mode = 2
 tooltip_text = "Decrease game speed"
+focus_mode = 0
 icon = ExtResource("11_6bnrr")
 flat = true
 

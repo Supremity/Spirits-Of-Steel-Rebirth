@@ -20,9 +20,6 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if GameState.decision_tree_open: return
-	
-	if event.is_action_pressed("pause_game"):
-		MainClock.toggle_pause()
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_MIDDLE:
 		is_dragging = event.pressed

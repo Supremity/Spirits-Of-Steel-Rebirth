@@ -12,9 +12,9 @@ signal day_passed
 @export var start_day := 1 # 1-31
 @export var start_hour := 0
 
-var time_scale := 15.0
-var MIN_SPEED := 15.0
-var MAX_SPEED := 75.0
+var time_scale := MIN_SPEED
+const MIN_SPEED := 0
+const MAX_SPEED := 75.0
 
 var hour: int = start_hour
 var date_dict: Dictionary = {
@@ -26,7 +26,9 @@ var accumulated_time: float = 0.0
 
 
 func _ready() -> void:
-	set_process(false)
+	await get_tree().process_frame
+	
+	pause()
 
 
 func _process(delta: float) -> void:
@@ -63,23 +65,39 @@ func get_datetime_string() -> String:
 
 func set_speed(scale: float) -> void:
 	time_scale = clamp(scale, MIN_SPEED, MAX_SPEED)
-	print(time_scale)
 
 
 func decreaseSpeed():
 	set_speed(time_scale - 15)
+	if time_scale == 0:
+		pause()
 
 
 func increaseSpeed():
 	set_speed(time_scale + 15)
+	if not is_processing():
+		resume()
 
 
-func toggle_pause() -> void:
+func pause() -> void:
+	set_process(false)
+	GameState.ui_layer.pause_icon.text = "P"
+	GameState.ui_layer.pause_icon.add_theme_color_override("font_color", Color.RED)
+
+
+func resume() -> void:
+	set_process(true)
+	GameState.ui_layer.pause_icon.text = "R"
+	GameState.ui_layer.pause_icon.add_theme_color_override("font_color", Color.GREEN)
+
+
+func toggle_pause() -> void: 
+	if time_scale == 0:
+		return
 	if is_processing():
-		set_process(false)
-		GameState.ui_layer.pause_icon.text = "P"
-		GameState.ui_layer.pause_icon.add_theme_color_override("font_color", Color.RED)
+		pause()
 	else:
-		set_process(true)
-		GameState.ui_layer.pause_icon.text = "R"
-		GameState.ui_layer.pause_icon.add_theme_color_override("font_color", Color.GREEN)
+		resume()
+	
+	print(is_processing())
+	print(time_scale)
