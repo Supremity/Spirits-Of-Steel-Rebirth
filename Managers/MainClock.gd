@@ -65,15 +65,17 @@ func get_datetime_string() -> String:
 
 func set_speed(scale: float) -> void:
 	time_scale = clamp(scale, MIN_SPEED, MAX_SPEED)
-
-
-func decreaseSpeed():
-	set_speed(time_scale - 15)
 	if time_scale == 0:
 		pause()
+	
+	GameState.ui_layer.time_speed_indicator.text = "Speed: " + str(int(time_scale/15.0))
 
 
-func increaseSpeed():
+func decrease_speed():
+	set_speed(time_scale - 15)
+
+
+func increase_speed():
 	set_speed(time_scale + 15)
 	if not is_processing():
 		resume()

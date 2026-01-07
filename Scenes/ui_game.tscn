@@ -75,9 +75,10 @@ shader_parameter/bg_color = Vector4(0, 0, 0, 1)
 shader_parameter/fg_color = Vector4(1, 1, 1, 0)
 shader_parameter/fg_alpha = 0.5
 
-[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("pause_icon")]
+[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("pause_icon", "time_speed_indicator")]
 script = ExtResource("1_rp7y5")
 pause_icon = NodePath("Topbar/MarginContainer2/ColorRect/PauseIcon")
+time_speed_indicator = NodePath("Topbar/MarginContainer2/ColorRect/TimeSpeedIndicator")
 
 [node name="Topbar" type="ColorRect" parent="."]
 offset_right = 1153.0
@@ -226,12 +227,20 @@ tooltip_text = "World tension meter"
 
 [node name="PauseIcon" type="Label" parent="Topbar/MarginContainer2/ColorRect"]
 layout_mode = 0
-offset_left = 155.0
-offset_top = 8.0
-offset_right = 195.0
-offset_bottom = 27.0
+offset_left = 152.0
+offset_right = 192.0
+offset_bottom = 19.0
 theme_override_colors/font_color = Color(0.98274976, 6.08854e-06, 1.540184e-06, 1)
 text = "P"
+horizontal_alignment = 1
+
+[node name="TimeSpeedIndicator" type="Label" parent="Topbar/MarginContainer2/ColorRect"]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 14.0
+offset_right = 200.0
+offset_bottom = 33.0
+text = "Speed: 0"
 horizontal_alignment = 1
 
 [node name="GameSpeedControl" type="VBoxContainer" parent="."]

@@ -45,6 +45,7 @@ var current_context: Context = Context.SELF
 var current_category: Category = Category.GENERAL
 
 @export var pause_icon: Label
+@export var time_speed_indicator: Label
 
 
 func _ready() -> void:
@@ -122,8 +123,8 @@ func _connect_signals() -> void:
 	CountryManager.player_stats_changed.connect(_on_stats_changed)
 	CountryManager.player_country_changed.connect(_on_player_change)
 	
-	plus.pressed.connect(func(): MainClock.increaseSpeed())
-	minus.pressed.connect(func(): MainClock.decreaseSpeed())
+	plus.pressed.connect(func(): MainClock.increase_speed())
+	minus.pressed.connect(func(): MainClock.decrease_speed())
 
 # ── Interaction Logic ─────────────────────────────────
 func _on_player_change() -> void: 
