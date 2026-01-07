@@ -23,6 +23,7 @@ var max_province_id: int = 0
 
 
 var color_to_pop_map: Dictionary = {} # Stores {"(0, 10, 255)": 764}
+var color_to_city_map: Dictionary = {}
 
 var province_to_country: Dictionary = {}
 var country_to_provinces: Dictionary = {}
@@ -40,11 +41,12 @@ const CACHE_FOLDER = "res://map_data/"
 @export var region_texture: Texture2D
 @export var culture_texture: Texture2D
 @export var population_texture: Texture2D
+@export var city_texture: Texture2D
 
 func _ready() -> void:
 	_load_country_colors()
 	_load_population_json()
-
+	_load_city_json()
 	var dir = DirAccess.open("res://")
 	if dir and not dir.dir_exists(CACHE_FOLDER):
 		dir.make_dir_recursive(CACHE_FOLDER)
@@ -57,11 +59,11 @@ func _ready() -> void:
 	var region = region_texture if region_texture else preload("res://maps/regions.png")
 	var culture = culture_texture if culture_texture else preload("res://maps/cultures.png")
 	var population = population_texture if population_texture else preload("res://maps/population_color_map.png")
+	var city = city_texture if city_texture else preload("res://maps/city_colors.png")
+	_generate_and_save.call_deferred(region, culture, population, city)
 
-	_generate_and_save.call_deferred(region, culture, population)
-
-func _generate_and_save(region: Texture2D, culture: Texture2D, population: Texture2D) -> void:
-	initialize_map(region, culture, population)
+func _generate_and_save(region: Texture2D, culture: Texture2D, population: Texture2D, city: Texture2D) -> void:
+	initialize_map(region, culture, population, city)
 
 	var map_data := MapData.new()
 	map_data.province_centers = province_centers.duplicate()
@@ -91,10 +93,11 @@ func _try_load_cached_data() -> bool:
 	_build_lookup_texture()
 	return true
 
-func initialize_map(region_tex: Texture2D, culture_tex: Texture2D, population_tex: Texture2D) -> void:
+func initialize_map(region_tex: Texture2D, culture_tex: Texture2D, population_tex: Texture2D, city_tex: Texture2D) -> void:
 	var r_img = region_tex.get_image()
 	var c_img = culture_tex.get_image()
 	var p_img = population_tex.get_image()
+	var city_img = city_tex.get_image()
 	
 	var w = r_img.get_width()
 	var h = r_img.get_height()
@@ -129,8 +132,9 @@ func initialize_map(region_tex: Texture2D, culture_tex: Texture2D, population_te
 				
 				# Use MIN to prevent index errors even if images differ by 1 pixel
 				var p_color = p_img.get_pixel(min(x, pw-1), min(y, ph-1))
+				var city_color = city_img.get_pixel(min(x, pw-1), min(y, ph-1))
 				province.population = _get_pop_from_color(p_color)
-				
+				province.city = _get_city_from_color(city_color)
 				province_objects[next_id] = province
 				province_to_country[next_id] = province.country
 				next_id += 1
@@ -282,7 +286,6 @@ func get_province_at_pos(pos: Vector2, map_sprite: Sprite2D = null) -> int:
 
 
 func update_hover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
-
 	if _is_mouse_over_ui():         
 		if last_hovered_pid > 1:
 			_update_lookup(last_hovered_pid, original_hover_color)
@@ -291,7 +294,7 @@ func update_hover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 		return
 	
 	var pid = get_province_at_pos(global_pos, map_sprite)
-	
+	last_hovered_pid = pid
 	if GameState.choosing_deploy_city:
 		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 		if pid != last_hovered_pid:
@@ -300,10 +303,8 @@ func update_hover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 				_update_lookup(last_hovered_pid, original_hover_color)
 			
 			var player_provinces = country_to_provinces.get(CountryManager.player_country.name, [])
-			
 			if pid > 1 and pid in player_provinces:
 				original_hover_color = state_color_image.get_pixel(pid, 0)
-				
 				var highlight_color = original_hover_color + Color(0.0, 1, 0.2, 0.8) 
 				_update_lookup(pid, highlight_color)
 				
@@ -319,7 +320,6 @@ func handle_click(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 		return
 
 	var pid = get_province_with_radius(global_pos, map_sprite, 5)
-	
 	if pid <= 1:
 		close_sidemenu.emit()
 		return
@@ -779,3 +779,49 @@ func _parse_color_string(s: String) -> Vector3:
 	var cleaned = s.replace("(", "").replace(")", "").replace(" ", "")
 	var parts = cleaned.split(",")
 	return Vector3(float(parts[0]), float(parts[1]), float(parts[2]))
+	
+
+func _load_city_json() -> void:
+	var path = "res://map_data/city_colors.json" # Ensure path is correct
+	if not FileAccess.file_exists(path):
+		push_error("City JSON missing!")
+		return
+		
+	var file = FileAccess.open(path, FileAccess.READ)
+	var json_data = JSON.parse_string(file.get_as_text())
+	if json_data is Dictionary:
+		color_to_city_map = json_data
+
+func _get_city_from_color(c: Color) -> String:
+	var r = int(round(c.r * 255.0))
+	var g = int(round(c.g * 255.0))
+	var b = int(round(c.b * 255.0))
+	
+	var exact_key = "(%d, %d, %d)" % [r, g, b]
+	
+	# 1. Try Exact Match
+	if color_to_city_map.has(exact_key):
+		return color_to_city_map[exact_key]
+	
+	# 2. Try match without spaces
+	var tight_key = "(%d,%d,%d)" % [r, g, b]
+	if color_to_city_map.has(tight_key):
+		return color_to_city_map[tight_key]
+
+	# 3. Fuzzy Match
+	var best_match = "Unknown"
+	var min_dist = 999999.0
+	
+	for color_str in color_to_city_map.keys():
+		var target_rgb = _parse_color_string(color_str)
+		var dist = (Vector3(r, g, b) - target_rgb).length_squared()
+		
+		if dist < min_dist:
+			min_dist = dist
+			best_match = color_to_city_map[color_str]
+			
+	# Threshold check: 100 distance squared is very close
+	if min_dist < 100:
+		return best_match
+		
+	return ""

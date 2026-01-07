@@ -4,6 +4,11 @@ class_name CustomRenderer
 # =========================================================
 # Constants & Config
 # =========================================================
+const CITY_COLORS = {
+	"text": Color(1, 1, 1, 1),
+	"shadow": Color(0, 0, 0, 0.6),
+	"dot": Color(1, 1, 1, 0.8)
+}
 const COLORS = {
 	"background":       Color(0, 0, 0, 0.8),
 	"text":             Color(1, 1, 1, 1),
@@ -69,6 +74,7 @@ func _draw() -> void:
 	if !map_sprite or map_width <= 0:
 		return
 
+	_draw_cities()
 	_draw_troops()
 	_draw_path_preview()
 	_draw_active_movements()
@@ -233,3 +239,47 @@ func _draw_battles() -> void:
 		var color = COLORS.battle_positive if p >= 0.0 else COLORS.battle_negative
 		draw_circle(pos, 5.0 * _current_inv_zoom, color)
 		draw_texture_rect(BATTLE_ICON, Rect2(draw_pos, size), false)
+		
+
+func _draw_cities() -> void:
+	if not MapManager.id_map_image: return
+	
+	var dot_radius = 4.0 * _current_inv_zoom
+	var hovered_pid = MapManager.last_hovered_pid
+	
+	for pid in MapManager.province_objects.keys():
+		var province = MapManager.province_objects[pid]		
+		if province.city == "": continue
+			
+		var base_pos = MapManager.province_centers.get(pid, Vector2.ZERO)
+		if base_pos == Vector2.ZERO: continue
+
+		for j in [-1, 0, 1]:
+			var draw_pos = base_pos + map_sprite.position + Vector2(map_width * j, 0)
+			
+			draw_circle(draw_pos, dot_radius, CITY_COLORS.dot)
+
+			if pid == hovered_pid:
+				_draw_city_name_visual(draw_pos, province.city)
+
+func _draw_city_name_visual(pos: Vector2, text: String) -> void:
+	var font_size = int(14 * _current_inv_zoom)
+	var offset_y = -12.0 * _current_inv_zoom
+	var outline_offset = 1.5 
+	
+	var text_size = _font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size)
+	var text_pos = pos + Vector2(-text_size.x / 2.0, offset_y - (text_size.y / 2.0))
+
+	var shadow_col = Color(0, 0, 0, 0.8)
+	var offsets = [
+		Vector2(-outline_offset, -outline_offset),
+		Vector2(outline_offset, -outline_offset),
+		Vector2(-outline_offset, outline_offset),
+		Vector2(outline_offset, outline_offset)
+	]
+
+	for off in offsets:
+		draw_string(_font, text_pos + off, text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, shadow_col)
+
+	# Draw Main Text
+	draw_string(_font, text_pos, text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, Color.WHITE)
