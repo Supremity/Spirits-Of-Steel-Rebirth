@@ -9,6 +9,7 @@ signal toggle_menu()
 var _debounce := false
 
 func _process(_delta: float) -> void:
+	if Console.is_visible(): return
 	# --- 1. MENU TOGGLE (Esc / Tab / Etc) ---
 	if Input.is_action_just_pressed("open_menu"):
 		if not _debounce:

@@ -316,7 +316,7 @@ func update_hover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 
 
 func handle_click(global_pos: Vector2, map_sprite: Sprite2D) -> void:
-	if _is_mouse_over_ui():
+	if _is_mouse_over_ui() or Console.is_visible():
 		return
 
 	var pid = get_province_with_radius(global_pos, map_sprite, 5)

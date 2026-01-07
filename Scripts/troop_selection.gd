@@ -37,7 +37,7 @@ func select_troops(new_list: Array[TroopData], append:  bool = false) -> void:
 
 
 func _input(event) -> void:
-	if not map_sprite: 
+	if not map_sprite or Console.is_visible(): 
 		return
 
 	if event is InputEventMouseButton: 

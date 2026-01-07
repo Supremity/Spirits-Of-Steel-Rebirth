@@ -27,11 +27,17 @@ WarManager="*res://Managers/WarManager.gd"
 PopupManager="*res://Managers/PopupManager.gd"
 KeyboardManager="*res://Managers/KeyboardManager.gd"
 GameState="*res://Managers/GameState.gd"
+ConsoleManager="*res://Managers/ConsoleManager.gd"
+Console="*res://addons/console/console.gd"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/console/plugin.cfg")
 
 [gui]
 

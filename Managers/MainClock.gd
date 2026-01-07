@@ -100,6 +100,3 @@ func toggle_pause() -> void:
 		pause()
 	else:
 		resume()
-	
-	print(is_processing())
-	print(time_scale)
