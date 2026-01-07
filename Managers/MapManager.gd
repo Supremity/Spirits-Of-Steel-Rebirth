@@ -679,7 +679,6 @@ func _get_heatmap_color(pop: int, max_pop: float) -> Color:
 func show_population_map() -> void:
 	if province_objects.is_empty():
 		return
-
 	var current_max_pop: float = 1.0 
 	for province in province_objects.values():
 		if province.population > current_max_pop:
@@ -687,9 +686,7 @@ func show_population_map() -> void:
 
 	for pid in province_objects.keys():
 		var province = province_objects[pid]
-		
 		if pid <= 1: continue 
-			
 		var pop_color = _get_heatmap_color(province.population, current_max_pop)
 		state_color_image.set_pixel(pid, 0, pop_color)
 	
@@ -700,20 +697,17 @@ func show_population_map() -> void:
 func show_countries_map() -> void:
 	state_color_image.set_pixel(0, 0, SEA_MAIN)   # ID 0: Sea
 	state_color_image.set_pixel(1, 0, Color.BLACK) # ID 1: Borders/Grid
-
+	
 	for pid in province_objects.keys():
 		if pid <= 1: continue
 		
 		var province = province_objects[pid]
 		var country_name = province.country
-		
 		var country_color = COUNTRY_COLORS.get(country_name, Color.GRAY)
-		
 		state_color_image.set_pixel(pid, 0, country_color)
 	
 	state_color_texture.update(state_color_image)
 	print("MapManager: Switched to Political (Country) View")
-
 
 var COUNTRY_COLORS: Dictionary = {}
 func _load_country_colors() -> void:

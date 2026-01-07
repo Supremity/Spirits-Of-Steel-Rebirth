@@ -184,15 +184,11 @@ func _build_action_list() -> void:
 	
 	label_category.text = Category.keys()[current_category].capitalize()
 
-
-
-	# 3. GENERATE STANDARD BUTTONS (From your Dictionary)
 	var actions = _get_menu_actions(current_context, current_category)
 	for item in actions:
 		var btn = action_scene.instantiate()
 		actions_container.add_child(btn)
 		
-		# Point the button to the WRAPPER instead of the raw function
 		btn.setup(item, Callable(self, item.func).bind(item))
 
 	if current_context == Context.SELF and current_category == Category.MILITARY:
@@ -241,7 +237,7 @@ func _update_ui() -> void:
 
 func _on_stats_changed() -> void:
 	if !player: return
-	stats_labels.pp.text = str(player.political_power)
+	stats_labels.pp.text = str(floori(player.political_power))
 	stats_labels.manpower.text = str(player.manpower)
 	stats_labels.money.text = str(player.money)
 	#stats_labels.industry.text = str(player.com) # Added missing label

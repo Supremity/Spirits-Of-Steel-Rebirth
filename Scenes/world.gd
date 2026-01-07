@@ -20,28 +20,47 @@ func _ready() -> void:
 
 
 func _on_map_ready() -> void:
-	print("World: Map is ready → configuring visuals...")
-
+	print("World: Map is ready -> configuring visuals...")
 	map_width = MapManager.id_map_image.get_width()
 
-	# === 1. Setup Shader Material ===
 	var mat := ShaderMaterial.new()
 	mat.shader = MAP_SHADER
 	
 	var id_tex := ImageTexture.create_from_image(MapManager.id_map_image)
 	mat.set_shader_parameter("region_id_map", id_tex)
 	mat.set_shader_parameter("state_colors", MapManager.state_color_texture)
-	# You can use either regions.png or cultures.png as base
+	
+	var noise = FastNoiseLite.new()
+	noise.seed = randi()
+	
+	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH 
+	
+	noise.frequency = 0.005 
+	
+	# 3. Add detail (ripples)
+	noise.fractal_type = FastNoiseLite.FRACTAL_FBM
+	noise.fractal_octaves = 3
+	noise.fractal_gain = 0.5
+
+	var noise_tex = NoiseTexture2D.new()
+	noise_tex.seamless = true
+	noise_tex.width = 512     
+	noise_tex.height = 512
+	noise_tex.noise = noise
+	
+	await noise_tex.changed
+	mat.set_shader_parameter("ocean_noise", noise_tex)
+	# ---------------------------------------------
 	mat.set_shader_parameter("original_texture", map_sprite.texture)
+	mat.set_shader_parameter("sea_speed", 0.01) # Very Slow
 	mat.set_shader_parameter("tex_size", Vector2(map_width, MapManager.id_map_image.get_height()))
 	mat.set_shader_parameter("country_border_color", Color.BLACK)
+	
 	map_sprite.material = mat
 	
-	# === 2. Create Infinite Scroll Ghost Sprites ===
 	_create_ghost_map(Vector2(-map_width, 0), mat)
 	_create_ghost_map(Vector2(map_width, 0), mat)
 	
-	# === 3. Configure Troop Renderer ===
 	if troop_renderer:
 		troop_renderer.map_sprite = map_sprite
 		troop_renderer.map_width = map_width
@@ -71,7 +90,6 @@ func _create_ghost_map(offset: Vector2, p_material: ShaderMaterial) -> void:
 
 
 func _process(_delta: float) -> void:
-	# Infinite horizontal camera wrap
 	if camera.position.x > map_sprite.position.x + map_width:
 		camera.position.x -= map_width
 	elif camera.position.x < map_sprite.position.x - map_width:
@@ -81,6 +99,5 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and !event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		MapManager.handle_click(get_global_mouse_position(), map_sprite)
-	# --- Hover Logic (Mouse Moving) ---
 	if event is InputEventMouseMotion:
 		MapManager.update_hover(get_global_mouse_position(), map_sprite)
