@@ -25,6 +25,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause_game"):
 		is_paused = not is_paused
 		MainClock.set_process(is_paused)
+		MainClock.pause(is_paused)
+
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_MIDDLE:
 		is_dragging = event.pressed

@@ -244,7 +244,7 @@ func _on_stats_changed() -> void:
 	stats_labels.stability.text = str(round(player.stability * 100)) + "%"
 
 func _on_time_passed() -> void:
-	label_date.text = MainClock.get_datetime_string()
+	label_date.text = MainClock.get_speed() + " " + MainClock.get_datetime_string()
 
 func _update_flag() -> void:
 	if !player: return

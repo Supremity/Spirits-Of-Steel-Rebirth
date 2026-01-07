@@ -18,6 +18,8 @@ load_path = "res://.godot/imported/regions.png-75b8193867ba7ee4418b242a7a7efe49.
 script = ExtResource("1_go701")
 
 [node name="UI_Game" parent="." instance=ExtResource("2_fo5ed")]
+action_scene = null
+slide_duration = null
 
 [node name="MapContainer" type="Node2D" parent="."]
 
@@ -43,6 +45,3 @@ script = ExtResource("6_5ukr8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
-
-[node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(28.46, -9.96, -22, 12, -28.37, -9.445)

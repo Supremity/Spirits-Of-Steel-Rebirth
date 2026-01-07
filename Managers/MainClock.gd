@@ -60,13 +60,27 @@ func get_date_string() -> String:
 func get_datetime_string() -> String:
 	return "%s %s" % [get_time_string(), get_date_string()]
 
+func get_speed() -> String:
+	var bar = {
+		0.0: "▁",
+		1.0: "▂",
+		2.0: "▃",
+		3.0: "▄",
+		4.0: "▅",
+		5.0: "█",
+	}
+	return bar[MainClock.time_scale / 15]
 
 func set_speed(scale: float) -> void:
 	time_scale = clamp(scale, PAUSE, MAX_SPEED)
 
+func pause(is_paused: bool):
+	if is_paused:
+		set_speed(0)
 
 func decreaseSpeed():
 	set_speed(time_scale - 15)
+	print(time_scale)
 
 
 func increaseSpeed():
