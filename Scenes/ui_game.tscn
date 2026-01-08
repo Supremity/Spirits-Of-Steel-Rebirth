@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://dgfixe44dvfny"]
 
-[ext_resource type="Script" uid="uid://dqvjehbri1br0" path="res://Scenes/ui_game.gd" id="1_rp7y5"]
+[ext_resource type="Script" uid="uid://dqvjehbri1br0" path="res://Scripts/ui_game.gd" id="1_rp7y5"]
 [ext_resource type="Texture2D" uid="uid://dpohmal5pe58k" path="res://assets/flags/abkhazia_flag.png" id="1_xar7q"]
 [ext_resource type="PackedScene" uid="uid://d054r2umstj43" path="res://Scenes/action.tscn" id="2_5phox"]
 [ext_resource type="Texture2D" uid="uid://blu52vb3afbc1" path="res://assets/icons/political_power_icon.png" id="2_xsn6u"]
@@ -13,9 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://d0jobkwbqofhx" path="res://assets/icons/liberal_icon.png" id="8_okksu"]
 [ext_resource type="Texture2D" uid="uid://ddbgdqwtqoole" path="res://assets/icons/plus_icon.png" id="10_lnl2f"]
 [ext_resource type="Texture2D" uid="uid://bggny42m0dmo1" path="res://assets/icons/minus_icon.png" id="11_6bnrr"]
-[ext_resource type="PackedScene" uid="uid://bxwbym5vybefv" path="res://decision_tree.tscn" id="13_364vl"]
+[ext_resource type="PackedScene" uid="uid://bxwbym5vybefv" path="res://Scenes/decision_tree.tscn" id="13_364vl"]
 [ext_resource type="Theme" uid="uid://c38ivksvf4is0" path="res://button_theme.tres" id="13_sdmnd"]
-[ext_resource type="Script" uid="uid://dksnbn8a7o5je" path="res://Scenes/decision_tree_button.gd" id="13_uqxsi"]
+[ext_resource type="Script" uid="uid://dksnbn8a7o5je" path="res://Scripts/decision_tree_button.gd" id="13_uqxsi"]
 [ext_resource type="Texture2D" uid="uid://blvp32r1imoh" path="res://assets/ui/inverted_corner.png" id="14_yp111"]
 [ext_resource type="FontFile" uid="uid://cfsmiwr5bc70" path="res://font/Google_Sans/static/GoogleSans-Medium.ttf" id="15_yp111"]
 [ext_resource type="Theme" uid="uid://6wluupp1lmut" path="res://diplo_theme.tres" id="16_6c76w"]
@@ -48,11 +48,9 @@ corner_radius_bottom_left = 15
 bg_color = Color(0.20990813, 0.20990813, 0.20990801, 1)
 shadow_color = Color(0, 0, 0, 0.35686275)
 
-[node name="GameUI" type="CanvasLayer" node_paths=PackedStringArray("pause_icon", "time_speed_indicator")]
+[node name="GameUI" type="CanvasLayer"]
 script = ExtResource("1_rp7y5")
 action_scene = ExtResource("2_5phox")
-pause_icon = NodePath("Topbar/MarginContainer2/ColorRect/PauseIcon")
-time_speed_indicator = NodePath("Topbar/MarginContainer2/ColorRect/TimeSpeedIndicator")
 
 [node name="Topbar" type="ColorRect" parent="."]
 offset_right = 1153.0
@@ -191,10 +189,18 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_uqxsi")
 layout_mode = 2
 color = Color(0, 0, 0, 0)
 
+[node name="ProgressBar" type="ProgressBar" parent="Topbar/MarginContainer2/ColorRect"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 198.0
+offset_bottom = 34.0
+value = 15.0
+show_percentage = false
+
 [node name="MarginContainer" type="MarginContainer" parent="Topbar/MarginContainer2/ColorRect"]
 layout_mode = 0
-offset_right = 212.0
-offset_bottom = 35.0
+offset_right = 262.0
+offset_bottom = 34.0
 theme = ExtResource("13_sdmnd")
 theme_override_constants/margin_left = 15
 
@@ -232,24 +238,6 @@ offset_right = 263.0
 offset_bottom = 35.0
 tooltip_text = "World tension meter"
 
-[node name="PauseIcon" type="Label" parent="Topbar/MarginContainer2/ColorRect"]
-layout_mode = 0
-offset_left = 152.0
-offset_right = 192.0
-offset_bottom = 19.0
-theme_override_colors/font_color = Color(0.98274976, 6.08854e-06, 1.540184e-06, 1)
-text = "P"
-horizontal_alignment = 1
-
-[node name="TimeSpeedIndicator" type="Label" parent="Topbar/MarginContainer2/ColorRect"]
-layout_mode = 0
-offset_left = 147.0
-offset_top = 14.0
-offset_right = 200.0
-offset_bottom = 33.0
-text = "Speed: 0"
-horizontal_alignment = 1
-
 [node name="GameSpeedControl" type="VBoxContainer" parent="."]
 anchors_preset = -1
 anchor_left = 0.961
@@ -278,11 +266,12 @@ offset_bottom = 113.0
 scale = Vector2(0.5, 0.5)
 theme_override_styles/panel = SubResource("StyleBoxEmpty_yp111")
 
-[node name="GameSpeedControl" type="HBoxContainer" parent="SpeedPanel"]
+[node name="GameSpeedControl" type="VBoxContainer" parent="SpeedPanel"]
 layout_mode = 2
 
 [node name="PlusPanel" type="PanelContainer" parent="SpeedPanel/GameSpeedControl"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Plus" type="Button" parent="SpeedPanel/GameSpeedControl/PlusPanel"]
 layout_mode = 2
@@ -293,6 +282,7 @@ flat = true
 
 [node name="MinusPanel" type="PanelContainer" parent="SpeedPanel/GameSpeedControl"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Minus" type="Button" parent="SpeedPanel/GameSpeedControl/MinusPanel"]
 layout_mode = 2

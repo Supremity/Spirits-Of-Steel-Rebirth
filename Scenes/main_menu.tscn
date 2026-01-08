@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://claivv7l8p5lc" path="res://assets/ui/logo.png" id="2_opfnp"]
 [ext_resource type="FontFile" uid="uid://bnkj3vn7gx4qu" path="res://font/Google_Sans/static/GoogleSans-BoldItalic.ttf" id="3_cp0ys"]
 [ext_resource type="FontFile" uid="uid://bfw0gn63lgdhq" path="res://font/Google_Sans/static/GoogleSans-Bold.ttf" id="4_yhxw7"]
-[ext_resource type="Script" uid="uid://bmubx6hdbo3bt" path="res://Scenes/main_menu.gd" id="5_trj04"]
+[ext_resource type="Script" uid="uid://bmubx6hdbo3bt" path="res://Scripts/main_menu.gd" id="5_trj04"]
 [ext_resource type="PackedScene" uid="uid://cmjg68ti7jg32" path="res://settings.tscn" id="7_cp0ys"]
 [ext_resource type="FontFile" uid="uid://c1jnrhadjfe68" path="res://font/Google_Sans/static/GoogleSans-Regular.ttf" id="8_trj04"]
 

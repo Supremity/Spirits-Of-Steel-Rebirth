@@ -26,7 +26,6 @@ var accumulated_time: float = 0.0
 
 var paused: bool
 
-
 func _process(delta: float) -> void:
 	if paused:
 		return
@@ -64,11 +63,9 @@ func get_datetime_string() -> String:
 
 func set_speed(scale: float) -> void:
 	time_scale = clamp(scale, MIN_SPEED, MAX_SPEED)
-	if time_scale == 0:
+	GameState.game_ui.updateProgressBar()
+	if time_scale <= 0:
 		pause()
-	
-	GameState.game_ui.time_speed_indicator.text = "Speed: " + str(int(time_scale/15.0))
-
 
 func decrease_speed():
 	set_speed(time_scale - 15)
@@ -82,14 +79,12 @@ func increase_speed():
 
 func pause() -> void:
 	paused = true
-	GameState.game_ui.pause_icon.text = "P"
-	GameState.game_ui.pause_icon.add_theme_color_override("font_color", Color.RED)
+	GameState.game_ui.updateProgressBar()
 
-
+	
 func resume() -> void:
 	paused = false
-	GameState.game_ui.pause_icon.text = "R"
-	GameState.game_ui.pause_icon.add_theme_color_override("font_color", Color.GREEN)
+	GameState.game_ui.updateProgressBar()
 
 
 func toggle_pause() -> void: 
@@ -99,3 +94,4 @@ func toggle_pause() -> void:
 		resume()
 	else:
 		pause()
+	GameState.game_ui.updateProgressBar()

@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://bonl378c51366"]
 
-[ext_resource type="Script" uid="uid://pcq6svrgye6v" path="res://Scenes/world.gd" id="1_go701"]
+[ext_resource type="Script" uid="uid://pcq6svrgye6v" path="res://Scripts/world.gd" id="1_go701"]
 [ext_resource type="PackedScene" uid="uid://dgfixe44dvfny" path="res://Scenes/ui_game.tscn" id="2_fo5ed"]
-[ext_resource type="Script" uid="uid://cvkc8n0kgyk3c" path="res://Scenes/camera_controller.gd" id="4_8j60k"]
-[ext_resource type="Script" uid="uid://bko55up7cjg3g" path="res://Scenes/custom_renderer.gd" id="5_o06y3"]
+[ext_resource type="Script" uid="uid://cvkc8n0kgyk3c" path="res://Scripts/camera_controller.gd" id="4_8j60k"]
+[ext_resource type="Script" uid="uid://bko55up7cjg3g" path="res://Scripts/custom_renderer.gd" id="5_o06y3"]
 [ext_resource type="Script" uid="uid://dx8iwvng5oypc" path="res://Scripts/troop_selection.gd" id="6_5ukr8"]
 [ext_resource type="Script" uid="uid://cnm2s5owh7ec3" path="res://Managers/MainClock.gd" id="6_o06y3"]
 

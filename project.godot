@@ -18,13 +18,13 @@ config/icon="res://icon.svg"
 [autoload]
 
 MapManager="*res://Managers/MapManager.gd"
+GameState="*res://Managers/GameState.gd"
 CountryManager="*res://Managers/CountryManager.gd"
 TroopManager="*res://Managers/TroopManager.gd"
 MusicManager="*res://Managers/MusicManager.gd"
 WarManager="*res://Managers/WarManager.gd"
 PopupManager="*res://Managers/PopupManager.gd"
 KeyboardManager="*res://Managers/KeyboardManager.gd"
-GameState="*res://Managers/GameState.gd"
 ConsoleManager="*res://Managers/ConsoleManager.gd"
 Console="*res://addons/console/console.gd"
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c6f4eocjc5ppw"]
 
-[ext_resource type="Script" uid="uid://cxpww8jayfiw3" path="res://Scenes/alert_popup.gd" id="1_uj0pn"]
-[ext_resource type="Texture2D" uid="uid://bd1tehujs0p3u" path="res://assets/flags/abkhazia_flag.png" id="2_ok8f1"]
+[ext_resource type="Script" uid="uid://cxpww8jayfiw3" path="res://Scripts/alert_popup.gd" id="1_uj0pn"]
+[ext_resource type="Texture2D" uid="uid://dpohmal5pe58k" path="res://assets/flags/abkhazia_flag.png" id="2_ok8f1"]
 [ext_resource type="FontFile" uid="uid://cee8mbnpx3w3h" path="res://font/arial.TTF" id="3_2njta"]
 
 [node name="Alert" type="Control"]
