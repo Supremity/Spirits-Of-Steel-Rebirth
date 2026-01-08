@@ -435,4 +435,7 @@ z_index = 1
 
 [connection signal="mouse_entered" from="SpeedPanel/GameSpeedControl/PlusPanel/Plus" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_entered" from="SpeedPanel/GameSpeedControl/MinusPanel/Minus" to="." method="_on_button_mouse_entered"]
+[connection signal="button_up" from="SidemenuBG/Sidemenu/PanelContainer/VBoxContainer/SideMenuButtons/DiplomacyMenuButton" to="." method="_on_menu_button_button_up" binds= [0]]
+[connection signal="button_up" from="SidemenuBG/Sidemenu/PanelContainer/VBoxContainer/SideMenuButtons/EconomyMenuButton" to="." method="_on_menu_button_button_up" binds= [1]]
+[connection signal="button_up" from="SidemenuBG/Sidemenu/PanelContainer/VBoxContainer/SideMenuButtons/MilitaryMenuButton" to="." method="_on_menu_button_button_up" binds= [2]]
 [connection signal="button_up" from="DecisionTreeButton" to="DecisionTreeButton" method="_on_button_up"]

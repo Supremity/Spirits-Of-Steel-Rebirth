@@ -152,7 +152,7 @@ func _on_province_clicked(_pid: int, country_name: String) -> void:
 	
 func _on_menu_button_button_up(_menu_index: int) -> void:
 	current_category = _menu_index as Category
-	_build_action_list()		
+	_build_action_list()
 #	print("Switched category to: ", Category.keys()[current_category])
 
 func toggle_menu(context := Context.SELF) -> void:
