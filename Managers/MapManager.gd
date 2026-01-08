@@ -9,7 +9,7 @@ signal map_ready()
 # Emitted when a click couldn't be processed (so likely sea or border)
 signal close_sidemenu
 # --- CONSTANTS ---
-const GRID_COLOR_THRESHOLD = 0.001 
+const GRID_COLOR_THRESHOLD = 0.0001 
 
 # The exact colors you provided
 const SEA_MAIN   = Color("#7e8e9e")
@@ -21,6 +21,7 @@ var state_color_image: Image
 var state_color_texture: ImageTexture
 var max_province_id: int = 0
 
+var COUNTRY_COLORS: Dictionary = {}
 
 var color_to_pop_map: Dictionary = {} # Stores {"(0, 10, 255)": 764}
 var color_to_city_map: Dictionary = {}
@@ -127,7 +128,7 @@ func initialize_map(region_tex: Texture2D, culture_tex: Texture2D, population_te
 				continue
 
 			var r_color = r_img.get_pixel(x, y)
-			if r_color.r < GRID_COLOR_THRESHOLD and r_color.g < GRID_COLOR_THRESHOLD and r_color.b < GRID_COLOR_THRESHOLD:
+			if r_color.r <= GRID_COLOR_THRESHOLD and r_color.g <= GRID_COLOR_THRESHOLD and r_color.b <= GRID_COLOR_THRESHOLD:
 				_write_id(x, y, 1)
 				continue
 
@@ -235,7 +236,6 @@ func update_province_color(pid: int, country_name: String) -> void:
 		return
 
 	var new_color = COUNTRY_COLORS.get(country_name, Color.GRAY)
-
 	_update_lookup(pid, new_color)
 
 	if pid == last_hovered_pid:
@@ -306,7 +306,9 @@ func update_hover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 		return
 	
 	var pid = get_province_at_pos(global_pos, map_sprite)
-	last_hovered_pid = pid
+	
+	#last_hovered_pid = pid
+	
 	if GameState.choosing_deploy_city:
 		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 		if pid != last_hovered_pid:
@@ -317,7 +319,7 @@ func update_hover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 			var player_provinces = country_to_provinces.get(CountryManager.player_country.name, [])
 			if pid > 1 and pid in player_provinces:
 				original_hover_color = state_color_image.get_pixel(pid, 0)
-				var highlight_color = original_hover_color + Color(0.0, 1, 0.2, 0.8) 
+				var highlight_color = original_hover_color.lightened(0.15) 
 				_update_lookup(pid, highlight_color)
 				
 				last_hovered_pid = pid
@@ -384,6 +386,7 @@ func get_province_with_radius(center: Vector2, map_sprite: Sprite2D, radius: int
 func _update_lookup(pid: int, color: Color) -> void:
 	state_color_image.set_pixel(pid, 0, color)
 	state_color_texture.update(state_color_image)
+	print (pid, color)
 
 
 func _calculate_province_centroids() -> void:
@@ -757,7 +760,6 @@ func show_countries_map() -> void:
 	state_color_texture.update(state_color_image)
 	print("MapManager: Switched to Political (Country) View")
 
-var COUNTRY_COLORS: Dictionary = {}
 func _load_country_colors() -> void:
 	
 	var file := FileAccess.open("res://assets/countries.json", FileAccess.READ)

@@ -150,8 +150,13 @@ void fragment() {
                 final_color = c_detect; // Internal border color
             }
         } else {
+			vec4 direct_lookup = get_country_color(id);
+			if (direct_lookup.a < 0.1) {
+                final_color = country_border_color;
+            } else {
+                final_color = direct_lookup;
+            }
             // Fallback if scanning failed (very thick intersection)
-            final_color = country_border_color;
         }
     }
 
