@@ -24,14 +24,13 @@ var date_dict: Dictionary = {
 }
 var accumulated_time: float = 0.0
 
-
-func _ready() -> void:
-	await get_tree().process_frame
-	
-	pause()
+var paused: bool
 
 
 func _process(delta: float) -> void:
+	if paused:
+		return
+
 	accumulated_time += delta * time_scale
 	while accumulated_time >= seconds_per_tick:
 		accumulated_time -= seconds_per_tick
@@ -77,18 +76,18 @@ func decrease_speed():
 
 func increase_speed():
 	set_speed(time_scale + 15)
-	if not is_processing():
+	if paused:
 		resume()
 
 
 func pause() -> void:
-	set_process(false)
+	paused = true
 	GameState.ui_layer.pause_icon.text = "P"
 	GameState.ui_layer.pause_icon.add_theme_color_override("font_color", Color.RED)
 
 
 func resume() -> void:
-	set_process(true)
+	paused = false
 	GameState.ui_layer.pause_icon.text = "R"
 	GameState.ui_layer.pause_icon.add_theme_color_override("font_color", Color.GREEN)
 
@@ -96,7 +95,7 @@ func resume() -> void:
 func toggle_pause() -> void: 
 	if time_scale == 0:
 		return
-	if is_processing():
-		pause()
-	else:
+	if paused:
 		resume()
+	else:
+		pause()

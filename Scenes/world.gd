@@ -18,6 +18,8 @@ func _ready() -> void:
 
 	TroopManager.troop_selection = $TroopSelection as TroopSelection
 
+	MainClock.pause()
+
 
 func _on_map_ready() -> void:
 	print("World: Map is ready -> configuring visuals...")

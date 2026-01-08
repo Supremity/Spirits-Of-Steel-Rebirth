@@ -42,16 +42,29 @@ var sfx_map = {
 }
 
 var music_map = {
-	MUSIC.MAIN_THEME: preload("res://assets/music/gameMusic.mp3"),
-	MUSIC.BATTLE_THEME: preload("res://assets/music/warMusic.mp3")
+	MUSIC.MAIN_THEME: [],
+	MUSIC.BATTLE_THEME: []
 	# MUSIC.BATTLE_THEME: preload("res://assets/music/battle_theme.ogg")
 }
 
 var sfx_players: Array[AudioStreamPlayer] = []
 
+const gameMusic = "res://assets/music/gameMusic"
+const warMusic = "res://assets/music/warMusic"
+
+func load_music(Music, track):
+	for song in DirAccess.open(Music).get_files():
+		if song.get_extension() != "import":
+			music_map[track].append(load(Music + "/" + song))
 
 func _ready():
 	# Music player
+
+	load_music(gameMusic, MUSIC.MAIN_THEME)
+	load_music(warMusic, MUSIC.BATTLE_THEME)
+
+	print(music_map)
+
 	music_player = AudioStreamPlayer.new()
 	add_child(music_player)
 	music_player.bus = "Music"
@@ -87,7 +100,7 @@ func play_music(track: int):
 	if track not in music_map:
 		return
 	
-	music_player.stream = music_map[track]
+	music_player.stream = music_map[track].pick_random()
 	music_player.volume_db = linear_to_db(music_volume_map.get(track, 1.0))  # Apply track-specific volume
 	music_player.play()
 
@@ -97,7 +110,6 @@ func stop_all_sfx():
 	for player in sfx_players:
 		player.stop()
 
-
 # *** BONUS: Fade out music ***
 func fade_out_music(duration: float = 1.0):
 	var tween = create_tween()
@@ -105,6 +117,9 @@ func fade_out_music(duration: float = 1.0):
 	await tween.finished
 	music_player.stop()
 
-
+func set_sfx_volume(volume: float):
+	for player in sfx_players:
+		player.volume_db = linear_to_db(volume)
+		
 func set_music_volume(volume: float):
 	music_player.volume_db = linear_to_db(volume)

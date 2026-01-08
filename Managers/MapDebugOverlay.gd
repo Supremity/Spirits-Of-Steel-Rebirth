@@ -17,19 +17,18 @@ var hovered_pid: int = -1
 
 var camera: Camera2D
 
-
-# Add to MapDebugOverlay.gd
 var path_to_highlight: Array[int] = []
+
 
 func highlight_path(path: Array[int]) -> void:
 	path_to_highlight = path.duplicate()
 	queue_redraw()
 
+
 func _ready() -> void:
 	z_index = 999
 	set_process_input(true)
 	camera = get_viewport().get_camera_2d()
-
 
 
 func _enter_tree() -> void:
@@ -41,6 +40,7 @@ func _enter_tree() -> void:
 	if get_viewport().get_camera_2d():
 		get_viewport().get_camera_2d().call_deferred("make_current")
 
+
 func _process(_delta) -> void:
 	# Force this Node2D to be a child of the camera's canvas
 	# This makes all drawing world-space and zoom-perfect
@@ -49,30 +49,16 @@ func _process(_delta) -> void:
 		global_position = Vector2.ZERO
 
 
-
 func _draw() -> void:
 	if not enabled or not map_sprite or province_centers.is_empty():
 		return
 
-	# This is the magic: map is centered → offset by half texture size
-	#var offset = map_sprite.texture.get_size() * 0.5
-
 	for pid in province_centers:
-		# NOTE(pol): This is more like converting from world coord to viewport coord
 		var pixel_pos = Vector2(province_centers[pid].x, province_centers[pid].y)
 		var world_pos = pixel_pos + map_sprite.position
 
-		# NOTE(pol): selected and hovered pid are always -1
-		#var col = dot_color
-		#if pid == selected_pid:
-			#col = selected_color
-		#elif pid == hovered_pid:
-			#col = hovered_color
-
-		# Draw in WORLD SPACE → perfect size at any zoom
 		draw_circle(world_pos, dot_size * 0.5, Color.GREEN)
 
-	# Draw path line
 	if not path_to_highlight.is_empty():
 		for i in range(path_to_highlight.size() - 1):
 			var pid1 = path_to_highlight[i]
@@ -82,7 +68,6 @@ func _draw() -> void:
 			draw_line(pos1, pos2, Color.RED, 3.0)
 
 
-# === API (call these from MapManager) ===
 func set_centers(centers: Dictionary) -> void:
 	province_centers = centers.duplicate()
 	queue_redraw()
@@ -96,6 +81,7 @@ func select_province(pid: int) -> void:
 func hover_province(pid: int) -> void:
 	hovered_pid = pid
 	queue_redraw()
+
 
 func set_enabled(v: bool) -> void:
 	enabled = v

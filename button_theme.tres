@@ -8,12 +8,8 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 80
-corner_radius_top_right = 80
-corner_radius_bottom_right = 80
-corner_radius_bottom_left = 80
 corner_detail = 5
-shadow_color = Color(0, 0, 0, 0.3019608)
+shadow_color = Color(0, 0, 0, 0.13333334)
 shadow_size = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_umafu"]
@@ -29,13 +25,9 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 80
-corner_radius_top_right = 80
-corner_radius_bottom_right = 80
-corner_radius_bottom_left = 80
 corner_detail = 5
-shadow_color = Color(0, 0, 0, 0.74509805)
-shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.5921569)
+shadow_size = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7yuw"]
 content_margin_left = 4.0
@@ -43,12 +35,8 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.24840015, 0.24840018, 0.24840012, 1)
-corner_radius_top_left = 80
-corner_radius_top_right = 80
-corner_radius_bottom_right = 80
-corner_radius_bottom_left = 80
 corner_detail = 5
-shadow_color = Color(0, 0, 0, 0.13725491)
+shadow_color = Color(0, 0, 0, 0.28235295)
 shadow_size = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wow46"]
@@ -57,11 +45,9 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.4045111, 0.40451115, 0.4045111, 1)
-corner_radius_top_left = 80
-corner_radius_top_right = 80
-corner_radius_bottom_right = 80
-corner_radius_bottom_left = 80
 corner_detail = 5
+shadow_color = Color(0, 0, 0, 0.47058824)
+shadow_size = 10
 
 [resource]
 default_font = ExtResource("1_jjpe7")
