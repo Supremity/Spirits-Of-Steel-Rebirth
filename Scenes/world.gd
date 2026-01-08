@@ -1,5 +1,6 @@
 # World.gd
 extends Node2D
+class_name World
 
 @onready var map_sprite: Sprite2D = $MapContainer/CultureSprite as Sprite2D
 @onready var camera: Camera2D = $Camera2D as Camera2D
@@ -10,6 +11,8 @@ const MAP_SHADER = preload("res://shaders/map_shader.gdshader")
 var map_width: float = 0.0
 var map_height: float = 0.0
 
+@export var clock: GameClock
+
 func _ready() -> void:
 	await get_tree().process_frame # wait for Managers (singletons) to load
 	
@@ -18,7 +21,18 @@ func _ready() -> void:
 
 	TroopManager.troop_selection = $TroopSelection as TroopSelection
 
-	MainClock.pause()
+	clock.pause()
+
+	GameState.current_world = self
+
+	clock.hour_passed.connect(CountryManager._on_hour_passed)
+	clock.day_passed.connect(CountryManager._on_day_passed)
+
+	clock.hour_passed.connect(GameState.game_ui._on_time_passed)
+	GameState.game_ui.plus.pressed.connect(clock.increase_speed)
+	GameState.game_ui.minus.pressed.connect(clock.decrease_speed)
+
+	GameState.game_ui.label_date.text = clock.get_datetime_string()
 
 
 func _on_map_ready() -> void:

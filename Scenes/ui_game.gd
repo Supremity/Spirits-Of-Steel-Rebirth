@@ -52,15 +52,19 @@ func _ready() -> void:
 	pos_open = sidemenu.position
 	pos_closed = Vector2(pos_open.x - sidemenu.size.x, pos_open.y)
 	sidemenu.position = pos_closed
-	label_date.text = MainClock.get_datetime_string()
 
-	GameState.ui_layer = self
+	GameState.game_ui = self
 
-	# Wait one frame to ensure singletons are ready
 	await get_tree().process_frame
-	_connect_signals()
+	MapManager.province_clicked.connect(_on_province_clicked)
+	MapManager.close_sidemenu.connect(close_menu)
+	
+	KeyboardManager.toggle_menu.connect(toggle_menu)
+	
+	CountryManager.player_stats_changed.connect(_on_stats_changed)
+	CountryManager.player_country_changed.connect(_on_player_change)
 
-# ── Data Definition ───────────────────────────────────
+
 # Returns the specific list of actions based on Context + Category
 func _get_menu_actions(context: Context, category: Category) -> Array:
 	# Base structure: Dictionary[Context][Category] = Array of Actions
@@ -111,22 +115,7 @@ func _get_menu_actions(context: Context, category: Category) -> Array:
 		return data[context][category]
 	return []
 
-# ── Signal Connections ────────────────────────────────
-func _connect_signals() -> void:
-	MainClock.hour_passed.connect(_on_time_passed)
-	
-	MapManager.province_clicked.connect(_on_province_clicked)
-	MapManager.close_sidemenu.connect(close_menu)
-	
-	KeyboardManager.toggle_menu.connect(toggle_menu)
-	
-	CountryManager.player_stats_changed.connect(_on_stats_changed)
-	CountryManager.player_country_changed.connect(_on_player_change)
-	
-	plus.pressed.connect(func(): MainClock.increase_speed())
-	minus.pressed.connect(func(): MainClock.decrease_speed())
 
-# ── Interaction Logic ─────────────────────────────────
 func _on_player_change() -> void: 
 	player = CountryManager.player_country 
 	_update_flag()
@@ -272,8 +261,8 @@ func _on_time_passed() -> void:
 		4.0: "▅",
 		5.0: "█",
 	}
-	var speed := bar[MainClock.time_scale / 15.0]
-	label_date.text = speed + " " + MainClock.get_datetime_string()
+	var speed := bar[GameState.current_world.clock.time_scale / 15.0]
+	label_date.text = speed + " " + GameState.current_world.clock.get_datetime_string()
 
 func _update_flag() -> void:
 	if !player: return

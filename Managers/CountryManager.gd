@@ -5,11 +5,6 @@ signal player_country_changed()
 var countries: Dictionary[String, CountryData] = {}
 var player_country: CountryData
 
-func _ready() -> void:
-	await get_tree().process_frame
-	MainClock.hour_passed.connect(_on_hour_passed)
-	MainClock.day_passed.connect(_on_day_passed)
-
 
 func _on_hour_passed() -> void:
 	# Loop through every country instance

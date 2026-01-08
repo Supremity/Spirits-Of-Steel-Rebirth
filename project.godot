@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 MapManager="*res://Managers/MapManager.gd"
-MainClock="*res://Managers/MainClock.gd"
 CountryManager="*res://Managers/CountryManager.gd"
 TroopManager="*res://Managers/TroopManager.gd"
 MusicManager="*res://Managers/MusicManager.gd"

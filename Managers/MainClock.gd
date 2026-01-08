@@ -67,7 +67,7 @@ func set_speed(scale: float) -> void:
 	if time_scale == 0:
 		pause()
 	
-	GameState.ui_layer.time_speed_indicator.text = "Speed: " + str(int(time_scale/15.0))
+	GameState.game_ui.time_speed_indicator.text = "Speed: " + str(int(time_scale/15.0))
 
 
 func decrease_speed():
@@ -82,14 +82,14 @@ func increase_speed():
 
 func pause() -> void:
 	paused = true
-	GameState.ui_layer.pause_icon.text = "P"
-	GameState.ui_layer.pause_icon.add_theme_color_override("font_color", Color.RED)
+	GameState.game_ui.pause_icon.text = "P"
+	GameState.game_ui.pause_icon.add_theme_color_override("font_color", Color.RED)
 
 
 func resume() -> void:
 	paused = false
-	GameState.ui_layer.pause_icon.text = "R"
-	GameState.ui_layer.pause_icon.add_theme_color_override("font_color", Color.GREEN)
+	GameState.game_ui.pause_icon.text = "R"
+	GameState.game_ui.pause_icon.add_theme_color_override("font_color", Color.GREEN)
 
 
 func toggle_pause() -> void: 

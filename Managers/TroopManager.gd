@@ -53,7 +53,7 @@ func _update_smooth(troop: TroopData, delta: float) -> void:
 
 	# --- Stage 1: Visual indicator ---
 	var visual_progress = troop.get_meta("visual_progress", 0.0)
-	visual_progress += MainClock.time_scale * delta / total_dist
+	visual_progress += GameState.current_world.clock.time_scale * delta / total_dist
 	if visual_progress > 1.0:
 		visual_progress = 1.0  # cap at 1
 	troop.set_meta("visual_progress", visual_progress)
@@ -61,7 +61,7 @@ func _update_smooth(troop: TroopData, delta: float) -> void:
 	# --- Stage 2: Actual troop movement ---
 	var move_progress = troop.get_meta("progress", 0.0)
 	if visual_progress >= 1.0:
-		move_progress += MainClock.time_scale * delta / total_dist
+		move_progress += GameState.current_world.clock.time_scale * delta / total_dist
 		if move_progress >= 1.0:
 			troop.position = end
 			troop.set_meta("progress", 0.0)

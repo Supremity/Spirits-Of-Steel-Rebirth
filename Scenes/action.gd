@@ -8,20 +8,12 @@ var base_text: String = ""
 var _callback: Callable
 var source_object: Variant = null # Holds TroopTraining or ReadyTroop objects
 
-# ── Lifecycle ─────────────────────────────────────────
 
 func _ready() -> void:
 	button.pressed.connect(_on_button_pressed)
-	if not MainClock.day_passed.is_connected(refresh_ui):
-		MainClock.day_passed.connect(refresh_ui)
+	GameState.current_world.clock.day_passed.connect(refresh_ui)
 
-func _exit_tree() -> void:
-	if MainClock.day_passed.is_connected(refresh_ui):
-		MainClock.day_passed.disconnect(refresh_ui)
 
-# ── Setup Methods ─────────────────────────────────────
-
-# Standard setup for Dictionary-based actions
 func setup(item_data: Dictionary, on_click: Callable) -> void:
 	data = item_data
 	_callback = on_click

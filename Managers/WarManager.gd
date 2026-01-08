@@ -163,7 +163,7 @@ class Battle:
 
 func _process(delta: float):
 	if wars.is_empty(): return
-	var scaled = delta * MainClock.MIN_SPEED
+	var scaled = delta * GameClock.MIN_SPEED
 	ai_timer += scaled
 	if ai_timer >= AI_TICK_INTERVAL:
 		ai_timer -= AI_TICK_INTERVAL

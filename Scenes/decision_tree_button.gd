@@ -5,5 +5,5 @@ extends Button
 
 func _on_button_up() -> void:
 	decision_tree.show()
-	MainClock.set_process(false)
+	GameState.current_world.clock.set_process(false)
 	GameState.decision_tree_open = true
