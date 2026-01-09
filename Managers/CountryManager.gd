@@ -13,6 +13,7 @@ func _on_hour_passed() -> void:
 		country_obj.process_hour()
 	player_stats_changed.emit()
 
+
 func _on_day_passed() -> void:
 	# Loop through every country instance
 	for c_name: String in countries:
@@ -23,7 +24,6 @@ func _on_day_passed() -> void:
 
 func initialize_countries() -> void:
 	countries.clear()
-	
 
 	var detected_countries = MapManager.country_to_provinces.keys()
 	

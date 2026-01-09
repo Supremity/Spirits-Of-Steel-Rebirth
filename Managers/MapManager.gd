@@ -65,7 +65,8 @@ func load_country_data() -> void:
 	var city = city_texture if city_texture else preload("res://maps/city_colors.png")
 	var gdp_data = gdp_texture if gdp_texture else preload("res://maps/gdp_data.png")
 
-	_generate_and_save.call_deferred(region, culture, population, city, gdp_data)
+	# _generate_and_save.call_deferred(region, culture, population, city, gdp_data)
+	_generate_and_save(region, culture, population, city, gdp_data)
 
 
 func _generate_and_save(region: Texture2D, culture: Texture2D, population: Texture2D, city: Texture2D, gdp_data: Texture2D) -> void:
