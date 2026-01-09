@@ -13,28 +13,24 @@ var map_height: float = 0.0
 
 @export var clock: GameClock
 
-func _ready() -> void:
+var mat: ShaderMaterial
+
+
+func _enter_tree() -> void:
 	GameState.current_world = self
-	await get_tree().process_frame # wait for Managers (singletons) to load
-	
-	if MapManager.id_map_image != null:
-		_on_map_ready()
 
+
+func _ready() -> void:
 	TroopManager.troop_selection = $TroopSelection as TroopSelection
-
-	clock.pause()
-
 
 	clock.hour_passed.connect(CountryManager._on_hour_passed)
 	clock.day_passed.connect(CountryManager._on_day_passed)
 
-	clock.hour_passed.connect(GameState.game_ui._on_time_passed)
-	GameState.game_ui.plus.pressed.connect(clock.increase_speed)
-	GameState.game_ui.minus.pressed.connect(clock.decrease_speed)
+	MapManager.load_country_data()
+	if MapManager.id_map_image != null:
+		_on_map_ready()
 
-	GameState.game_ui.label_date.text = clock.get_datetime_string()
 
-var mat: ShaderMaterial
 func _on_map_ready() -> void:
 	print("World: Map is ready -> configuring visuals...")
 	map_width = MapManager.id_map_image.get_width()

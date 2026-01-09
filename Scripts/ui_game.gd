@@ -46,17 +46,13 @@ var current_context: Context = Context.SELF
 var current_category: Category = Category.GENERAL
 
 
-
 func _ready() -> void:
-	#await get_tree().process_frame # wait for Managers (singletons) to load
-
 	pos_open = sidemenu.position
 	pos_closed = Vector2(pos_open.x - sidemenu.size.x, pos_open.y)
 	sidemenu.position = pos_closed
 
 	GameState.game_ui = self
 
-	await get_tree().process_frame
 	MapManager.province_clicked.connect(_on_province_clicked)
 	MapManager.close_sidemenu.connect(close_menu)
 	
@@ -66,8 +62,13 @@ func _ready() -> void:
 	CountryManager.player_country_changed.connect(_on_player_change)
 	updateProgressBar()
 
+	var clock := GameState.current_world.clock
+	clock.hour_passed.connect(_on_time_passed)
+	plus.pressed.connect(clock.increase_speed)
+	minus.pressed.connect(clock.decrease_speed)
+	label_date.text = clock.get_datetime_string()
 
-# Returns the specific list of actions based on Context + Category
+
 func _get_menu_actions(context: Context, category: Category) -> Array:
 	# Base structure: Dictionary[Context][Category] = Array of Actions
 	var data = {
@@ -123,6 +124,7 @@ func _on_player_change() -> void:
 	_update_flag()
 	_on_stats_changed()
 
+
 func _on_province_clicked(_pid: int, country_name: String) -> void:
 	selected_country = CountryManager.get_country(country_name)
 	
@@ -140,11 +142,13 @@ func _on_province_clicked(_pid: int, country_name: String) -> void:
 	
 	# Reset to General tab when switching countries
 	open_menu(new_context, Category.GENERAL)
-	
+
+
 func _on_menu_button_button_up(_menu_index: int) -> void:
 	current_category = _menu_index as Category
 	_build_action_list()
 #	print("Switched category to: ", Category.keys()[current_category])
+
 
 func toggle_menu(context := Context.SELF) -> void:
 	if is_open:
@@ -155,8 +159,7 @@ func toggle_menu(context := Context.SELF) -> void:
 		sidemenu_flag.texture = nation_flag.texture
 		open_menu(context, Category.GENERAL)
 
-# ── Menu Core ─────────────────────────────────────────
-# This sets the state and triggers the build
+
 func open_menu(context: Context, category: Category) -> void:
 	current_context = context
 	current_category = category
@@ -167,15 +170,14 @@ func open_menu(context: Context, category: Category) -> void:
 		MusicManager.play_sfx(MusicManager.SFX.OPEN_MENU)
 		slide_in()
 
-# Connect this to your tab buttons (Diplomacy/Economy/Military icons)
+
 func _on_tab_changed(new_category_index: int) -> void:
-	# Convert int index to Enum if necessary, or pass Enum directly
 	current_category = new_category_index as Category
-	_build_action_list() # Rebuilds list without closing menu
+	_build_action_list()
 	MusicManager.play_sfx(MusicManager.SFX.HOVERED)
 
+
 func _build_action_list() -> void:
-	# 1. Clear old buttons
 	for child in actions_container.get_children():
 		child.queue_free()
 	
@@ -203,22 +205,20 @@ func _build_action_list() -> void:
 			var deploy_call = Callable(self, "deploy_troop").bind(troop)
 			btn.setup_ready(troop, deploy_call)
 			actions_container.add_child(btn)
-			
-	await get_tree().process_frame # Fixes buttons appearing disabled sometimes
 
 
-		
 func close_menu() -> void:
 	if is_open:
 		MusicManager.play_sfx(MusicManager.SFX.CLOSE_MENU)
 	slide_out()
 
-# ── Animations ────────────────────────────────────────
+
 func slide_in() -> void:
 	if is_open: return
 	is_open = true
 	var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	tween.tween_property(sidemenu, "position", pos_open, slide_duration)
+
 
 func slide_out() -> void:
 	if not is_open: return
@@ -226,11 +226,12 @@ func slide_out() -> void:
 	var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	tween.tween_property(sidemenu, "position", pos_closed, slide_duration)
 
-# ── UI Updates ────────────────────────────────────────
+
 func _update_ui() -> void:
 	_update_flag()
 	_on_time_passed()
 	_on_stats_changed()
+
 
 func _on_stats_changed() -> void:
 	if !player: return
@@ -240,6 +241,7 @@ func _on_stats_changed() -> void:
 	
 	stats_labels.manpower.text = format_number(player.manpower)
 	stats_labels.money.text = "$" + format_number(player.money)
+
 
 func format_number(value: float) -> String:
 	var abs_val = abs(value)
@@ -254,8 +256,10 @@ func format_number(value: float) -> String:
 	else:
 		return sign_str + str(floori(abs_val))
 
+
 func _on_time_passed() -> void:
 	label_date.text = GameState.current_world.clock.get_datetime_string()
+
 
 func updateProgressBar():
 	var clock = GameState.current_world.clock
@@ -268,7 +272,8 @@ func updateProgressBar():
 	else:
 		bg_style.border_color = Color.DARK_CYAN
 		label_date.add_theme_color_override("font_color", Color.WHITE) # Set text to Normal
-		
+
+
 func setup_progress_bar_style():
 	var bg = StyleBoxFlat.new()
 	bg.bg_color = Color.BLACK
@@ -282,17 +287,19 @@ func setup_progress_bar_style():
 	progress_bar.add_theme_stylebox_override("background", bg)
 	progress_bar.add_theme_stylebox_override("fill", fill)
 
+
 func _update_flag() -> void:
 	if !player: return
 	var path = "res://assets/flags/%s_flag.png" % player.country_name.to_lower()
 	if ResourceLoader.exists(path):
 		nation_flag.texture = load(path)
 
+
 func _choose_deploy_city(item):
 	GameState.choosing_deploy_city = true
 	#MapManager.set_country_color(player.country_name, Color.WHITE_SMOKE)
 
-# ── Action Callbacks ──────────────────────────────────
+
 func _declare_war(item):
 	WarManager.declare_war(player, selected_country)
 	open_menu(Context.WAR, Category.GENERAL)
@@ -303,7 +310,8 @@ func _conscript(data: Dictionary):
 		CountryManager.player_country.train_troops(manpower, 10, 1000)
 	_on_stats_changed()
 	_build_action_list()
-	
+
+
 func deploy_troop(troop):
 	if player.deploy_pid == -1:
 		player.deploy_ready_troop_to_random(troop)
@@ -311,11 +319,12 @@ func deploy_troop(troop):
 		player.deploy_ready_troop_to_pid(troop)
 		
 	_build_action_list()
-	pass
+
 
 func improve_stability(item):
 	CountryManager.player_country.stability += 0.02
 	_on_stats_changed()
+
 
 func _improve_relations(): print("Improving relations")
 func _propose_peace():     print("Proposing peace")

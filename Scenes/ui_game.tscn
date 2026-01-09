@@ -83,6 +83,7 @@ theme_override_constants/separation = 20
 
 [node name="PoliticalPower" type="PanelContainer" parent="Topbar/MarginContainer/HBoxContainer"]
 layout_mode = 2
+tooltip_text = "Political power"
 theme_override_styles/panel = ExtResource("5_5phox")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Topbar/MarginContainer/HBoxContainer/PoliticalPower"]
@@ -119,6 +120,7 @@ text = "100"
 
 [node name="Manpower" type="PanelContainer" parent="Topbar/MarginContainer/HBoxContainer"]
 layout_mode = 2
+tooltip_text = "Manpower"
 theme_override_styles/panel = ExtResource("5_5phox")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Topbar/MarginContainer/HBoxContainer/Manpower"]
@@ -137,6 +139,7 @@ text = "100"
 
 [node name="Industry" type="PanelContainer" parent="Topbar/MarginContainer/HBoxContainer"]
 layout_mode = 2
+tooltip_text = "Industry"
 theme_override_styles/panel = ExtResource("5_5phox")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Topbar/MarginContainer/HBoxContainer/Industry"]
@@ -155,6 +158,7 @@ text = "100"
 
 [node name="Stability" type="PanelContainer" parent="Topbar/MarginContainer/HBoxContainer"]
 layout_mode = 2
+tooltip_text = "Stability"
 theme_override_styles/panel = ExtResource("5_5phox")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Topbar/MarginContainer/HBoxContainer/Stability"]

@@ -4,8 +4,6 @@ extends Node
 signal province_hovered(province_id: int, country_name: String)
 signal province_clicked(province_id: int, country_name: String)
 
-signal map_ready()
-
 # Emitted when a click couldn't be processed (so likely sea or border)
 signal close_sidemenu
 # --- CONSTANTS ---
@@ -48,8 +46,7 @@ const CACHE_FOLDER = "res://map_data/"
 @export var gdp_texture: Texture2D
 
 
-
-func _ready() -> void:
+func load_country_data() -> void:
 	_load_country_colors()
 	_load_population_json()
 	_load_city_json()
@@ -60,7 +57,6 @@ func _ready() -> void:
 
 	if _try_load_cached_data():
 		print("MapManager: Loaded cached data with Province Objects.")
-		map_ready.emit()
 		return
 
 	var region = region_texture if region_texture else preload("res://maps/regions.png")
@@ -70,6 +66,7 @@ func _ready() -> void:
 	var gdp_data = gdp_texture if gdp_texture else preload("res://maps/gdp_data.png")
 
 	_generate_and_save.call_deferred(region, culture, population, city, gdp_data)
+
 
 func _generate_and_save(region: Texture2D, culture: Texture2D, population: Texture2D, city: Texture2D, gdp_data: Texture2D) -> void:
 	initialize_map(region, culture, population, city, gdp_data)
@@ -84,7 +81,7 @@ func _generate_and_save(region: Texture2D, culture: Texture2D, population: Textu
 	map_data.province_objects = province_objects.duplicate()
 
 	ResourceSaver.save(map_data, MAP_DATA_PATH)
-	map_ready.emit()
+
 
 func _try_load_cached_data() -> bool:
 	if not ResourceLoader.exists(MAP_DATA_PATH): return false
