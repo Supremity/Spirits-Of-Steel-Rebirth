@@ -10,15 +10,16 @@ var money: float = 0
 var gdp: int = 0
 var stability: float = 0.5      
 
-const SIZE_PER_DIVISION = 10000
 var total_population: int = 0
 var manpower: int = 0         
 var war_support: float = 0.5    
 
+var manpower_per_division = 10000
+
 
 var daily_pp_gain: float = 0.04
 var hourly_money_income: float = 4000
-var military_size = 0.005 
+var military_size = 0.005 # 0.5%
 
 # State Management
 var allowedCountries: Array[String] = [] 
@@ -62,34 +63,21 @@ func process_hour() -> void:
 	update_manpower_pool()
 	
 	if not is_player:
-		_process_ai_decisions()
+		AiManager.process_hour(self)
 
 func process_day() -> void:
 	gdp = CountryManager.get_country_gdp(country_name) * total_population * 0.000001 
 	_process_training()
+	
+	if not is_player:
+		AiManager.process_day(self)
 #endregion
 
-#region --- AI Logic ---
-func _process_ai_decisions() -> void:
-	if not ready_troops.is_empty():
-		_ai_handle_deployment()
-	_ai_consider_recruitment()
 
-func _ai_handle_deployment() -> void:
-	var troops_to_deploy = ready_troops.duplicate()
-	for troop in troops_to_deploy:
-		deploy_ready_troop_to_random(troop)
-
-func _ai_consider_recruitment() -> void:
-	var safety_buffer = hourly_money_income * 10.0
-	if money < safety_buffer or manpower < 5000:
-		return 
-	train_troops(5, 10, 50.0)
-#endregion
 
 #region --- Military Management ---
 func train_troops(divisions: int, days: int, cost_per_day: float) -> bool:
-	var manpower_needed := divisions * SIZE_PER_DIVISION
+	var manpower_needed = divisions * manpower_per_division
 	var first_hour_cost := divisions * cost_per_day
 	
 	if manpower < manpower_needed or money < first_hour_cost:
@@ -142,22 +130,9 @@ func deploy_ready_troop_to_pid(troop: ReadyTroop) -> bool:
 #endregion
 
 
-## Calculates the total divisions on the map for this country
-func _get_current_used_manpower() -> int:
-	var total_divisions = 0
-	var troop_list = TroopManager.get_troops_for_country(country_name)
-	for troop in troop_list:
-		total_divisions += troop.divisions
-	for training in ongoing_training:
-		total_divisions += training.divisions
-	for ready in ready_troops:
-		total_divisions += ready.divisions
-		
-	return total_divisions * SIZE_PER_DIVISION
-
 func update_manpower_pool() -> void:
 	var total_reservoir = int(total_population * military_size)
-	var used = _get_current_used_manpower()
+	var used = CountryManager.get_country_used_manpower(country_name, self)
 	manpower = max(0, total_reservoir - used)
 	
 #region --- Stats & Getters ---
