@@ -110,7 +110,7 @@ func _process(_delta: float) -> void:
 		camera.position.x -= map_width
 	elif camera.position.x < map_sprite.position.x - map_width:
 		camera.position.x += map_width
-	if mat and !clock.paused and clock.is_processing():
+	if mat and !clock.paused:
 		var move_amount = clock.time_scale * 0.001 * _delta
 		water_offset.x += move_amount 
 		mat.set_shader_parameter("ocean_offset", water_offset)

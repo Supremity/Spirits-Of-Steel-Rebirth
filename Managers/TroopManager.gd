@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 
 
 func _update_smooth(troop: TroopData, delta: float) -> void:
-	if GameState.current_world.clock.paused or !GameState.current_world.clock.is_processing():
+	if GameState.current_world.clock.paused:
 		return
 
 	var start = troop.get_meta("start_pos", troop.position)

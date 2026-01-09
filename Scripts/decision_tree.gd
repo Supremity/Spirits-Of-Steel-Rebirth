@@ -7,12 +7,11 @@ class_name DecisionTree
 @onready var tree_content := $ScrollContainer/TreeContent as Control
 
 
-
 func _ready():
 	hide()
 	load_and_build_tree()
 
-	
+
 func load_and_build_tree():
 	var json_data = JSON.parse_string(FileAccess.get_file_as_string(json_path))
 	if json_data == null:
@@ -101,7 +100,11 @@ func _execute_action(action: Dictionary):
 func _on_exit_button_button_up() -> void:
 	hide()
 	GameState.decision_tree_open = false
+	
+	GameState.current_world.set_process(true)
 	GameState.current_world.clock.set_process(true)
+	TroopManager.set_process(true)
+
 
 
 # Control inside decision tree
