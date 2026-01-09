@@ -44,6 +44,9 @@ func _process(delta: float) -> void:
 
 
 func _update_smooth(troop: TroopData, delta: float) -> void:
+	if GameState.current_world.clock.paused or !GameState.current_world.clock.is_processing():
+		return
+
 	var start = troop.get_meta("start_pos", troop.position)
 	var end = troop.target_position
 	var total_dist = start.distance_to(end)
