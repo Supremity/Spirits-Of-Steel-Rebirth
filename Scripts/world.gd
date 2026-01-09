@@ -35,9 +35,27 @@ func _on_map_ready() -> void:
 	mat = ShaderMaterial.new()
 	mat.shader = MAP_SHADER
 	
+	
 	var id_tex := ImageTexture.create_from_image(MapManager.id_map_image)
 	mat.set_shader_parameter("region_id_map", id_tex)
 	mat.set_shader_parameter("state_colors", MapManager.state_color_texture)
+	
+	
+	var type_img = Image.create(map_width, map_height, false, Image.FORMAT_L8)
+	for y in map_height:
+		for x in map_width:
+			var id = MapManager._get_pid_fast(x, y) # Your logic to get ID from pixel
+			var province = MapManager.province_objects.get(id)
+		
+			# If it's a sea province, paint it black (0). If land, paint it white (1).
+			if province and province.type == 0:
+				type_img.set_pixel(x, y, Color(0, 0, 0))
+			else:
+				type_img.set_pixel(x, y, Color(1, 1, 1))
+
+	var type_tex = ImageTexture.create_from_image(type_img)
+	mat.set_shader_parameter("type_map", type_tex)
+	
 	
 	var noise = FastNoiseLite.new()
 	noise.seed = randi()

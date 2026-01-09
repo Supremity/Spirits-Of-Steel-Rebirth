@@ -1,6 +1,8 @@
 extends Resource
 class_name Province
 
+
+@export var type:  int
 @export var id: int
 @export var country: String
 @export var city: String

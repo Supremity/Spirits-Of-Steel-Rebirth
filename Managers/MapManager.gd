@@ -1,4 +1,5 @@
 extends Node
+var DEBUG_MODE = false
 
 # NOTE(pol): Both are only used to update the UI
 signal province_hovered(province_id: int, country_name: String)
@@ -56,9 +57,10 @@ func load_country_data() -> void:
 	if dir and not dir.dir_exists(CACHE_FOLDER):
 		dir.make_dir_recursive(CACHE_FOLDER)
 
-	if _try_load_cached_data():
-		print("MapManager: Loaded cached data with Province Objects.")
-		return
+	if !DEBUG_MODE:
+		if _try_load_cached_data():
+			print("MapManager: Loaded cached data with Province Objects.")
+			return
 
 	var region = region_texture if region_texture else preload("res://maps/regions.png")
 	var culture = culture_texture if culture_texture else preload("res://maps/cultures.png")
@@ -121,37 +123,53 @@ func initialize_map(region_tex: Texture2D, culture_tex: Texture2D, population_te
 	for y in range(h):
 		for x in range(w):
 			var c_color = c_img.get_pixel(x, y)
-			if _is_sea(c_color):
-				_write_id(x, y, 0)
-				continue
-
 			var r_color = r_img.get_pixel(x, y)
-			if r_color.r <= GRID_COLOR_THRESHOLD and r_color.g <= GRID_COLOR_THRESHOLD and r_color.b <= GRID_COLOR_THRESHOLD:
+			var is_sea_pixel = _is_sea(c_color)
+			
+			# FIX: Generate a key based on the actual color in the region map (r_color)
+			# We add a prefix so that a land province and sea province with the 
+			# same hex color won't accidentally merge.
+			var hex = r_color.to_html(false)
+			var key = ("S_" if is_sea_pixel else "L_") + hex
+
+			# Check for Borders/Grid (ID 1)
+			if not is_sea_pixel and r_color.r <= GRID_COLOR_THRESHOLD and r_color.g <= GRID_COLOR_THRESHOLD and r_color.b <= GRID_COLOR_THRESHOLD:
 				_write_id(x, y, 1)
 				continue
 
-			var key = r_color.to_html(false)
+			# If this is a new region (Unique Sea Zone or Land Province)
 			if not unique_regions.has(key):
 				unique_regions[key] = next_id
 				
 				var province = Province.new()
 				province.id = next_id
-				province.country = _identify_country(c_color)
 				
-				# Use MIN to prevent index errors even if images differ by 1 pixel
-				var p_color = p_img.get_pixel(min(x, pw-1), min(y, ph-1))
-				var city_color = city_img.get_pixel(min(x, pw-1), min(y, ph-1))
-				var gdp_color = gdp_img.get_pixel(min(x, pw-1), min(y, ph-1))
+				if is_sea_pixel:
+					# SEA LOGIC: Unique ID, but 0 stats
+					province.type = 0  
+					province.country = ""
+					province.population = 0
+					province.gdp = 0
+					province.city = ""
+				else:
+					# LAND LOGIC
+					province.type = 1  
+					province.country = _identify_country(c_color)
+					
+					var p_color = p_img.get_pixel(min(x, pw-1), min(y, ph-1))
+					var city_color = city_img.get_pixel(min(x, pw-1), min(y, ph-1))
+					var gdp_color = gdp_img.get_pixel(min(x, pw-1), min(y, ph-1))
 
-				province.population = _get_pop_from_color(p_color)
-				province.city = _get_city_from_color(city_color)
-				province.gdp = _get_gdp_from_color(gdp_color)
+					province.population = _get_pop_from_color(p_color)
+					province.city = _get_city_from_color(city_color)
+					province.gdp = _get_gdp_from_color(gdp_color)
+				
 				province_objects[next_id] = province
 				province_to_country[next_id] = province.country
 				next_id += 1
 
+			# Write the unique ID to your id_map_image
 			_write_id(x, y, unique_regions[key])
-
 	max_province_id = next_id - 1
 	_calculate_province_centroids() 
 	_build_country_to_provinces()

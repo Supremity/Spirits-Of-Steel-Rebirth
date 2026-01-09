@@ -2,6 +2,7 @@ shader_type canvas_item;
 
 // --- INPUTS ---
 uniform sampler2D region_id_map : filter_nearest;
+uniform sampler2D type_map : filter_nearest;
 uniform sampler2D state_colors : filter_nearest;
 
 // NOISE TEXTURE (Generated in World.gd)
@@ -98,10 +99,10 @@ bool detect_border_at_distance(vec2 origin_uv, float dist_px, out vec4 out_color
 
 void fragment() {
     int id = get_id(UV);
+	float p_type = texture(type_map, UV).r;
     vec4 final_color = vec4(0.0);
-
     // 1. SEA (New Water Logic)
-    if (id == 0) {
+    if (p_type < 0.5) {
         // --- PIXEL GRID SNAP ---
         vec2 grid_uv = floor(UV * tex_size / sea_pixel_size) 
                        * sea_pixel_size / tex_size;
