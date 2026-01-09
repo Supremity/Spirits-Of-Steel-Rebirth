@@ -84,8 +84,8 @@ func _on_map_ready() -> void:
 	
 	
 	CountryManager.initialize_countries()
-	CountryManager.set_player_country("united_states")
-
+	CountryManager.set_player_country("spain")
+	MapManager.force_bidirectional_connections()
 	for c in ["netherlands", "france", "portugal", "spain", "germany"]:
 		var provinces = MapManager.country_to_provinces.get(c, []).duplicate()
 		provinces.shuffle()
@@ -119,4 +119,4 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and !event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		MapManager.handle_click(get_global_mouse_position(), map_sprite)
 	if event is InputEventMouseMotion:
-		MapManager.update_hover(get_global_mouse_position(), map_sprite)
+		MapManager.handle_hover(get_global_mouse_position(), map_sprite)
