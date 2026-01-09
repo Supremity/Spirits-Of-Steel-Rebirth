@@ -99,8 +99,8 @@ func _execute_action(action: Dictionary):
 
 func _on_exit_button_button_up() -> void:
 	hide()
-	GameState.decision_tree_open = false
-	
+
+	GameState.current_world.find_child("CameraController").set_process(true)
 	GameState.current_world.set_process(true)
 	GameState.current_world.clock.set_process(true)
 	TroopManager.set_process(true)

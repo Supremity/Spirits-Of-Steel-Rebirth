@@ -9,5 +9,4 @@ func _on_button_up() -> void:
 	GameState.current_world.set_process(false)
 	GameState.current_world.clock.set_process(false)
 	TroopManager.set_process(false)
-	
-	GameState.decision_tree_open = true
+	GameState.current_world.find_child("CameraController").set_process(false)

@@ -65,7 +65,6 @@ func load_country_data() -> void:
 	var city = city_texture if city_texture else preload("res://maps/city_colors.png")
 	var gdp_data = gdp_texture if gdp_texture else preload("res://maps/gdp_data.png")
 
-	# _generate_and_save.call_deferred(region, culture, population, city, gdp_data)
 	_generate_and_save(region, culture, population, city, gdp_data)
 
 
@@ -172,8 +171,6 @@ func draw_province_centroids(image: Image, color: Color = Color(0,1,0,1)) -> voi
 		if x >= 0 and x < image.get_width() and y >= 0 and y < image.get_height():
 			image.set_pixel(x, y, color)
 
-
-# --- HELPERS ---
 
 func _build_country_to_provinces():
 	var result: Dictionary = {}

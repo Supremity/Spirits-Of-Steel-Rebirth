@@ -15,11 +15,11 @@ var is_dragging := false
 
 
 func _process(delta: float) -> void:
-	if GameState.decision_tree_open or Console.is_visible(): return
+	if Console.is_visible(): return
 	_handle_keyboard_movement(delta)
 
 func _input(event: InputEvent) -> void:
-	if GameState.decision_tree_open or Console.is_visible(): return
+	if Console.is_visible(): return
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_MIDDLE:
 		is_dragging = event.pressed
