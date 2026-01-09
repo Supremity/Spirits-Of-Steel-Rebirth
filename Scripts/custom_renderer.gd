@@ -245,7 +245,7 @@ func _draw_cities() -> void:
 	if not MapManager.id_map_image: return
 	
 	var dot_radius = 4.0 * _current_inv_zoom
-	var hovered_pid = MapManager.last_hovered_pid
+	var hovered_pid = MapManager.current_hovered_pid
 	
 	for pid in MapManager.province_objects.keys():
 		var province = MapManager.province_objects[pid]		
@@ -265,13 +265,12 @@ func _draw_cities() -> void:
 func _draw_city_name_visual(pos: Vector2, text: String) -> void:
 	if text.is_empty(): return
 
-	# fix the zoom someone
-	var font_size = clampi(int(19 * _current_inv_zoom), 12, 32)
+	var font_size = clampi(int(15 * _current_inv_zoom), 12, 32)
 	var outline_size = clampi(int(2 * _current_inv_zoom), 1, 3)
+
 	
 	var text_w = _font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x
-	var draw_pos = (pos + Vector2(-text_w / 2.0, 0)).round()
-
+	var draw_pos = (pos + map_sprite.position)
 	var outline_col = Color(0, 0, 0, 0.8)
 	var dirs = [Vector2(1,1), Vector2(-1,1), Vector2(1,-1), Vector2(-1,-1)]
 	for dir in dirs:

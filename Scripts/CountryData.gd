@@ -15,6 +15,8 @@ var manpower: int = 0
 var war_support: float = 0.5    
 
 var manpower_per_division = 10000
+const MANPOWER_RECOVERY_PER_YEAR := 0.10 # 10%
+const MANPOWER_RECOVERY_PER_DAY := MANPOWER_RECOVERY_PER_YEAR / 365.0
 
 
 var daily_pp_gain: float = 0.04
@@ -51,21 +53,22 @@ func _init(p_name: String) -> void:
 	allowedCountries.append(p_name)
 	
 	total_population = CountryManager.get_country_population(country_name)
+	manpower = (total_population - CountryManager.get_country_used_manpower(country_name, self)) * military_size
 	gdp = CountryManager.get_country_gdp(country_name) * total_population * 0.000001
 	money = gdp
-	manpower = int(total_population * 0.005)
 
 func process_hour() -> void:
 	political_power += daily_pp_gain
 	money += gdp / 8760 * 0.5 
 	money -= calculate_army_upkeep()
-	
 	update_manpower_pool()
+	
 	
 	if not is_player:
 		AiManager.process_hour(self)
 
 func process_day() -> void:
+	total_population = CountryManager.get_country_population(country_name) # Update it due to war an dstuff
 	gdp = CountryManager.get_country_gdp(country_name) * total_population * 0.000001 
 	_process_training()
 	
@@ -130,10 +133,23 @@ func deploy_ready_troop_to_pid(troop: ReadyTroop) -> bool:
 #endregion
 
 
+
 func update_manpower_pool() -> void:
-	var total_reservoir = int(total_population * military_size)
-	var used = CountryManager.get_country_used_manpower(country_name, self)
-	manpower = max(0, total_reservoir - used)
+	var base_reservoir := int(total_population * military_size)
+	var max_cap := int(base_reservoir * 1.5)
+	var used := CountryManager.get_country_used_manpower(country_name, self)
+	
+	if (manpower + used) < max_cap:
+		var daily_gain := int(base_reservoir * MANPOWER_RECOVERY_PER_DAY)
+		
+		if daily_gain == 0 and total_population > 0:
+			daily_gain = 1
+			
+		manpower += daily_gain
+	
+	# Ensure we don't exceed the absolute limit
+	if (manpower + used) > max_cap:
+		manpower = max(0, max_cap - used)
 	
 #region --- Stats & Getters ---
 func get_max_morale() -> float:

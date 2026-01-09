@@ -31,6 +31,7 @@ var country_to_provinces: Dictionary = {}
 var province_objects: Dictionary = {} 
 
 
+var current_hovered_pid: int = -1
 var last_hovered_pid: int = -1
 var original_hover_color: Color
 var province_centers: Dictionary = {} # Stores {ID: Vector2(x, y)}
@@ -301,7 +302,7 @@ func handle_hover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 		return
 	
 	var pid = get_province_at_pos(global_pos, map_sprite)
-	
+	current_hovered_pid = pid
 	if GameState.choosing_deploy_city:
 		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 		if pid != last_hovered_pid:

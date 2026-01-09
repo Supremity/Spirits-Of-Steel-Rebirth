@@ -9,6 +9,7 @@ func _ready():
 	GameState.current_world.clock.hour_passed.connect(_on_hour_passed)
 	GameState.current_world.clock.day_passed.connect(_on_day_passed)
 	GameState.current_world.clock.time_scale
+	
 func _on_hour_passed() -> void:
 	for c_name: String in countries:
 		var country_obj: CountryData = countries[c_name]
