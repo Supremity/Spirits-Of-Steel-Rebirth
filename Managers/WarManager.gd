@@ -137,10 +137,11 @@ class Battle:
 
 func _process(delta: float):
 	if active_battles.is_empty(): return
-	
-	var scaled = delta * GameClock.MIN_SPEED
+	var current_intensity = delta * GameState.current_world.clock.time_scale
+	if current_intensity <= 0: return
+
 	for battle in active_battles:
-		battle.tick(scaled)
+		battle.tick(current_intensity)
 
 func start_battle(attacker_pid: int, defender_pid: int):
 	# Prevent duplicate battles
