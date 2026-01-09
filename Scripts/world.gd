@@ -88,7 +88,7 @@ func _on_map_ready() -> void:
 	
 	
 	CountryManager.initialize_countries()
-	CountryManager.set_player_country("spain")
+	CountryManager.set_player_country("united_states")
 
 	for c in ["netherlands", "france", "portugal", "spain", "germany"]:
 		var provinces = MapManager.country_to_provinces.get(c, []).duplicate()
