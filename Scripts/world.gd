@@ -34,12 +34,12 @@ func _ready() -> void:
 
 	GameState.game_ui.label_date.text = clock.get_datetime_string()
 
-
+var mat: ShaderMaterial
 func _on_map_ready() -> void:
 	print("World: Map is ready -> configuring visuals...")
 	map_width = MapManager.id_map_image.get_width()
 	map_height = MapManager.id_map_image.get_height()
-	var mat := ShaderMaterial.new()
+	mat = ShaderMaterial.new()
 	mat.shader = MAP_SHADER
 	
 	var id_tex := ImageTexture.create_from_image(MapManager.id_map_image)
@@ -68,7 +68,7 @@ func _on_map_ready() -> void:
 	mat.set_shader_parameter("ocean_noise", noise_tex)
 	# ---------------------------------------------
 	mat.set_shader_parameter("original_texture", map_sprite.texture)
-	mat.set_shader_parameter("sea_speed", 0.01) # Very Slow
+	mat.set_shader_parameter("sea_speed", 0.00) # Changed by MainClock 
 	mat.set_shader_parameter("tex_size", Vector2(map_width, MapManager.id_map_image.get_height()))
 	mat.set_shader_parameter("country_border_color", Color.BLACK)
 	
@@ -107,13 +107,17 @@ func _create_ghost_map(offset: Vector2, p_material: ShaderMaterial) -> void:
 	ghost.position = map_sprite.position + offset
 	$MapContainer.add_child(ghost)
 
+var water_offset: Vector2 = Vector2.ZERO
 
 func _process(_delta: float) -> void:
 	if camera.position.x > map_sprite.position.x + map_width:
 		camera.position.x -= map_width
 	elif camera.position.x < map_sprite.position.x - map_width:
 		camera.position.x += map_width
-
+	if mat:
+		var move_amount = clock.time_scale * 0.001 * _delta
+		water_offset.x += move_amount 
+		mat.set_shader_parameter("ocean_offset", water_offset)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and !event.pressed and event.button_index == MOUSE_BUTTON_LEFT:

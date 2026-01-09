@@ -24,7 +24,7 @@ uniform float distortion_strength : hint_range(0.0, 1.0) = 0.15;
 uniform float grid_opacity : hint_range(0.0, 1.0) = 0.3; 
 uniform float sea_pixel_size = 2.0;       // 1 = native pixels, 2–4 = chunkier
 uniform float sea_height_steps = 6.0;    // number of discrete wave levels
-
+uniform vec2 ocean_offset;
 // --- BORDER SETTINGS (From Old Version) ---
 uniform float internal_border_darkness : hint_range(0.0, 1.0) = 0.2;
 
@@ -110,8 +110,7 @@ void fragment() {
         float t = TIME * sea_speed; 
 
         // --- SINGLE NOISE SAMPLE ---
-        float h = texture(ocean_noise, grid_uv + vec2(t, 0.0)).r;
-
+		float h = texture(ocean_noise, grid_uv + ocean_offset).r;
         // --- REDUCED QUANTIZATION ---
         h = floor(h * sea_height_steps) / sea_height_steps;
 
