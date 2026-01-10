@@ -162,6 +162,8 @@ func initialize_map(region_tex: Texture2D, culture_tex: Texture2D, population_te
 
 					province.population = _get_pop_from_color(p_color)
 					province.city = _get_city_from_color(city_color)
+					if len(province.city) > 0: # Cities by default have factories
+						province.has_factory = true
 					province.gdp = _get_gdp_from_color(gdp_color)
 				
 				province_objects[next_id] = province
@@ -321,7 +323,7 @@ func handle_hover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 	
 	var pid = get_province_at_pos(global_pos, map_sprite)
 	current_hovered_pid = pid
-	if GameState.choosing_deploy_city:
+	if GameState.choosing_deploy_city or GameState.building_factories:
 		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 		if pid != last_hovered_pid:
 
@@ -331,7 +333,7 @@ func handle_hover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 			var player_provinces = country_to_provinces.get(CountryManager.player_country.name, [])
 			if pid > 1 and pid in player_provinces:
 				original_hover_color = state_color_image.get_pixel(pid, 0)
-				var highlight_color = original_hover_color.lightened(0.15) 
+				var highlight_color = original_hover_color.lightened(0.15).blend(Color.GREEN_YELLOW) 
 				_update_lookup(pid, highlight_color)
 				
 				last_hovered_pid = pid
@@ -367,6 +369,27 @@ func handle_click(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 		else:
 			print("Clicked a province, but it's not yours!")
 			return
+	if GameState.building_factories:
+		var player_provinces = country_to_provinces.get(CountryManager.player_country.name, [])
+		
+		if pid in player_provinces:			
+			province_clicked.emit(pid, CountryManager.player_country.name)
+			
+			province_objects[pid].has_factory = true
+			Input.set_default_cursor_shape(Input.CURSOR_ARROW) # Reset cursor immediately
+			
+			if last_hovered_pid > 1:
+				_update_lookup(last_hovered_pid, original_hover_color)
+				last_hovered_pid = -1
+			show_industry_country(CountryManager.player_country.name)
+				
+		else:
+			GameState.building_factories = false
+			print("Clicked a province, but it's not yours!")
+			return
+			
+			
+		
 
 	else:
 		if TroopManager.troop_selection.selected_troops.is_empty():
@@ -792,6 +815,28 @@ func show_countries_map() -> void:
 	
 	state_color_texture.update(state_color_image)
 	print("MapManager: Switched to Political (Country) View")
+	
+	
+func show_industry_country(country_name: String) -> void:
+	if not country_to_provinces.has(country_name):
+		push_warning("MapManager: Country " + country_name + " not found.")
+		return
+
+	var provinces = country_to_provinces.get(country_name)
+	
+	for pid in provinces:
+		var province = province_objects[pid]
+		
+		if province.city.length() > 0:
+			state_color_image.set_pixel(pid, 0, Color.YELLOW)
+		elif province.has_factory:
+			state_color_image.set_pixel(pid, 0, Color.GREEN)
+		else:
+			state_color_image.set_pixel(pid, 0, Color.WHITE)
+	
+	state_color_texture.update(state_color_image)
+			
+		
 
 func _load_country_colors() -> void:
 	

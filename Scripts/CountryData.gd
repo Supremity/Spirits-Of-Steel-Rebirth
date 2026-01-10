@@ -131,8 +131,7 @@ func deploy_ready_troop_to_pid(troop: ReadyTroop) -> bool:
 	ready_troops.remove_at(index)
 	return true
 #endregion
-
-
+	
 
 func update_manpower_pool() -> void:
 	var base_reservoir := int(total_population * military_size)

@@ -8,7 +8,6 @@ enum Category { GENERAL, ECONOMY, MILITARY }
 # ── Top Bar Nodes ─────────────────────────────────────
 @onready var nation_flag: TextureRect = $Topbar/nation_flag
 @onready var label_date: Label = $Topbar/MarginContainer2/ColorRect/MarginContainer/label_date
-# Grouping stats for easier updates
 @onready var stats_labels := {
 	"pp": $Topbar/MarginContainer/HBoxContainer/PoliticalPower/HBoxContainer/label_politicalpower,
 	"manpower": $Topbar/MarginContainer/HBoxContainer/Manpower/HBoxContainer/label_manpower,
@@ -25,6 +24,7 @@ enum Category { GENERAL, ECONOMY, MILITARY }
 @onready var actions_container: VBoxContainer = $SidemenuBG/Sidemenu/ScrollContainer/ActionsList
 @onready var progress_bar: ProgressBar = $Topbar/MarginContainer2/ColorRect/ProgressBar
 
+# Use the class_name of your action scene if available, or load strictly as packed scene
 @export var action_scene: PackedScene
 
 # ── Speed Controls ────────────────────────────────────
@@ -70,24 +70,22 @@ func _ready() -> void:
 
 
 func _get_menu_actions(context: Context, category: Category) -> Array:
-	# Base structure: Dictionary[Context][Category] = Array of Actions
+	# Note: I removed placeholders for cleaner reading, add back as needed
 	var data = {
 		Context.SELF: {
 			Category.GENERAL: [
 				{"text": "Decisions", "func": "open_decisions_tree"},
 				{"text": "Improve Stability", "cost": 25, "func": "improve_stability"},
-
-				
-				{"text": "Releasables", "func": "_improve_relations"} # Placeholder
+				{"text": "Releasables", "func": "_improve_relations"}
 			],
 			Category.ECONOMY: [
 				{"text": "Research", "cost": 0, "func": "open_research_tree"},
-				{"text": "Build Industry", "cost": 0, "func": "_build_industry"}
+				{"text": "Build Factory", "cost": 0, "func": "_build_factory"}
 			],
 			Category.MILITARY: [
 				{"text": "Choose Deployment Province", "func": "_choose_deploy_city"},
-				{"text": "Training", "func": "_conscript", "type": "training", "manpower": 10000},
-				{"text": "Training", "func": "_conscript", "type": "training", "manpower": 50000}
+				{"text": "Training (10k)", "func": "_conscript", "type": "training", "manpower": 10000},
+				{"text": "Training (50k)", "func": "_conscript", "type": "training", "manpower": 50000}
 			]
 		},
 		Context.WAR: {
@@ -102,7 +100,6 @@ func _get_menu_actions(context: Context, category: Category) -> Array:
 			Category.GENERAL: [
 				{"text": "Declare War", "cost": 50, "func": "_declare_war"},
 				{"text": "Request Access", "cost": 25, "func": "_declare_war"},
-				
 				{"text": "Improve Relations", "cost": 15, "func": "_improve_relations"},
 				{"text": "Form Alliance", "cost": 80, "func": "_form_alliance"},
 			],
@@ -113,7 +110,6 @@ func _get_menu_actions(context: Context, category: Category) -> Array:
 		}
 	}
 	
-	# Return the list if it exists, otherwise return empty array
 	if data.has(context) and data[context].has(category):
 		return data[context][category]
 	return []
@@ -128,11 +124,9 @@ func _on_player_change() -> void:
 func _on_province_clicked(_pid: int, country_name: String) -> void:
 	selected_country = CountryManager.get_country(country_name)
 	
-	# Update Sidebar Header
 	sidemenu_flag.texture = TroopManager.get_flag(country_name)
 	label_country_sidemenu.text = country_name.capitalize().replace('_', ' ')
 	
-	# Determine Context
 	var new_context = Context.DIPLOMACY
 	
 	if country_name == player.country_name:
@@ -140,14 +134,7 @@ func _on_province_clicked(_pid: int, country_name: String) -> void:
 	elif WarManager.is_at_war(player, selected_country):
 		new_context = Context.WAR
 	
-	# Reset to General tab when switching countries
 	open_menu(new_context, Category.GENERAL)
-
-
-func _on_menu_button_button_up(_menu_index: int) -> void:
-	current_category = _menu_index as Category
-	_build_action_list()
-#	print("Switched category to: ", Category.keys()[current_category])
 
 
 func toggle_menu(context := Context.SELF) -> void:
@@ -176,117 +163,91 @@ func _on_tab_changed(new_category_index: int) -> void:
 	_build_action_list()
 	MusicManager.play_sfx(MusicManager.SFX.HOVERED)
 
+func _on_menu_button_button_up(_menu_index: int) -> void:
+	current_category = _menu_index as Category
+	if _menu_index == Category.ECONOMY:
+		MapManager.show_industry_country(player.country_name)
+	else:
+		MapManager.set_country_color(player.country_name, Color.TRANSPARENT)
+		GameState.building_factories = false
+	_build_action_list()
+#	print("Switched category to: ", Category.keys()[current_category])
 
+
+# ── Action List Builder (FIXED) ───────────────────────
 func _build_action_list() -> void:
+	# Clear existing
 	for child in actions_container.get_children():
 		child.queue_free()
 	
 	label_category.text = Category.keys()[current_category].capitalize()
 
+	# 1. Standard Actions (from Dictionary)
 	var actions = _get_menu_actions(current_context, current_category)
 	for item in actions:
 		var btn = action_scene.instantiate()
 		actions_container.add_child(btn)
 		
-		btn.setup(item, Callable(self, item.func).bind(item))
+		# CRITICAL FIX: The function called must accept an argument because we use .bind(item)
+		var call_ref = Callable(self, item.func).bind(item)
+		btn.setup(item, call_ref)
 
+	# 2. Dynamic Military Actions (Training / Deploy)
 	if current_context == Context.SELF and current_category == Category.MILITARY:
 		var player_ref = CountryManager.player_country
-			
+		
 		# Ongoing Training
 		for troop in player_ref.ongoing_training:
 			var btn = action_scene.instantiate()
 			actions_container.add_child(btn)
 			btn.setup_training(troop)
-			btn.training_finished.connect(_build_action_list)
+			# We connect the signal emitted by ActionRow when days_left <= 0
+			if not btn.training_finished.is_connected(_build_action_list):
+				btn.training_finished.connect(_build_action_list)
+
 		# Ready to Deploy
 		for troop in player_ref.ready_troops:
 			var btn = action_scene.instantiate()
+			actions_container.add_child(btn)
+			# Callable points to deploy_troop, passing the specific troop object
 			var deploy_call = Callable(self, "deploy_troop").bind(troop)
 			btn.setup_ready(troop, deploy_call)
-			actions_container.add_child(btn)
 
 
-func close_menu() -> void:
-	if is_open:
-		MusicManager.play_sfx(MusicManager.SFX.CLOSE_MENU)
-	slide_out()
-
-
-func slide_in() -> void:
-	if is_open: return
-	is_open = true
-	var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	tween.tween_property(sidemenu, "position", pos_open, slide_duration)
-
-
-func slide_out() -> void:
-	if not is_open: return
-	is_open = false
-	var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
-	tween.tween_property(sidemenu, "position", pos_closed, slide_duration)
-
-
+# ── UI Updates ────────────────────────────────────────
 func _update_ui() -> void:
 	_update_flag()
 	_on_time_passed()
 	_on_stats_changed()
 
-
 func _on_stats_changed() -> void:
 	if !player: return
-	
 	stats_labels.pp.text = str(floori(player.political_power))
 	stats_labels.stability.text = str(round(player.stability * 100)) + "%"
-	
 	stats_labels.manpower.text = format_number(player.manpower)
 	stats_labels.money.text = "$" + format_number(player.money)
-
 
 func format_number(value: float) -> String:
 	var abs_val = abs(value)
 	var sign_str = "-" if value < 0 else ""
-	
-	if abs_val >= 1_000_000_000:
-		return sign_str + "%.2fB" % (abs_val / 1_000_000_000.0)
-	elif abs_val >= 1_000_000:
-		return sign_str + "%.2fM" % (abs_val / 1_000_000.0)
-	elif abs_val >= 1_000:
-		return sign_str + "%.1fK" % (abs_val / 1_000.0)
-	else:
-		return sign_str + str(floori(abs_val))
-
+	if abs_val >= 1_000_000_000: return sign_str + "%.2fB" % (abs_val / 1_000_000_000.0)
+	elif abs_val >= 1_000_000: return sign_str + "%.2fM" % (abs_val / 1_000_000.0)
+	elif abs_val >= 1_000: return sign_str + "%.1fK" % (abs_val / 1_000.0)
+	return sign_str + str(floori(abs_val))
 
 func _on_time_passed() -> void:
 	label_date.text = GameState.current_world.clock.get_datetime_string()
 
-
 func updateProgressBar():
 	var clock = GameState.current_world.clock
 	progress_bar.value = (clock.time_scale / clock.MAX_SPEED) * 100.0
-	
 	var bg_style = progress_bar.get_theme_stylebox("background")
 	if clock.paused:
 		bg_style.border_color = Color.DARK_RED
-		label_date.add_theme_color_override("font_color", Color.RED) # Set text to Red
+		label_date.add_theme_color_override("font_color", Color.RED)
 	else:
 		bg_style.border_color = Color.DARK_CYAN
-		label_date.add_theme_color_override("font_color", Color.WHITE) # Set text to Normal
-
-
-func setup_progress_bar_style():
-	var bg = StyleBoxFlat.new()
-	bg.bg_color = Color.BLACK
-	bg.set_border_width_all(2)
-	bg.border_color = Color.CYAN
-	bg.expand_margin_all(2) # Makes the border sit slightly outside the fill
-	
-	var fill = StyleBoxFlat.new()
-	fill.bg_color = Color.WHITE
-	
-	progress_bar.add_theme_stylebox_override("background", bg)
-	progress_bar.add_theme_stylebox_override("fill", fill)
-
+		label_date.add_theme_color_override("font_color", Color.WHITE)
 
 func _update_flag() -> void:
 	if !player: return
@@ -294,43 +255,62 @@ func _update_flag() -> void:
 	if ResourceLoader.exists(path):
 		nation_flag.texture = load(path)
 
+func close_menu() -> void:
+	if is_open: MusicManager.play_sfx(MusicManager.SFX.CLOSE_MENU)
+	slide_out()
 
-func _choose_deploy_city(item):
+func slide_in() -> void:
+	if is_open: return
+	is_open = true
+	var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(sidemenu, "position", pos_open, slide_duration)
+
+func slide_out() -> void:
+	if not is_open: return
+	is_open = false
+	var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	tween.tween_property(sidemenu, "position", pos_closed, slide_duration)
+
+# ── Action Callbacks ──────────────────────────────────
+# IMPORTANT: All callbacks invoked by ActionRow (Standard) must accept 
+# one argument (the data dictionary) because of the .bind(item) in _build_action_list.
+
+func _choose_deploy_city(_data: Dictionary):
 	GameState.choosing_deploy_city = true
-	#MapManager.set_country_color(player.country_name, Color.WHITE_SMOKE)
 
-
-func _declare_war(item):
+func _declare_war(_data: Dictionary):
 	WarManager.declare_war(player, selected_country)
 	open_menu(Context.WAR, Category.GENERAL)
 
 func _conscript(data: Dictionary):
 	if data.has("manpower"):
-		var manpower = data.manpower / 10000
+		var manpower = data.manpower / 10000 # Example math
 		CountryManager.player_country.train_troops(manpower, 10, 1000)
 	_on_stats_changed()
 	_build_action_list()
 
-
+# Troop argument comes from .bind(troop)
 func deploy_troop(troop):
 	if player.deploy_pid == -1:
 		player.deploy_ready_troop_to_random(troop)
 	else:
 		player.deploy_ready_troop_to_pid(troop)
-		
 	_build_action_list()
 
-
-func improve_stability(item):
+func improve_stability(_data: Dictionary):
 	CountryManager.player_country.stability += 0.02
 	_on_stats_changed()
 
+# These must accept _data to prevent crashing
+func _build_factory(_data: Dictionary): 
+	GameState.building_factories = true
+	pass
 
-func _improve_relations(): print("Improving relations")
-func _propose_peace():     print("Proposing peace")
-func _launch_nuke():       print("NUKE!")
-func _form_alliance():     print("Alliance formed")
-func _demand_tribute():    print("Pay up!")
-func _trade_deal():        print("Trading...")
-func _build_industry():    print("Building...")
-func open_research_tree():  print("Opening Research")
+func _improve_relations(_data: Dictionary): print("Improving relations")
+func _propose_peace(_data: Dictionary):     print("Proposing peace")
+func _launch_nuke(_data: Dictionary):       print("NUKE!")
+func _form_alliance(_data: Dictionary):     print("Alliance formed")
+func _demand_tribute(_data: Dictionary):    print("Pay up!")
+func _trade_deal(_data: Dictionary):        print("Trading...")
+func open_research_tree(_data: Dictionary): print("Opening Research")
+func open_decisions_tree(_data: Dictionary): print("Opening Decisions")
