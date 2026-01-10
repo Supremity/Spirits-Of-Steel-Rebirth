@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Spirits of Steel Rebirth"
-run/main_scene="uid://bonl378c51366"
+run/main_scene="uid://ef1nlqkm5anw"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="uid://lifcljm83dlp"
+config/icon="uid://claivv7l8p5lc"
 
 [autoload]
 
