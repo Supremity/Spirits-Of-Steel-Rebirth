@@ -1,2 +1,4 @@
 # Normalize EOL for all files that Git considers text files.
 * text=auto eol=lf
+- name: godot-ci
+  uses: abarichello/godot-ci@3.6.2-stable
