@@ -1,11 +1,12 @@
 # MapDebugOverlay.gd (Autoload)
 extends Node2D
 
-@export var enabled: bool = false : set = set_enabled
+@export var enabled: bool = false:
+	set = set_enabled
 @export var show_centroids: bool = true
 @export var show_labels: bool = true
 
-@export var dot_size: float = 1.0          # Size in WORLD units (perfect at any zoom)
+@export var dot_size: float = 1.0  # Size in WORLD units (perfect at any zoom)
 @export var dot_color: Color = Color(0, 1, 0, 0.8)
 @export var hovered_color: Color = Color(1, 0.8, 0, 1)
 @export var selected_color: Color = Color(1, 1, 0, 1)
@@ -35,7 +36,7 @@ func _enter_tree() -> void:
 	# Auto-find the map sprite (adjust path if needed)
 	if get_tree().current_scene:
 		map_sprite = get_tree().current_scene.get_node("MapContainer/CultureSprite")
-	
+
 	# Make sure this overlay follows the camera perfectly
 	if get_viewport().get_camera_2d():
 		get_viewport().get_camera_2d().call_deferred("make_current")
@@ -63,8 +64,20 @@ func _draw() -> void:
 		for i in range(path_to_highlight.size() - 1):
 			var pid1 = path_to_highlight[i]
 			var pid2 = path_to_highlight[i + 1]
-			var pos1 = Vector2(province_centers.get(pid1, Vector2.ZERO).x, province_centers.get(pid1, Vector2.ZERO).y) + map_sprite.offset # - offset
-			var pos2 = Vector2(province_centers.get(pid2, Vector2.ZERO).x, province_centers.get(pid2, Vector2.ZERO).y) + map_sprite.offset # offset
+			var pos1 = (
+				Vector2(
+					province_centers.get(pid1, Vector2.ZERO).x,
+					province_centers.get(pid1, Vector2.ZERO).y
+				)
+				+ map_sprite.offset
+			)  # - offset
+			var pos2 = (
+				Vector2(
+					province_centers.get(pid2, Vector2.ZERO).x,
+					province_centers.get(pid2, Vector2.ZERO).y
+				)
+				+ map_sprite.offset
+			)  # offset
 			draw_line(pos1, pos2, Color.RED, 3.0)
 
 

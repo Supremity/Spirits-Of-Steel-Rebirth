@@ -1,7 +1,7 @@
 extends Resource
 class_name Province
 
-enum {SEA = 0, LAND = 1}
+enum { SEA = 0, LAND = 1 }
 
 @export var type: int = LAND
 @export var id: int

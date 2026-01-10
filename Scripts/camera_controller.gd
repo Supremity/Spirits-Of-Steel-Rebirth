@@ -10,16 +10,18 @@ extends Node
 @export var min_zoom: float = 0.5
 @export var max_zoom: float = 9.0
 
-
 var is_dragging := false
 
 
 func _process(delta: float) -> void:
-	if Console.is_visible(): return
+	if Console.is_visible():
+		return
 	_handle_keyboard_movement(delta)
 
+
 func _input(event: InputEvent) -> void:
-	if Console.is_visible(): return
+	if Console.is_visible():
+		return
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_MIDDLE:
 		is_dragging = event.pressed
@@ -34,13 +36,15 @@ func _input(event: InputEvent) -> void:
 			zoom_dir = 1
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			zoom_dir = -1
-		
+
 		if zoom_dir != 0:
 			_perform_zoom(zoom_dir)
+
 
 func _handle_keyboard_movement(delta: float) -> void:
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	camera.position += input_dir * (base_speed / camera.zoom.x) * delta
+
 
 func _perform_zoom(direction: int) -> void:
 	var mouse_pos_before := camera.get_global_mouse_position()

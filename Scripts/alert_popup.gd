@@ -11,18 +11,21 @@ var _type: String = ""
 var _c1: CountryData = null
 var _c2: CountryData = null
 
-# 1. We call this BEFORE adding to the tree. 
+
+# 1. We call this BEFORE adding to the tree.
 # It just stores data. It does NOT touch the UI.
 func set_data(type, country1, country2):
 	_type = type
 	_c1 = country1
 	_c2 = country2
 
+
 # 2. _ready is called automatically when the node enters the tree.
 # The UI nodes are guaranteed to exist here.
 func _ready():
 	button.pressed.connect(_on_ok)
 	_update_ui()
+
 
 func _update_ui():
 	# Handle the "Empty String" error you saw earlier
@@ -32,15 +35,19 @@ func _update_ui():
 
 	var flag1 = _get_flag(_c1.name)
 	var flag2 = _get_flag(_c2.name)
-	
-	if flag1: flag_left.texture = flag1
-	if flag2: flag_right.texture = flag2
+
+	if flag1:
+		flag_left.texture = flag1
+	if flag2:
+		flag_right.texture = flag2
 
 	if _type == "war":
 		description.text = "%s has declared war on %s" % [_c1.name, _c2.name]
 
+
 func _on_ok():
 	queue_free()
+
 
 func _get_flag(country):
 	# Optimized loading

@@ -8,4 +8,4 @@ class_name MapData
 @export var country_to_provinces: Dictionary
 @export var max_province_id: int
 @export var id_map_image: Image
-@export var province_objects: Dictionary 
+@export var province_objects: Dictionary

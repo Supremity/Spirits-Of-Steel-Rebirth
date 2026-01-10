@@ -1,7 +1,7 @@
 extends Node
 
-signal player_stats_changed()
-signal player_country_changed()
+signal player_stats_changed
+signal player_country_changed
 var countries: Dictionary[String, CountryData] = {}
 var player_country: CountryData
 
@@ -22,7 +22,7 @@ func _on_day_passed() -> void:
 
 func initialize_countries() -> void:
 	countries.clear()
-	
+
 	var detected_countries = MapManager.country_to_provinces.keys()
 	if detected_countries.is_empty():
 		push_warning("CountryManager: No countries detected in MapManager!")
@@ -32,7 +32,7 @@ func initialize_countries() -> void:
 		var new_country := CountryData.new(country_name)
 		add_child(new_country)
 		countries[country_name] = new_country
-		
+
 	print("CountryManager: Initialized %d countries." % countries.size())
 
 
@@ -40,7 +40,7 @@ func get_country(c_name: String) -> CountryData:
 	c_name = c_name.to_lower()
 	if countries.has(c_name):
 		return countries[c_name]
-	push_error("CountryManager: Requested non-existent country '%s'" % c_name)	
+	push_error("CountryManager: Requested non-existent country '%s'" % c_name)
 	return null
 
 
@@ -55,13 +55,14 @@ func set_player_country(country_name: String) -> void:
 		player_country.is_player = false
 
 	player_country = country
-	player_country.is_player = true # <--- IMPORTANT: Disable AI for this country
-	
+	player_country.is_player = true  # <--- IMPORTANT: Disable AI for this country
+
 	print("Player is now playing as: ", country_name)
 	emit_signal("player_country_changed")
 
 
 # HELPER FUNCTIONS ==========================================
+
 
 func get_country_population(country_name: String) -> int:
 	if not MapManager.country_to_provinces.has(country_name):
@@ -73,19 +74,22 @@ func get_country_population(country_name: String) -> int:
 			total_pop += MapManager.province_objects[pid].population
 	return total_pop
 
+
 func get_country_gdp(country_name: String) -> int:
 	if not MapManager.country_to_provinces.has(country_name):
 		return 0
-		
+
 	var total_gdp: int = 0
 	var pids = MapManager.country_to_provinces[country_name]
-	
+
 	for pid in pids:
 		if MapManager.province_objects.has(pid):
 			total_gdp += MapManager.province_objects[pid].gdp
-			
+
 	return total_gdp
-func get_country_used_manpower (country_name, country_obj) -> int:
+
+
+func get_country_used_manpower(country_name, country_obj) -> int:
 	var total_divisions = 0
 	var troop_list = TroopManager.get_troops_for_country(country_name)
 	for troop in troop_list:
@@ -95,4 +99,3 @@ func get_country_used_manpower (country_name, country_obj) -> int:
 	for ready in country_obj.ready_troops:
 		total_divisions += ready.divisions
 	return total_divisions * country_obj.manpower_per_division
-	
