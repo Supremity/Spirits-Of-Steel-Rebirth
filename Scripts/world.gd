@@ -22,6 +22,10 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	TroopManager.troop_selection = $TroopSelection as TroopSelection
+
+	# TODO(pol): Load CountryManager after map instead of an autoload to avoid this.
+	clock.hour_passed.connect(CountryManager._on_hour_passed)
+	clock.day_passed.connect(CountryManager._on_day_passed)
 	
 	MapManager.load_country_data()
 	if MapManager.id_map_image != null:
