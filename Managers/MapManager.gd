@@ -1,14 +1,11 @@
 extends Node
 var DEBUG_MODE = false
 
-# NOTE(pol): Both are only used to update the UI
 signal province_hovered(province_id: int, country_name: String)
 signal province_clicked(province_id: int, country_name: String)
 
 # Emitted when a click couldn't be processed (so likely sea or border)
 signal close_sidemenu
-# --- CONSTANTS ---
-const GRID_COLOR_THRESHOLD = 0.0001 
 
 # The exact colors you provided
 const SEA_MAIN   = Color("#7e8e9e")
@@ -125,15 +122,15 @@ func initialize_map(region_tex: Texture2D, culture_tex: Texture2D, population_te
 			var c_color = c_img.get_pixel(x, y)
 			var r_color = r_img.get_pixel(x, y)
 			var is_sea_pixel = _is_sea(c_color)
-			
+			var is_sea_grid = _is_sea_grid(c_color)		
 			# FIX: Generate a key based on the actual color in the region map (r_color)
 			# We add a prefix so that a land province and sea province with the 
 			# same hex color won't accidentally merge.
 			var hex = r_color.to_html(false)
 			var key = ("S_" if is_sea_pixel else "L_") + hex
-
+	
 			# Check for Borders/Grid (ID 1)
-			if not is_sea_pixel and r_color.r <= GRID_COLOR_THRESHOLD and r_color.g <= GRID_COLOR_THRESHOLD and r_color.b <= GRID_COLOR_THRESHOLD:
+			if r_color == Color.BLACK:
 				_write_id(x, y, 1)
 				continue
 
@@ -146,14 +143,14 @@ func initialize_map(region_tex: Texture2D, culture_tex: Texture2D, population_te
 				
 				if is_sea_pixel:
 					# SEA LOGIC: Unique ID, but 0 stats
-					province.type = 0  
-					province.country = ""
+					province.type = province.SEA
+					province.country = "Sea"
 					province.population = 0
 					province.gdp = 0
 					province.city = ""
 				else:
 					# LAND LOGIC
-					province.type = 1  
+					province.type = province.LAND
 					province.country = _identify_country(c_color)
 					
 					var p_color = p_img.get_pixel(min(x, pw-1), min(y, ph-1))
@@ -215,21 +212,38 @@ func _write_id(x: int, y: int, pid: int) -> void:
 
 
 func _build_lookup_texture() -> void:
-	state_color_image = Image.create(max_province_id + 2, 1, false, Image.FORMAT_RGBA8)
-	for pid in range(2, max_province_id + 1):
-		var country = province_to_country.get(pid, "")
-		var col = Color.GRAY
-		if COUNTRY_COLORS.has(country):
-			col = COUNTRY_COLORS[country]
+	state_color_image = Image.create(max_province_id + 1, 1, false, Image.FORMAT_RGBA8)
+	
+	for pid in range(max_province_id + 1):
+		if pid <= 1:
+			state_color_image.set_pixel(pid, 0, Color(0, 0, 0, 0))
+			continue	
+		var province = province_objects.get(pid)
+		
+		# IGNORE SEA
+		if province == null or province.type == 0: # 0 is province.SEA
+			state_color_image.set_pixel(pid, 0, Color(0, 0, 0, 0))
+			continue
+			
+		var country = province.country
+		var col = COUNTRY_COLORS.get(country, Color.GRAY)
 		state_color_image.set_pixel(pid, 0, col)
+		
 	state_color_texture = ImageTexture.create_from_image(state_color_image)
 
 
 func _is_sea(c: Color) -> bool:
-	# Check BOTH the Main sea color AND the Raster color
-	# If it matches either, it is ID 0 (Untouched)
-	return _dist_sq(c, SEA_MAIN) < 0.001 or _dist_sq(c, SEA_RASTER) < 0.001
+	return _is_sea_grid(c) or _is_sea_ocean(c)	
 
+func _is_sea_grid(c: Color) -> bool:
+	# Only checks the raster/grid sea color
+	return _dist_sq(c, SEA_RASTER) < 0.001
+
+func _is_sea_ocean(c: Color) -> bool:
+	# Only checks the main ocean sea color
+	return _dist_sq(c, SEA_MAIN) < 0.001
+
+		
 
 func _identify_country(c: Color) -> String:
 	var best := ""
@@ -349,7 +363,7 @@ func handle_click(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 
 	var pid = get_province_with_radius(global_pos, map_sprite, 5)
 #	print (province_objects[pid].gdp)
-	if pid <= 1:
+	if pid <= 1 or province_objects[pid].country == "Sea":
 		close_sidemenu.emit()
 		return
 

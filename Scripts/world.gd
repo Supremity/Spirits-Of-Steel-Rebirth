@@ -45,17 +45,39 @@ func _on_map_ready() -> void:
 	mat.set_shader_parameter("state_colors", MapManager.state_color_texture)
 	
 	
+	# Inside World.gd -> _on_map_ready()
 	var type_img = Image.create(map_width, map_height, false, Image.FORMAT_L8)
-	for y in map_height:
-		for x in map_width:
-			var id = MapManager._get_pid_fast(x, y) # Your logic to get ID from pixel
-			var province = MapManager.province_objects.get(id)
-		
-			# If it's a sea province, paint it black (0). If land, paint it white (1).
-			if province and province.type == 0:
-				type_img.set_pixel(x, y, Color(0, 0, 0))
-			else:
-				type_img.set_pixel(x, y, Color(1, 1, 1))
+
+	for y in range(map_height):
+		for x in range(map_width):
+			var pid = MapManager._get_pid_fast(x, y)
+			var province = MapManager.province_objects.get(pid)
+			
+			if province:
+				if province.type == 0: # SEA
+					type_img.set_pixel(x, y, Color(0, 0, 0))
+				else: # LAND
+					type_img.set_pixel(x, y, Color(1, 1, 1))
+			
+			elif pid == 1:
+				# IT'S A BORDER/GRID LINE: Check neighbors to decide if Land or Sea
+				var is_neighbor_land = false
+				
+				# Check 4 cardinal neighbors (staying inside image bounds)
+				var checks = [Vector2i(x+1, y), Vector2i(x-1, y), Vector2i(x, y+1), Vector2i(x, y-1)]
+				for pos in checks:
+					if pos.x >= 0 and pos.x < map_width and pos.y >= 0 and pos.y < map_height:
+						var n_id = MapManager._get_pid_fast(pos.x, pos.y)
+						var n_province = MapManager.province_objects.get(n_id)
+						# If any neighbor is a Land Province, this border belongs to the Land
+						if n_province and n_province.type != 0:
+							is_neighbor_land = true
+							break
+				
+				if is_neighbor_land:
+					type_img.set_pixel(x, y, Color(1, 1, 1)) # Treat as Land Border
+				else:
+					type_img.set_pixel(x, y, Color(0, 0, 0)) # Treat as Sea Grid
 
 	var type_tex = ImageTexture.create_from_image(type_img)
 	mat.set_shader_parameter("type_map", type_tex)

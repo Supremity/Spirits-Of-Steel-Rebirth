@@ -80,8 +80,34 @@ func _draw() -> void:
 	_draw_active_movements()
 	_draw_battles()
 	_draw_selection_box()
+	#draw_adjacency_web()	
 
-# =========================================================
+# For debugging
+func draw_adjacency_web() -> void:
+	var adj = MapManager.adjacency_list
+	var centers = MapManager.province_centers
+	
+	var line_color = Color(0, 1, 1, 0.4) # Cyan with 40% transparency
+	var line_thickness = 1.5
+	var circle_radius = 2.0
+
+	for pid in adj.keys():
+		if not centers.has(pid): continue
+		
+		var start_point = centers[pid]
+		
+		# Optional: Draw a small dot at the province center
+		draw_circle(start_point, circle_radius, Color.WHITE)
+
+		for neighbor_id in adj[pid]:
+			# neighbor_id < pid prevents drawing the same line twice
+			if neighbor_id < pid: continue 
+			
+			if centers.has(neighbor_id):
+				var end_point = centers[neighbor_id]
+				draw_line(start_point, end_point, line_color, line_thickness, true)
+
+
 # Optimized Troop Drawing
 # =========================================================
 func _draw_troops() -> void:

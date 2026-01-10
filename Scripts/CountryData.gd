@@ -50,7 +50,7 @@ class ReadyTroop:
 func _init(p_name: String) -> void:
 	country_name = p_name
 	self.name = p_name
-	allowedCountries.append(p_name)
+	allowedCountries.append([p_name, "Sea"])
 	
 	total_population = CountryManager.get_country_population(country_name)
 	manpower = (total_population - CountryManager.get_country_used_manpower(country_name, self)) * military_size

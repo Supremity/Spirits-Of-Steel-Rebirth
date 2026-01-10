@@ -49,11 +49,10 @@ int get_id(vec2 uv) {
 vec4 get_country_color(int id) {
     if (id <= 1) return vec4(0.0);
     float u = (float(id) + 0.5) / float(textureSize(state_colors, 0).x);
-    return texture(state_colors, vec2(u, 0.0));
+    vec4 col = texture(state_colors, vec2(u, 0.5));
+    return col; // This will return alpha 0 for sea provinces now
 }
-
-// --- BORDER SCANNING LOGIC (Restored from Old Version) ---
-// Returns true if meaningful info was found
+// --- BORDER SCANNING LOGIC ---
 bool detect_border_at_distance(vec2 origin_uv, float dist_px, out vec4 out_color, out bool is_black) {
     vec2 pixel_size = 1.0 / tex_size;
     out_color = vec4(0.0);
@@ -61,25 +60,30 @@ bool detect_border_at_distance(vec2 origin_uv, float dist_px, out vec4 out_color
 
     bool found_color = false;
     vec4 reference = vec4(0.0);
+    
+    // Check if the ORIGIN pixel itself is touching sea
+    // We use the type_map to determine "Sea-ness" now
+    float origin_type = texture(type_map, origin_uv).r;
 
     for (int i = 0; i < 8; i++) {
         vec2 sample_uv = clamp(origin_uv + DIRS[i] * pixel_size * dist_px, vec2(0.0), vec2(1.0));
+        float sample_type = texture(type_map, sample_uv).r;
         int nid = get_id(sample_uv);
 
-        // Touching sea -> mark black/coast
-        if (nid == 0) {
-            is_black = true;
-            return true;
+        // 1. If any neighbor is SEA, this is a COASTLINE
+        if (sample_type < 0.5) { 
+            is_black = true; 
+            return true; 
         }
 
-        // Found a country
+        // 2. If neighbor is LAND
         if (nid > 1) {
             vec4 c = get_country_color(nid);
             if (!found_color) {
                 reference = c;
                 found_color = true;
             } else {
-                // If we found a DIFFERENT country nearby, it's an international border (hard black)
+                // If touching a DIFFERENT country, it's an international border
                 if (distance(reference.rgb, c.rgb) > 0.005) {
                     is_black = true;
                     return true;
@@ -88,77 +92,40 @@ bool detect_border_at_distance(vec2 origin_uv, float dist_px, out vec4 out_color
         }
     }
 
-    // If we only found one country color on all sides, it's an internal province border
     if (found_color) {
         out_color = mix(reference, vec4(0.0, 0.0, 0.0, 1.0), internal_border_darkness);
         return true;
     }
-
     return false;
 }
-
 void fragment() {
+    float p_type = texture(type_map, UV).r;
     int id = get_id(UV);
-	float p_type = texture(type_map, UV).r;
-    vec4 final_color = vec4(0.0);
-    // 1. SEA (New Water Logic)
+    
+    // 1. If type_map says Sea (0.0), render the animated water
     if (p_type < 0.5) {
-        // --- PIXEL GRID SNAP ---
-        vec2 grid_uv = floor(UV * tex_size / sea_pixel_size) 
-                       * sea_pixel_size / tex_size;
-
-        // --- TIME STEP ---
-        float t = TIME * sea_speed; 
-
-        // --- SINGLE NOISE SAMPLE ---
-		float h = texture(ocean_noise, grid_uv + ocean_offset).r;
-        // --- REDUCED QUANTIZATION ---
+        vec2 grid_uv = floor(UV * tex_size / sea_pixel_size) * sea_pixel_size / tex_size;
+        float h = texture(ocean_noise, grid_uv + ocean_offset).r;
         h = floor(h * sea_height_steps) / sea_height_steps;
-
-        // --- COLOR MIX ---
         vec3 water = mix(water_color_deep.rgb, water_color_shallow.rgb, h);
-
-        // --- GRID OVERLAY ---
-        vec3 grid = texture(original_texture, grid_uv).rgb;
-        water = mix(water, grid, grid_opacity);
-
-        final_color = vec4(water, 1.0);
-    }
-    
-    // 2. CLEAN LAND (Solid)
-    else if (id > 1) {
-        final_color = vec4(get_country_color(id).rgb, 1.0);
+        COLOR = vec4(water, 1.0);
     } 
-    
-    // 3. BORDERS (Old Scanning Logic)
+    // 2. If it's Land (type_map 1.0) and a real province
+    else if (id > 1) {
+        COLOR = vec4(get_country_color(id).rgb, 1.0);
+    } 
+    // 3. If it's Land (type_map 1.0) and ID 1 (Border)
     else {
-        // id == 1, or ambiguous pixels
         vec4 c_detect = vec4(0.0);
         bool must_be_black = false;
-        bool decided = false;
-
-        // Scan at 1px, then 2px, then 3px
-        // This fixes thick borders looking like black blobs
-        if (!decided && detect_border_at_distance(UV, 1.0, c_detect, must_be_black)) decided = true;
-        if (!decided && detect_border_at_distance(UV, 2.0, c_detect, must_be_black)) decided = true;
-        if (!decided && detect_border_at_distance(UV, 3.0, c_detect, must_be_black)) decided = true;
+        bool decided = detect_border_at_distance(UV, 1.0, c_detect, must_be_black);
+        
+        if (!decided) decided = detect_border_at_distance(UV, 2.0, c_detect, must_be_black);
 
         if (decided) {
-            if (must_be_black) {
-                final_color = country_border_color;
-            } else {
-                final_color = c_detect; // Internal border color
-            }
+            COLOR = must_be_black ? country_border_color : c_detect;
         } else {
-			vec4 direct_lookup = get_country_color(id);
-			if (direct_lookup.a < 0.1) {
-                final_color = country_border_color;
-            } else {
-                final_color = direct_lookup;
-            }
-            // Fallback if scanning failed (very thick intersection)
+            COLOR = country_border_color;
         }
     }
-
-    COLOR = final_color;
 }
