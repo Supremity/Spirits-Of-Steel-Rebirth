@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dgfixe44dvfny"]
+[gd_scene load_steps=28 format=3 uid="uid://dgfixe44dvfny"]
 
 [ext_resource type="Script" uid="uid://dqvjehbri1br0" path="res://Scripts/ui_game.gd" id="1_rp7y5"]
 [ext_resource type="Texture2D" uid="uid://dpohmal5pe58k" path="res://assets/flags/abkhazia_flag.png" id="1_xar7q"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://blvp32r1imoh" path="res://assets/ui/inverted_corner.png" id="14_yp111"]
 [ext_resource type="FontFile" uid="uid://cfsmiwr5bc70" path="res://font/Google_Sans/static/GoogleSans-Medium.ttf" id="15_yp111"]
 [ext_resource type="Theme" uid="uid://6wluupp1lmut" path="res://diplo_theme.tres" id="16_6c76w"]
+[ext_resource type="Texture2D" uid="uid://ut3mrourj5k1" path="res://assets/icons/log.png" id="20_85er5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqxsi"]
 bg_color = Color(0, 0, 0, 1)
@@ -427,9 +428,22 @@ decision_tree = NodePath("../DecisionTree")
 visible = false
 z_index = 1
 
+[node name="Button" type="Button" parent="."]
+offset_left = 1062.0
+offset_top = 159.0
+offset_right = 1128.0
+offset_bottom = 222.0
+focus_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Button"]
+position = Vector2(33.999992, 24.999992)
+scale = Vector2(0.10400662, 0.09262484)
+texture = ExtResource("20_85er5")
+
 [connection signal="mouse_entered" from="SpeedPanel/GameSpeedControl/PlusPanel/Plus" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_entered" from="SpeedPanel/GameSpeedControl/MinusPanel/Minus" to="." method="_on_button_mouse_entered"]
 [connection signal="button_up" from="SidemenuBG/Sidemenu/PanelContainer/VBoxContainer/SideMenuButtons/DiplomacyMenuButton" to="." method="_on_menu_button_button_up" binds= [0]]
 [connection signal="button_up" from="SidemenuBG/Sidemenu/PanelContainer/VBoxContainer/SideMenuButtons/EconomyMenuButton" to="." method="_on_menu_button_button_up" binds= [1]]
 [connection signal="button_up" from="SidemenuBG/Sidemenu/PanelContainer/VBoxContainer/SideMenuButtons/MilitaryMenuButton" to="." method="_on_menu_button_button_up" binds= [2]]
 [connection signal="button_up" from="DecisionTreeButton" to="DecisionTreeButton" method="_on_button_up"]
+[connection signal="button_up" from="Button" to="." method="_on_log_button_up"]

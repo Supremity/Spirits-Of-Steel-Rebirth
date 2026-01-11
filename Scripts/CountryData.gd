@@ -10,15 +10,15 @@ var money: float = 0
 var gdp: int = 0
 var stability: float = 0.5
 var factories_amount = 0
-var income = 0
-var army_cost = 0
-var province_cost = 500
+var income = 0.0
+var province_cost = 500.0
 var total_population: int = 0
 var manpower: int = 0
 var war_support: float = 0.5
 var troop_speed_modifier = 1.0
 
 var army_level = 1
+var army_cost = 0.0
 var army_base_cost = 100  # This goes times level. Each level makes army stronger and faster
 
 var manpower_per_division = 10000
@@ -84,7 +84,8 @@ func process_hour() -> void:
 	troop_speed_modifier = 1 + army_level * 0.1
 
 	if is_player:
-		print("income: ", income, " | army_cost: ", army_cost, " | province_cost: ", province_cost)
+		pass
+		#print("income: ", income, " | army_cost: ", army_cost, " | province_cost: ", province_cost)
 	else:
 		AiManager.process_hour(self)
 
