@@ -1213,3 +1213,24 @@ func get_provinces_bordering_enemy(country_name: String, enemy_name: String) -> 
 				break
 
 	return specific_borders
+
+
+func annex_country(target_country_name: String) -> void:
+	var playerobj = CountryManager.player_country
+	var player = playerobj.country_name
+
+	var target_troops = TroopManager.get_troops_for_country(target_country_name).duplicate()
+	for troop in target_troops:
+		TroopManager._remove_troop(troop)  # This now works perfectly
+
+	var provinces_to_transfer = country_to_provinces.get(target_country_name, []).duplicate()
+
+	if provinces_to_transfer.is_empty():
+		print("MapManager: No provinces found for ", target_country_name)
+		return
+
+	for pid in provinces_to_transfer:
+		transfer_ownership(pid, player)
+
+	playerobj.reset_manpower()
+	print("ANNEXATION COMPLETE: ", player, " has taken all of ", target_country_name)

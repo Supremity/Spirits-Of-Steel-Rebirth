@@ -83,6 +83,7 @@ func process_hour() -> void:
 	money += income - army_cost
 	troop_speed_modifier = 1 + army_level * 0.1
 
+	update_manpower_pool()
 	if is_player:
 		pass
 		#print("income: ", income, " | army_cost: ", army_cost, " | province_cost: ", province_cost)
@@ -181,6 +182,13 @@ func deploy_ready_troop_to_pid(troop: ReadyTroop) -> bool:
 
 
 #endregion
+
+
+func reset_manpower() -> void:
+	manpower = (
+		(total_population - CountryManager.get_country_used_manpower(country_name, self))
+		* military_size
+	)
 
 
 func update_manpower_pool() -> void:
