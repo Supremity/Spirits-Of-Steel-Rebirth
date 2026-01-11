@@ -1,7 +1,7 @@
 extends Node
 
 # --- CONFIGURATION ---
-var AUTO_MERGE = true  # Auto-merge adjacent troops
+var AUTO_MERGE = false  # Auto-merge adjacent troops
 
 # --- DATA STRUCTURES ---
 var troops: Array = []  # Master list of all troops

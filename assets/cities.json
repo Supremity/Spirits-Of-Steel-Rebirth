@@ -1,954 +1,954 @@
 {
   "922": {
-    "city": "Ottawa",
-    "demonym": "Canadian"
+	"city": "Ottawa",
+	"demonym": "Canadian"
   },
   "977": {
-    "city": "Toronto",
-    "demonym": null
+	"city": "Toronto",
+	"demonym": null
   },
   "618": {
-    "city": "Calgary",
-    "demonym": null
+	"city": "Calgary",
+	"demonym": null
   },
   "538": {
-    "city": "Vancouver",
-    "demonym": null
+	"city": "Vancouver",
+	"demonym": null
   },
   "783": {
-    "city": "Seattle",
-    "demonym": null
+	"city": "Seattle",
+	"demonym": null
   },
   "1628": {
-    "city": "Los Angeles",
-    "demonym": null
+	"city": "Los Angeles",
+	"demonym": null
   },
   "1152": {
-    "city": "San Francisco",
-    "demonym": null
+	"city": "San Francisco",
+	"demonym": null
   },
   "1472": {
-    "city": "Las Vegas",
-    "demonym": null
+	"city": "Las Vegas",
+	"demonym": null
   },
   "1347": {
-    "city": "Washington",
-    "demonym": "American"
+	"city": "Washington",
+	"demonym": "American"
   },
   "1176": {
-    "city": "New York",
-    "demonym": null
+	"city": "New York",
+	"demonym": null
   },
   "1598": {
-    "city": "Atlanta",
-    "demonym": null
+	"city": "Atlanta",
+	"demonym": null
   },
   "1986": {
-    "city": "Miami",
-    "demonym": null
+	"city": "Miami",
+	"demonym": null
   },
   "1812": {
-    "city": "Houston",
-    "demonym": null
+	"city": "Houston",
+	"demonym": null
   },
   "1675": {
-    "city": "Dallas",
-    "demonym": null
+	"city": "Dallas",
+	"demonym": null
   },
   "1950": {
-    "city": "Monterrey",
-    "demonym": null
+	"city": "Monterrey",
+	"demonym": null
   },
   "2143": {
-    "city": "Guadalajara",
-    "demonym": null
+	"city": "Guadalajara",
+	"demonym": null
   },
   "2198": {
-    "city": "Mexico City",
-    "demonym": "Mexican"
+	"city": "Mexico City",
+	"demonym": "Mexican"
   },
   "2336": {
-    "city": "Guatemala",
-    "demonym": "Guatemalan"
+	"city": "Guatemala",
+	"demonym": "Guatemalan"
   },
   "2446": {
-    "city": "Managua",
-    "demonym": "Nicaraguan"
+	"city": "Managua",
+	"demonym": "Nicaraguan"
   },
   "2515": {
-    "city": "San Jose",
-    "demonym": "Costa Rican"
+	"city": "San Jose",
+	"demonym": "Costa Rican"
   },
   "2571": {
-    "city": "Panama City",
-    "demonym": "Panamanian"
+	"city": "Panama City",
+	"demonym": "Panamanian"
   },
   "2256": {
-    "city": "Santo Domingo",
-    "demonym": "Dominicano"
+	"city": "Santo Domingo",
+	"demonym": "Dominicano"
   },
   "2246": {
-    "city": "Port-au-Prince",
-    "demonym": "Haitian"
+	"city": "Port-au-Prince",
+	"demonym": "Haitian"
   },
   "2107": {
-    "city": "Havana",
-    "demonym": "Cuban"
+	"city": "Havana",
+	"demonym": "Cuban"
   },
   "2262": {
-    "city": "Kingston",
-    "demonym": "Jamaican"
+	"city": "Kingston",
+	"demonym": "Jamaican"
   },
   "1141": {
-    "city": "Chicago",
-    "demonym": null
+	"city": "Chicago",
+	"demonym": null
   },
   "2714": {
-    "city": "Paramaribo",
-    "demonym": "Surinamese"
+	"city": "Paramaribo",
+	"demonym": "Surinamese"
   },
   "2677": {
-    "city": "Georgetown",
-    "demonym": "Guyanese"
+	"city": "Georgetown",
+	"demonym": "Guyanese"
   },
   "2516": {
-    "city": "Caracas",
-    "demonym": "Venezuelan"
+	"city": "Caracas",
+	"demonym": "Venezuelan"
   },
   "2495": {
-    "city": "Maracaibo",
-    "demonym": null
+	"city": "Maracaibo",
+	"demonym": null
   },
   "2723": {
-    "city": "Bogota",
-    "demonym": "Colombian"
+	"city": "Bogota",
+	"demonym": "Colombian"
   },
   "2585": {
-    "city": "Medellin",
-    "demonym": null
+	"city": "Medellin",
+	"demonym": null
   },
   "2727": {
-    "city": "Cali",
-    "demonym": null
+	"city": "Cali",
+	"demonym": null
   },
   "2835": {
-    "city": "Quito",
-    "demonym": "Ecuadorian"
+	"city": "Quito",
+	"demonym": "Ecuadorian"
   },
   "3108": {
-    "city": "Lima",
-    "demonym": "Peruvian"
+	"city": "Lima",
+	"demonym": "Peruvian"
   },
   "3113": {
-    "city": "Cusco",
-    "demonym": null
+	"city": "Cusco",
+	"demonym": null
   },
   "3022": {
-    "city": "Trujillo",
-    "demonym": null
+	"city": "Trujillo",
+	"demonym": null
   },
   "3121": {
-    "city": "La Paz",
-    "demonym": "Bolivian"
+	"city": "La Paz",
+	"demonym": "Bolivian"
   },
   "3146": {
-    "city": "Santa Cruz de la Sierra",
-    "demonym": null
+	"city": "Santa Cruz de la Sierra",
+	"demonym": null
   },
   "3310": {
-    "city": "Asuncion",
-    "demonym": "Paraguayan"
+	"city": "Asuncion",
+	"demonym": "Paraguayan"
   },
   "3468": {
-    "city": "Montevideo",
-    "demonym": "Uruguayan"
+	"city": "Montevideo",
+	"demonym": "Uruguayan"
   },
   "3469": {
-    "city": "Buenos Aires",
-    "demonym": "Argentinian"
+	"city": "Buenos Aires",
+	"demonym": "Argentinian"
   },
   "3396": {
-    "city": "Cordoba",
-    "demonym": null
+	"city": "Cordoba",
+	"demonym": null
   },
   "3538": {
-    "city": "Comodoro Rivadavia",
-    "demonym": null
+	"city": "Comodoro Rivadavia",
+	"demonym": null
   },
   "3454": {
-    "city": "Santiago",
-    "demonym": "Chilean"
+	"city": "Santiago",
+	"demonym": "Chilean"
   },
   "3192": {
-    "city": "Brasilia",
-    "demonym": "Brazilian"
+	"city": "Brasilia",
+	"demonym": "Brazilian"
   },
   "2853": {
-    "city": "Manaus",
-    "demonym": null
+	"city": "Manaus",
+	"demonym": null
   },
   "3224": {
-    "city": "Belo Horizonte",
-    "demonym": null
+	"city": "Belo Horizonte",
+	"demonym": null
   },
   "3312": {
-    "city": "Sao Paulo",
-    "demonym": null
+	"city": "Sao Paulo",
+	"demonym": null
   },
   "3111": {
-    "city": "Salvador",
-    "demonym": null
+	"city": "Salvador",
+	"demonym": null
   },
   "609": {
-    "city": "London",
-    "demonym": "British"
+	"city": "London",
+	"demonym": "British"
   },
   "522": {
-    "city": "Birmingham",
-    "demonym": null
+	"city": "Birmingham",
+	"demonym": null
   },
   "426": {
-    "city": "Edinburgh",
-    "demonym": null
+	"city": "Edinburgh",
+	"demonym": null
   },
   "482": {
-    "city": "Dublin",
-    "demonym": "Irish"
+	"city": "Dublin",
+	"demonym": "Irish"
   },
   "225": {
-    "city": "Reykjavik",
-    "demonym": "Icelandic"
+	"city": "Reykjavik",
+	"demonym": "Icelandic"
   },
   "1361": {
-    "city": "Lisbon",
-    "demonym": "Portuguese"
+	"city": "Lisbon",
+	"demonym": "Portuguese"
   },
   "1262": {
-    "city": "Madrid",
-    "demonym": "Spanish"
+	"city": "Madrid",
+	"demonym": "Spanish"
   },
   "1130": {
-    "city": "Barcelona",
-    "demonym": null
+	"city": "Barcelona",
+	"demonym": null
   },
   "1403": {
-    "city": "Seville",
-    "demonym": null
+	"city": "Seville",
+	"demonym": null
   },
   "1277": {
-    "city": "Valencia",
-    "demonym": null
+	"city": "Valencia",
+	"demonym": null
   },
   "739": {
-    "city": "Paris",
-    "demonym": "French"
+	"city": "Paris",
+	"demonym": "French"
   },
   "866": {
-    "city": "Vichy",
-    "demonym": null
+	"city": "Vichy",
+	"demonym": null
   },
   "788": {
-    "city": "Nantes",
-    "demonym": null
+	"city": "Nantes",
+	"demonym": null
   },
   "679": {
-    "city": "Luxembourg",
-    "demonym": "Luxembourgish"
+	"city": "Luxembourg",
+	"demonym": "Luxembourgish"
   },
   "620": {
-    "city": "Brussels",
-    "demonym": "Belgian"
+	"city": "Brussels",
+	"demonym": "Belgian"
   },
   "550": {
-    "city": "Amsterdam",
-    "demonym": "Dutch"
+	"city": "Amsterdam",
+	"demonym": "Dutch"
   },
   "812": {
-    "city": "Bern",
-    "demonym": "Swiss"
+	"city": "Bern",
+	"demonym": "Swiss"
   },
   "1121": {
-    "city": "Rome",
-    "demonym": "Italian"
+	"city": "Rome",
+	"demonym": "Italian"
   },
   "982": {
-    "city": "Milan",
-    "demonym": null
+	"city": "Milan",
+	"demonym": null
   },
   "1241": {
-    "city": "Naples",
-    "demonym": null
+	"city": "Naples",
+	"demonym": null
   },
   "910": {
-    "city": "Venice",
-    "demonym": null
+	"city": "Venice",
+	"demonym": null
   },
   "570": {
-    "city": "Berlin",
-    "demonym": "German"
+	"city": "Berlin",
+	"demonym": "German"
   },
   "503": {
-    "city": "Hamburg",
-    "demonym": null
+	"city": "Hamburg",
+	"demonym": null
   },
   "691": {
-    "city": "Frankfurt",
-    "demonym": null
+	"city": "Frankfurt",
+	"demonym": null
   },
   "758": {
-    "city": "Munich",
-    "demonym": null
+	"city": "Munich",
+	"demonym": null
   },
   "742": {
-    "city": "Vienna",
-    "demonym": "Austrian"
+	"city": "Vienna",
+	"demonym": "Austrian"
   },
   "657": {
-    "city": "Prauge",
-    "demonym": "Czech"
+	"city": "Prauge",
+	"demonym": "Czech"
   },
   "724": {
-    "city": "Bratislava",
-    "demonym": "Slovak"
+	"city": "Bratislava",
+	"demonym": "Slovak"
   },
   "800": {
-    "city": "Budapest",
-    "demonym": "Hungarian"
+	"city": "Budapest",
+	"demonym": "Hungarian"
   },
   "572": {
-    "city": "Warsaw",
-    "demonym": "Polish"
+	"city": "Warsaw",
+	"demonym": "Polish"
   },
   "667": {
-    "city": "Krakow",
-    "demonym": null
+	"city": "Krakow",
+	"demonym": null
   },
   "525": {
-    "city": "Poznan",
-    "demonym": null
+	"city": "Poznan",
+	"demonym": null
   },
   "419": {
-    "city": "Copenhagen",
-    "demonym": "Danish"
+	"city": "Copenhagen",
+	"demonym": "Danish"
   },
   "316": {
-    "city": "Oslo",
-    "demonym": "Norwegian"
+	"city": "Oslo",
+	"demonym": "Norwegian"
   },
   "271": {
-    "city": "Bergen",
-    "demonym": null
+	"city": "Bergen",
+	"demonym": null
   },
   "318": {
-    "city": "Gothenburg",
-    "demonym": null
+	"city": "Gothenburg",
+	"demonym": null
   },
   "306": {
-    "city": "Stockholm",
-    "demonym": "Swedish"
+	"city": "Stockholm",
+	"demonym": "Swedish"
   },
   "281": {
-    "city": "Helsinki",
-    "demonym": "Finnish"
+	"city": "Helsinki",
+	"demonym": "Finnish"
   },
   "230": {
-    "city": "Oulu",
-    "demonym": null
+	"city": "Oulu",
+	"demonym": null
   },
   "321": {
-    "city": "Tallinn",
-    "demonym": "Estonian"
+	"city": "Tallinn",
+	"demonym": "Estonian"
   },
   "382": {
-    "city": "Riga",
-    "demonym": "Latvian"
+	"city": "Riga",
+	"demonym": "Latvian"
   },
   "423": {
-    "city": "Vilnius",
-    "demonym": "Lithuanian"
+	"city": "Vilnius",
+	"demonym": "Lithuanian"
   },
   "468": {
-    "city": "Minsk",
-    "demonym": "Belarusian"
+	"city": "Minsk",
+	"demonym": "Belarusian"
   },
   "625": {
-    "city": "Kyiv",
-    "demonym": "Ukrainian"
+	"city": "Kyiv",
+	"demonym": "Ukrainian"
   },
   "967": {
-    "city": "Sevastopol",
-    "demonym": null
+	"city": "Sevastopol",
+	"demonym": null
   },
   "725": {
-    "city": "Dnipro",
-    "demonym": null
+	"city": "Dnipro",
+	"demonym": null
   },
   "658": {
-    "city": "Lviv",
-    "demonym": null
+	"city": "Lviv",
+	"demonym": null
   },
   "952": {
-    "city": "Bucharest",
-    "demonym": "Romanian"
+	"city": "Bucharest",
+	"demonym": "Romanian"
   },
   "317": {
-    "city": "St Pertersburg",
-    "demonym": null
+	"city": "St Pertersburg",
+	"demonym": null
   },
   "363": {
-    "city": "Moscow",
-    "demonym": "Russian"
+	"city": "Moscow",
+	"demonym": "Russian"
   },
   "747": {
-    "city": "Volgograd",
-    "demonym": null
+	"city": "Volgograd",
+	"demonym": null
   },
   "393": {
-    "city": "Kazan",
-    "demonym": null
+	"city": "Kazan",
+	"demonym": null
   },
   "1164": {
-    "city": "Tbilisi",
-    "demonym": "Georgian"
+	"city": "Tbilisi",
+	"demonym": "Georgian"
   },
   "1269": {
-    "city": "Yerevan",
-    "demonym": "Armenian"
+	"city": "Yerevan",
+	"demonym": "Armenian"
   },
   "1314": {
-    "city": "Baku",
-    "demonym": "Azerbaijani"
+	"city": "Baku",
+	"demonym": "Azerbaijani"
   },
   "900": {
-    "city": "Zagreb",
-    "demonym": "Croatian"
+	"city": "Zagreb",
+	"demonym": "Croatian"
   },
   "996": {
-    "city": "Sarajevo",
-    "demonym": "Bosnian"
+	"city": "Sarajevo",
+	"demonym": "Bosnian"
   },
   "997": {
-    "city": "Belgrade",
-    "demonym": "Serbian"
+	"city": "Belgrade",
+	"demonym": "Serbian"
   },
   "1242": {
-    "city": "Tirana",
-    "demonym": "Albanian"
+	"city": "Tirana",
+	"demonym": "Albanian"
   },
   "1404": {
-    "city": "Athens",
-    "demonym": "Greek"
+	"city": "Athens",
+	"demonym": "Greek"
   },
   "1243": {
-    "city": "Thessaloniki",
-    "demonym": null
+	"city": "Thessaloniki",
+	"demonym": null
   },
   "1082": {
-    "city": "Sofia",
-    "demonym": "Bulgarian"
+	"city": "Sofia",
+	"demonym": "Bulgarian"
   },
   "1131": {
-    "city": "Plovdiv",
-    "demonym": null
+	"city": "Plovdiv",
+	"demonym": null
   },
   "1245": {
-    "city": "Istanbul",
-    "demonym": null
+	"city": "Istanbul",
+	"demonym": null
   },
   "1464": {
-    "city": "Antalya",
-    "demonym": null
+	"city": "Antalya",
+	"demonym": null
   },
   "1309": {
-    "city": "Ankara",
-    "demonym": "Turkish"
+	"city": "Ankara",
+	"demonym": "Turkish"
   },
   "627": {
-    "city": "Astana",
-    "demonym": "Kazakh"
+	"city": "Astana",
+	"demonym": "Kazakh"
   },
   "750": {
-    "city": "Atyrau",
-    "demonym": null
+	"city": "Atyrau",
+	"demonym": null
   },
   "1003": {
-    "city": "Almaty",
-    "demonym": null
+	"city": "Almaty",
+	"demonym": null
   },
   "1105": {
-    "city": "Bishkek",
-    "demonym": "Kyrgyz"
+	"city": "Bishkek",
+	"demonym": "Kyrgyz"
   },
   "1392": {
-    "city": "Dushanbe",
-    "demonym": "Tajik"
+	"city": "Dushanbe",
+	"demonym": "Tajik"
   },
   "1252": {
-    "city": "Tashkent",
-    "demonym": "Uzbek"
+	"city": "Tashkent",
+	"demonym": "Uzbek"
   },
   "1389": {
-    "city": "Ashgabat",
-    "demonym": "Turkmen"
+	"city": "Ashgabat",
+	"demonym": "Turkmen"
   },
   "1368": {
-    "city": "Turkmenabat",
-    "demonym": null
+	"city": "Turkmenabat",
+	"demonym": null
   },
   "1508": {
-    "city": "Kabul",
-    "demonym": "Afghani"
+	"city": "Kabul",
+	"demonym": "Afghani"
   },
   "1686": {
-    "city": "Kandahar",
-    "demonym": null
+	"city": "Kandahar",
+	"demonym": null
   },
   "1651": {
-    "city": "Islamabad",
-    "demonym": "Pakistani"
+	"city": "Islamabad",
+	"demonym": "Pakistani"
   },
   "2010": {
-    "city": "Karachi",
-    "demonym": null
+	"city": "Karachi",
+	"demonym": null
   },
   "1714": {
-    "city": "Lahore",
-    "demonym": null
+	"city": "Lahore",
+	"demonym": null
   },
   "1909": {
-    "city": "New Delhi",
-    "demonym": "Indian"
+	"city": "New Delhi",
+	"demonym": "Indian"
   },
   "2066": {
-    "city": "Ahemdabad",
-    "demonym": null
+	"city": "Ahemdabad",
+	"demonym": null
   },
   "2388": {
-    "city": "Bengaluru",
-    "demonym": null
+	"city": "Bengaluru",
+	"demonym": null
   },
   "2135": {
-    "city": "Nagpur",
-    "demonym": null
+	"city": "Nagpur",
+	"demonym": null
   },
   "2079": {
-    "city": "Kolkata",
-    "demonym": null
+	"city": "Kolkata",
+	"demonym": null
   },
   "1910": {
-    "city": "Kathmandu",
-    "demonym": "Nepalese"
+	"city": "Kathmandu",
+	"demonym": "Nepalese"
   },
   "1961": {
-    "city": "Thimphu",
-    "demonym": "Bhutanese"
+	"city": "Thimphu",
+	"demonym": "Bhutanese"
   },
   "2044": {
-    "city": "Dhaka",
-    "demonym": "Bengali"
+	"city": "Dhaka",
+	"demonym": "Bengali"
   },
   "2232": {
-    "city": "Naypyidaw",
-    "demonym": "Burmese"
+	"city": "Naypyidaw",
+	"demonym": "Burmese"
   },
   "2103": {
-    "city": "Mandalay",
-    "demonym": null
+	"city": "Mandalay",
+	"demonym": null
   },
   "2252": {
-    "city": "Vientiane",
-    "demonym": "Lao"
+	"city": "Vientiane",
+	"demonym": "Lao"
   },
   "2484": {
-    "city": "Phnom Penh",
-    "demonym": "Khmer"
+	"city": "Phnom Penh",
+	"demonym": "Khmer"
   },
   "2171": {
-    "city": "Hanoi",
-    "demonym": "Vietnamese"
+	"city": "Hanoi",
+	"demonym": "Vietnamese"
   },
   "2506": {
-    "city": "Ho Chi Minh",
-    "demonym": null
+	"city": "Ho Chi Minh",
+	"demonym": null
   },
   "2422": {
-    "city": "Bangkok",
-    "demonym": "Thai"
+	"city": "Bangkok",
+	"demonym": "Thai"
   },
   "2285": {
-    "city": "Chiang Mai",
-    "demonym": null
+	"city": "Chiang Mai",
+	"demonym": null
   },
   "2755": {
-    "city": "Kuala Lumpur",
-    "demonym": "Malaysian"
+	"city": "Kuala Lumpur",
+	"demonym": "Malaysian"
   },
   "2822": {
-    "city": "Singapore",
-    "demonym": "Singaporean"
+	"city": "Singapore",
+	"demonym": "Singaporean"
   },
   "694": {
-    "city": "Ulaanbaatar",
-    "demonym": "Mongolian"
+	"city": "Ulaanbaatar",
+	"demonym": "Mongolian"
   },
   "1329": {
-    "city": "Pyongyang",
-    "demonym": "North Korean"
+	"city": "Pyongyang",
+	"demonym": "North Korean"
   },
   "1429": {
-    "city": "Seoul",
-    "demonym": "South Korean"
+	"city": "Seoul",
+	"demonym": "South Korean"
   },
   "1544": {
-    "city": "Busan",
-    "demonym": null
+	"city": "Busan",
+	"demonym": null
   },
   "1570": {
-    "city": "Tokyo",
-    "demonym": "Japanese"
+	"city": "Tokyo",
+	"demonym": "Japanese"
   },
   "1593": {
-    "city": "Osaka",
-    "demonym": null
+	"city": "Osaka",
+	"demonym": null
   },
   "1640": {
-    "city": "Hiroshima",
-    "demonym": null
+	"city": "Hiroshima",
+	"demonym": null
   },
   "1086": {
-    "city": "Sapporo",
-    "demonym": null
+	"city": "Sapporo",
+	"demonym": null
   },
   "2049": {
-    "city": "Taipei",
-    "demonym": "Taiwanese"
+	"city": "Taipei",
+	"demonym": "Taiwanese"
   },
   "1218": {
-    "city": "Beijing",
-    "demonym": "Chinese"
+	"city": "Beijing",
+	"demonym": "Chinese"
   },
   "1796": {
-    "city": "Shanghai",
-    "demonym": null
+	"city": "Shanghai",
+	"demonym": null
   },
   "2117": {
-    "city": "Hong Kong",
-    "demonym": null
+	"city": "Hong Kong",
+	"demonym": null
   },
   "1688": {
-    "city": "Nanjing",
-    "demonym": null
+	"city": "Nanjing",
+	"demonym": null
   },
   "1760": {
-    "city": "Chongqing",
-    "demonym": null
+	"city": "Chongqing",
+	"demonym": null
   },
   "860": {
-    "city": "Harbin",
-    "demonym": null
+	"city": "Harbin",
+	"demonym": null
   },
   "1740": {
-    "city": "Lhasa",
-    "demonym": "Tibetan"
+	"city": "Lhasa",
+	"demonym": "Tibetan"
   },
   "2592": {
-    "city": "Colombo",
-    "demonym": "Sinhalese"
+	"city": "Colombo",
+	"demonym": "Sinhalese"
   },
   "1372": {
-    "city": "Lanzhou",
-    "demonym": null
+	"city": "Lanzhou",
+	"demonym": null
   },
   "1455": {
-    "city": "Qingdao",
-    "demonym": null
+	"city": "Qingdao",
+	"demonym": null
   },
   "2093": {
-    "city": "Guangzhou",
-    "demonym": null
+	"city": "Guangzhou",
+	"demonym": null
   },
   "2367": {
-    "city": "Manila",
-    "demonym": "Filipino"
+	"city": "Manila",
+	"demonym": "Filipino"
   },
   "2514": {
-    "city": "Cebu",
-    "demonym": null
+	"city": "Cebu",
+	"demonym": null
   },
   "2750": {
-    "city": "Medan",
-    "demonym": null
+	"city": "Medan",
+	"demonym": null
   },
   "3004": {
-    "city": "Jakarta",
-    "demonym": "Indonesian"
+	"city": "Jakarta",
+	"demonym": "Indonesian"
   },
   "3082": {
-    "city": "Surabaya",
-    "demonym": null
+	"city": "Surabaya",
+	"demonym": null
   },
   "2892": {
-    "city": "Makassar",
-    "demonym": null
+	"city": "Makassar",
+	"demonym": null
   },
   "3012": {
-    "city": "Port Moresby",
-    "demonym": "Papuan"
+	"city": "Port Moresby",
+	"demonym": "Papuan"
   },
   "3535": {
-    "city": "Canberra",
-    "demonym": "Australian"
+	"city": "Canberra",
+	"demonym": "Australian"
   },
   "3539": {
-    "city": "Melbourne",
-    "demonym": null
+	"city": "Melbourne",
+	"demonym": null
   },
   "3442": {
-    "city": "Sydney",
-    "demonym": null
+	"city": "Sydney",
+	"demonym": null
   },
   "3547": {
-    "city": "Wellington",
-    "demonym": "Kiwi"
+	"city": "Wellington",
+	"demonym": "Kiwi"
   },
   "3477": {
-    "city": "Auckland",
-    "demonym": null
+	"city": "Auckland",
+	"demonym": null
   },
   "1558": {
-    "city": "Tehran",
-    "demonym": "Iranian"
+	"city": "Tehran",
+	"demonym": "Iranian"
   },
   "1481": {
-    "city": "Mashhad",
-    "demonym": null
+	"city": "Mashhad",
+	"demonym": null
   },
   "1756": {
-    "city": "Shiraz",
-    "demonym": null
+	"city": "Shiraz",
+	"demonym": null
   },
   "1713": {
-    "city": "Isfahan",
-    "demonym": null
+	"city": "Isfahan",
+	"demonym": null
   },
   "1685": {
-    "city": "Baghdad",
-    "demonym": "Iraqi"
+	"city": "Baghdad",
+	"demonym": "Iraqi"
   },
   "1564": {
-    "city": "Erbil",
-    "demonym": null
+	"city": "Erbil",
+	"demonym": null
   },
   "1792": {
-    "city": "Basrah",
-    "demonym": null
+	"city": "Basrah",
+	"demonym": null
   },
   "1662": {
-    "city": "Damascus",
-    "demonym": "Syrian"
+	"city": "Damascus",
+	"demonym": "Syrian"
   },
   "1696": {
-    "city": "West Jerusalem",
-    "demonym": "Israeli"
+	"city": "West Jerusalem",
+	"demonym": "Israeli"
   },
   "1752": {
-    "city": "East Jerusalem",
-    "demonym": "Palestinian"
+	"city": "East Jerusalem",
+	"demonym": "Palestinian"
   },
   "1698": {
-    "city": "Amman",
-    "demonym": "Jordanian"
+	"city": "Amman",
+	"demonym": "Jordanian"
   },
   "1937": {
-    "city": "Riyadh",
-    "demonym": "Saudi"
+	"city": "Riyadh",
+	"demonym": "Saudi"
   },
   "2111": {
-    "city": "Jeddah",
-    "demonym": null
+	"city": "Jeddah",
+	"demonym": null
   },
   "1957": {
-    "city": "Madinah",
-    "demonym": null
+	"city": "Madinah",
+	"demonym": null
   },
   "2371": {
-    "city": "Sana a",
-    "demonym": "Yemeni"
+	"city": "Sana a",
+	"demonym": "Yemeni"
   },
   "2387": {
-    "city": "Aden",
-    "demonym": null
+	"city": "Aden",
+	"demonym": null
   },
   "2258": {
-    "city": "Salalah",
-    "demonym": null
+	"city": "Salalah",
+	"demonym": null
   },
   "2098": {
-    "city": "Muscat",
-    "demonym": "Omanis"
+	"city": "Muscat",
+	"demonym": "Omanis"
   },
   "2061": {
-    "city": "Abu Dhabi",
-    "demonym": "Emirati"
+	"city": "Abu Dhabi",
+	"demonym": "Emirati"
   },
   "2008": {
-    "city": "Doha",
-    "demonym": "Qatari"
+	"city": "Doha",
+	"demonym": "Qatari"
   },
   "1858": {
-    "city": "Kuwait City",
-    "demonym": "Kuwaiti"
+	"city": "Kuwait City",
+	"demonym": "Kuwaiti"
   },
   "1889": {
-    "city": "Cairo",
-    "demonym": "Egyptian"
+	"city": "Cairo",
+	"demonym": "Egyptian"
   },
   "1789": {
-    "city": "Alexandria",
-    "demonym": null
+	"city": "Alexandria",
+	"demonym": null
   },
   "1706": {
-    "city": "Tripoli",
-    "demonym": "Libyan"
+	"city": "Tripoli",
+	"demonym": "Libyan"
   },
   "1707": {
-    "city": "Benghazi",
-    "demonym": null
+	"city": "Benghazi",
+	"demonym": null
   },
   "1461": {
-    "city": "Tunis",
-    "demonym": "Tunisian"
+	"city": "Tunis",
+	"demonym": "Tunisian"
   },
   "1486": {
-    "city": "Algiers",
-    "demonym": "Algerian"
+	"city": "Algiers",
+	"demonym": "Algerian"
   },
   "1644": {
-    "city": "Rabat",
-    "demonym": "Moroccan"
+	"city": "Rabat",
+	"demonym": "Moroccan"
   },
   "1718": {
-    "city": "Marrakesh",
-    "demonym": null
+	"city": "Marrakesh",
+	"demonym": null
   },
   "2265": {
-    "city": "Nouakchott",
-    "demonym": "Mauritanian"
+	"city": "Nouakchott",
+	"demonym": "Mauritanian"
   },
   "2351": {
-    "city": "Dakar",
-    "demonym": "Senegalese"
+	"city": "Dakar",
+	"demonym": "Senegalese"
   },
   "2500": {
-    "city": "Conakry",
-    "demonym": "Guinean"
+	"city": "Conakry",
+	"demonym": "Guinean"
   },
   "2613": {
-    "city": "Monrovia",
-    "demonym": "Liberian"
+	"city": "Monrovia",
+	"demonym": "Liberian"
   },
   "2357": {
-    "city": "Bamako",
-    "demonym": "Malian"
+	"city": "Bamako",
+	"demonym": "Malian"
   },
   "2649": {
-    "city": "Yamoussoukro",
-    "demonym": "Ivorian"
+	"city": "Yamoussoukro",
+	"demonym": "Ivorian"
   },
   "2466": {
-    "city": "Ouagadougou",
-    "demonym": "Burkinabe"
+	"city": "Ouagadougou",
+	"demonym": "Burkinabe"
   },
   "2698": {
-    "city": "Accra",
-    "demonym": "Ghanaian"
+	"city": "Accra",
+	"demonym": "Ghanaian"
   },
   "2590": {
-    "city": "Abuja",
-    "demonym": "Nigerian"
+	"city": "Abuja",
+	"demonym": "Nigerian"
   },
   "2668": {
-    "city": "Lagos",
-    "demonym": null
+	"city": "Lagos",
+	"demonym": null
   },
   "2457": {
-    "city": "Kano",
-    "demonym": null
+	"city": "Kano",
+	"demonym": null
   },
   "2340": {
-    "city": "Niamey",
-    "demonym": "Nigerien"
+	"city": "Niamey",
+	"demonym": "Nigerien"
   },
   "2496": {
-    "city": "N Djamena",
-    "demonym": "Chadian"
+	"city": "N Djamena",
+	"demonym": "Chadian"
   },
   "2704": {
-    "city": "Yaounde",
-    "demonym": "Cameroonian"
+	"city": "Yaounde",
+	"demonym": "Cameroonian"
   },
   "2711": {
-    "city": "Bangui",
-    "demonym": "Central African"
+	"city": "Bangui",
+	"demonym": "Central African"
   },
   "2304": {
-    "city": "Khartoum",
-    "demonym": "Sudanese"
+	"city": "Khartoum",
+	"demonym": "Sudanese"
   },
   "2359": {
-    "city": "Al Fashir",
-    "demonym": null
+	"city": "Al Fashir",
+	"demonym": null
   },
   "2706": {
-    "city": "Juba",
-    "demonym": "South Sudanese"
+	"city": "Juba",
+	"demonym": "South Sudanese"
   },
   "2355": {
-    "city": "Asmara",
-    "demonym": "Eritrean"
+	"city": "Asmara",
+	"demonym": "Eritrean"
   },
   "2547": {
-    "city": "Addis Ababa",
-    "demonym": "Ethiopian"
+	"city": "Addis Ababa",
+	"demonym": "Ethiopian"
   },
   "2512": {
-    "city": "Dire Dawa",
-    "demonym": "Afar"
+	"city": "Dire Dawa",
+	"demonym": "Afar"
   },
   "2762": {
-    "city": "Mogadishu",
-    "demonym": "Somalian"
+	"city": "Mogadishu",
+	"demonym": "Somalian"
   },
   "2536": {
-    "city": "Hargeisa",
-    "demonym": "Somali"
+	"city": "Hargeisa",
+	"demonym": "Somali"
   },
   "2825": {
-    "city": "Kampala",
-    "demonym": "Ugandan"
+	"city": "Kampala",
+	"demonym": "Ugandan"
   },
   "2857": {
-    "city": "Nairobi",
-    "demonym": "Kenyan"
+	"city": "Nairobi",
+	"demonym": "Kenyan"
   },
   "2971": {
-    "city": "Dodoma",
-    "demonym": "Tanzanian"
+	"city": "Dodoma",
+	"demonym": "Tanzanian"
   },
   "2995": {
-    "city": "Dar es Salaam",
-    "demonym": null
+	"city": "Dar es Salaam",
+	"demonym": null
   },
   "2850": {
-    "city": "Libreville",
-    "demonym": "Gabonese"
+	"city": "Libreville",
+	"demonym": "Gabonese"
   },
   "2890": {
-    "city": "Dolisie",
-    "demonym": null
+	"city": "Dolisie",
+	"demonym": null
   },
   "2941": {
-    "city": "Brazzaville",
-    "demonym": "Congolese"
+	"city": "Brazzaville",
+	"demonym": "Congolese"
   }
 }

@@ -120,7 +120,7 @@ class Battle:
 				t.divisions = max(1, int(t.divisions * 0.5))
 				TroopManager.teleport_troop_to_province(t, retreat_pid)
 
-		manager.conquer_province(defender_pid, attacker_country)
+		MapManager.transfer_ownership(defender_pid, attacker_country)
 		manager.end_battle(self)
 
 	func _find_retreat_province(from_pid: int, country: String) -> int:
@@ -175,25 +175,6 @@ func end_battle(battle: Battle):
 	if active_battles.has(battle):
 		active_battles.erase(battle)
 
-
-func conquer_province(pid: int, new_owner: String):
-	var old_owner = MapManager.province_to_country.get(pid)
-	if old_owner == new_owner:
-		return
-
-	# Data Update
-	if MapManager.country_to_provinces.has(old_owner):
-		MapManager.country_to_provinces[old_owner].erase(pid)
-
-	MapManager.province_to_country[pid] = new_owner
-	if not MapManager.country_to_provinces.has(new_owner):
-		MapManager.country_to_provinces[new_owner] = []
-	MapManager.country_to_provinces[new_owner].append(pid)
-
-	# Visuals
-	MapManager.update_province_color(pid, new_owner)
-
-
 func apply_casualties(pid: int, country: String, damage_divisions: float):
 	var troops_list = TroopManager.get_troops_in_province(pid).filter(
 		func(t): return t.country_name == country
@@ -218,7 +199,7 @@ func resolve_province_arrival(pid: int, troop: TroopData):
 	if country != troop.country_name and is_at_war_names(troop.country_name, country):
 		var enemies = TroopManager.get_province_strength(pid, country)
 		if enemies <= 0:
-			conquer_province(pid, troop.country_name)
+			MapManager.transfer_ownership(pid, troop.country_name)
 
 
 # --- War Declaration & State ---

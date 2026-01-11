@@ -120,7 +120,7 @@ func _get_menu_actions(context: Context, category: Category) -> Array:
 			Category.GENERAL:
 			[
 				{"text": "Declare War", "cost": 50, "func": "_declare_war"},
-				{"text": "Request Access", "cost": 25, "func": "_declare_war"},
+				{"text": "Request Access", "cost": 25, "func": "_request_access"},
 				{"text": "Improve Relations", "cost": 15, "func": "_improve_relations"},
 				{"text": "Form Alliance", "cost": 80, "func": "_form_alliance"},
 			],
@@ -195,7 +195,7 @@ func _on_menu_button_button_up(_menu_index: int) -> void:
 	else:
 		MapManager.set_country_color(player.country_name, Color.TRANSPARENT)
 		GameState.industry_building = GameState.INDUSTRY.NOTHING
-		MapManager.show_countries_map()	
+		MapManager.show_countries_map()
 	_build_action_list()
 
 
@@ -355,15 +355,18 @@ func improve_stability(_data: Dictionary):
 # These must accept _data to prevent crashing
 func _build_factory(_data: Dictionary):
 	GameState.industry_building = GameState.INDUSTRY.FACTORY
-	MapManager.show_industry_country(player.country_name)
+	#MapManager.show_industry_country(player.country_name)
 
 	pass
+
 
 func _build_port(_data: Dictionary):
 	GameState.industry_building = GameState.INDUSTRY.PORT
-	MapManager.show_possible_ports_map(player.country_name)
+	#MapManager.show_industry_country(player.country_name)
 	pass
 
+func _request_access(_data: Dictionary):
+	pass
 
 func _improve_relations(_data: Dictionary):
 	print("Improving relations")
