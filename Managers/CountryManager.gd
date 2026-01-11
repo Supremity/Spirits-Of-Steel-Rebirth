@@ -38,6 +38,7 @@ func initialize_countries() -> void:
 
 func get_country(c_name: String) -> CountryData:
 	c_name = c_name.to_lower()
+	if c_name == "sea": return null
 	if countries.has(c_name):
 		return countries[c_name]
 	push_error("CountryManager: Requested non-existent country '%s'" % c_name)

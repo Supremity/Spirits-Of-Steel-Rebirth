@@ -1,7 +1,7 @@
 extends Node
 
 # --- CONFIGURATION ---
-var AUTO_MERGE = false  # Auto-merge adjacent troops
+var AUTO_MERGE = true  # Auto-merge adjacent troops
 
 # --- DATA STRUCTURES ---
 var troops: Array = []  # Master list of all troops
@@ -442,28 +442,61 @@ func _auto_merge_in_province(province_id: int, country: String) -> void:
 		return
 
 	var local_troops = troops_by_province.get(province_id, [])
-	var same_country: Array = []
+	var candidates: Array = []
 
-	# Collect unmoving troops
+	# 1. Collect Valid Candidates
 	for t in local_troops:
+		# Check Country, Not Moving
+		# TODO: Add 'and not WarManager.is_in_combat(t)' here if you have that check!
 		if t.country_name == country and not t.is_moving:
-			same_country.append(t)
+			candidates.append(t)
 
-	if same_country.size() <= 1:
+	if candidates.size() <= 1:
 		return
 
-	var primary = same_country[0]
+	# 2. Pick the BEST Primary (The one to keep)
+	var primary = candidates[0]
+	
+	# SAFE CHECK: We use get() so it returns null instead of crashing if the variable is missing
+	var current_selection = null
+	if troop_selection:
+		current_selection = troop_selection.get("selected_troop") 
+		# Note: If you use an Array for selection, check: if current in troop_selection.selected_troops:
+
+	for i in range(1, candidates.size()):
+		var current = candidates[i]
+		
+		# Always prioritize keeping the currently selected unit
+		if current_selection and current_selection == current:
+			primary = current
+			break 
+		
+		if current.divisions > primary.divisions:
+			primary = current
+
+	# 3. Merge others into Primary
 	var to_remove = []
+	for t in candidates:
+		if t == primary:
+			continue
+			
+		primary.divisions += t.divisions
+		to_remove.append(t)
+		
+		# If we are merging the player's selection into the primary, 
+		# we must update the selection so the UI doesn't break.
+		if current_selection and current_selection == t:
+			if troop_selection.has_method("select_troop"):
+				troop_selection.select_troop(primary)
+			# Fallback if variable exists but is just a property
+			elif "selected_troop" in troop_selection:
+				troop_selection.selected_troop = primary
 
-	# Merge the rest
-	for i in range(1, same_country.size()):
-		var secondary = same_country[i]
-		primary.divisions += secondary.divisions
-		to_remove.append(secondary)
-
-	# Remove AFTER merging to avoid breaking the list while iterating
+	# 4. Remove
 	for troop in to_remove:
 		_remove_troop(troop)
+		
+	print("Merged %d stacks into %s in %d" % [to_remove.size(), primary.country_name, province_id])
 
 
 # =============================================================

@@ -669,7 +669,6 @@ func find_path(start_pid: int, end_pid: int, allowed_countries: Array[String] = 
 
 	return path
 
-
 func _find_path_astar(start_pid: int, end_pid: int, allowed_countries: Array[String]) -> Array[int]:
 	# 1. Optimize Allowed Check: O(1) Lookup
 	var allowed_dict = {}
@@ -678,23 +677,20 @@ func _find_path_astar(start_pid: int, end_pid: int, allowed_countries: Array[Str
 		for c in allowed_countries:
 			allowed_dict[c] = true
 
-	# 2. Sparse A* Setup (Don't fill INF for the whole world)
+	# 2. Setup
 	var open_set: Array[int] = [start_pid]
 	var came_from: Dictionary = {}
 
-	# We use .get() with defaults instead of pre-filling these dictionaries
 	var g_score: Dictionary = {start_pid: 0.0}
 	var f_score: Dictionary = {start_pid: _heuristic(start_pid, end_pid)}
-
-	# Fast lookup to check if node is in open_set
 	var open_set_hash: Dictionary = {start_pid: true}
 
+	# For fallback (closest reached node)
 	var closest_pid_so_far = start_pid
-	var closest_dist_so_far = f_score[start_pid]  # Use H-score for closeness
+	var closest_dist_so_far = f_score[start_pid]
 
 	while open_set.size() > 0:
-		# Optimization: Simple linear scan is often faster than maintaining a Heap in GDScript
-		# for pathfinding sets < 500 nodes.
+		# --- FIND LOWEST F-SCORE ---
 		var current = open_set[0]
 		var best_idx = 0
 		var best_f = f_score.get(current, INF)
@@ -707,35 +703,49 @@ func _find_path_astar(start_pid: int, end_pid: int, allowed_countries: Array[Str
 				current = pid
 				best_idx = i
 
-		# Remove current from Open Set (Fast Swap-Pop)
+		# --- POP CURRENT ---
 		open_set[best_idx] = open_set[-1]
 		open_set.pop_back()
 		open_set_hash.erase(current)
 
-		# Success!
+		# --- SUCCESS CHECK ---
 		if current == end_pid:
 			return _reconstruct_path(came_from, current)
 
-		# --- FALLBACK TRACKING ---
-		# If we can't reach the target, we remember the physically closest node we visited.
+		# --- GET PROVINCE DATA ---
+		# We need the actual object to check Types and Ports
+		var current_prov: Province = province_objects[current]
+		
+		# Fallback tracking
 		var dist_to_target = _heuristic(current, end_pid)
 		if dist_to_target < closest_dist_so_far:
 			closest_dist_so_far = dist_to_target
 			closest_pid_so_far = current
 
 		# --- NEIGHBOR LOOP ---
+		# We assume adjacency_list is kept in sync with province_objects[pid].neighbors
 		var neighbors = adjacency_list.get(current, [])
+		
 		for neighbor in neighbors:
-			# --- RESTRICTION CHECK ---
-			if restricted_mode:
-				# We allow entering the END PID even if it's in a restricted country
-				# (You can attack a country you don't have access to, usually)
-				if neighbor != end_pid:
-					var n_country = province_to_country.get(neighbor, "")
-					if not allowed_dict.has(n_country):
-						continue
+			var neighbor_prov: Province = province_objects[neighbor]
+			
+			# --- RULE 1: LAND -> SEA REQUIRES PORT ---
+			if current_prov.type == Province.LAND and neighbor_prov.type == Province.SEA:
+				if not current_prov.has_port:
+					continue # BLOCKED: No port to launch ships
 
-			# standard cost is 1.0 per province hop
+			# --- RULE 2: POLITICAL RESTRICTIONS ---
+			if restricted_mode:
+				# We only check permissions if the TARGET is Land.
+				# Sea (Type 0) is always free.
+				if neighbor_prov.type == Province.LAND:
+					# Exception: We can always enter the final destination (Attack Move)
+					if neighbor != end_pid:
+						if not allowed_dict.has(neighbor_prov.country):
+							continue # BLOCKED: No military access
+			
+			# --- STANDARD A* CALCULATION ---
+			# Cost is 1.0 per hop
 			var tentative_g = g_score.get(current, INF) + 1.0
 
 			if tentative_g < g_score.get(neighbor, INF):
@@ -747,22 +757,21 @@ func _find_path_astar(start_pid: int, end_pid: int, allowed_countries: Array[Str
 					open_set.append(neighbor)
 					open_set_hash[neighbor] = true
 
-	# Path not found
-	# If restricted mode, return path to the closest allowed province we found
+	# Path not found - Return closest attempt
 	if restricted_mode and closest_pid_so_far != start_pid:
 		return _reconstruct_path(came_from, closest_pid_so_far)
 
 	return []
 
-
 func _heuristic(a: int, b: int) -> float:
-	# OPTIMIZED:
-	# Returns the estimated cost scaled down to match 'Step' cost.
-	# Without scaling, A* becomes greedy and fails on concave paths (U-shapes).
-	if not province_centers.has(a) or not province_centers.has(b):
-		return 0.0  # Safety fallback
+	# Now using province_objects to get the center
+	var prov_a = province_objects.get(a)
+	var prov_b = province_objects.get(b)
+	
+	if not prov_a or not prov_b:
+		return 0.0
 
-	var dist_pixels = province_centers[a].distance_to(province_centers[b])
+	var dist_pixels = prov_a.center.distance_to(prov_b.center)
 	return dist_pixels * HEURISTIC_SCALE
 
 
@@ -790,25 +799,33 @@ func print_cache_stats() -> void:
 func force_bidirectional_connections() -> void:
 	var fix_count = 0
 
-	# Iterate through every single province (A)
-	for pid_a in adjacency_list.keys():
-		var neighbors = adjacency_list[pid_a]
+	# 1. Iterate through every province object
+	for pid_a in province_objects.keys():
+		var prov_a: Province = province_objects[pid_a]
+		
+		var neighbors_of_a = prov_a.neighbors 
 
-		# Iterate through its neighbors (B)
-		for pid_b in neighbors:
+		for pid_b in neighbors_of_a:
+			# Safety check: Does the neighbor ID even exist in our world?
+			if not province_objects.has(pid_b):
+				push_warning("Graph Repair: Province %d lists neighbor %d, but %d doesn't exist!" % [pid_a, pid_b, pid_b])
+				continue
+				
+			var prov_b: Province = province_objects[pid_b]
+			
 			# Check if B points back to A
-			if adjacency_list.has(pid_b):
-				var b_neighbors = adjacency_list[pid_b]
-				if not b_neighbors.has(pid_a):
-					# MISSING LINK FOUND! Fix it.
-					b_neighbors.append(pid_a)
-					fix_count += 1
-			else:
-				# PID_B exists in A's list but doesn't have its own entry
-				adjacency_list[pid_b] = [pid_a]
+			if not pid_a in prov_b.neighbors:
+				prov_b.neighbors.append(pid_a)
+				
+				if adjacency_list.has(pid_b):
+					if not pid_a in adjacency_list[pid_b]:
+						adjacency_list[pid_b].append(pid_a)
+				else:
+					adjacency_list[pid_b] = [pid_a]
+					
 				fix_count += 1
 
-	print("Graph Repair Complete: Fixed %d one-way connections." % fix_count)
+	print("Graph Repair Complete: Fixed %d one-way connections in Province Resources." % fix_count)
 
 
 func _is_mouse_over_ui() -> bool:
