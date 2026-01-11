@@ -121,6 +121,7 @@ class Battle:
 				TroopManager.teleport_troop_to_province(t, retreat_pid)
 
 		MapManager.transfer_ownership(defender_pid, attacker_country)
+		manager._check_country_collapse(defender_country, attacker_country)
 		manager.end_battle(self)
 
 	func _find_retreat_province(from_pid: int, country: String) -> int:
@@ -196,14 +197,14 @@ func apply_casualties(pid: int, country: String, damage_divisions: float):
 
 
 func resolve_province_arrival(pid: int, troop: TroopData):
-	var country = MapManager.province_to_country.get(pid)
-	if country != troop.country_name and is_at_war_names(troop.country_name, country):
-		var enemies = TroopManager.get_province_strength(pid, country)
+	var target_country = MapManager.province_to_country.get(pid)
+
+	if target_country != troop.country_name and is_at_war_names(troop.country_name, target_country):
+		var enemies = TroopManager.get_province_strength(pid, target_country)
+
 		if enemies <= 0:
 			MapManager.transfer_ownership(pid, troop.country_name)
-
-
-# --- War Declaration & State ---
+			_check_country_collapse(target_country, troop.country_name)
 
 
 func declare_war(a: CountryData, b: CountryData) -> void:
@@ -262,6 +263,8 @@ func get_enemies_of(country_name: String) -> Array[String]:
 	for enemy_data in wars[country_data].keys():
 		enemies.append(enemy_data.country_name)
 
+	MapManager.get_cities_province_country(country_name)
+
 	return enemies
 
 
@@ -271,3 +274,46 @@ func get_province_midpoint(pid1: int, pid2: int) -> Vector2:
 	var c1 = MapManager.province_centers.get(pid1, Vector2.ZERO)
 	var c2 = MapManager.province_centers.get(pid2, Vector2.ZERO)
 	return (c1 + c2) * 0.5
+
+
+func _check_country_collapse(country_name: String, victor_name: String):
+	var cities = MapManager.get_cities_province_country(country_name)
+
+	if cities.size() == 0:
+		_handle_total_collapse(country_name, victor_name)
+
+
+func _handle_total_collapse(fallen_country_name: String, victor_country_name: String):
+	print("--- COLLAPSE: ", fallen_country_name, " has fallen to ", victor_country_name, " ---")
+
+	# 1. Get all provinces owned by the fallen country
+	var all_provinces = MapManager.country_to_provinces.get(fallen_country_name, []).duplicate()
+
+	# 2. Transfer every single one to the victor
+	for pid in all_provinces:
+		MapManager.transfer_ownership(pid, victor_country_name)
+
+	# 3. Wipe any remaining troops of the fallen country from the map
+	var remaining_troops = TroopManager.get_troops_for_country(fallen_country_name)
+	for t in remaining_troops:
+		TroopManager.remove_troop_by_war(t)
+
+	# 4. Remove the country from all active wars
+	var fallen_data = CountryManager.get_country(fallen_country_name)
+	if wars.has(fallen_data):
+		wars.erase(fallen_data)
+
+	# Clean up other countries' war lists
+	for country_obj in wars:
+		if wars[country_obj].has(fallen_data):
+			wars[country_obj].erase(fallen_data)
+
+	if fallen_country_name == CountryManager.player_country.country_name:
+		MusicManager.play_sfx(MusicManager.SFX.GAME_OVER)
+		PopupManager.show_alert(
+			"game_over", CountryManager.player_country, CountryManager.player_country
+		)
+		MusicManager.play_music(MusicManager.MUSIC.MAIN_THEME)
+
+	# 5. Notify the player
+#	PopupManager.show_alert("conquest", victor_country_name + " has fully annexed " + fallen_country_name)

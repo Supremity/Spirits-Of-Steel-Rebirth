@@ -14,7 +14,7 @@ func _ready():
 	add_child(ui_layer)
 
 
-func show_alert(type: String, country1: CountryData, country2: CountryData):
+func show_alert(type: String, country1: CountryData = null, country2: CountryData = null):
 	var popup = AlertPopupScene.instantiate()
 
 	# 1. Set Data
@@ -26,8 +26,6 @@ func show_alert(type: String, country1: CountryData, country2: CountryData):
 	# 3. Position and Track
 	active_popups.append(popup)
 
-	# We wait one frame to position it, to ensure the popup
-	# has calculated its own size based on the text inside.
 	popup.call_deferred("reset_size")
 	call_deferred("_restack_popups")
 

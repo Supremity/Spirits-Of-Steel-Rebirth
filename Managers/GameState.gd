@@ -10,6 +10,7 @@ var industry_building := INDUSTRY.NOTHING
 var game_ui: GameUI
 var game_log: CanvasLayer
 
+
 func reset_industry_building():
 	industry_building = INDUSTRY.NOTHING
 	MapManager.show_countries_map()

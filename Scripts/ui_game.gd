@@ -408,7 +408,7 @@ func open_decisions_tree(_data: Dictionary):
 func _on_log_button_up() -> void:
 	# This flips the visibility: if it's on, it goes off. If it's off, it goes on.
 	GameState.game_log.visible = !GameState.game_log.visible
-	
+
 	# Optional: Play a UI sound effect
 	if MusicManager:
 		MusicManager.play_sfx(MusicManager.SFX.OPEN_MENU)

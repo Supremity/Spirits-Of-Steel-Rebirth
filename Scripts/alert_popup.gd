@@ -43,6 +43,8 @@ func _update_ui():
 
 	if _type == "war":
 		description.text = "%s has declared war on %s" % [_c1.name, _c2.name]
+	if _type == "game_over":
+		description.text = "Game Over"
 
 
 func _on_ok():
