@@ -84,7 +84,8 @@ func _get_menu_actions(context: Context, category: Category) -> Array:
 			Category.ECONOMY:
 			[
 				{"text": "Research", "cost": 0, "func": "open_research_tree"},
-				{"text": "Build Factory", "cost": 0, "func": "_build_factory"}
+				{"text": "Build Factory", "cost": 0, "func": "_build_factory"},
+				{"text": "Build Port", "cost": 0, "func": "_build_port"},
 			],
 			Category.MILITARY:
 			[
@@ -148,14 +149,15 @@ func _on_province_clicked(_pid: int, country_name: String) -> void:
 	sidemenu_flag.texture = TroopManager.get_flag(country_name)
 	label_country_sidemenu.text = country_name.capitalize().replace("_", " ")
 
-	var new_context = Context.DIPLOMACY
+	if !GameState.choosing_deploy_city:
+		var new_context = Context.DIPLOMACY
 
-	if country_name == player.country_name:
-		new_context = Context.SELF
-	elif WarManager.is_at_war(player, selected_country):
-		new_context = Context.WAR
+		if country_name == player.country_name:
+			new_context = Context.SELF
+		elif WarManager.is_at_war(player, selected_country):
+			new_context = Context.WAR
 
-	open_menu(new_context, Category.GENERAL)
+		open_menu(new_context, Category.GENERAL)
 
 
 func toggle_menu(context := Context.SELF) -> void:
@@ -189,9 +191,11 @@ func _on_menu_button_button_up(_menu_index: int) -> void:
 	current_category = _menu_index as Category
 	if _menu_index == Category.ECONOMY:
 		MapManager.show_industry_country(player.country_name)
+		pass
 	else:
 		MapManager.set_country_color(player.country_name, Color.TRANSPARENT)
-		GameState.building_factories = false
+		GameState.industry_building = GameState.INDUSTRY.NOTHING
+		MapManager.show_countries_map()	
 	_build_action_list()
 
 
@@ -350,7 +354,14 @@ func improve_stability(_data: Dictionary):
 
 # These must accept _data to prevent crashing
 func _build_factory(_data: Dictionary):
-	GameState.building_factories = true
+	GameState.industry_building = GameState.INDUSTRY.FACTORY
+	MapManager.show_industry_country(player.country_name)
+
+	pass
+
+func _build_port(_data: Dictionary):
+	GameState.industry_building = GameState.INDUSTRY.PORT
+	MapManager.show_possible_ports_map(player.country_name)
 	pass
 
 

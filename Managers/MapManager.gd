@@ -316,7 +316,6 @@ func get_province_at_pos(pos: Vector2, map_sprite: Sprite2D = null) -> int:
 	var y: int
 	var size = id_map_image.get_size()
 
-	# --- INPUT MODE: If map_sprite is provided, we use global coordinates ---
 	if map_sprite:
 		var local = map_sprite.to_local(pos)
 		var sprite_size = map_sprite.texture.get_size()
@@ -331,7 +330,6 @@ func get_province_at_pos(pos: Vector2, map_sprite: Sprite2D = null) -> int:
 			x += int(sprite_size.x)
 		y = int(local.y)
 
-	# --- INTERNAL MODE: If map_sprite is null, pos is already pixel coordinates ---
 	else:
 		x = int(pos.x)
 		y = int(pos.y)
@@ -348,31 +346,57 @@ func get_province_at_pos(pos: Vector2, map_sprite: Sprite2D = null) -> int:
 
 func handle_hover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 	if _is_mouse_over_ui():
-		if last_hovered_pid > 1:
-			_update_lookup(last_hovered_pid, original_hover_color)
-			last_hovered_pid = -1
-			Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+		_reset_last_hover()
 		return
 
 	var pid = get_province_at_pos(global_pos, map_sprite)
 	current_hovered_pid = pid
-	if GameState.choosing_deploy_city or GameState.building_factories:
-		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
-		if pid != last_hovered_pid:
-			if last_hovered_pid > 1:
-				_update_lookup(last_hovered_pid, original_hover_color)
 
-			var player_provinces = country_to_provinces.get(CountryManager.player_country.name, [])
-			if pid > 1 and pid in player_provinces:
-				original_hover_color = state_color_image.get_pixel(pid, 0)
-				var highlight_color = original_hover_color.lightened(0.15).blend(Color.GREEN_YELLOW)
-				_update_lookup(pid, highlight_color)
+	var highlight_color = _get_contextual_highlight(pid)
 
-				last_hovered_pid = pid
-				province_hovered.emit(pid, CountryManager.player_country.name)
-			else:
-				last_hovered_pid = -1
-				province_hovered.emit(-1, "")
+	if pid != last_hovered_pid:
+		_reset_last_hover() # Clean up the old one
+
+		if pid > 1 and highlight_color != Color.TRANSPARENT:
+			original_hover_color = state_color_image.get_pixel(pid, 0)
+			_update_lookup(pid, highlight_color)
+			
+			last_hovered_pid = pid
+			Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+			province_hovered.emit(pid, CountryManager.player_country.name)
+		else:
+			Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+			province_hovered.emit(-1, "")
+
+func _reset_last_hover() -> void:
+	if last_hovered_pid > 1:
+		_update_lookup(last_hovered_pid, original_hover_color)
+	last_hovered_pid = -1
+				
+func _get_contextual_highlight(pid: int) -> Color:
+	if pid <= 1: return Color.TRANSPARENT
+	
+	var player_name = CountryManager.player_country.country_name
+	var is_player_owned = (province_to_country.get(pid) == player_name)
+	
+	if not is_player_owned: return Color.TRANSPARENT
+
+	if GameState.industry_building == GameState.INDUSTRY.PORT:
+		var coastal_provinces = get_provinces_near_sea(player_name)
+		if pid in coastal_provinces && !province_objects[pid].has_port:
+			return Color.CYAN
+		else:
+			return Color.TRANSPARENT
+
+	elif GameState.choosing_deploy_city:
+		if province_objects[pid].city.length() > 0:
+			return Color.CYAN.lightened(0.3)
+		return Color.TRANSPARENT # Don't highlight non-city provinces during deploy
+
+	elif GameState.industry_building != GameState.INDUSTRY.NOTHING:
+		return state_color_image.get_pixel(pid, 0).lightened(0.2).blend(Color.GREEN_YELLOW)
+
+	return Color.TRANSPARENT
 
 
 func handle_click(global_pos: Vector2, map_sprite: Sprite2D) -> void:
@@ -380,49 +404,72 @@ func handle_click(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 		return
 
 	var pid = get_province_with_radius(global_pos, map_sprite, 5)
-#	print (province_objects[pid].gdp)
-	if pid <= 1 or province_objects[pid].country == "Sea":
-		close_sidemenu.emit()
+
+	# 1. Handle Clicks on Water or Invalid Areas
+	if pid <= 1 or province_objects[pid].type == 0: # 0 is SEA
+		if GameState.industry_building != GameState.INDUSTRY.NOTHING:
+			GameState.reset_industry_building()
+			show_countries_map()
+		else:
+			close_sidemenu.emit()
 		return
 
+	# 2. Contextual Interaction Logic
+	var player_name = CountryManager.player_country.name
+	var is_player_owned = (province_to_country.get(pid) == player_name)
+
 	if GameState.choosing_deploy_city:
-		var player_provinces = country_to_provinces.get(CountryManager.player_country.name, [])
-
-		if pid in player_provinces:
-			province_clicked.emit(pid, CountryManager.player_country.name)
-
-			CountryManager.player_country.deploy_pid = pid
-			GameState.choosing_deploy_city = false  # Exit deployment mode
-			Input.set_default_cursor_shape(Input.CURSOR_ARROW)  # Reset cursor immediately
-
-			if last_hovered_pid > 1:
-				_update_lookup(last_hovered_pid, original_hover_color)
-				last_hovered_pid = -1
+		if is_player_owned:
+			_execute_deployment(pid, player_name)
 		else:
-			print("Clicked a province, but it's not yours!")
-			return
-	if GameState.building_factories:
-		var player_provinces = country_to_provinces.get(CountryManager.player_country.name, [])
+			print("Action Failed: Province not owned by player.")
 
-		if pid in player_provinces:
-			province_clicked.emit(pid, CountryManager.player_country.name)
-
-			province_objects[pid].has_factory = true
-			Input.set_default_cursor_shape(Input.CURSOR_ARROW)  # Reset cursor immediately
-
-			if last_hovered_pid > 1:
-				_update_lookup(last_hovered_pid, original_hover_color)
-				last_hovered_pid = -1
-			show_industry_country(CountryManager.player_country.name)
-
+	elif GameState.industry_building != GameState.INDUSTRY.NOTHING:
+		if is_player_owned:
+			_execute_industry_build(pid, player_name)
 		else:
-			GameState.building_factories = false
-			print("Clicked a province, but it's not yours!")
-			return
+			print("Action Failed: Cannot build in foreign territory.")
+			GameState.reset_industry_building()
+			show_countries_map()
 
 	else:
+		# Default behavior: Inspect province or move troops
 		if TroopManager.troop_selection.selected_troops.is_empty():
 			province_clicked.emit(pid, province_to_country.get(pid, ""))
+
+# --- Helper Execution Functions to keep click logic clean ---
+func _execute_deployment(pid: int, player_name: String) -> void:
+	province_clicked.emit(pid, player_name)
+	CountryManager.player_country.deploy_pid = pid
+	GameState.choosing_deploy_city = false
+	_cleanup_interaction_state()
+
+func _execute_industry_build(pid: int, player_name: String) -> void:
+	var type = GameState.industry_building
+	var province = province_objects[pid]
+	
+	match type:
+		GameState.INDUSTRY.FACTORY:
+			province.has_factory = true
+			_cleanup_interaction_state()
+			show_industry_country(player_name) 
+			
+		GameState.INDUSTRY.PORT:
+			if pid in get_provinces_near_sea(player_name):
+				province.has_port = true
+				_cleanup_interaction_state()
+				show_possible_ports_map(player_name) 
+			else:
+				print("Action Failed: Port must be on a coast!")
+				return 
+
+	province_clicked.emit(pid, player_name)
+#----------------
+func _cleanup_interaction_state() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+	if last_hovered_pid > 1:
+		_update_lookup(last_hovered_pid, original_hover_color)
+		last_hovered_pid = -1
 
 
 # To probe around and still register a click if we hit province/coutnry border
@@ -873,10 +920,35 @@ func show_industry_country(country_name: String) -> void:
 			state_color_image.set_pixel(pid, 0, Color.YELLOW)
 		elif province.has_factory:
 			state_color_image.set_pixel(pid, 0, Color.GREEN)
+		elif province.has_port:
+			state_color_image.set_pixel(pid, 0, Color.BLUE)
+
+			
 		else:
 			state_color_image.set_pixel(pid, 0, Color.WHITE)
-
 	state_color_texture.update(state_color_image)
+
+func show_possible_ports_map(country_name: String) -> void:
+	if not country_to_provinces.has(country_name):
+		push_warning("MapManager: Country " + country_name + " not found.")
+		return
+	
+	for pid in range(max_province_id + 1):
+		state_color_image.set_pixel(pid, 0, Color.DARK_SLATE_GRAY) # or Color.BLACK
+
+	var provinces_near_sea = get_provinces_near_sea(country_name)
+	
+	for pid in provinces_near_sea:
+		var province = province_objects[pid]
+		if province.city.length() > 0:
+			pass
+		elif province.has_port:
+			state_color_image.set_pixel(pid, 0, Color.BLUE)
+		else:
+			state_color_image.set_pixel(pid, 0, Color.LIGHT_CYAN)
+	
+	state_color_texture.update(state_color_image)
+	print("MapManager: Showing possible ports for ", country_name)
 
 
 func _load_country_colors() -> void:
@@ -1041,3 +1113,19 @@ func _get_gdp_from_color(c: Color) -> int:
 		return best_gdp
 
 	return 0
+	
+func get_provinces_near_sea(country_name: String) -> Array[int]:
+	var provinces = country_to_provinces.get(country_name, [])
+	var provinces_near_sea: Array[int] = []
+	
+	for pid in provinces:
+		var neighbors = adjacency_list.get(pid, [])
+		
+		for neighbor_id in neighbors:
+			var neighbor_province = province_objects.get(neighbor_id)
+			
+			if neighbor_province and neighbor_province.type == 0: # Assuming 0 is SEA
+				provinces_near_sea.append(pid)
+				break 
+				
+	return provinces_near_sea

@@ -21,6 +21,7 @@ func _enter_tree() -> void:
 
 
 func _ready() -> void:
+	await get_tree().process_frame
 	TroopManager.troop_selection = $TroopSelection as TroopSelection
 
 	# TODO(pol): Load CountryManager after map instead of an autoload to avoid this.
@@ -122,7 +123,7 @@ func _on_map_ready() -> void:
 		push_error("CustomRenderer node not found!")
 
 	CountryManager.initialize_countries()
-	CountryManager.set_player_country("spain")
+	CountryManager.set_player_country("brazil")
 	MapManager.force_bidirectional_connections()
 	for c in ["netherlands", "france", "portugal", "spain", "germany"]:
 		var provinces = MapManager.country_to_provinces.get(c, []).duplicate()
