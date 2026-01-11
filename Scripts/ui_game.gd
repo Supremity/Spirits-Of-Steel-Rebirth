@@ -149,7 +149,7 @@ func _on_province_clicked(_pid: int, country_name: String) -> void:
 	sidemenu_flag.texture = TroopManager.get_flag(country_name)
 	label_country_sidemenu.text = country_name.capitalize().replace("_", " ")
 
-	if !GameState.choosing_deploy_city:
+	if !GameState.choosing_deploy_city || GameState.industry_building == GameState.INDUSTRY.NOTHING:
 		var new_context = Context.DIPLOMACY
 
 		if country_name == player.country_name:
@@ -171,6 +171,8 @@ func toggle_menu(context := Context.SELF) -> void:
 
 
 func open_menu(context: Context, category: Category) -> void:
+	if GameState.choosing_deploy_city or GameState.industry_building != GameState.INDUSTRY.NOTHING:
+		return
 	current_context = context
 	current_category = category
 
@@ -297,6 +299,7 @@ func _update_flag() -> void:
 func close_menu() -> void:
 	if is_open:
 		MusicManager.play_sfx(MusicManager.SFX.CLOSE_MENU)
+	GameState.reset_industry_building()
 	slide_out()
 
 

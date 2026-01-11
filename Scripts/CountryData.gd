@@ -9,10 +9,17 @@ var political_power: float = 50.0
 var money: float = 0
 var gdp: int = 0
 var stability: float = 0.5
-
+var factories_amount = 0
+var income = 0
+var army_cost = 0
+var province_cost = 500
 var total_population: int = 0
 var manpower: int = 0
 var war_support: float = 0.5
+var troop_speed_modifier = 1.0
+
+var army_level = 1
+var army_base_cost = 100  # This goes times level. Each level makes army stronger and faster
 
 var manpower_per_division = 10000
 const MANPOWER_RECOVERY_PER_YEAR := 0.10  # 10%
@@ -68,12 +75,17 @@ func _init(p_name: String) -> void:
 
 
 func process_hour() -> void:
-	political_power += daily_pp_gain
-	money += gdp / 8760 * 0.5
-	money -= calculate_army_upkeep()
-	update_manpower_pool()
+	political_power += 0.04  # daily_pp_gain
 
-	if not is_player:
+	income = (gdp / 8760) * 0.2
+	income += CountryManager.get_factories_country(country_name) * 1000
+	army_cost = calculate_army_upkeep()
+	money += income - army_cost
+	troop_speed_modifier = 1 + army_level * 0.1
+
+	if is_player:
+		print("income: ", income, " | army_cost: ", army_cost, " | province_cost: ", province_cost)
+	else:
 		AiManager.process_hour(self)
 
 
@@ -81,12 +93,18 @@ func process_day() -> void:
 	total_population = CountryManager.get_country_population(country_name)  # Update it due to war an dstuff
 	gdp = CountryManager.get_country_gdp(country_name) * total_population * 0.000001
 	_process_training()
-
+	factories_amount = CountryManager.get_factories_country(country_name)
 	if not is_player:
 		AiManager.process_day(self)
 
 
 #endregion
+
+
+func get_daily_state_income() -> float:
+	var tax_rate := 0.15
+	var tax_efficiency := 0.7
+	return (gdp * tax_rate * tax_efficiency) / 365.0
 
 
 #region --- Military Management ---
@@ -120,8 +138,17 @@ func _process_training() -> void:
 func calculate_army_upkeep() -> float:
 	var total := 0.0
 	for troop in TroopManager.get_troops_for_country(country_name):
-		total += troop.divisions * 10.0
+		total += troop.divisions * (army_level * army_base_cost)
 	return total
+
+
+func get_army_pressure() -> float:
+	var army := 0
+	for troop in TroopManager.get_troops_for_country(country_name):
+		army += troop.divisions
+
+	var capacity = max(1.0, (gdp * 0.03) + factories_amount * 5)
+	return army / capacity
 
 
 #endregion
@@ -176,17 +203,23 @@ func update_manpower_pool() -> void:
 #region --- Stats & Getters ---
 func get_max_morale() -> float:
 	var base := 60.0 + (stability * 40.0)
+	base += army_level * 5  # Each army level boosts morale
 	return base * 0.5 if money < 0 else base
 
 
 func get_attack_efficiency() -> float:
 	var eff := 0.9 + (war_support * 0.3)
+	eff += army_level * 0.05  # Each army level gives extra attack power
 	return eff * 0.7 if money < 0 else eff
 
 
 func get_defense_efficiency() -> float:
 	var eff := 1.0 + (stability * 0.15)
+	eff += army_level * 0.05  # Each army level gives extra defense
 	return eff * 0.8 if money < 0 else eff
+
+
+#endregion
 
 
 func spend_politicalpower(cost: int) -> bool:

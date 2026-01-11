@@ -250,6 +250,21 @@ func get_countries_at_war() -> Array:
 	return wars.keys()
 
 
+## Returns an array of country names that are currently at war with the given country name
+func get_enemies_of(country_name: String) -> Array[String]:
+	var enemies: Array[String] = []
+	var country_data = CountryManager.get_country(country_name)
+
+	if not country_data or not wars.has(country_data):
+		return enemies
+
+	# wars[country_data] returns a Dictionary where keys are enemy CountryData objects
+	for enemy_data in wars[country_data].keys():
+		enemies.append(enemy_data.country_name)
+
+	return enemies
+
+
 func get_province_midpoint(pid1: int, pid2: int) -> Vector2:
 	if not MapManager:
 		return Vector2.ZERO

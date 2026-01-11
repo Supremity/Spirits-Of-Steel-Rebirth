@@ -81,8 +81,6 @@ func _draw() -> void:
 	_draw_selection_box()
 
 
-
-
 # Optimized Troop Drawing
 # =========================================================
 func _draw_troops() -> void:
@@ -307,9 +305,9 @@ func _draw_city_name_visual(pos: Vector2, text: String) -> void:
 	draw_string(_font, draw_pos, text, 0, -1, font_size, Color.WHITE)
 
 
-
 var _cached_edges: Array = []
 var _cached_centers: Dictionary = {}
+
 
 func rebuild_adjacency_cache() -> void:
 	_cached_edges.clear()
@@ -332,7 +330,8 @@ func rebuild_adjacency_cache() -> void:
 			var end = _cached_centers.get(neighbor_id)
 			if end != null:
 				_cached_edges.append([start, end])
-				
+
+
 func draw_adjacency_web() -> void:
 	var line_color := Color(0, 1, 1, 0.4)
 	var thickness := 1.5

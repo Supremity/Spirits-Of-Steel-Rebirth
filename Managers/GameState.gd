@@ -12,3 +12,4 @@ var game_ui: GameUI
 
 func reset_industry_building():
 	industry_building = INDUSTRY.NOTHING
+	MapManager.show_countries_map()

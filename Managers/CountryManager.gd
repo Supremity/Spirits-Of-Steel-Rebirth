@@ -91,6 +91,14 @@ func get_country_gdp(country_name: String) -> int:
 	return total_gdp
 
 
+func get_factories_country(country_name: String) -> int:
+	var provinces = MapManager.country_to_provinces.get(country_name, [])
+	return provinces.reduce(
+		func(accum, pid): return accum + (1 if MapManager.province_objects[pid].has_factory else 0),
+		0
+	)
+
+
 func get_country_used_manpower(country_name, country_obj) -> int:
 	var total_divisions = 0
 	var troop_list = TroopManager.get_troops_for_country(country_name)

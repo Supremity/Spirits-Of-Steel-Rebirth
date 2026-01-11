@@ -27,11 +27,11 @@ var province_to_country: Dictionary = {}
 var country_to_provinces: Dictionary = {}
 var province_objects: Dictionary = {}
 
+var adjacency_list: Dictionary = {}  # Stores {ID: [Neighbor_ID_1, Neighbor_ID_2, ...]}
 var current_hovered_pid: int = -1
 var last_hovered_pid: int = -1
 var original_hover_color: Color
 var province_centers: Dictionary = {}  # Stores {ID: Vector2(x, y)}
-var adjacency_list: Dictionary = {}  # Stores {ID: [Neighbor_ID_1, Neighbor_ID_2, ...]}
 
 const MAP_DATA_PATH = "res://map_data/MapData.tres"
 const CACHE_FOLDER = "res://map_data/"
@@ -505,7 +505,6 @@ func get_province_with_radius(center: Vector2, map_sprite: Sprite2D, radius: int
 func _update_lookup(pid: int, color: Color) -> void:
 	state_color_image.set_pixel(pid, 0, color)
 	state_color_texture.update(state_color_image)
-	print(pid, color)
 
 
 func _calculate_province_centroids() -> void:
@@ -934,7 +933,6 @@ func show_countries_map() -> void:
 		state_color_image.set_pixel(pid, 0, country_color)
 
 	state_color_texture.update(state_color_image)
-	print("MapManager: Switched to Political (Country) View")
 
 
 func show_industry_country(country_name: String) -> void:
@@ -1167,3 +1165,51 @@ func get_provinces_near_sea(country_name: String) -> Array[int]:
 				break
 
 	return provinces_near_sea
+
+
+## Returns an array of province IDs that are on the border of a different country
+func get_border_provinces(country_name: String) -> Array[int]:
+	var border_provinces: Array[int] = []
+
+	# Get all provinces owned by this country
+	var my_provinces = country_to_provinces.get(country_name, [])
+
+	for prov_id in my_provinces:
+		var province_data: Province = province_objects.get(prov_id)
+
+		if not province_data:
+			continue
+
+		# Check neighbors of this province
+		for neighbor_id in province_data.neighbors:
+			var neighbor_owner = province_to_country.get(neighbor_id, "unknown")
+
+			# If the neighbor is owned by someone else (and isn't sea/neutral)
+			if neighbor_owner != country_name:
+				border_provinces.append(prov_id)
+				break  # Move to next province once we know this one is a border
+
+	return border_provinces
+
+
+func get_cities_province_country(country_name) -> Array:
+	var provinces = []
+	for pid in country_to_provinces[country_name]:
+		if len(province_objects[pid].city) > 0:
+			provinces.append(pid)
+	return provinces
+
+
+## Returns provinces that specifically border a certain enemy
+func get_provinces_bordering_enemy(country_name: String, enemy_name: String) -> Array[int]:
+	var specific_borders: Array[int] = []
+	var my_provinces = country_to_provinces.get(country_name, [])
+
+	for prov_id in my_provinces:
+		var province_data: Province = province_objects.get(prov_id)
+		for neighbor_id in province_data.neighbors:
+			if province_to_country.get(neighbor_id) == enemy_name:
+				specific_borders.append(prov_id)
+				break
+
+	return specific_borders
