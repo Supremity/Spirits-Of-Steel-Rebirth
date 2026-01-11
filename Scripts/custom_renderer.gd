@@ -79,35 +79,8 @@ func _draw() -> void:
 	_draw_active_movements()
 	_draw_battles()
 	_draw_selection_box()
-	#draw_adjacency_web()
 
 
-# For debugging
-func draw_adjacency_web() -> void:
-	var adj = MapManager.adjacency_list
-	var centers = MapManager.province_centers
-
-	var line_color = Color(0, 1, 1, 0.4)  # Cyan with 40% transparency
-	var line_thickness = 1.5
-	var circle_radius = 2.0
-
-	for pid in adj.keys():
-		if not centers.has(pid):
-			continue
-
-		var start_point = centers[pid]
-
-		# Optional: Draw a small dot at the province center
-		draw_circle(start_point, circle_radius, Color.WHITE)
-
-		for neighbor_id in adj[pid]:
-			# neighbor_id < pid prevents drawing the same line twice
-			if neighbor_id < pid:
-				continue
-
-			if centers.has(neighbor_id):
-				var end_point = centers[neighbor_id]
-				draw_line(start_point, end_point, line_color, line_thickness, true)
 
 
 # Optimized Troop Drawing
@@ -332,3 +305,39 @@ func _draw_city_name_visual(pos: Vector2, text: String) -> void:
 		draw_string(_font, draw_pos + (dir * outline_size), text, 0, -1, font_size, outline_col)
 
 	draw_string(_font, draw_pos, text, 0, -1, font_size, Color.WHITE)
+
+
+
+var _cached_edges: Array = []
+var _cached_centers: Dictionary = {}
+
+func rebuild_adjacency_cache() -> void:
+	_cached_edges.clear()
+	_cached_centers.clear()
+
+	var adj := MapManager.adjacency_list
+	var centers := MapManager.province_centers
+
+	for pid in centers:
+		_cached_centers[pid] = centers[pid]
+
+	for pid in adj:
+		var start = _cached_centers.get(pid)
+		if start == null:
+			continue
+
+		for neighbor_id in adj[pid]:
+			if neighbor_id <= pid:
+				continue
+			var end = _cached_centers.get(neighbor_id)
+			if end != null:
+				_cached_edges.append([start, end])
+				
+func draw_adjacency_web() -> void:
+	var line_color := Color(0, 1, 1, 0.4)
+	var thickness := 1.5
+	var radius := 2.0
+	for pos in _cached_centers.values():
+		draw_circle(pos, radius, Color.WHITE)
+	for edge in _cached_edges:
+		draw_line(edge[0], edge[1], line_color, thickness, true)

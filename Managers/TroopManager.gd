@@ -496,8 +496,6 @@ func _auto_merge_in_province(province_id: int, country: String) -> void:
 	for troop in to_remove:
 		_remove_troop(troop)
 
-	print("Merged %d stacks into %s in %d" % [to_remove.size(), primary.country_name, province_id])
-
 
 # =============================================================
 # WAR MANAGER INTERFACE (Hooks for Combat & Strategy)

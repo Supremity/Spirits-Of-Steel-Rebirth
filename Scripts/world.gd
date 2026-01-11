@@ -119,6 +119,7 @@ func _on_map_ready() -> void:
 	if troop_renderer:
 		troop_renderer.map_sprite = map_sprite
 		troop_renderer.map_width = map_width
+		troop_renderer.rebuild_adjacency_cache()
 	else:
 		push_error("CustomRenderer node not found!")
 

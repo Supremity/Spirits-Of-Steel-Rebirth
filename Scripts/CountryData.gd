@@ -63,8 +63,8 @@ func _init(p_name: String) -> void:
 		(total_population - CountryManager.get_country_used_manpower(country_name, self))
 		* military_size
 	)
-	gdp = CountryManager.get_country_gdp(country_name) * total_population * 0.000001
-	money = gdp
+	gdp = (CountryManager.get_country_gdp(country_name) * total_population * 0.000001) * 0.5
+	money = 0
 
 
 func process_hour() -> void:
