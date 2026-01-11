@@ -669,6 +669,7 @@ func find_path(start_pid: int, end_pid: int, allowed_countries: Array[String] = 
 
 	return path
 
+
 func _find_path_astar(start_pid: int, end_pid: int, allowed_countries: Array[String]) -> Array[int]:
 	# 1. Optimize Allowed Check: O(1) Lookup
 	var allowed_dict = {}
@@ -715,7 +716,7 @@ func _find_path_astar(start_pid: int, end_pid: int, allowed_countries: Array[Str
 		# --- GET PROVINCE DATA ---
 		# We need the actual object to check Types and Ports
 		var current_prov: Province = province_objects[current]
-		
+
 		# Fallback tracking
 		var dist_to_target = _heuristic(current, end_pid)
 		if dist_to_target < closest_dist_so_far:
@@ -725,25 +726,24 @@ func _find_path_astar(start_pid: int, end_pid: int, allowed_countries: Array[Str
 		# --- NEIGHBOR LOOP ---
 		# We assume adjacency_list is kept in sync with province_objects[pid].neighbors
 		var neighbors = adjacency_list.get(current, [])
-		
+
 		for neighbor in neighbors:
 			var neighbor_prov: Province = province_objects[neighbor]
-			
+
 			# --- RULE 1: LAND -> SEA REQUIRES PORT ---
 			if current_prov.type == Province.LAND and neighbor_prov.type == Province.SEA:
 				if not current_prov.has_port:
-					continue # BLOCKED: No port to launch ships
+					continue  # BLOCKED: No port to launch ships
 
 			# --- RULE 2: POLITICAL RESTRICTIONS ---
 			if restricted_mode:
-				# We only check permissions if the TARGET is Land.
-				# Sea (Type 0) is always free.
+				# Sea is always free
 				if neighbor_prov.type == Province.LAND:
-					# Exception: We can always enter the final destination (Attack Move)
-					if neighbor != end_pid:
-						if not allowed_dict.has(neighbor_prov.country):
-							continue # BLOCKED: No military access
-			
+					# Strictly check if the country is in the allowed list
+					# If it's not there, we can't enter it—even if it's the end_pid
+					if not allowed_dict.has(neighbor_prov.country):
+						continue
+
 			# --- STANDARD A* CALCULATION ---
 			# Cost is 1.0 per hop
 			var tentative_g = g_score.get(current, INF) + 1.0
@@ -763,11 +763,12 @@ func _find_path_astar(start_pid: int, end_pid: int, allowed_countries: Array[Str
 
 	return []
 
+
 func _heuristic(a: int, b: int) -> float:
 	# Now using province_objects to get the center
 	var prov_a = province_objects.get(a)
 	var prov_b = province_objects.get(b)
-	
+
 	if not prov_a or not prov_b:
 		return 0.0
 
@@ -802,27 +803,32 @@ func force_bidirectional_connections() -> void:
 	# 1. Iterate through every province object
 	for pid_a in province_objects.keys():
 		var prov_a: Province = province_objects[pid_a]
-		
-		var neighbors_of_a = prov_a.neighbors 
+
+		var neighbors_of_a = prov_a.neighbors
 
 		for pid_b in neighbors_of_a:
 			# Safety check: Does the neighbor ID even exist in our world?
 			if not province_objects.has(pid_b):
-				push_warning("Graph Repair: Province %d lists neighbor %d, but %d doesn't exist!" % [pid_a, pid_b, pid_b])
+				push_warning(
+					(
+						"Graph Repair: Province %d lists neighbor %d, but %d doesn't exist!"
+						% [pid_a, pid_b, pid_b]
+					)
+				)
 				continue
-				
+
 			var prov_b: Province = province_objects[pid_b]
-			
+
 			# Check if B points back to A
 			if not pid_a in prov_b.neighbors:
 				prov_b.neighbors.append(pid_a)
-				
+
 				if adjacency_list.has(pid_b):
 					if not pid_a in adjacency_list[pid_b]:
 						adjacency_list[pid_b].append(pid_a)
 				else:
 					adjacency_list[pid_b] = [pid_a]
-					
+
 				fix_count += 1
 
 	print("Graph Repair Complete: Fixed %d one-way connections in Province Resources." % fix_count)
@@ -954,9 +960,10 @@ func show_industry_country(country_name: String) -> void:
 			state_color_image.set_pixel(pid, 0, Color.WHITE)
 	state_color_texture.update(state_color_image)
 
+
 func transfer_ownership(pid: int, new_owner_name: String) -> void:
 	var old_owner_name = province_to_country.get(pid, "")
-	
+
 	if old_owner_name == new_owner_name:
 		return
 
@@ -971,7 +978,7 @@ func transfer_ownership(pid: int, new_owner_name: String) -> void:
 
 	if not country_to_provinces.has(new_owner_name):
 		country_to_provinces[new_owner_name] = []
-	
+
 	if not pid in country_to_provinces[new_owner_name]:
 		country_to_provinces[new_owner_name].append(pid)
 
@@ -979,6 +986,7 @@ func transfer_ownership(pid: int, new_owner_name: String) -> void:
 
 	var new_color = COUNTRY_COLORS.get(new_owner_name, Color.GRAY)
 	_update_lookup(pid, new_color)
+
 
 func _load_country_colors() -> void:
 	var file := FileAccess.open("res://assets/countries.json", FileAccess.READ)

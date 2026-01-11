@@ -175,6 +175,7 @@ func end_battle(battle: Battle):
 	if active_battles.has(battle):
 		active_battles.erase(battle)
 
+
 func apply_casualties(pid: int, country: String, damage_divisions: float):
 	var troops_list = TroopManager.get_troops_in_province(pid).filter(
 		func(t): return t.country_name == country

@@ -456,21 +456,21 @@ func _auto_merge_in_province(province_id: int, country: String) -> void:
 
 	# 2. Pick the BEST Primary (The one to keep)
 	var primary = candidates[0]
-	
+
 	# SAFE CHECK: We use get() so it returns null instead of crashing if the variable is missing
 	var current_selection = null
 	if troop_selection:
-		current_selection = troop_selection.get("selected_troop") 
+		current_selection = troop_selection.get("selected_troop")
 		# Note: If you use an Array for selection, check: if current in troop_selection.selected_troops:
 
 	for i in range(1, candidates.size()):
 		var current = candidates[i]
-		
+
 		# Always prioritize keeping the currently selected unit
 		if current_selection and current_selection == current:
 			primary = current
-			break 
-		
+			break
+
 		if current.divisions > primary.divisions:
 			primary = current
 
@@ -479,11 +479,11 @@ func _auto_merge_in_province(province_id: int, country: String) -> void:
 	for t in candidates:
 		if t == primary:
 			continue
-			
+
 		primary.divisions += t.divisions
 		to_remove.append(t)
-		
-		# If we are merging the player's selection into the primary, 
+
+		# If we are merging the player's selection into the primary,
 		# we must update the selection so the UI doesn't break.
 		if current_selection and current_selection == t:
 			if troop_selection.has_method("select_troop"):
@@ -495,7 +495,7 @@ func _auto_merge_in_province(province_id: int, country: String) -> void:
 	# 4. Remove
 	for troop in to_remove:
 		_remove_troop(troop)
-		
+
 	print("Merged %d stacks into %s in %d" % [to_remove.size(), primary.country_name, province_id])
 
 

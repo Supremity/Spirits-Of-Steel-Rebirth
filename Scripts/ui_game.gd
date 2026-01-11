@@ -365,8 +365,10 @@ func _build_port(_data: Dictionary):
 	#MapManager.show_industry_country(player.country_name)
 	pass
 
+
 func _request_access(_data: Dictionary):
 	pass
+
 
 func _improve_relations(_data: Dictionary):
 	print("Improving relations")
