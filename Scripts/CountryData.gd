@@ -78,7 +78,7 @@ func process_hour() -> void:
 	political_power += 0.04  # daily_pp_gain
 
 	income = (gdp / 8760) * 0.2
-	income += CountryManager.get_factories_country(country_name) * 1000
+	income += factories_amount * 1000
 	army_cost = calculate_army_upkeep()
 	money += income - army_cost
 	troop_speed_modifier = 1 + army_level * 0.1

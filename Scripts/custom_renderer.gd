@@ -18,7 +18,7 @@ const LAYOUT = {
 	"flag_height": 20.0,
 	"min_text_width": 16.0,
 	"font_size": 16
-}
+}	
 
 const ZOOM_LIMITS = {"min_scale": 0.1, "max_scale": 2.0}
 const STACKING_OFFSET_Y := 20.0
