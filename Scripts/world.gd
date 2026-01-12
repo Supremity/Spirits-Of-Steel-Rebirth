@@ -123,7 +123,7 @@ func _on_map_ready() -> void:
 		push_error("CustomRenderer node not found!")
 
 	CountryManager.initialize_countries()
-	CountryManager.set_player_country("brazil")
+	CountryManager.set_player_country("spain")
 	MapManager.force_bidirectional_connections()
 	for c in ["netherlands", "france", "portugal", "spain", "germany"]:
 		var provinces = MapManager.country_to_provinces.get(c, []).duplicate()

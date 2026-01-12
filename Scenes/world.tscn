@@ -19,7 +19,7 @@ load_path = "res://.godot/imported/regions.png-75b8193867ba7ee4418b242a7a7efe49.
 [sub_resource type="QuadMesh" id="QuadMesh_o06y3"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_k7acu"]
-custom_aabb = AABB(20, 10, 0, 0, 0, 0)
+custom_aabb = AABB(30, 20, 0, 0, 0, 0)
 mesh = SubResource("QuadMesh_o06y3")
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("clock")]
@@ -45,6 +45,10 @@ script = ExtResource("5_o06y3")
 
 [node name="TroopMultiMesh" type="MultiMeshInstance2D" parent="MapContainer/CustomRenderer"]
 multimesh = SubResource("MultiMesh_k7acu")
+
+[node name="HoverLabel" type="Label" parent="MapContainer/CustomRenderer"]
+offset_right = 40.0
+offset_bottom = 19.0
 
 [node name="CameraController" type="Node2D" parent="."]
 position = Vector2(-1, 1)

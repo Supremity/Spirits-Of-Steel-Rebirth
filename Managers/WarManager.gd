@@ -294,7 +294,7 @@ func _handle_total_collapse(fallen_country_name: String, victor_country_name: St
 		MapManager.transfer_ownership(pid, victor_country_name)
 
 	# 3. Wipe any remaining troops of the fallen country from the map
-	var remaining_troops = TroopManager.get_troops_for_country(fallen_country_name)
+	var remaining_troops = TroopManager.get_troops_for_country(fallen_country_name).duplicate()
 	for t in remaining_troops:
 		TroopManager.remove_troop_by_war(t)
 
