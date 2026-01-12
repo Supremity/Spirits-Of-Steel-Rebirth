@@ -318,70 +318,65 @@ func _split_and_send_troop(
 ) -> void:
 	var total_divs = original_troop.divisions
 	var num_targets = target_pids.size()
-
-	if num_targets == 0:
-		return
-	# Prevent splitting if we don't have enough troops for 1 per target
-	if total_divs < num_targets:
+	if num_targets == 0 or total_divs < num_targets:
 		return
 
-	@warning_ignore("integer_division")
+	# 1. Compute distances from troop to each target
+	var origin_pid = original_troop.province_id
+	var target_distances: Array = []
+	for pid in target_pids:
+		var dist = MapManager._heuristic(origin_pid, pid)  # implement Manhattan/graph distance
+		target_distances.append({"pid": pid, "dist": dist})
+
+	# 2. Sort targets by distance (closest first)
+	target_distances.sort_custom(func(a, b):
+		return int(a.dist - b.dist)
+	)
+
+	# 3. Evenly split divisions
 	var base_divs = total_divs / num_targets
 	var remainder = total_divs % num_targets
 
-	# We use this flag to ensure we reuse the 'original_troop' exactly once
-	var original_reused = false
-
+	var original_used = false
 	for i in range(num_targets):
-		var target_pid = target_pids[i]
-
-		# 1. Calculate Division Count
+		var pid = target_distances[i].pid
 		var divs = base_divs
 		if i < remainder:
 			divs += 1
 
-		# 2. Assign Troop Object
-		# We try to reuse the original object for the first chunk (i=0) to save memory/processing
 		var troop_to_move: TroopData
-
-		if not original_reused:
+		if not original_used:
 			troop_to_move = original_troop
 			troop_to_move.divisions = divs
-			original_reused = true
+			original_used = true
 		else:
 			troop_to_move = _create_new_split_troop(original_troop, divs)
 
-		# 3. Handle Movement
-		if target_pid == original_troop.province_id:
-			# Case: Troop stays here
+		# 4. Assign movement intelligently
+		if pid == original_troop.province_id:
+			# Stay put
 			troop_to_move.path.clear()
 			_stop_troop(troop_to_move)
-			# Force auto-merge check since we might have just created a new stack here
 			if AUTO_MERGE:
-				_auto_merge_in_province(target_pid, troop_to_move.country_name)
+				_auto_merge_in_province(pid, troop_to_move.country_name)
 		else:
-			# Case: Troop moves away
-			var path = paths.get(target_pid)
-
-			# Only move if we actually have a valid path
+			# Move along the path
+			var path = paths.get(pid)
 			if path and path.size() > 0:
+				# Ensure path starts after current province
+				if path[0] == troop_to_move.province_id:
+					path.pop_front()
 				troop_to_move.path = path.duplicate()
-
-				# Sanitize: If path[0] is where we are, remove it
-				if (
-					not troop_to_move.path.is_empty()
-					and troop_to_move.path[0] == troop_to_move.province_id
-				):
-					troop_to_move.path.pop_front()
-
 				_start_next_leg(troop_to_move)
 			else:
-				# Fallback: Path failed, just stay put (don't lose the troops!)
+				# No path? Stay put
 				_stop_troop(troop_to_move)
 
 	print(
-		"Split %s (%d divs) into %d armies" % [original_troop.country_name, total_divs, num_targets]
+		"Split %s (%d divs) into %d armies towards nearest targets"
+		% [original_troop.country_name, total_divs, num_targets]
 	)
+
 
 
 ## Creates and registers a new troop object resulting from a split.
