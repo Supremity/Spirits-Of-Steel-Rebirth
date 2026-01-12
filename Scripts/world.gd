@@ -123,14 +123,8 @@ func _on_map_ready() -> void:
 		push_error("CustomRenderer node not found!")
 
 	CountryManager.initialize_countries()
-	CountryManager.set_player_country("spain")
+	CountryManager.set_player_country("brazil")
 	MapManager.force_bidirectional_connections()
-	for c in ["netherlands", "france", "portugal", "spain", "germany"]:
-		var provinces = MapManager.country_to_provinces.get(c, []).duplicate()
-		provinces.shuffle()
-		var selected_provinces = provinces.slice(0, min(5, provinces.size()))
-		for pid in selected_provinces:
-			TroopManager.create_troop(c, randi_range(1, 10), pid)
 
 
 func _create_ghost_map(offset: Vector2, p_material: ShaderMaterial) -> void:
