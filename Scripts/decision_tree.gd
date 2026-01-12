@@ -83,8 +83,8 @@ func _on_button_pressed(btn: Button):
 
 func _execute_action(action: Dictionary):
 	match action.get("type", ""):
-		"increase_daily_money":
-			CountryManager.player_country.daily_money_income += action.get("amount", 0)
+		"hourly_money_income":
+			CountryManager.player_country.hourly_money_income += action.get("amount", 0)
 
 		"increase_manpower":
 			CountryManager.player_country.manpower += action.get("amount", 0)
