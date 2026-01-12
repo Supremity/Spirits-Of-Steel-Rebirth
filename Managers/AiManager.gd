@@ -54,37 +54,28 @@ func _ai_consider_recruitment(country: CountryData) -> void:
 	country.train_troops(2, 10, army_base_cost)
 
 
+# --- New tactical logic using Border Functions ---
 func _evaluate_frontline_moves(country: CountryData):
 	var ai_troops = TroopManager.get_troops_for_country(country.country_name)
 	var idle_troops = ai_troops.filter(func(t): return not t.is_moving)
-	
+
 	if idle_troops.is_empty():
 		return
 
 	var enemies = WarManager.get_enemies_of(country.country_name)
 	var move_payload = []
 
-	# --- PEACE TIME: Uniform Distribution ---
+	# --- PEACE TIME: Garrison ---
 	if enemies.is_empty():
-		var owned_cities = MapManager.get_cities_province_country(country.country_name)
-		if owned_cities.is_empty(): return
-		
-		for i in range(idle_troops.size()):
-			var troop = idle_troops[i]
-			# Round-robin: troop 1 -> city A, troop 2 -> city B...
-			var target_pid = owned_cities[i % owned_cities.size()]
-			
-			# Optimization: Only move if not already at that city
-			if troop.province_id != target_pid:
-				move_payload.append({"troop": troop, "province_id": target_pid})
+		_handle_peace_garrison(country, idle_troops, move_payload)
 
-	# --- WAR TIME: Strategic Fanning (Full Version) ---
+	# --- WAR TIME: Strategic Fanning ---
 	else:
 		var army_targets = []
 		var city_targets = []
 
 		for enemy_name in enemies:
-			# 1. Gather Army Targets (Where the enemy actually is)
+			# 1. Gather Army Targets
 			var enemy_provinces = MapManager.country_to_provinces.get(enemy_name, [])
 			for p_id in enemy_provinces:
 				if not TroopManager.get_troops_in_province(p_id).is_empty():
@@ -93,26 +84,33 @@ func _evaluate_frontline_moves(country: CountryData):
 			# 2. Gather City Targets
 			city_targets.append_array(MapManager.get_cities_province_country(enemy_name))
 
+		# 3. Smart Distribution
+		# We shuffle to keep the AI's "fanning" pattern unpredictable
 		army_targets.shuffle()
 		city_targets.shuffle()
 
 		for troop in idle_troops:
+			# Decide how many provinces this specific troop should split into
+			# Large stacks split more, small stacks (under 3 divs) stay together
 			var targets_for_this_troop = []
 			var split_count = 1
 
-			# Split logic for large stacks
-			if troop.divisions >= 10: split_count = 3
-			elif troop.divisions >= 5: split_count = 2
+			if troop.divisions >= 10:
+				split_count = 3  # Split large stacks into 3 directions
+			elif troop.divisions >= 5:
+				split_count = 2  # Split medium stacks into 2 directions
 
 			for j in range(split_count):
 				var target_pid = -1
+
+				# 60% Chance to hunt armies, 30% to hit cities, 10% random frontline
 				var roll = randf()
-				
 				if roll < 0.6 and not army_targets.is_empty():
 					target_pid = army_targets.pick_random()
 				elif roll < 0.9 and not city_targets.is_empty():
 					target_pid = city_targets.pick_random()
 				else:
+					# Fallback to general border provinces
 					var borders = MapManager.get_border_provinces(country.country_name)
 					if not borders.is_empty():
 						target_pid = borders.pick_random()
@@ -120,10 +118,11 @@ func _evaluate_frontline_moves(country: CountryData):
 				if target_pid != -1 and not targets_for_this_troop.has(target_pid):
 					targets_for_this_troop.append(target_pid)
 
+			# Add each target for this troop to the payload
+			# Your command_move_assigned() will group these and call _split_and_send_troop
 			for pid in targets_for_this_troop:
 				move_payload.append({"troop": troop, "province_id": pid})
 
-	# Execute all moves in one batch call
 	if not move_payload.is_empty():
 		TroopManager.command_move_assigned(move_payload)
 
