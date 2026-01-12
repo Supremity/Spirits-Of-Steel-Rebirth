@@ -18,10 +18,10 @@ var mat: ShaderMaterial
 
 func _enter_tree() -> void:
 	GameState.current_world = self
+	set_process_input(false)
 
 
 func _ready() -> void:
-	await get_tree().process_frame
 	TroopManager.troop_selection = $TroopSelection as TroopSelection
 
 	# TODO(pol): Load CountryManager after map instead of an autoload to avoid this.
@@ -31,10 +31,18 @@ func _ready() -> void:
 	MapManager.load_country_data()
 	if MapManager.id_map_image != null:
 		_on_map_ready()
+	
+	set_process_input(true)
 
 
 func _on_map_ready() -> void:
 	print("World: Map is ready -> configuring visuals...")
+	
+	MapManager.all_cities = MapManager.get_all_cities()
+	CountryManager.initialize_countries()
+	CountryManager.set_player_country("brazil")
+	MapManager.force_bidirectional_connections()
+
 	map_width = MapManager.id_map_image.get_width()
 	map_height = MapManager.id_map_image.get_height()
 	mat = ShaderMaterial.new()
@@ -45,7 +53,8 @@ func _on_map_ready() -> void:
 	mat.set_shader_parameter("state_colors", MapManager.state_color_texture)
 
 	# Inside World.gd -> _on_map_ready()
-	var type_img = Image.create(map_width, map_height, false, Image.FORMAT_L8)
+	var type_img = Image.create_empty(map_width, map_height, false, Image.FORMAT_L8)
+
 
 	for y in range(map_height):
 		for x in range(map_width):
@@ -121,11 +130,6 @@ func _on_map_ready() -> void:
 		troop_renderer.map_width = map_width
 	else:
 		push_error("CustomRenderer node not found!")
-
-	MapManager.all_cities = MapManager.get_all_cities()
-	CountryManager.initialize_countries()
-	CountryManager.set_player_country("brazil")
-	MapManager.force_bidirectional_connections()
 
 
 func _create_ghost_map(offset: Vector2, p_material: ShaderMaterial) -> void:

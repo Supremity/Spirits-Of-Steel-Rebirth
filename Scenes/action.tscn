@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d054r2umstj43"]
 
 [ext_resource type="Script" uid="uid://81s14oqoxwa6" path="res://Scripts/action.gd" id="1_0hb5u"]
-[ext_resource type="Theme" uid="uid://c38ivksvf4is0" path="res://button_theme.tres" id="2_ycgp7"]
+[ext_resource type="Theme" uid="uid://c38ivksvf4is0" path="res://main_theme.tres" id="2_ycgp7"]
 
 [node name="HBoxContainer" type="HBoxContainer"]
 script = ExtResource("1_0hb5u")

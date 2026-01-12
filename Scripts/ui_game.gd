@@ -6,31 +6,31 @@ enum Context { SELF, WAR, DIPLOMACY }
 enum Category { GENERAL, ECONOMY, MILITARY }
 
 # ── Top Bar Nodes ─────────────────────────────────────
-@onready var nation_flag: TextureRect = $Topbar/nation_flag
-@onready var label_date: Label = $Topbar/MarginContainer2/ColorRect/MarginContainer/label_date
+@onready var nation_flag: TextureRect = $Control/Topbar/nation_flag
+@onready var label_date: Label = $Control/Topbar/MarginContainer2/ColorRect/MarginContainer/label_date
 @onready var stats_labels := {
-	"pp": $Topbar/MarginContainer/HBoxContainer/PoliticalPower/HBoxContainer/label_politicalpower,
-	"manpower": $Topbar/MarginContainer/HBoxContainer/Manpower/HBoxContainer/label_manpower,
-	"money": $Topbar/MarginContainer/HBoxContainer/Money/HBoxContainer/label_money,
-	"industry": $Topbar/MarginContainer/HBoxContainer/Industry/HBoxContainer/label_industry,
-	"stability": $Topbar/MarginContainer/HBoxContainer/Stability/HBoxContainer/label_stability
+	"pp": $Control/Topbar/MarginContainer/HBoxContainer/PoliticalPower/HBoxContainer/label_politicalpower,
+	"manpower": $Control/Topbar/MarginContainer/HBoxContainer/Manpower/HBoxContainer/label_manpower,
+	"money": $Control/Topbar/MarginContainer/HBoxContainer/Money/HBoxContainer/label_money,
+	"industry": $Control/Topbar/MarginContainer/HBoxContainer/Industry/HBoxContainer/label_industry,
+	"stability": $Control/Topbar/MarginContainer/HBoxContainer/Stability/HBoxContainer/label_stability
 }
 
 # ── Side Menu Nodes ───────────────────────────────────
-@onready var sidemenu: Control = $SidemenuBG
+@onready var sidemenu: Control = $Control/SidemenuBG
 @onready
-var sidemenu_flag: TextureRect = $SidemenuBG/Sidemenu/PanelContainer/VBoxContainer/Flag/TextureRect
-@onready var label_country_sidemenu: Label = $SidemenuBG/Sidemenu/PanelContainer/VBoxContainer/Label
-@onready var label_category: Label = $SidemenuBG/Sidemenu/Panel/label_category
-@onready var actions_container: VBoxContainer = $SidemenuBG/Sidemenu/ScrollContainer/ActionsList
-@onready var progress_bar: ProgressBar = $Topbar/MarginContainer2/ColorRect/ProgressBar
+var sidemenu_flag: TextureRect = $Control/SidemenuBG/Sidemenu/PanelContainer/VBoxContainer/Flag/TextureRect
+@onready var label_country_sidemenu: Label = $Control/SidemenuBG/Sidemenu/PanelContainer/VBoxContainer/Label
+@onready var label_category: Label = $Control/SidemenuBG/Sidemenu/Panel/label_category
+@onready var actions_container: VBoxContainer = $Control/SidemenuBG/Sidemenu/ScrollContainer/ActionsList
+@onready var progress_bar: ProgressBar = $Control/Topbar/MarginContainer2/ColorRect/ProgressBar
 
 # Use the class_name of your action scene if available, or load strictly as packed scene
 @export var action_scene: PackedScene
 
 # ── Speed Controls ────────────────────────────────────
-@onready var plus: Button = $SpeedPanel/GameSpeedControl/PlusPanel/Plus
-@onready var minus: Button = $SpeedPanel/GameSpeedControl/MinusPanel/Minus
+@onready var plus: Button = $Control/SpeedPanel/GameSpeedControl/PlusPanel/Plus
+@onready var minus: Button = $Control/SpeedPanel/GameSpeedControl/MinusPanel/Minus
 
 # ── State Variables ───────────────────────────────────
 var player: CountryData = null
@@ -406,9 +406,5 @@ func open_decisions_tree(_data: Dictionary):
 
 
 func _on_log_button_up() -> void:
-	# This flips the visibility: if it's on, it goes off. If it's off, it goes on.
 	GameState.game_log.visible = !GameState.game_log.visible
-
-	# Optional: Play a UI sound effect
-	if MusicManager:
-		MusicManager.play_sfx(MusicManager.SFX.OPEN_MENU)
+	MusicManager.play_sfx(MusicManager.SFX.OPEN_MENU)

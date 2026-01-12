@@ -139,16 +139,16 @@ func _update_multimesh_buffer():
 			for m in [-1, 0, 1]:
 				if idx >= mm.instance_count: break
 				var f_pos = pos + Vector2(map_width * m, 0) + map_sprite.position
-				var scale := Vector2(_current_inv_zoom, _current_inv_zoom)
+				var mm_scale := Vector2(_current_inv_zoom, _current_inv_zoom)
 
 				mm.set_instance_transform_2d(
 					idx,
-					Transform2D(0, scale, 0, f_pos)
+					Transform2D(0, mm_scale, 0, f_pos)
 				)
 				mm.set_instance_color(idx, col)
 				idx += 1
 
-# --- Drawing ---
+
 func _draw() -> void:
 	if !map_sprite or map_width <= 0: return
 	_draw_path_preview()
@@ -156,7 +156,8 @@ func _draw() -> void:
 	_draw_selection_box()
 	_draw_troop_details_culled()
 	_draw_cities()
-# --- Drawing ---
+
+
 func _draw_troop_details_culled() -> void:
 	if _current_inv_zoom > 1.5: return # LOD optimization
 
@@ -181,15 +182,8 @@ func _draw_troop_details_culled() -> void:
 					_draw_single_troop_detail(troop, d_pos)
 
 func _draw_single_troop_detail(troop: TroopData, pos: Vector2) -> void:
-	# 1. Save the current drawing state
-	var base_transform = get_canvas_transform()
-	
-	# 2. Apply a local transform for this specific troop
-	# We move to the troop position and scale everything by _current_inv_zoom
 	var t := Transform2D(0, Vector2(_current_inv_zoom, _current_inv_zoom), 0, pos)
 	draw_set_transform_matrix(t)
-
-	# --- Everything below is now drawn relative to (0,0) at scale 1.0 ---
 	
 	var total_w = LAYOUT.flag_width + LAYOUT.min_text_width
 	var total_h = LAYOUT.flag_height
@@ -217,7 +211,7 @@ func _draw_single_troop_detail(troop: TroopData, pos: Vector2) -> void:
 	# 3. Reset transform so other things draw correctly
 	draw_set_transform_matrix(Transform2D())
 
-# --- Updated Helper for Movement ---
+
 func _group_troops_by_visual_position(troops: Array) -> Dictionary:
 	var g = {}
 	for t in troops:
@@ -231,12 +225,14 @@ func _group_troops_by_visual_position(troops: Array) -> Dictionary:
 		g[visual_pos].append(t)
 	return g
 
+
 func _draw_selection_box() -> void:
 	if not TroopManager.troop_selection.dragging: return
 	var ts = TroopManager.troop_selection
 	var rect = Rect2(ts.drag_start, ts.drag_end - ts.drag_start).abs()
 	draw_rect(rect, Color(1, 1, 1, 0.3), true)
 	draw_rect(rect, Color(1, 1, 1, 1), false, 1.0)
+
 
 func _draw_path_preview() -> void:
 	if not TroopManager.troop_selection.right_dragging: return
@@ -245,6 +241,7 @@ func _draw_path_preview() -> void:
 		var p = path[i]["map_pos"] + map_sprite.position
 		var col = COLORS.path_active if i < TroopManager.troop_selection.max_path_length else COLORS.path_inactive
 		draw_circle(p, 1.0, col)
+
 
 func _draw_active_movements() -> void:
 	for troop in TroopManager.troops:
@@ -255,7 +252,8 @@ func _draw_active_movements() -> void:
 			var current = start.lerp(end, troop.get_meta("visual_progress", 0.0))
 			draw_line(start, end, Color(1, 0, 0, 0.2), 1.0)
 			draw_line(start, current, COLORS.movement_active, 1.5)
-			
+
+
 func _update_screen_rect():
 	var canvas_xform := get_canvas_transform()
 	var viewport_rect := get_viewport_rect()
@@ -266,7 +264,6 @@ func _update_screen_rect():
 	)
 
 	_screen_rect = _screen_rect.grow(200.0)
-
 
 
 func _draw_cities() -> void:

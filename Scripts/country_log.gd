@@ -13,13 +13,10 @@ extends CanvasLayer
 var player: CountryData = null
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameState.game_log = self
 	player = CountryManager.player_country
 	CountryManager.player_stats_changed.connect(_on_stats_changed)
-
-	pass  # Replace with function body.
 
 
 func _on_stats_changed():
