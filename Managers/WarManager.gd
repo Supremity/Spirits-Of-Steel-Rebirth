@@ -314,17 +314,3 @@ func _handle_total_collapse(fallen_country_name: String, victor_country_name: St
 			"game_over", CountryManager.player_country, CountryManager.player_country
 		)
 		MusicManager.play_music(MusicManager.MUSIC.MAIN_THEME)
-
-
-# Only used for Console command as of now
-func annex(country_name):
-	# 1. Get all provinces owned by the fallen country
-	print("annexings")
-	var all_provinces = MapManager.country_to_provinces.get(country_name, []).duplicate()
-
-	for pid in all_provinces:
-		MapManager.transfer_ownership(pid, country_name)
-
-	var remaining_troops = TroopManager.get_troops_for_country(country_name)
-	for t in remaining_troops:
-		TroopManager._remove_troop(t)

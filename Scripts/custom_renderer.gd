@@ -1,342 +1,201 @@
 extends Node2D
 class_name CustomRenderer
 
-# =========================================================
-# Constants & Config
-# =========================================================
-const CITY_COLORS = {
-	"text": Color(1, 1, 1, 1), "shadow": Color(0, 0, 0, 0.6), "dot": Color(1, 1, 1, 0.8)
-}
+# --- Constants & Config ---
 const COLORS = {
 	"background": Color(0, 0, 0, 0.8),
 	"text": Color(1, 1, 1, 1),
-	"border_default": Color(0, 1, 0, 1),  # Green (Yours)
-	"border_selected": Color(0.5, 0.5, 0.5),  # Grey (Selected)
-	"border_other": Color(0, 0, 0, 1),  # Black (Others)
-	"border_none": Color(0, 0, 0, 0),
-	"path_active": Color(1, 0.2, 0.2),  # Red (Active path)
-	"path_inactive": Color(0.5, 0.5, 0.5),  # Grey (Over limit)
-	"movement_active": Color(0, 1, 0, 0.8),  # Green (Current movement)
-	"movement_line": Color(1, 0.2, 0.2, 1),  # Red (Target line)
-	"battle_positive": Color(0, 1, 0, 1),  # Green (Winning)
-	"battle_negative": Color(1, 0, 0, 1)  # Red (Losing)
+	"border_default": Color(0, 1, 0, 1),
+	"border_selected": Color(0.8, 0.8, 0.8),
+	"border_other": Color(0, 0, 0, 1),
+	"movement_active": Color(0, 1, 0, 0.8),
+	"path_active": Color(1, 0.2, 0.2),
+	"path_inactive": Color(0.5, 0.5, 0.5)
 }
 
 const LAYOUT = {
 	"flag_width": 24.0,
 	"flag_height": 20.0,
-	"text_padding_x": 8.0,
 	"min_text_width": 16.0,
-	"border_thickness": 1.0,
-	"border_other_px": 1.0,
 	"font_size": 18
 }
 
 const ZOOM_LIMITS = {"min_scale": 0.1, "max_scale": 2.0}
-
 const STACKING_OFFSET_Y := 20.0
 
-# =========================================================
-# Variables
-# =========================================================
+# --- Variables ---
 var _font: Font = preload("res://font/arial.TTF")
-const BATTLE_ICON: Texture2D = preload("res://assets/icons/battle_element_transparent.png")
-
 var map_sprite: Sprite2D
 var map_width: float = 0.0
 var _current_inv_zoom := 1.0
+var _screen_rect: Rect2
 
+# Reference to the GPU node
+var troop_multimesh: MultiMeshInstance2D 
 
-# =========================================================
-# Lifecycle
-# =========================================================
+# --- Lifecycle ---
 func _ready() -> void:
-	z_index = 20
-
+	z_index = 20 # Keep renderer high
+	_setup_multimesh()
 
 func _process(_delta: float) -> void:
-	if !map_sprite:
-		return
+	if !map_sprite: return
 
 	var cam := get_viewport().get_camera_2d()
 	if cam:
 		var raw_scale = 1.0 / cam.zoom.x
 		_current_inv_zoom = clamp(raw_scale, ZOOM_LIMITS.min_scale, ZOOM_LIMITS.max_scale)
+		
+		var vp_size = get_viewport_rect().size * raw_scale
+		_screen_rect = Rect2(cam.global_position - (vp_size / 2), vp_size)
+		
+		_screen_rect = _screen_rect.grow(500.0 * raw_scale)
 
+	_update_multimesh_buffer()
 	queue_redraw()
 
+# --- MultiMesh Setup ---
+func _setup_multimesh():
+	if not troop_multimesh:
+		troop_multimesh = MultiMeshInstance2D.new()
+		troop_multimesh.name = "TroopMultiMesh"
+#		troop_multimesh.mouse_filter = Control.MOUSE_FILTER_IGNORE 
+		# Crucial: Move the boxes behind the labels
+		troop_multimesh.z_index = -1 
+		add_child(troop_multimesh)
+	
+	var mm = MultiMesh.new()
+	mm.transform_format = MultiMesh.TRANSFORM_2D
+	mm.use_colors = true
+	mm.use_custom_data = false # Simplified to avoid data corruption
+	
+	var q_mesh = QuadMesh.new()
+	q_mesh.size = Vector2(LAYOUT.flag_width + LAYOUT.min_text_width, LAYOUT.flag_height)
+	mm.mesh = q_mesh
+	
+	# SHADER: Using modern Godot 4.5 canvas_item logic
+	var mat = ShaderMaterial.new()
+	mat.shader = Shader.new()
+	mat.shader.code = """
+	shader_type canvas_item;
+	void fragment() {
+		float tx = 0.05; 
+		float ty = 0.1;
+		bool is_border = UV.x < tx || UV.x > (1.0 - tx) || UV.y < ty || UV.y > (1.0 - ty);
+		// COLOR here is the Instance Color we set in GDScript
+		if (is_border) {
+			COLOR = COLOR; 
+		} else {
+			COLOR = vec4(0.0, 0.0, 0.0, 0.8); 
+		}
+	}
+	"""
+	# Apply material to the Instance, not the Mesh (more reliable for updates)
+	troop_multimesh.material = mat
+	troop_multimesh.multimesh = mm
 
-# =========================================================
-# Draw Master Function
-# =========================================================
+func _update_multimesh_buffer():
+	if not map_sprite or map_width <= 0 or not troop_multimesh: return
+		
+	var troops = TroopManager.troops
+	var mm = troop_multimesh.multimesh
+	var needed = troops.size() * 3
+	
+	if mm.instance_count != needed:
+		mm.instance_count = needed
+	
+	var player_country = CountryManager.player_country.country_name
+	var selected_troops = TroopManager.troop_selection.selected_troops
+	var groups = _group_troops_by_position(troops)
+	var idx = 0
+	
+	for base_pos in groups:
+		var stack = groups[base_pos]
+		var start_y = (stack.size() - 1) * STACKING_OFFSET_Y * 0.5
+		
+		for i in range(stack.size()):
+			var troop = stack[i]
+			var pos = base_pos + Vector2(0, start_y - (i * STACKING_OFFSET_Y))
+			
+			# Logic for colors
+			var col = COLORS.border_other
+			if troop.country_name == player_country:
+				col = COLORS.border_selected if selected_troops.has(troop) else COLORS.border_default
+			
+			for m in [-1, 0, 1]:
+				if idx >= mm.instance_count: break
+				var f_pos = pos + Vector2(map_width * m, 0) + map_sprite.position
+				mm.set_instance_transform_2d(idx, Transform2D(0, Vector2(1,1), 0, f_pos))
+				mm.set_instance_color(idx, col)
+				idx += 1
+
+# --- Drawing ---
 func _draw() -> void:
-	if !map_sprite or map_width <= 0:
-		return
-
-	_draw_cities()
-	_draw_troops()
+	if !map_sprite or map_width <= 0: return
 	_draw_path_preview()
 	_draw_active_movements()
-	_draw_battles()
 	_draw_selection_box()
+	_draw_troop_details_culled()
 
+func _draw_troop_details_culled() -> void:
+	if _current_inv_zoom > 1.5: return # LOD optimization
 
-# Optimized Troop Drawing
-# =========================================================
-func _draw_troops() -> void:
-	var player_country = CountryManager.player_country.country_name
+	var groups = _group_troops_by_position(TroopManager.troops)
+	for base_pos in groups:
+		var stack = groups[base_pos]
+		var start_y = (stack.size() - 1) * STACKING_OFFSET_Y * 0.5
+		
+		for i in range(stack.size()):
+			var troop = stack[i]
+			var local_pos = base_pos + Vector2(0, start_y - (i * STACKING_OFFSET_Y))
+			
+			for m in [-1, 0, 1]:
+				var d_pos = local_pos + Vector2(map_width * m, 0) + map_sprite.position
+				if _screen_rect.has_point(d_pos):
+					_draw_single_troop_detail(troop, d_pos)
 
-	# 1. OPTIMIZATION: O(N) Grouping. Linear scan instead of nested loops.
-	var grouped_troops = _group_troops_by_position(TroopManager.troops)
-
-	# 2. OPTIMIZATION: Culling Setup. Don't process what isn't on screen.
-	var canvas_transform = get_canvas_transform()
-	var viewport_rect = get_viewport_rect()
-	var visible_rect = Rect2(
-		-canvas_transform.origin / canvas_transform.get_scale(),
-		viewport_rect.size / canvas_transform.get_scale()
-	)
-
-	# Add margin so stacks don't clip at edges
-	visible_rect = visible_rect.grow(40.0 * _current_inv_zoom)
-
-	for base_pos in grouped_troops:
-		var is_visible = false
-		var scroll_offsets_to_draw = []
-
-		# Check 3 positions for infinite scroll wrapping
-		for j in [-1, 0, 1]:
-			var scroll_offset = Vector2(map_width * j, 0)
-			var world_pos = base_pos + map_sprite.position + scroll_offset
-			if visible_rect.has_point(world_pos):
-				is_visible = true
-				scroll_offsets_to_draw.append(scroll_offset)
-
-		if not is_visible:
-			continue
-
-		var stack: Array = grouped_troops[base_pos]
-		var stack_size = stack.size()
-		var scaled_offset = STACKING_OFFSET_Y * _current_inv_zoom
-		var start_y_offset = (stack_size - 1) * scaled_offset * 0.5
-
-		for i in range(stack_size):
-			var t = stack[i]
-			var current_y_offset = start_y_offset - (i * scaled_offset)
-			var draw_base = base_pos + map_sprite.position + Vector2(0, current_y_offset)
-
-			for s_offset in scroll_offsets_to_draw:
-				_draw_single_troop_visual(t, draw_base + s_offset, player_country)
-
-
-func _group_troops_by_position(troops: Array) -> Dictionary:
-	var groups = {}
-	# Assuming troops in the same province share the exact same Vector2 position
-	for t in troops:
-		if not groups.has(t.position):
-			groups[t.position] = []
-		groups[t.position].append(t)
-	return groups
-
-
-func _draw_single_troop_visual(troop: TroopData, pos: Vector2, player_country: String) -> void:
-	# 3. OPTIMIZATION: Level of Detail (LOD)
-	# If zoomed very far out, draw a simple dot to save CPU/GPU overhead
-	if _current_inv_zoom > 3.0:
-		var dot_color = (
-			COLORS.border_default if troop.country_name == player_country else COLORS.border_other
-		)
-		draw_circle(pos, 4.0 * _current_inv_zoom, dot_color)
-		return
-
-	var label_text := str(troop.divisions)
-	var scale_factor = _current_inv_zoom
-	var style = _get_troop_style(troop, player_country)
-	var current_border_width = max(0.25, style.width * scale_factor)
-
-	# Measurements
-	var flag_size = Vector2(LAYOUT.flag_width, LAYOUT.flag_height) * scale_factor
-	var font_size_world = int(LAYOUT.font_size * scale_factor)
-	var raw_text_size = (
-		_font.get_string_size(label_text, HORIZONTAL_ALIGNMENT_CENTER, -1, 18) * scale_factor
-	)
-
-	var min_text_w_world = LAYOUT.min_text_width * scale_factor
-	var padding_world = LAYOUT.text_padding_x * scale_factor
-	var final_text_area_width = max(raw_text_size.x + padding_world, min_text_w_world)
-
-	var box_size = Vector2(flag_size.x + final_text_area_width, flag_size.y)
-	var box_rect = Rect2(pos - box_size * 0.5, box_size)
-
-	# Background
-	draw_rect(box_rect, COLORS.background, true)
-
-	# Flag
-	var flag_rect = Rect2(box_rect.position, flag_size)
+func _draw_single_troop_detail(troop: TroopData, pos: Vector2) -> void:
+	var box_w = LAYOUT.flag_width + LAYOUT.min_text_width
+	var box_h = LAYOUT.flag_height
+	var box_top_left = pos - Vector2(box_w, box_h) * 0.5
+	
 	if troop.flag_texture:
-		draw_texture_rect(troop.flag_texture, flag_rect, false)
-	else:
-		draw_rect(flag_rect, Color(0.4, 0.4, 0.4), true)
+		draw_texture_rect(troop.flag_texture, Rect2(box_top_left, Vector2(LAYOUT.flag_width, box_h)), false)
+		
+	var label = str(troop.divisions)
+	var text_size = _font.get_string_size(label, 1, -1, 16)
+	var tx = box_top_left.x + LAYOUT.flag_width + (LAYOUT.min_text_width - text_size.x) * 0.5
+	draw_string(_font, Vector2(tx, box_top_left.y + 15), label, 1, -1, 14, COLORS.text)
 
-	# Text (Only draw if zoom is close enough to see it)
-	if _current_inv_zoom < 2.5:
-		var text_start_x = box_rect.position.x + flag_size.x
-		var text_center_x = text_start_x + (final_text_area_width * 0.5)
-		var draw_pos_x = text_center_x - (raw_text_size.x * 0.5)
-		var text_y_center = box_rect.position.y + (box_size.y * 0.5)
-		var text_y_baseline = text_y_center + (raw_text_size.y * 0.25)
-
-		draw_string(
-			_font,
-			Vector2(draw_pos_x, text_y_baseline),
-			label_text,
-			HORIZONTAL_ALIGNMENT_LEFT,
-			-1.0,
-			font_size_world,
-			COLORS.text
-		)
-
-	# Border
-	if style.color != COLORS.border_none:
-		draw_rect(box_rect, style.color, false, current_border_width)
-
-
-# =========================================================
-# Helper Functions
-# =========================================================
-func _get_troop_style(troop: TroopData, player_country: String) -> Dictionary:
-	var is_owner = troop.country_name.to_lower() == player_country.to_lower()
-	var is_selected = TroopManager.troop_selection.selected_troops.has(troop)
-
-	if is_owner:
-		if is_selected:
-			return {"color": COLORS.border_selected, "width": LAYOUT.border_thickness * 2.0}
-		return {"color": COLORS.border_default, "width": LAYOUT.border_thickness}
-	return {"color": COLORS.border_other, "width": LAYOUT.border_other_px}
-
+# --- Helpers ---
+func _group_troops_by_position(troops: Array) -> Dictionary:
+	var g = {}
+	for t in troops:
+		if not g.has(t.position): g[t.position] = []
+		g[t.position].append(t)
+	return g
 
 func _draw_selection_box() -> void:
-	if not TroopManager.troop_selection.dragging:
-		return
-	var ts := TroopManager.troop_selection
+	if not TroopManager.troop_selection.dragging: return
+	var ts = TroopManager.troop_selection
 	var rect = Rect2(ts.drag_start, ts.drag_end - ts.drag_start).abs()
-	if rect.size.length() > 2:
-		draw_rect(rect, Color(1, 1, 1, 0.3), true)  # Semi-transparent fill
-		draw_rect(rect, Color(1, 1, 1, 1), false, 1.0)  # Outline
-
+	draw_rect(rect, Color(1, 1, 1, 0.3), true)
+	draw_rect(rect, Color(1, 1, 1, 1), false, 1.0)
 
 func _draw_path_preview() -> void:
-	if not TroopManager.troop_selection.right_dragging:
-		return
-	var right_path = TroopManager.troop_selection.right_path
-	var max_len = TroopManager.troop_selection.max_path_length
-
-	for i in range(right_path.size()):
-		var p = right_path[i]["map_pos"] + map_sprite.position
-		var color = COLORS.path_inactive if i >= max_len else COLORS.path_active
-		draw_circle(p, 1.5 * _current_inv_zoom, color)
-		if i < right_path.size() - 1:
-			var next_p = right_path[i + 1]["map_pos"] + map_sprite.position
-			draw_line(p, next_p, color, 1.0 * _current_inv_zoom)
-
+	if not TroopManager.troop_selection.right_dragging: return
+	var path = TroopManager.troop_selection.right_path
+	for i in range(path.size()):
+		var p = path[i]["map_pos"] + map_sprite.position
+		var col = COLORS.path_active if i < TroopManager.troop_selection.max_path_length else COLORS.path_inactive
+		draw_circle(p, 2.0, col)
 
 func _draw_active_movements() -> void:
 	for troop in TroopManager.troops:
-		if not troop.is_moving:
-			continue
+		if !troop.is_moving: continue
 		var start = troop.position + map_sprite.position
 		var end = troop.target_position + map_sprite.position
-		var progress = troop.get_meta("visual_progress", 0.0)
-		var current = start.lerp(end, progress)
-		draw_line(start, end, Color(1, 0, 0, 0.3), 1.0)
-		draw_line(start, current, COLORS.movement_active, 1.5)
-
-
-func _draw_battles() -> void:
-	for battle in WarManager.active_battles:
-		var pos = battle.position + map_sprite.position
-		var size = BATTLE_ICON.get_size() * 0.05 * _current_inv_zoom
-		var draw_pos = pos - size * 0.5
-		var p = battle.get_player_relative_progress(CountryManager.player_country.country_name)
-		var color = COLORS.battle_positive if p >= 0.0 else COLORS.battle_negative
-		draw_circle(pos, 5.0 * _current_inv_zoom, color)
-		draw_texture_rect(BATTLE_ICON, Rect2(draw_pos, size), false)
-
-
-func _draw_cities() -> void:
-	if not MapManager.id_map_image:
-		return
-
-	var dot_radius = 4.0 * _current_inv_zoom
-	var hovered_pid = MapManager.current_hovered_pid
-
-	for pid in MapManager.province_objects.keys():
-		var province = MapManager.province_objects[pid]
-		if province.city == "":
-			continue
-
-		var base_pos = MapManager.province_centers.get(pid, Vector2.ZERO)
-		if base_pos == Vector2.ZERO:
-			continue
-
-		for j in [-1, 0, 1]:
-			var draw_pos = base_pos + map_sprite.position + Vector2(map_width * j, 0)
-
-			draw_circle(draw_pos, dot_radius, CITY_COLORS.dot)
-
-			if pid == hovered_pid:
-				_draw_city_name_visual(draw_pos, province.city)
-
-
-func _draw_city_name_visual(pos: Vector2, text: String) -> void:
-	if text.is_empty():
-		return
-
-	var font_size = clampi(int(15 * _current_inv_zoom), 12, 32)
-	var outline_size = clampi(int(2 * _current_inv_zoom), 1, 3)
-
-	var text_w = _font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x
-	var draw_pos = pos + map_sprite.position
-	var outline_col = Color(0, 0, 0, 0.8)
-	var dirs = [Vector2(1, 1), Vector2(-1, 1), Vector2(1, -1), Vector2(-1, -1)]
-	for dir in dirs:
-		draw_string(_font, draw_pos + (dir * outline_size), text, 0, -1, font_size, outline_col)
-
-	draw_string(_font, draw_pos, text, 0, -1, font_size, Color.WHITE)
-
-
-var _cached_edges: Array = []
-var _cached_centers: Dictionary = {}
-
-
-func rebuild_adjacency_cache() -> void:
-	_cached_edges.clear()
-	_cached_centers.clear()
-
-	var adj := MapManager.adjacency_list
-	var centers := MapManager.province_centers
-
-	for pid in centers:
-		_cached_centers[pid] = centers[pid]
-
-	for pid in adj:
-		var start = _cached_centers.get(pid)
-		if start == null:
-			continue
-
-		for neighbor_id in adj[pid]:
-			if neighbor_id <= pid:
-				continue
-			var end = _cached_centers.get(neighbor_id)
-			if end != null:
-				_cached_edges.append([start, end])
-
-
-func draw_adjacency_web() -> void:
-	var line_color := Color(0, 1, 1, 0.4)
-	var thickness := 1.5
-	var radius := 2.0
-	for pos in _cached_centers.values():
-		draw_circle(pos, radius, Color.WHITE)
-	for edge in _cached_edges:
-		draw_line(edge[0], edge[1], line_color, thickness, true)
+		if _screen_rect.has_point(start) or _screen_rect.has_point(end):
+			var current = start.lerp(end, troop.get_meta("visual_progress", 0.0))
+			draw_line(start, end, Color(1, 0, 0, 0.2), 1.0)
+			draw_line(start, current, COLORS.movement_active, 1.5)

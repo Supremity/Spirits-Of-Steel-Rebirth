@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bonl378c51366"]
+[gd_scene load_steps=13 format=3 uid="uid://bonl378c51366"]
 
 [ext_resource type="Script" uid="uid://pcq6svrgye6v" path="res://Scripts/world.gd" id="1_go701"]
 [ext_resource type="PackedScene" uid="uid://dgfixe44dvfny" path="res://Scenes/ui_game.tscn" id="2_fo5ed"]
@@ -15,6 +15,12 @@ load_path = "res://.godot/imported/cultures.png-f9255a05eddadc8a9aa0dedbe091def9
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5ukr8"]
 load_path = "res://.godot/imported/regions.png-75b8193867ba7ee4418b242a7a7efe49.ctex"
+
+[sub_resource type="QuadMesh" id="QuadMesh_o06y3"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_k7acu"]
+custom_aabb = AABB(20, 10, 0, 0, 0, 0)
+mesh = SubResource("QuadMesh_o06y3")
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("clock")]
 script = ExtResource("1_go701")
@@ -36,6 +42,9 @@ centered = false
 
 [node name="CustomRenderer" type="Node2D" parent="MapContainer"]
 script = ExtResource("5_o06y3")
+
+[node name="TroopMultiMesh" type="MultiMeshInstance2D" parent="MapContainer/CustomRenderer"]
+multimesh = SubResource("MultiMesh_k7acu")
 
 [node name="CameraController" type="Node2D" parent="."]
 position = Vector2(-1, 1)
