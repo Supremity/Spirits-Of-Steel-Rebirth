@@ -122,6 +122,7 @@ func _on_map_ready() -> void:
 	else:
 		push_error("CustomRenderer node not found!")
 
+	MapManager.all_cities = MapManager.get_all_cities()
 	CountryManager.initialize_countries()
 	CountryManager.set_player_country("brazil")
 	MapManager.force_bidirectional_connections()

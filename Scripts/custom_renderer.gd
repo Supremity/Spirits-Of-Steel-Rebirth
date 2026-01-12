@@ -276,12 +276,13 @@ func _draw_cities() -> void:
 	var base_dot_radius = 4.0
 	var base_font_size = 24 
 
-	for pid in MapManager.province_objects.keys():
-		var province = MapManager.province_objects[pid]
-		if province.city == "": continue
-
+	for city_data in MapManager.all_cities:
+		var pid = city_data[0]
+		var city_name = city_data[1]
+		
 		var base_pos = MapManager.province_centers.get(pid, Vector2.ZERO)
 		if base_pos == Vector2.ZERO: continue
+		
 		for j in [-1, 0, 1]:
 			var world_pos = base_pos + map_sprite.position + Vector2(map_width * j, 0)
 			if not _screen_rect.has_point(world_pos): continue
@@ -293,8 +294,8 @@ func _draw_cities() -> void:
 
 			if pid == hovered_pid:
 				var offset = Vector2(10, base_font_size * 0.3) 
-				draw_string_outline(_font, offset, province.city, HORIZONTAL_ALIGNMENT_LEFT, -1, base_font_size, 4, Color(0,0,0,0.8))
-				draw_string(_font, offset, province.city, HORIZONTAL_ALIGNMENT_LEFT, -1, base_font_size, Color.WHITE)
+				draw_string_outline(_font, offset, city_name, HORIZONTAL_ALIGNMENT_LEFT, -1, base_font_size, 4, Color(0,0,0,0.8))
+				draw_string(_font, offset, city_name, HORIZONTAL_ALIGNMENT_LEFT, -1, base_font_size, Color.WHITE)
 
 		# Reset once per province instead of once per wrap-iteration
 		draw_set_transform_matrix(Transform2D())

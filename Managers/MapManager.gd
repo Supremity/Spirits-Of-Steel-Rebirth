@@ -33,6 +33,8 @@ var last_hovered_pid: int = -1
 var original_hover_color: Color
 var province_centers: Dictionary = {}  # Stores {ID: Vector2(x, y)}
 
+var all_cities = []
+
 const MAP_DATA_PATH = "res://map_data/MapData.tres"
 const CACHE_FOLDER = "res://map_data/"
 
@@ -1190,6 +1192,13 @@ func get_border_provinces(country_name: String) -> Array[int]:
 				break  # Move to next province once we know this one is a border
 
 	return border_provinces
+
+func get_all_cities() -> Array:
+	var pids = []
+	for obj in province_objects.values():
+		if len(obj.city) > 0:
+			pids.append([obj.id, obj.city])
+	return pids
 
 
 func get_cities_province_country(country_name) -> Array:
