@@ -59,7 +59,7 @@ func _ready() -> void:
 
 	KeyboardManager.toggle_menu.connect(toggle_menu)
 
-	CountryManager.player_stats_changed.connect(_on_stats_changed)
+	GameState.current_world.clock.hour_passed.connect(_on_hour_passed)
 	CountryManager.player_country_changed.connect(_on_player_change)
 	updateProgressBar()
 
@@ -140,7 +140,7 @@ func _get_menu_actions(context: Context, category: Category) -> Array:
 func _on_player_change() -> void:
 	player = CountryManager.player_country
 	_update_flag()
-	_on_stats_changed()
+	_on_hour_passed()
 
 
 func _on_province_clicked(_pid: int, country_name: String) -> void:
@@ -244,14 +244,8 @@ func _build_action_list() -> void:
 			btn.setup_ready(troop, deploy_call)
 
 
-# ── UI Updates ────────────────────────────────────────
-func _update_ui() -> void:
-	_update_flag()
-	_on_time_passed()
-	_on_stats_changed()
 
-
-func _on_stats_changed() -> void:
+func _on_hour_passed() -> void:
 	if !player:
 		return
 	stats_labels.pp.text = str(floori(player.political_power))
@@ -337,7 +331,7 @@ func _conscript(data: Dictionary):
 	if data.has("manpower"):
 		var manpower = data.manpower / 10000  # Example math
 		CountryManager.player_country.train_troops(manpower, 10, 1000)
-	_on_stats_changed()
+	_on_hour_passed()
 	_build_action_list()
 
 
@@ -352,7 +346,7 @@ func deploy_troop(troop):
 
 func improve_stability(_data: Dictionary):
 	CountryManager.player_country.stability += 0.02
-	_on_stats_changed()
+	_on_hour_passed()
 
 
 # These must accept _data to prevent crashing

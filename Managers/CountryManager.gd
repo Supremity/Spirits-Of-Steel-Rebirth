@@ -1,6 +1,5 @@
 extends Node
 
-signal player_stats_changed
 signal player_country_changed
 var countries: Dictionary[String, CountryData] = {}
 var player_country: CountryData
@@ -10,14 +9,12 @@ func _on_hour_passed() -> void:
 	for c_name: String in countries:
 		var country_obj: CountryData = countries[c_name]
 		country_obj.process_hour()
-	player_stats_changed.emit()
 
 
 func _on_day_passed() -> void:
 	for c_name: String in countries:
 		var country_obj: CountryData = countries[c_name]
 		country_obj.process_day()
-	player_stats_changed.emit()
 
 
 func initialize_countries() -> void:

@@ -10,22 +10,17 @@ extends CanvasLayer
 @onready var armylevelagain: Label = $ColorRect/armylevelagain
 @onready var basecost: Label = $ColorRect/basecost
 
-var player: CountryData = null
-
 
 func _ready() -> void:
 	GameState.game_log = self
-	player = CountryManager.player_country
-	CountryManager.player_stats_changed.connect(_on_stats_changed)
+	GameState.current_world.clock.hour_passed.connect(_on_hour_passed)
 
 
-func _on_stats_changed():
-	# Re-fetch the player in case it was null at start
-	if player == null:
-		player = CountryManager.player_country
+func _on_hour_passed():
+	var player := CountryManager.player_country
 
 	# SAFETY CHECK: If player is still null, don't run the code
-	if player == null:
+	if CountryManager.player_country == null:
 		return
 
 	income.text = format_number(player.income)
@@ -53,12 +48,10 @@ func format_number(value: float) -> String:
 
 
 func _on_button_button_up() -> void:
-	player.army_level += 1
-	pass  # Replace with function body.
+	CountryManager.player_country.army_level += 1
 
 
 func _on_button_2_button_up() -> void:
-	if player.army_level <= 1:
+	if CountryManager.player_country.army_level <= 1:
 		return
-	player.army_level -= 1
-	pass  # Replace with function body.
+	CountryManager.player_country.army_level -= 1

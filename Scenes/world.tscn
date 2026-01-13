@@ -59,3 +59,4 @@ anchor_mode = 0
 script = ExtResource("6_o06y3")
 
 [node name="CountryLog" parent="." instance=ExtResource("7_o06y3")]
+visible = false

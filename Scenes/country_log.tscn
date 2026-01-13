@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://b0bru3cp5d7o2" path="res://Scripts/country_log.gd" id="1_jjupn"]
 
 [node name="CountryLog" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_jjupn")
 
 [node name="ColorRect" type="ColorRect" parent="."]
