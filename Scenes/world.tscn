@@ -46,14 +46,15 @@ script = ExtResource("5_o06y3")
 [node name="TroopMultiMesh" type="MultiMeshInstance2D" parent="MapContainer/CustomRenderer"]
 multimesh = SubResource("MultiMesh_k7acu")
 
-[node name="CameraController" type="Node" parent="."]
-script = ExtResource("4_8j60k")
-
 [node name="TroopSelection" type="Node2D" parent="."]
 script = ExtResource("6_5ukr8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+
+[node name="CameraController" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
+script = ExtResource("4_8j60k")
+camera = NodePath("..")
 
 [node name="Clock" type="Node" parent="."]
 script = ExtResource("6_o06y3")

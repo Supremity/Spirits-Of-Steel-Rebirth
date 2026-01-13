@@ -1,14 +1,7 @@
 extends Node
 
-@onready var camera: Camera2D = get_parent().get_node("Camera2D")
-
-@export_group("Movement")
+@export var camera: Camera2D = get_parent()
 @export var base_speed: float = 600.0
-
-@export_group("Zoom Settings")
-@export var zoom_factor: float = 0.1  # 10% per scroll
-@export var min_zoom: float = 0.5
-@export var max_zoom: float = 9.0
 
 var is_dragging := false
 
@@ -49,8 +42,8 @@ func _handle_keyboard_movement(delta: float) -> void:
 func _perform_zoom(direction: int) -> void:
 	var mouse_pos_before := camera.get_global_mouse_position()
 
-	camera.zoom += Vector2.ONE * direction #new_zoom
-	camera.zoom = camera.zoom.clamp(Vector2.ONE, Vector2.ONE * 12)
+	var new_zoom := camera.zoom + camera.zoom + Vector2.ONE * direction
+	camera.zoom = new_zoom.clamp(Vector2.ONE, Vector2.ONE * 12)
 
 	var mouse_pos_after := camera.get_global_mouse_position()
 	camera.position += mouse_pos_before - mouse_pos_after
