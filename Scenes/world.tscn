@@ -46,8 +46,7 @@ script = ExtResource("5_o06y3")
 [node name="TroopMultiMesh" type="MultiMeshInstance2D" parent="MapContainer/CustomRenderer"]
 multimesh = SubResource("MultiMesh_k7acu")
 
-[node name="CameraController" type="Node2D" parent="."]
-position = Vector2(-1, 1)
+[node name="CameraController" type="Node" parent="."]
 script = ExtResource("4_8j60k")
 
 [node name="TroopSelection" type="Node2D" parent="."]
