@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ef1nlqkm5anw"]
+[gd_scene load_steps=10 format=3 uid="uid://ef1nlqkm5anw"]
 
 [ext_resource type="Theme" uid="uid://c38ivksvf4is0" path="res://main_theme.tres" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://lifcljm83dlp" path="res://assets/ui/menu.png" id="1_48xlc"]
@@ -6,7 +6,6 @@
 [ext_resource type="FontFile" uid="uid://bnkj3vn7gx4qu" path="res://font/Google_Sans/static/GoogleSans-BoldItalic.ttf" id="3_cp0ys"]
 [ext_resource type="FontFile" uid="uid://bfw0gn63lgdhq" path="res://font/Google_Sans/static/GoogleSans-Bold.ttf" id="4_yhxw7"]
 [ext_resource type="Script" uid="uid://bmubx6hdbo3bt" path="res://Scripts/main_menu.gd" id="5_trj04"]
-[ext_resource type="PackedScene" uid="uid://cmjg68ti7jg32" path="res://settings.tscn" id="7_cp0ys"]
 [ext_resource type="FontFile" uid="uid://c1jnrhadjfe68" path="res://font/Google_Sans/static/GoogleSans-Regular.ttf" id="8_trj04"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28flt"]
@@ -23,23 +22,43 @@ content_margin_right = 14.0
 content_margin_bottom = 14.0
 bg_color = Color(0.08627451, 0.08627451, 0.08627451, 1)
 
-[node name="Main Menu" type="Node2D"]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(576.00006, 324.00003)
-scale = Vector2(0.6, 0.6)
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_48xlc")
+expand_mode = 2
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(102.50003, 105)
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 27.5
+offset_top = 30.0
+offset_right = 387.5
+offset_bottom = 390.0
 scale = Vector2(0.4138889, 0.4138889)
 texture = ExtResource("2_opfnp")
 
-[node name="Label2" type="Label" parent="Sprite2D2"]
-offset_left = 871.0066
-offset_top = 96.64428
-offset_right = 1159.0066
-offset_bottom = 199.64429
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 463.0
+offset_top = 145.0
+offset_right = 751.0
+offset_bottom = 248.0
+scale = Vector2(0.414, 0.414)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 25
@@ -47,11 +66,13 @@ theme_override_fonts/font = ExtResource("3_cp0ys")
 theme_override_font_sizes/font_size = 67
 text = "Rebirth"
 
-[node name="Label" type="Label" parent="Sprite2D2"]
-offset_left = 16.912632
-offset_top = -77.31543
-offset_right = 337.91263
-offset_bottom = 125.68457
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 109.499985
+offset_top = 73.0
+offset_right = 1257.5
+offset_bottom = 276.0
+scale = Vector2(0.414, 0.414)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.49411765)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -62,6 +83,7 @@ theme_override_font_sizes/font_size = 161
 text = "Spirits Of Steel"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
 offset_left = 59.49994
 offset_top = 210.0
 offset_right = 287.49994
@@ -75,41 +97,64 @@ theme_override_constants/separation = 24
 alignment = 1
 
 [node name="New" type="Button" parent="PanelContainer/VBoxContainer"]
+texture_filter = 2
 layout_mode = 2
 theme = ExtResource("1_28flt")
 text = "New Game
 "
 
 [node name="Settings" type="Button" parent="PanelContainer/VBoxContainer"]
+texture_filter = 2
 layout_mode = 2
 theme = ExtResource("1_28flt")
 text = "Settings"
 
 [node name="Credits" type="Button" parent="PanelContainer/VBoxContainer"]
+texture_filter = 2
 layout_mode = 2
 theme = ExtResource("1_28flt")
 text = "Credits"
 
 [node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
+texture_filter = 2
 layout_mode = 2
 theme = ExtResource("1_28flt")
 text = "Quit
 "
 
-[node name="Settings" parent="." instance=ExtResource("7_cp0ys")]
+[node name="Settings" type="Control" parent="."]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="Settings"]
-visible = false
-offset_right = 1152.0
-offset_bottom = 648.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 0.5019608)
+metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer2" type="PanelContainer" parent="Settings"]
-offset_left = 462.0
-offset_top = 210.0
-offset_right = 690.0
-offset_bottom = 360.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -114.0
+offset_right = 114.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vr1f0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Settings/PanelContainer2"]
@@ -149,37 +194,58 @@ theme = ExtResource("1_28flt")
 text = "exit
 "
 
-[node name="Credits" parent="." instance=ExtResource("7_cp0ys")]
+[node name="Credits" type="Control" parent="."]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect2" type="ColorRect" parent="Credits"]
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="ColorRect" type="ColorRect" parent="Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 0.5019608)
+metadata/_edit_use_anchors_ = true
 
-[node name="PanelContainer2" type="PanelContainer" parent="Credits"]
-offset_left = 462.0
-offset_top = 210.0
-offset_right = 690.0
-offset_bottom = 360.0
+[node name="PanelContainer" type="PanelContainer" parent="Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.0
+offset_top = -100.5
+offset_right = 164.0
+offset_bottom = 100.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vr1f0")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Credits/PanelContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/PanelContainer"]
 layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="Label" type="Label" parent="Credits/PanelContainer2/VBoxContainer"]
+[node name="Label" type="Label" parent="Credits/PanelContainer/VBoxContainer"]
+texture_filter = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("8_trj04")
 text = "Z21
-Poleve
-Sockmit
+CallMePol
 Soilad
-The pancake bunny guy
+Ariect Von don Koppan Finchendenstein II
 The spirit of GavGrub"
 
-[node name="Exit" type="Button" parent="Credits/PanelContainer2/VBoxContainer"]
+[node name="Exit" type="Button" parent="Credits/PanelContainer/VBoxContainer"]
+texture_filter = 2
 layout_mode = 2
 theme = ExtResource("1_28flt")
 text = "Thanks y'all"
@@ -191,4 +257,4 @@ text = "Thanks y'all"
 [connection signal="value_changed" from="Settings/PanelContainer2/VBoxContainer/SFX/HSlider" to="PanelContainer" method="_on_sfx_changed"]
 [connection signal="value_changed" from="Settings/PanelContainer2/VBoxContainer/Music/HSlider" to="PanelContainer" method="_on_music_changed"]
 [connection signal="pressed" from="Settings/PanelContainer2/VBoxContainer/Exit" to="PanelContainer" method="_on_exit_settings_pressed"]
-[connection signal="pressed" from="Credits/PanelContainer2/VBoxContainer/Exit" to="PanelContainer" method="_on_exit_credits_pressed"]
+[connection signal="pressed" from="Credits/PanelContainer/VBoxContainer/Exit" to="PanelContainer" method="_on_exit_credits_pressed"]

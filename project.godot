@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Spirits of Steel Rebirth"
-run/main_scene="uid://bonl378c51366"
+run/main_scene="uid://ef1nlqkm5anw"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/image="uid://lifcljm83dlp"
 config/icon="uid://claivv7l8p5lc"
@@ -32,6 +32,9 @@ AiManager="*res://Managers/AiManager.gd"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
