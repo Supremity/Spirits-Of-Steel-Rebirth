@@ -42,7 +42,7 @@ func _handle_keyboard_movement(delta: float) -> void:
 func _perform_zoom(direction: int) -> void:
 	var mouse_pos_before := camera.get_global_mouse_position()
 
-	var new_zoom := camera.zoom + camera.zoom + Vector2.ONE * direction
+	var new_zoom := camera.zoom + Vector2.ONE * direction
 	camera.zoom = new_zoom.clamp(Vector2.ONE, Vector2.ONE * 12)
 
 	var mouse_pos_after := camera.get_global_mouse_position()

@@ -15,23 +15,8 @@ var flag_cache: Dictionary = {}  # { country_name: texture }
 var troop_selection: TroopSelection
 
 
-func _ready() -> void:
-	set_process(false)
-
-
-func change_merge() -> void:
-	AUTO_MERGE = !AUTO_MERGE
-	if AUTO_MERGE:
-		if CountryManager and MapManager:
-			var current_country = CountryManager.player_country.country_name
-			var provinces = MapManager.country_to_provinces.get(current_country, [])
-			for prov in provinces:
-				_auto_merge_in_province(prov, current_country)
-
-
 func _process(delta: float) -> void:
 	if moving_troops.is_empty():
-		set_process(false)
 		return
 
 	var snapshot := moving_troops.duplicate()  # Shallow copy for safe iteration
@@ -54,7 +39,6 @@ func _update_smooth(troop: TroopData, delta: float) -> void:
 		_arrive_at_leg_end(troop)
 		return
 
-	# --- Stage 1: Visual indicator ---
 	var visual_progress = troop.get_meta("visual_progress", 0.0)
 	visual_progress += (
 		(GameState.current_world.clock.time_scale * delta / total_dist)
@@ -64,7 +48,6 @@ func _update_smooth(troop: TroopData, delta: float) -> void:
 		visual_progress = 1.0  # cap at 1
 	troop.set_meta("visual_progress", visual_progress)
 
-	# --- Stage 2: Actual troop movement ---
 	var move_progress = troop.get_meta("progress", 0.0)
 	if visual_progress >= 1.0:
 		move_progress += (
@@ -79,11 +62,6 @@ func _update_smooth(troop: TroopData, delta: float) -> void:
 		else:
 			troop.position = start.lerp(end, move_progress)
 			troop.set_meta("progress", move_progress)
-
-
-"""
-This happens right before a Troop starts moving into the next province
-"""
 
 
 func _start_next_leg(troop: TroopData) -> void:
@@ -112,17 +90,9 @@ func _start_next_leg(troop: TroopData) -> void:
 
 	troop.set_meta("progress", 0.0)
 
-	# Enable processing
 	troop.is_moving = true
 	if not moving_troops.has(troop):
 		moving_troops.append(troop)
-	if not is_processing():
-		set_process(true)
-
-
-"""
-When a Troop has entered the province
-"""
 
 
 func _arrive_at_leg_end(troop: TroopData) -> void:
@@ -141,60 +111,25 @@ func _arrive_at_leg_end(troop: TroopData) -> void:
 	if troop.is_moving:
 		if troop.path.is_empty():
 			_stop_troop(troop)
-			if AUTO_MERGE and troops.has(troop):
+			if AUTO_MERGE:
 				_auto_merge_in_province(troop.province_id, troop.country_name)
 		else:
 			_start_next_leg(troop)
 
 
-## Deletes Troop Path and stops it moving
 func _stop_troop(troop: TroopData) -> void:
 	moving_troops.erase(troop)
 	troop.is_moving = false
 	troop.path.clear()
-	if moving_troops.is_empty():
-		set_process(false)
 
 
 # Pause a troop along its path
 func pause_troop(troop: TroopData) -> void:
-	if moving_troops.has(troop):
-		moving_troops.erase(troop)
+	moving_troops.erase(troop)
 
-	# Prevents troop from trying to move into invalid positions or (0,0) after resume. (Happens in very rare cases)
 	troop.target_position = troop.position
 
 	troop.is_moving = false
-	if moving_troops.is_empty():
-		set_process(false)
-
-
-func resume_troop(troop: TroopData) -> void:
-	if troop.path.is_empty():
-		print("Cannot resume troop. No path set")
-		return
-
-	# FIX: If the target is basically where we are standing, it means
-	# _start_next_leg aborted early (due to battle). We must restart the leg logic.
-	if troop.position.distance_squared_to(troop.target_position) < 1.0:
-		_start_next_leg(troop)
-		return
-
-	if not moving_troops.has(troop):
-		moving_troops.append(troop)
-
-	troop.is_moving = true
-
-	if not is_processing():
-		set_process(true)
-
-
-# =============================================================
-# COMMAND & PATHFINDING
-# =============================================================
-## Public entry point for a single troop move order.
-func order_move_troop(troop: TroopData, target_pid: int) -> void:
-	command_move_assigned([{"troop": troop, "province_id": target_pid}])
 
 
 func command_move_assigned(payload: Array) -> void:
@@ -310,12 +245,7 @@ func _get_cached_path(start_id: int, target_id: int, allowed_countries: Array[St
 	return path
 
 
-# =============================================================
-# SPLIT & MANEUVER
-# =============================================================
-func _split_and_send_troop(
-	original_troop: TroopData, target_pids: Array, paths: Dictionary
-) -> void:
+func _split_and_send_troop(original_troop: TroopData, target_pids: Array, paths: Dictionary) -> void:
 	var total_divs = original_troop.divisions
 	var num_targets = target_pids.size()
 	if num_targets == 0 or total_divs < num_targets:
@@ -401,15 +331,10 @@ func _create_new_split_troop(original: TroopData, divisions: int) -> TroopData:
 	return new_troop
 
 
-# =============================================================
-# TROOP MANAGEMENT & CREATION
-# =============================================================
-## Creates a new troop and registers it in all indexes.
 func create_troop(country: String, divs: int, prov_id: int) -> TroopData:
 	if divs <= 0:
 		return null
 
-	# 1. Flag caching
 	if not flag_cache.has(country):
 		var path = "res://assets/flags/%s_flag.png" % country.to_lower()
 		flag_cache[country] = load(path) if ResourceLoader.exists(path) else null
@@ -419,7 +344,7 @@ func create_troop(country: String, divs: int, prov_id: int) -> TroopData:
 		country, prov_id, divs, pos, flag_cache.get(country)
 	)
 
-	# 2. Critical: initialize runtime metadata
+	# Initialize runtime metadata
 	troop.set_meta("start_pos", pos)
 	troop.set_meta("time_left", 0.0)
 	troop.set_meta("progress", 0.0)
@@ -427,11 +352,9 @@ func create_troop(country: String, divs: int, prov_id: int) -> TroopData:
 	troop.path = []
 	troop.province_id = prov_id
 
-	# 3. Add to master list and indexes
 	troops.append(troop)
 	_add_troop_to_indexes(troop)
 
-	# 4. Auto-merge if enabled
 	if AUTO_MERGE:
 		_auto_merge_in_province(prov_id, country)
 
@@ -493,17 +416,8 @@ func _auto_merge_in_province(province_id: int, country: String) -> void:
 			elif "selected_troop" in troop_selection:
 				troop_selection.selected_troop = primary
 
-	# 4. Remove
 	for troop in to_remove:
-		_remove_troop(troop)
-
-
-# =============================================================
-# WAR MANAGER INTERFACE (Hooks for Combat & Strategy)
-# =============================================================
-## Public hook for the WarManager to remove a troop that has lost a battle.
-func remove_troop_by_war(troop: TroopData) -> void:
-	_remove_troop(troop)
+		remove_troop(troop)
 
 
 ## Public hook for the WarManager to force a troop to its home province center.
@@ -514,9 +428,6 @@ func move_to_garrison(troop: TroopData) -> void:
 	_stop_troop(troop)  # Stops any ongoing movement
 
 
-# =============================================================
-# INDEXING HELPERS (Internal Maintenance)
-# =============================================================
 ## Adds a troop reference to the spatial and country dictionaries.
 func _add_troop_to_indexes(troop: TroopData) -> void:
 	var pid = troop.province_id
@@ -534,21 +445,18 @@ func _add_troop_to_indexes(troop: TroopData) -> void:
 
 
 ## Removes a troop reference from all data structures (master, moving, indexes).
-func _remove_troop(troop: TroopData) -> void:
-	# 1. Master lists
+func remove_troop(troop: TroopData) -> void:
 	troops.erase(troop)
 	moving_troops.erase(troop)
 
 	var pid = troop.province_id
 	var country = troop.country_name
 
-	# 2. Province Index
 	if troops_by_province.has(pid):
-		troops_by_province[pid].erase(troop)
+		# troops_by_province[pid].erase(troop)
 		if troops_by_province[pid].is_empty():
 			troops_by_province.erase(pid)
 
-	# 3. Country Index
 	if troops_by_country.has(country):
 		troops_by_country[country].erase(troop)
 
@@ -651,7 +559,7 @@ func destroy_force_in_province(pid: int, country: String) -> void:
 	var list = troops_by_province.get(pid, []).duplicate()
 	for t in list:
 		if t.country_name == country:
-			_remove_troop(t)
+			remove_troop(t)
 
 
 # Used by popup for now

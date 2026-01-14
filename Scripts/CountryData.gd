@@ -88,7 +88,8 @@ func process_hour() -> void:
 		pass
 		#print("income: ", income, " | army_cost: ", army_cost, " | province_cost: ", province_cost)
 	else:
-		AiManager.process_hour(self)
+		AiManager.ai_handle_deployment(self)
+		AiManager.ai_consider_recruitment(self)
 
 
 func process_day() -> void:
@@ -97,7 +98,7 @@ func process_day() -> void:
 	_process_training()
 	factories_amount = CountryManager.get_factories_country(country_name)
 	if not is_player:
-		AiManager.process_day(self)
+		AiManager.evaluate_frontline_moves(self)
 
 
 #endregion

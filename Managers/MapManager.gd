@@ -474,7 +474,6 @@ func _execute_industry_build(pid: int, player_name: String) -> void:
 	province_clicked.emit(pid, player_name)
 
 
-#----------------
 func _cleanup_interaction_state() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	if last_hovered_pid > 1:
@@ -943,6 +942,7 @@ func show_industry_country(country_name: String) -> void:
 		return
 
 	var provinces = country_to_provinces.get(country_name)
+	var provinces_near_sea := get_provinces_near_sea(country_name)
 
 	for pid in provinces:
 		var province = province_objects[pid]
@@ -953,7 +953,7 @@ func show_industry_country(country_name: String) -> void:
 			state_color_image.set_pixel(pid, 0, Color.GREEN)
 		elif province.has_port:
 			state_color_image.set_pixel(pid, 0, Color.BLUE)
-		elif pid in get_provinces_near_sea(country_name):
+		elif pid in provinces_near_sea:
 			state_color_image.set_pixel(pid, 0, Color.LIGHT_SKY_BLUE)
 
 		else:
@@ -1230,7 +1230,7 @@ func annex_country(target_country_name: String) -> void:
 
 	var target_troops = TroopManager.get_troops_for_country(target_country_name).duplicate()
 	for troop in target_troops:
-		TroopManager._remove_troop(troop)  # This now works perfectly
+		TroopManager.remove_troop(troop)
 
 	var provinces_to_transfer = country_to_provinces.get(target_country_name, []).duplicate()
 

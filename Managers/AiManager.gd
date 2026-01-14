@@ -5,19 +5,7 @@ const MIN_MONEY_RESERVE := 25000.0
 const RECRUIT_MANPOWER_THRESHOLD := 15000
 
 
-# --- Strategic Layer ---
-func process_hour(country: CountryData) -> void:
-	_ai_handle_deployment(country)
-	_ai_consider_recruitment(country)
-	#_ai_consider_tech_upgrade(country)
-
-
-# --- Tactical Layer ---
-func process_day(country: CountryData) -> void:
-	_evaluate_frontline_moves(country)
-
-
-func _ai_handle_deployment(country: CountryData) -> void:
+func ai_handle_deployment(country: CountryData) -> void:
 	if country.ready_troops.is_empty():
 		return
 
@@ -37,7 +25,7 @@ func _ai_handle_deployment(country: CountryData) -> void:
 			country.deploy_ready_troop_to_random(troop)
 
 
-func _ai_consider_recruitment(country: CountryData) -> void:
+func ai_consider_recruitment(country: CountryData) -> void:
 	var army_base_cost := 100
 	var army_cost := 0.0
 
@@ -54,8 +42,7 @@ func _ai_consider_recruitment(country: CountryData) -> void:
 	country.train_troops(2, 10, army_base_cost)
 
 
-# --- New tactical logic using Border Functions ---
-func _evaluate_frontline_moves(country: CountryData):
+func evaluate_frontline_moves(country: CountryData):
 	var ai_troops = TroopManager.get_troops_for_country(country.country_name)
 	var idle_troops = ai_troops.filter(func(t): return not t.is_moving)
 
@@ -65,11 +52,16 @@ func _evaluate_frontline_moves(country: CountryData):
 	var enemies = WarManager.get_enemies_of(country.country_name)
 	var move_payload = []
 
-	# --- PEACE TIME: Garrison ---
+	# Gather troops to a valid city
 	if enemies.is_empty():
-		_handle_peace_garrison(country, idle_troops, move_payload)
+		var home_cities = MapManager.get_cities_province_country(country.country_name)
+		if home_cities.is_empty():
+			return
 
-	# --- WAR TIME: Strategic Fanning ---
+		var rally_point = home_cities[0]
+		for troop in idle_troops:
+			if troop.province_id != rally_point:
+				move_payload.append({"troop": troop, "province_id": rally_point})
 	else:
 		var army_targets = []
 		var city_targets = []
@@ -125,18 +117,6 @@ func _evaluate_frontline_moves(country: CountryData):
 
 	if not move_payload.is_empty():
 		TroopManager.command_move_assigned(move_payload)
-
-
-## Helper to keep the main function clean
-func _handle_peace_garrison(country, idle_troops, move_payload):
-	var home_cities = MapManager.get_cities_province_country(country.country_name)
-	if home_cities.is_empty():
-		return
-
-	var rally_point = home_cities[0]
-	for troop in idle_troops:
-		if troop.province_id != rally_point:
-			move_payload.append({"troop": troop, "province_id": rally_point})
 
 
 func _find_tactical_targets(ai_country_name: String) -> Array:

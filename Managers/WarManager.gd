@@ -115,7 +115,7 @@ class Battle:
 			# Wipe out small units, chance to wipe out large ones
 			var retreat_pid = _find_retreat_province(defender_pid, defender_country)
 			if t.divisions <= 1 or retreat_pid == -1 or randf() < 0.5:
-				TroopManager.remove_troop_by_war(t)
+				TroopManager.remove_troop(t)
 			else:
 				t.divisions = max(1, int(t.divisions * 0.5))
 				TroopManager.teleport_troop_to_province(t, retreat_pid)
@@ -193,7 +193,7 @@ func apply_casualties(pid: int, country: String, damage_divisions: float):
 
 		if t.divisions <= 0:
 			t.divisions = 0
-			TroopManager.remove_troop_by_war(t)
+			TroopManager.remove_troop(t)
 
 
 func resolve_province_arrival(pid: int, troop: TroopData):
@@ -296,7 +296,7 @@ func _handle_total_collapse(fallen_country_name: String, victor_country_name: St
 	# 3. Wipe any remaining troops of the fallen country from the map
 	var remaining_troops = TroopManager.get_troops_for_country(fallen_country_name).duplicate()
 	for t in remaining_troops:
-		TroopManager.remove_troop_by_war(t)
+		TroopManager.remove_troop(t)
 
 	# 4. Remove the country from all active wars
 	var fallen_data = CountryManager.get_country(fallen_country_name)
