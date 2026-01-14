@@ -33,7 +33,6 @@ var sidemenu_flag: TextureRect = $Control/SidemenuBG/Sidemenu/PanelContainer/VBo
 @onready var minus: Button = $Control/SpeedPanel/GameSpeedControl/MinusPanel/Minus
 
 # ── State Variables ───────────────────────────────────
-var player: CountryData = null
 var selected_country: CountryData = null
 
 # Animation State
@@ -45,6 +44,10 @@ var pos_closed := Vector2.ZERO
 # Navigation State
 var current_context: Context = Context.SELF
 var current_category: Category = Category.GENERAL
+
+
+func _enter_tree() -> void:
+	GameState.game_ui = self
 
 
 func _ready() -> void:
@@ -138,7 +141,6 @@ func _get_menu_actions(context: Context, category: Category) -> Array:
 
 
 func _on_player_change() -> void:
-	player = CountryManager.player_country
 	_update_flag()
 	update_bar_player_stats()
 
@@ -152,9 +154,9 @@ func _on_province_clicked(_pid: int, country_name: String) -> void:
 	if !GameState.choosing_deploy_city || GameState.industry_building == GameState.INDUSTRY.NOTHING:
 		var new_context = Context.DIPLOMACY
 
-		if country_name == player.country_name:
+		if country_name == CountryManager.player_country.country_name:
 			new_context = Context.SELF
-		elif WarManager.is_at_war(player, selected_country):
+		elif WarManager.is_at_war(CountryManager.player_country, selected_country):
 			new_context = Context.WAR
 
 		open_menu(new_context, Category.GENERAL)
@@ -164,8 +166,8 @@ func toggle_menu(context := Context.SELF) -> void:
 	if is_open:
 		close_menu()
 	else:
-		selected_country = player
-		label_country_sidemenu.text = player.country_name
+		selected_country = CountryManager.player_country
+		label_country_sidemenu.text = CountryManager.player_country.country_name
 		sidemenu_flag.texture = nation_flag.texture
 		open_menu(context, Category.GENERAL)
 
@@ -192,10 +194,10 @@ func _on_tab_changed(new_category_index: int) -> void:
 func _on_menu_button_button_up(_menu_index: int) -> void:
 	current_category = _menu_index as Category
 	if _menu_index == Category.ECONOMY:
-		MapManager.show_industry_country(player.country_name)
+		MapManager.show_industry_country(CountryManager.player_country.country_name)
 		pass
 	else:
-		MapManager.set_country_color(player.country_name, Color.TRANSPARENT)
+		MapManager.set_country_color(CountryManager.player_country.country_name, Color.TRANSPARENT)
 		GameState.industry_building = GameState.INDUSTRY.NOTHING
 		MapManager.show_countries_map()
 	_build_action_list()
@@ -245,13 +247,13 @@ func _build_action_list() -> void:
 
 
 func update_bar_player_stats() -> void:
-	if !player:
+	if !CountryManager.player_country:
 		return
-	stats_labels.pp.text = str(floori(player.political_power))
-	stats_labels.stability.text = str(round(player.stability * 100)) + "%"
-	stats_labels.manpower.text = format_number(player.manpower)
-	stats_labels.money.text = "$" + format_number(player.money)
-	stats_labels.industry.text = str(player.factories_amount)
+	stats_labels.pp.text = str(floori(CountryManager.player_country.political_power))
+	stats_labels.stability.text = str(round(CountryManager.player_country.stability * 100)) + "%"
+	stats_labels.manpower.text = format_number(CountryManager.player_country.manpower)
+	stats_labels.money.text = "$" + format_number(CountryManager.player_country.money)
+	stats_labels.industry.text = str(CountryManager.player_country.factories_amount)
 
 
 func _on_hour_passed() -> void:
@@ -287,9 +289,9 @@ func updateProgressBar():
 
 
 func _update_flag() -> void:
-	if !player:
+	if !CountryManager.player_country:
 		return
-	var path = "res://assets/flags/%s_flag.png" % player.country_name.to_lower()
+	var path = "res://assets/flags/%s_flag.png" % CountryManager.player_country.country_name.to_lower()
 	if ResourceLoader.exists(path):
 		nation_flag.texture = load(path)
 
@@ -327,7 +329,7 @@ func _choose_deploy_city(_data: Dictionary):
 
 
 func _declare_war(_data: Dictionary):
-	WarManager.declare_war(player, selected_country)
+	WarManager.declare_war(CountryManager.player_country, selected_country)
 	open_menu(Context.WAR, Category.GENERAL)
 
 
@@ -341,10 +343,10 @@ func _conscript(data: Dictionary):
 
 # Troop argument comes from .bind(troop)
 func deploy_troop(troop):
-	if player.deploy_pid == -1:
-		player.deploy_ready_troop_to_random(troop)
+	if CountryManager.player_country.deploy_pid == -1:
+		CountryManager.player_country.deploy_ready_troop_to_random(troop)
 	else:
-		player.deploy_ready_troop_to_pid(troop)
+		CountryManager.player_country.deploy_ready_troop_to_pid(troop)
 	_build_action_list()
 
 

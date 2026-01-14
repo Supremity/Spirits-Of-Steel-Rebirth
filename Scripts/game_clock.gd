@@ -23,10 +23,6 @@ var accumulated_time: float = 0.0
 var paused: bool
 
 
-func _ready() -> void:
-	pause()
-
-
 func _process(delta: float) -> void:
 	if paused:
 		return

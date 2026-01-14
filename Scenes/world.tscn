@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://bonl378c51366"]
 
 [ext_resource type="Script" uid="uid://pcq6svrgye6v" path="res://Scripts/world.gd" id="1_go701"]
+[ext_resource type="Script" uid="uid://bjvlgraecimcy" path="res://Scenes/main.gd" id="1_o06y3"]
 [ext_resource type="PackedScene" uid="uid://dgfixe44dvfny" path="res://Scenes/ui_game.tscn" id="2_fo5ed"]
 [ext_resource type="Script" uid="uid://cvkc8n0kgyk3c" path="res://Scripts/camera_controller.gd" id="4_8j60k"]
 [ext_resource type="Script" uid="uid://bko55up7cjg3g" path="res://Scripts/custom_renderer.gd" id="5_o06y3"]
 [ext_resource type="Script" uid="uid://dx8iwvng5oypc" path="res://Scripts/troop_selection.gd" id="6_5ukr8"]
 [ext_resource type="Script" uid="uid://cnm2s5owh7ec3" path="res://Scripts/game_clock.gd" id="6_o06y3"]
-[ext_resource type="PackedScene" uid="uid://bupsalek83tsc" path="res://Scenes/country_log.tscn" id="7_o06y3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8j60k"]
 
@@ -22,42 +22,42 @@ load_path = "res://.godot/imported/regions.png-75b8193867ba7ee4418b242a7a7efe49.
 custom_aabb = AABB(30, 20, 0, 0, 0, 0)
 mesh = SubResource("QuadMesh_o06y3")
 
-[node name="World" type="Node2D" node_paths=PackedStringArray("clock")]
+[node name="Main" type="Node2D"]
+script = ExtResource("1_o06y3")
+
+[node name="World" type="Node2D" parent="." node_paths=PackedStringArray("clock")]
 script = ExtResource("1_go701")
 clock = NodePath("Clock")
 
-[node name="ui_game" parent="." instance=ExtResource("2_fo5ed")]
+[node name="Clock" type="Node" parent="World"]
+script = ExtResource("6_o06y3")
 
-[node name="MapContainer" type="Node2D" parent="."]
+[node name="MapContainer" type="Node2D" parent="World"]
 
-[node name="CultureSprite" type="Sprite2D" parent="MapContainer"]
+[node name="CultureSprite" type="Sprite2D" parent="World/MapContainer"]
 material = SubResource("ShaderMaterial_8j60k")
 texture = SubResource("CompressedTexture2D_fo5ed")
 centered = false
 
-[node name="RegionSprite" type="Sprite2D" parent="MapContainer"]
+[node name="RegionSprite" type="Sprite2D" parent="World/MapContainer"]
 visible = false
 texture = SubResource("CompressedTexture2D_5ukr8")
 centered = false
 
-[node name="CustomRenderer" type="Node2D" parent="MapContainer"]
+[node name="CustomRenderer" type="Node2D" parent="World/MapContainer"]
 script = ExtResource("5_o06y3")
 
-[node name="TroopMultiMesh" type="MultiMeshInstance2D" parent="MapContainer/CustomRenderer"]
+[node name="TroopMultiMesh" type="MultiMeshInstance2D" parent="World/MapContainer/CustomRenderer"]
 multimesh = SubResource("MultiMesh_k7acu")
 
-[node name="TroopSelection" type="Node2D" parent="."]
-script = ExtResource("6_5ukr8")
-
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="World"]
 anchor_mode = 0
 
-[node name="CameraController" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
+[node name="CameraController" type="Node" parent="World/Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("4_8j60k")
 camera = NodePath("..")
 
-[node name="Clock" type="Node" parent="."]
-script = ExtResource("6_o06y3")
+[node name="TroopSelection" type="Node2D" parent="World"]
+script = ExtResource("6_5ukr8")
 
-[node name="CountryLog" parent="." instance=ExtResource("7_o06y3")]
-visible = false
+[node name="ui_game" parent="." instance=ExtResource("2_fo5ed")]

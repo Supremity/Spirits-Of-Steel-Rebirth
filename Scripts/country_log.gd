@@ -1,14 +1,15 @@
-extends CanvasLayer
+extends Control
+class_name CountryLog
 
-@onready var income: Label = $ColorRect/VBoxContainer2/income
-@onready var armycost: Label = $ColorRect/VBoxContainer2/armycost
-@onready var armylevel: Label = $ColorRect/VBoxContainer2/armylevel
-@onready var totalmanpower: Label = $ColorRect/VBoxContainer2/totalmanpower
-@onready var availablemanpower: Label = $ColorRect/VBoxContainer2/availablemanpower
-@onready var infield: Label = $ColorRect/VBoxContainer2/infield
+@onready var income: Label = $VBoxContainer2/income
+@onready var armycost: Label = $VBoxContainer2/armycost
+@onready var armylevel: Label = $VBoxContainer2/armylevel
+@onready var totalmanpower: Label = $VBoxContainer2/totalmanpower
+@onready var availablemanpower: Label = $VBoxContainer2/availablemanpower
+@onready var infield: Label = $VBoxContainer2/infield
 
-@onready var armylevelagain: Label = $ColorRect/armylevelagain
-@onready var basecost: Label = $ColorRect/basecost
+@onready var armylevelagain: Label = $armylevelagain
+@onready var basecost: Label = $basecost
 
 
 func _ready() -> void:

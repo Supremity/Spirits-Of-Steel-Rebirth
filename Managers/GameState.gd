@@ -8,7 +8,7 @@ var choosing_deploy_city := false
 var industry_building := INDUSTRY.NOTHING
 
 var game_ui: GameUI
-var game_log: CanvasLayer
+var game_log: CountryLog
 
 
 func reset_industry_building():
