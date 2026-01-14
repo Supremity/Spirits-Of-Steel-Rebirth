@@ -60,23 +60,27 @@ class ReadyTroop:
 
 
 #region --- Lifecycle ---
-func _init(p_name: String) -> void:
-	country_name = p_name
-	self.name = p_name
-	allowedCountries.append_array([p_name, "sea"])
+func _init(p_country_name: String) -> void:
+	country_name = p_country_name
+
+	allowedCountries.append_array([p_country_name, "sea"])
 
 	total_population = CountryManager.get_country_population(country_name)
+	@warning_ignore("narrowing_conversion")
 	manpower = (
-		(total_population - CountryManager.get_country_used_manpower(country_name, self))
+		(total_population - CountryManager.get_country_used_manpower(self))
 		* military_size
 	)
+	@warning_ignore("narrowing_conversion")
 	gdp = (CountryManager.get_country_gdp(country_name) * total_population * 0.000001) * 0.5
 	money = 0
+	factories_amount = CountryManager.get_factories_amount(country_name)
 
 
 func process_hour() -> void:
 	political_power += 0.04  # daily_pp_gain
 
+	@warning_ignore("integer_division")
 	income = (gdp / 8760) * 0.2
 	income += factories_amount * 1000
 	army_cost = calculate_army_upkeep()
@@ -84,19 +88,20 @@ func process_hour() -> void:
 	troop_speed_modifier = 1 + army_level * 0.1
 
 	update_manpower_pool()
-	if is_player:
-		pass
-		#print("income: ", income, " | army_cost: ", army_cost, " | province_cost: ", province_cost)
-	else:
+	if not is_player:
 		AiManager.ai_handle_deployment(self)
 		AiManager.ai_consider_recruitment(self)
+	else:
+		#print("income: ", income, " | army_cost: ", army_cost, " | province_cost: ", province_cost)
+		pass
 
 
 func process_day() -> void:
 	total_population = CountryManager.get_country_population(country_name)  # Update it due to war an dstuff
+	@warning_ignore("narrowing_conversion")
 	gdp = CountryManager.get_country_gdp(country_name) * total_population * 0.000001
 	_process_training()
-	factories_amount = CountryManager.get_factories_country(country_name)
+	factories_amount = CountryManager.get_factories_amount(country_name)
 	if not is_player:
 		AiManager.evaluate_frontline_moves(self)
 
@@ -187,7 +192,7 @@ func deploy_ready_troop_to_pid(troop: ReadyTroop) -> bool:
 
 func reset_manpower() -> void:
 	manpower = (
-		(total_population - CountryManager.get_country_used_manpower(country_name, self))
+		(total_population - CountryManager.get_country_used_manpower(self))
 		* military_size
 	)
 
@@ -195,7 +200,7 @@ func reset_manpower() -> void:
 func update_manpower_pool() -> void:
 	var base_reservoir := int(total_population * military_size)
 	var max_cap := int(base_reservoir * 1.5)
-	var used := CountryManager.get_country_used_manpower(country_name, self)
+	var used := CountryManager.get_country_used_manpower(self)
 
 	if (manpower + used) < max_cap:
 		var daily_gain := int(base_reservoir * MANPOWER_RECOVERY_PER_DAY)

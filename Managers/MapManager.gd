@@ -94,7 +94,7 @@ func _generate_and_save(
 func _try_load_cached_data() -> bool:
 	if not ResourceLoader.exists(MAP_DATA_PATH):
 		return false
-	var loaded = ResourceLoader.load(MAP_DATA_PATH) as MapData
+	var loaded := ResourceLoader.load(MAP_DATA_PATH) as MapData
 	if not loaded:
 		return false
 
@@ -139,7 +139,9 @@ func initialize_map(
 			var c_color = c_img.get_pixel(x, y)
 			var r_color = r_img.get_pixel(x, y)
 			var is_sea_pixel = _is_sea(c_color)
-			var is_sea_grid = _is_sea_grid(c_color)
+
+			# var is_sea_grid = _is_sea_grid(c_color)
+
 			# FIX: Generate a key based on the actual color in the region map (r_color)
 			# We add a prefix so that a land province and sea province with the
 			# same hex color won't accidentally merge.
@@ -421,18 +423,18 @@ func handle_click(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 		return
 
 	# 2. Contextual Interaction Logic
-	var player_name = CountryManager.player_country.name
-	var is_player_owned = province_to_country.get(pid) == player_name
+	var player_country_name = CountryManager.player_country.country_name
+	var is_player_owned = province_to_country.get(pid) == player_country_name
 
 	if GameState.choosing_deploy_city:
 		if is_player_owned:
-			_execute_deployment(pid, player_name)
+			_execute_deployment(pid, player_country_name)
 		else:
 			print("Action Failed: Province not owned by player.")
 
 	elif GameState.industry_building != GameState.INDUSTRY.NOTHING:
 		if is_player_owned:
-			_execute_industry_build(pid, player_name)
+			_execute_industry_build(pid, player_country_name)
 		else:
 			print("Action Failed: Cannot build in foreign territory.")
 			GameState.reset_industry_building()

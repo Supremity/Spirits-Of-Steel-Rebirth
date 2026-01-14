@@ -29,7 +29,7 @@ func _on_hour_passed():
 	armylevel.text = str(player.army_level)
 	availablemanpower.text = format_number(player.manpower)
 	infield.text = format_number(
-		CountryManager.get_country_used_manpower(player.country_name, player)
+		CountryManager.get_country_used_manpower(player)
 	)
 	basecost.text = "Base Cost Divison: " + format_number(player.army_base_cost * player.army_level)
 	armylevelagain.text = str(player.army_level)

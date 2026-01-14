@@ -27,7 +27,6 @@ func initialize_countries() -> void:
 
 	for country_name in detected_countries:
 		var new_country := CountryData.new(country_name)
-		add_child(new_country)
 		countries[country_name] = new_country
 
 	print("CountryManager: Initialized %d countries." % countries.size())
@@ -44,7 +43,6 @@ func get_country(c_name: String) -> CountryData:
 
 
 func set_player_country(country_name: String) -> void:
-	print("TEST")
 	var country := countries.get(country_name.to_lower()) as CountryData
 	if !country:
 		push_error("CountryManager: Requested non-existent country '%s'" % country_name)
@@ -88,7 +86,7 @@ func get_country_gdp(country_name: String) -> int:
 	return total_gdp
 
 
-func get_factories_country(country_name: String) -> int:
+func get_factories_amount(country_name: String) -> int:
 	var provinces = MapManager.country_to_provinces.get(country_name, [])
 	return provinces.reduce(
 		func(accum, pid): return accum + (1 if MapManager.province_objects[pid].has_factory else 0),
@@ -96,13 +94,15 @@ func get_factories_country(country_name: String) -> int:
 	)
 
 
-func get_country_used_manpower(country_name, country_obj) -> int:
+# NOTE(pol): We should keep track of the number of divisions in a variable
+# instead of calculating
+func get_country_used_manpower(country_obj: CountryData) -> int:
 	var total_divisions = 0
-	var troop_list = TroopManager.get_troops_for_country(country_name)
+	var troop_list = TroopManager.get_troops_for_country(country_obj.country_name)
 	for troop in troop_list:
 		total_divisions += troop.divisions
 	for training in country_obj.ongoing_training:
 		total_divisions += training.divisions
-	for ready in country_obj.ready_troops:
-		total_divisions += ready.divisions
+	for ready_troop in country_obj.ready_troops:
+		total_divisions += ready_troop.divisions
 	return total_divisions * country_obj.manpower_per_division
