@@ -453,7 +453,7 @@ func remove_troop(troop: TroopData) -> void:
 	var country = troop.country_name
 
 	if troops_by_province.has(pid):
-		# troops_by_province[pid].erase(troop)
+		troops_by_province[pid].erase(troop)
 		if troops_by_province[pid].is_empty():
 			troops_by_province.erase(pid)
 
@@ -553,13 +553,6 @@ func get_province_strength(pid: int, country: String) -> int:
 		if t.country_name == country:
 			total += t.divisions
 	return total
-
-
-func destroy_force_in_province(pid: int, country: String) -> void:
-	var list = troops_by_province.get(pid, []).duplicate()
-	for t in list:
-		if t.country_name == country:
-			remove_troop(t)
 
 
 # Used by popup for now
