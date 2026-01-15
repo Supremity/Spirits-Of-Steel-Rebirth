@@ -45,6 +45,8 @@ var pos_closed := Vector2.ZERO
 var current_context: Context = Context.SELF
 var current_category: Category = Category.GENERAL
 
+@export var military_access: Label
+
 
 func _enter_tree() -> void:
 	GameState.game_ui = self
@@ -74,7 +76,6 @@ func _ready() -> void:
 
 
 func _get_menu_actions(context: Context, category: Category) -> Array:
-	# Note: I removed placeholders for cleaner reading, add back as needed
 	var data = {
 		Context.SELF:
 		{
@@ -159,6 +160,9 @@ func _on_province_clicked(_pid: int, country_name: String) -> void:
 		elif WarManager.is_at_war(CountryManager.player_country, selected_country):
 			new_context = Context.WAR
 
+		var has_military_access := selected_country.country_name in CountryManager.player_country.allowedCountries
+		self.military_access.text = "Military Access: " + String("Yes" if has_military_access else "No")
+
 		open_menu(new_context, Category.GENERAL)
 
 
@@ -203,10 +207,6 @@ func _on_menu_button_button_up(_menu_index: int) -> void:
 	_build_action_list()
 
 
-#	print("Switched category to: ", Category.keys()[current_category])
-
-
-# ── Action List Builder (FIXED) ───────────────────────
 func _build_action_list() -> void:
 	# Clear existing
 	for child in actions_container.get_children():
@@ -319,8 +319,7 @@ func slide_out() -> void:
 	tween.tween_property(sidemenu, "position", pos_closed, slide_duration)
 
 
-# ── Action Callbacks ──────────────────────────────────
-# IMPORTANT: All callbacks invoked by ActionRow (Standard) must accept
+# NOTE: All callbacks invoked by ActionRow (Standard) must accept
 # one argument (the data dictionary) because of the .bind(item) in _build_action_list.
 
 
@@ -330,6 +329,10 @@ func _choose_deploy_city(_data: Dictionary):
 
 func _declare_war(_data: Dictionary):
 	WarManager.declare_war(CountryManager.player_country, selected_country)
+
+	var has_military_access := selected_country.country_name in CountryManager.player_country.allowedCountries
+	GameState.game_ui.military_access.text = "Military Access: " + String("Yes" if has_military_access else "No")
+
 	open_menu(Context.WAR, Category.GENERAL)
 
 

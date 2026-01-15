@@ -50,9 +50,10 @@ corner_radius_bottom_left = 15
 bg_color = Color(0.20990813, 0.20990813, 0.20990801, 1)
 shadow_color = Color(0, 0, 0, 0.35686275)
 
-[node name="GameUI" type="CanvasLayer"]
+[node name="GameUI" type="CanvasLayer" node_paths=PackedStringArray("military_access")]
 script = ExtResource("1_rp7y5")
 action_scene = ExtResource("2_5phox")
+military_access = NodePath("Control/SidemenuBG/Sidemenu/PanelContainer/VBoxContainer/MilitaryAccess")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -356,7 +357,7 @@ texture = ExtResource("1_xar7q")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label2" type="Label" parent="Control/SidemenuBG/Sidemenu/PanelContainer/VBoxContainer"]
+[node name="MilitaryAccess" type="Label" parent="Control/SidemenuBG/Sidemenu/PanelContainer/VBoxContainer"]
 texture_filter = 2
 layout_mode = 2
 theme = ExtResource("13_sdmnd")

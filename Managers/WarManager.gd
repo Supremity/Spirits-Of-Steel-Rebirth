@@ -208,15 +208,19 @@ func resolve_province_arrival(pid: int, troop: TroopData):
 
 
 func declare_war(a: CountryData, b: CountryData) -> void:
-	add_war_silent(a, b)
+	var ok := add_war_silent(a, b)
+	if not ok:
+		return
+
+
 	PopupManager.show_alert("war", a, b)
 	MusicManager.play_sfx(MusicManager.SFX.DECLARE_WAR)
 	MusicManager.play_music(MusicManager.MUSIC.BATTLE_THEME)
 
 
-func add_war_silent(a: CountryData, b: CountryData) -> void:
+func add_war_silent(a: CountryData, b: CountryData) -> bool:
 	if a == b or is_at_war(a, b):
-		return
+		return false
 	if not wars.has(a):
 		wars[a] = {}
 	if not wars.has(b):
@@ -225,11 +229,12 @@ func add_war_silent(a: CountryData, b: CountryData) -> void:
 	wars[a][b] = true
 	wars[b][a] = true
 
-	# Ensure they are in each other's allowed lists for pathfinding/interaction
-	if a.allowedCountries.find(b.country_name) == -1:
+	if not a.allowedCountries.has(b.country_name):
 		a.allowedCountries.append(b.country_name)
-	if b.allowedCountries.find(a.country_name) == -1:
+	if not b.allowedCountries.has(a.country_name):
 		b.allowedCountries.append(a.country_name)
+	
+	return true
 
 
 func is_at_war(a: CountryData, b: CountryData) -> bool:
