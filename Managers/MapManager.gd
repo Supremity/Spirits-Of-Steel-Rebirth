@@ -367,7 +367,7 @@ func handle_hover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 
 			last_hovered_pid = pid
 			Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
-			province_hovered.emit(pid, CountryManager.player_country.name)
+			province_hovered.emit(pid, CountryManager.player_country.country_name)
 		else:
 			Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 			province_hovered.emit(-1, "")

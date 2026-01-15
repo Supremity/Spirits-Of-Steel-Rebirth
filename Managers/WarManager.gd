@@ -226,10 +226,10 @@ func add_war_silent(a: CountryData, b: CountryData) -> void:
 	wars[b][a] = true
 
 	# Ensure they are in each other's allowed lists for pathfinding/interaction
-	if a.allowedCountries.find(b.name) == -1:
-		a.allowedCountries.append(b.name)
-	if b.allowedCountries.find(a.name) == -1:
-		b.allowedCountries.append(a.name)
+	if a.allowedCountries.find(b.country_name) == -1:
+		a.allowedCountries.append(b.country_name)
+	if b.allowedCountries.find(a.country_name) == -1:
+		b.allowedCountries.append(a.country_name)
 
 
 func is_at_war(a: CountryData, b: CountryData) -> bool:
