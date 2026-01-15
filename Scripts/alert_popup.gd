@@ -33,8 +33,8 @@ func _update_ui():
 		push_warning("Popup Alert created with empty country")
 		return
 
-	var flag1 = _get_flag(_c1.name)
-	var flag2 = _get_flag(_c2.name)
+	var flag1 = _get_flag(_c1.country_name)
+	var flag2 = _get_flag(_c2.country_name)
 
 	if flag1:
 		flag_left.texture = flag1
@@ -42,7 +42,7 @@ func _update_ui():
 		flag_right.texture = flag2
 
 	if _type == "war":
-		description.text = "%s has declared war on %s" % [_c1.name, _c2.name]
+		description.text = "%s has declared war on %s" % [_c1.country_name, _c2.country_name]
 	if _type == "game_over":
 		description.text = "Game Over"
 
@@ -51,7 +51,6 @@ func _on_ok():
 	queue_free()
 
 
-func _get_flag(country):
-	# Optimized loading
+func _get_flag(country: String):
 	var path = "res://assets/flags/%s_flag.png" % country.to_lower()
 	return ResourceLoader.load(path)
