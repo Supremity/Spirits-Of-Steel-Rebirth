@@ -46,7 +46,7 @@ public partial class CountryData : Resource {
 	float factoryIncome = 100;
 
 	float hourlyMoneyIncome = 0.0f;
-	Dictionary<string, int> stockpile					= new Dictionary<string, int>();
+	public Dictionary<string, int> stockpile					= new Dictionary<string, int>();
 	Dictionary<string, int> tradeSettings			= new Dictionary<string, int>();
 	Dictionary<string, int> factoryAllocation = new Dictionary<string, int>();
 	Dictionary<string, int> stockpileChange		= new Dictionary<string, int>();

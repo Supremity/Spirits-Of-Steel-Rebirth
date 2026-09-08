@@ -16,7 +16,7 @@ public partial class MapManager : Node
 	// [Signal] public delegate void ProvinceHovered(int province_id, string country_name);
 	// [Signal] public delegate void CountryClicked(string country_name);
 	// [Signal] public delegate void ProvinceOwnershipChanged(int pid, string old_owner, string new_owner);
-	// [Signal] public delegate void close_sidemenu();
+	// [Signal] public delegate void CloseSidemenu();
 	
 	string hoveredCountry		= "Sea";
 
@@ -274,7 +274,31 @@ public partial class MapManager : Node
 	//
 	// }
 
-	public void ShowCountriesMap() {}
+	public void ShowCountriesMap() {
+		stateColorImage.SetPixel(0, 0, SEA_MAIN);
+		stateColorImage.SetPixel(1, 0, new Color(0, 0, 0, 1));
+		foreach (var pid in provinceObjects.Keys) {
+			if (pid <= 1) {
+				continue;
+			}
+			stateColorImage.SetPixel(
+					pid,
+					0,
+					GetCountryDisplayColor(
+						provinceObjects[pid].country
+					)
+			);
+			stateColorImage.SetPixel(
+					pid,
+					1,
+					GetCountryDisplayColor(
+						provinceObjects[pid].GetFunctionalOwner()
+					)
+			);
+		}
+		stateColorTexture.Update(stateColorImage);
+		KeyboardManager.Instance.currentView
+	}
 	public void BuildLookupTexture() {}
 	public void _CalculateProvinceCentroids() {}
 	public void _BuildAdjacencyList() {}

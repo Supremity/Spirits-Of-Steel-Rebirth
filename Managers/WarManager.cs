@@ -15,7 +15,7 @@ public partial class WarManager : Node {
 	Battle[] activeBattles;
 	// Blablabla buncha shit here
 	
-	public string[] getEnemiesOf(string a_countryName) {
+	public string[] GetEnemiesOf(string a_countryName) {
 		string[] enemies = [];
 		CountryData countryData CountryManager.Instance.countries[a_countryName];
 

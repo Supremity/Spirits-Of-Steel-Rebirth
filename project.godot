@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Spirits of Steel Rebirth"
 run/main_scene="uid://bm4eje12awfbn"
-config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
+config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
 boot_splash/image="uid://lifcljm83dlp"
 config/icon="uid://claivv7l8p5lc"
 

@@ -33,7 +33,7 @@ public partial class CountryAI : Node {
 		public float  warCombatCityBonus          = 100.0f * (float) random.NextDouble();
 		public float  warMinStrengthRatio         = 1.1f + (float) random.NextDouble();
 		public float  warMinEconomy               = 10000f * (float) random.NextDouble();
-		public float  aggresion                   = (extremism * 2.0f) + (AI_CHAOS * (float) random.NextDouble());
+		public float  aggression                  = (extremism * 2.0f) + (AI_CHAOS * (float) random.NextDouble());
 	}
 
 	// --- TUNING ---
@@ -48,13 +48,15 @@ public partial class CountryAI : Node {
 	const int MAX_SPLITS_PER_TROOP    = 5;  // Limit splits to prevent micro-management overhead
 
 	// --- AI DIPLOMACY/WAR LOGIC---
-	const int   DECLARE_WAR_COOLDOWN_FRAMES = 600;
-	const int	  MAX_PARALLEL_WARS = 2;
-	const float WAR_SCORE_THRESHOLD = 0.6f;
-	const int	  MAX_WAR_DECLARATIONS_PER_TICK = 1;
-	const float AI_CHAOS = 0.9f;
-	const int		MAX_COMBINED_WAR_MEMBERS = 8; // Prevent world-war scale escalations }
+	const int   DECLARE_WAR_COOLDOWN_FRAMES    = 600;
+	const int	  MAX_PARALLEL_WARS              = 2;
+	const float WAR_SCORE_THRESHOLD            = 0.6f;
+	const int	  MAX_WAR_DECLARATIONS_PER_TICK  = 1;
+	const float AI_CHAOS                       = 0.9f;
+	const int		MAX_COMBINED_WAR_MEMBERS       = 8; // Prevent world-war scale escalations }
 	const int   EMERGENCY_DEPLOYMENT_THRESHOLD = 5; // If at war and fewer than this, panic deploy
+	const int	  WAR_DEPLOY                     = 30;
+	const int	  PEACE_DEPLOY                   = 10;
 
 	CountryData country;
 
@@ -177,7 +179,84 @@ public partial class CountryAI : Node {
 		bool trainedAny = false;
 		foreach (KeyValuePair<string, DivisionData.Template> type in DivisionData.TEMPLATES) {
 			int maxAffordable = Math.Min(country.money / type.Value.cost, country.manpower / type.Value.manpower);
-			float maxByEquip = country.stockpile.
+
+			int maxByEquip;
+				if (country.stockpile.TryGetValue(type.Value.requiredResource, out int o_resourceCount)) {
+						maxByEquip = o_resourceCount / type.Value.requiredResourceAmount;
+				} else {
+						maxByEquip = 0;
+				}
+
+			maxAffordable = Math.Max(maxAffordable, maxByEquip);
+
+			// AI hallucination?
+			// if (maxAffordable < 1) {
+			// 	continue;
+			// }
+
+			int limit =  PEACE_DEPLOY + (WarManager.Instance.GetEnemiesOf(country.countryName).Length * WAR_DEPLOY);
+			int trainCount = Math.Clamp(maxAffordable, 1, limit);
+
+			if (country.TrainTroops(trainCount, type.Key)) {
+			  trainedAny = true;
+				break;
+			}
+		}
+		return trainedAny;
+	}
+
+	private bool _ExecuteWar() {
+		int frameNow = Engine.GetFramesDrawn();
+		if (
+			(MapManager.worldTension < (0.15 - _GetExtremism() * 0.1) && personality.aggression < 2.5)
+			|| (personality.random.NextDouble() > (personality.warProbabilityBase + MapManager.Instance.worldTension * persY.warProbabilityTensionFactor))
+			|| ((frameNow - _lastDeclareFrame) < DECLARE_WAR_COOLDOWN_FRAMES)
+			|| (WarManager.Instance.GetEnemiesOf(country.countryName).Length >= MAX_PARALLEL_WARS)
+			|| (country.money < personality.warMinEconomy)
+		) {
+			return false;
+		}
+
+		Dictionary<string, bool> ourFactions = new Dictionary<string, bool>();
+		foreach (string faction in country.factions) {
+		  ourFactions.Add(faction, true);
+		}
+		string[] candidates = [];
+		foreach (String enemy in _GetNeighborCountries()) {
+			CountryData enemyData = CountryManager.countries.TryGetValue(enemy, out CountryData o_enemyData) ? o_enemyData : null;
+			if (enemyData == null) {
+				continue;
+			}
+			if (country.GetRelationWith(enemy) > 20 && personality.aggression < 2.0) {
+				continue;
+			}
+			foreach (string faction in enemyData.factions) {
+				if (ourFactions.ContainsKey(faction)) {
+				continue;
+				}
+			}
+			candidates.Append(enemy);
+		} 
+
+		if (_EstimateCountryStrength(country.countryName, true) < MIN_TOTAL_POWER_FOR_WAR) {
+			return false;
+		}
+		if (candidates.Length == 0) {
+			return false;
+		}
+		float  bestScore  = float.MinValue;
+		string bestTarget = "";
+
+		foreach (string targetName in candidates) {
+		  CountryData targetData = CountryManager.Instance.countries[targetName];
+			if (
+					FactionManager.Instance.InFaction(country, targetData)
+					|| WarManager.Instance.IsAtWarNames(coountry.countryName, targetName)
+					|| country.puppets.Contains(targetName)
+				 ) {
+				continue;
+			}
+			
 		}
 	}
 }

@@ -12,8 +12,8 @@ public partial class DivisionData : Resource {
             float  attack,
             float  defense,
             float  speed,
-            string required_resource,
-            int    required_resource_amount
+            string requiredResource,
+            int    requiredResourceAmount
         ) {
         public float  hp                       = hp;
         public int    manpower                 = manpower;
@@ -22,8 +22,8 @@ public partial class DivisionData : Resource {
         public float  attack                   = attack;
         public float  defense                  = defense;
         public float  speed                    = speed;
-        public string required_resource        = required_resource;
-        public int    required_resource_amount = required_resource_amount;
+        public string requiredResource         = requiredResource;
+        public int    requiredResourceAmount   = requiredResourceAmount;
     }
 
     public static readonly Dictionary<string, Template> TEMPLATES = new Dictionary<string, Template> 
