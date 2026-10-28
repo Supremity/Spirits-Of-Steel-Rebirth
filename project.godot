@@ -15,11 +15,11 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Spirits of Steel Rebirth"
+config/tags=PackedStringArray("rts")
 run/main_scene="uid://bm4eje12awfbn"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
 boot_splash/image="uid://lifcljm83dlp"
 config/icon="uid://claivv7l8p5lc"
-config/tags=PackedStringArray("rts")
 
 [audio]
 
