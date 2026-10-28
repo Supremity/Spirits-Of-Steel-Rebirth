@@ -67,8 +67,8 @@ func setup(a_text: String, a_background: String, mapdata_path: String):
 	if a_background:
 		if FileAccess.file_exists(a_background) or ResourceLoader.exists(a_background):
 			background_rect.texture = load(a_background)
-		else:
-			push_warning("StartEntry: Background image not found at %s" % a_background)
+		#else:
+			#push_warning("StartEntry: Background image not found at %s" % a_background)
 
 # func _on_button_pressed():
 	# queue_free()

@@ -42,7 +42,7 @@ func _on_mouse_entered():
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
 		queue_free()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	InterpreterManager.refresh_buttons(content_list)
 
 func _gui_input(event):

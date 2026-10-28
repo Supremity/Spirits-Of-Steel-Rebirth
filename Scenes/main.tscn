@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c3nxggltuv8i0" path="res://Scenes/main.gd" id="1_k12tt"]
 [ext_resource type="Shader" uid="uid://bnmv2hv80mfw5" path="res://shaders/map_shader.gdshader" id="2_344ge"]
 [ext_resource type="Script" uid="uid://cnm2s5owh7ec3" path="res://Scripts/game_clock.gd" id="2_h1bgf"]
+[ext_resource type="Script" uid="uid://bcagl28fuxmyu" path="res://Scenes/RecipeData.cs" id="2_hibaj"]
 [ext_resource type="Texture2D" uid="uid://bh4l3y04f327r" path="res://utils/asdfa/regions.png" id="3_ynf5e"]
 [ext_resource type="Texture2D" uid="uid://ckbekogdjgxsp" path="res://maps/polities.png" id="4_fevyy"]
 [ext_resource type="Texture2D" uid="uid://b6walpjh0cxni" path="res://maps/blank.png" id="4_ynf5e"]
@@ -96,6 +97,9 @@ Vector2i(-1, -1): {
 
 [node name="Main" type="Node2D" unique_id=567585559]
 script = ExtResource("1_k12tt")
+
+[node name="Test" type="Node" parent="." unique_id=2065444442]
+script = ExtResource("2_hibaj")
 
 [node name="MapContainer" type="Node2D" parent="." unique_id=2009493061]
 

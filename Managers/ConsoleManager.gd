@@ -103,17 +103,17 @@ func m_StartRebellion(a_country, a_count) -> void:
 		seeds.append(city_id)
 		
 		var city_name: String = MapManager.province_objects[city_id].city
-		var name: String = city_name
 		match randi_range(0, 2):
 			0: 
-				name = prefixes.pick_random() + "_" + name
+				city_name = prefixes.pick_random() + "_" + name
 			1: 
-				name = prefixes.pick_random() + "_" + name + "_" + suffixes.pick_random()
+				city_name = prefixes.pick_random() + "_" + name + "_" + suffixes.pick_random()
 			2: 
-				name = name + "_" + suffixes.pick_random()
-		names.append(name)
+				city_name = name + "_" + suffixes.pick_random()
+		names.append(city_name)
 	
 	var total_provinces: int = MapManager.country_to_provinces[a_country].size()
+	@warning_ignore("integer_division")
 	var target_per_rebel: int = total_provinces / (num_rebels + 1)
 	
 	var rebels: Array[CountryData] = MultiFill(seeds, names, target_per_rebel * num_rebels)
