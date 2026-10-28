@@ -3,7 +3,7 @@
   "clouds_edgeness": 0.7,
   "daynight_contrast": 0.05,
   "daynight_smoothness": 0.01,
-  "debug_mode": false,
+  "debug_mode": true,
   "edgeness_slider": 0.69,
   "map_effects": true,
   "music_volume": 0.03,
