@@ -57,6 +57,11 @@ var stats_labels := {}
 
 @export var faction_prompt: PanelContainer
 @export var military_access_label: Label
+@export var puppetBadge: TextureRect
+@export var warBadge: TextureRect
+@export var FALSE_COLOR: Color = Color(0.254, 0.254, 0.254, 1.0)
+@export var PUPPET_COLOR: Color = Color(1.0, 1.0, 1.0, 1.0)
+@export var WAR_COLOR: Color = Color(1.0, 0.0, 0.0, 1.0)
 
 @export var accepted_cultures: VBoxContainer
 @export var unaccepted_cultures: VBoxContainer
@@ -398,20 +403,20 @@ func DoUpdateSidemenuVisuals() -> void:
 			, ""
 		)
 		factions_box.add_child(faction_entry)
+	
+	puppetBadge.modulate = PUPPET_COLOR if selected_country.is_puppet else FALSE_COLOR
+	warBadge.modulate = WAR_COLOR if selected_country.is_at_war else FALSE_COLOR
 
 	if GameState.selectingCountry:
 		for stat in GameState.game_ui.select_player_stat.get_children(): stat.queue_free()
 		for stat: String in [
-			"is_puppet",
 			"money",
 			"gdp",
 			"income",
 			"political_power",
 			"stability",
-			"ideology_name",
 			"manpower",
 			"puppets",
-			"is_at_war",
 		]:
 			var stat_label: Label = Label.new()
 			stat_label.text = "%s: %s" % [stat.capitalize(), str(selected_country[stat]).capitalize()]

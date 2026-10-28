@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://vno81qg75ni2" path="res://assets/icons/culture_icon.svg" id="24_5hlpc"]
 [ext_resource type="StyleBox" uid="uid://b8oyijxntuvdq" path="res://UI/DividerLeftTheme.tres" id="25_2a76p"]
 [ext_resource type="Texture2D" uid="uid://vmu5mixor70t" path="res://assets/ui/ariect.png" id="25_pvldk"]
+[ext_resource type="Texture2D" uid="uid://bc3flhxcocgl3" path="res://assets/icons/PawnIcon.svg" id="26_0c8l0"]
 [ext_resource type="StyleBox" uid="uid://c2h4lun75k2xf" path="res://UI/DividerRightTheme.tres" id="26_ubr8q"]
 [ext_resource type="Texture2D" uid="uid://bbdjq5vt3uloi" path="res://assets/ui/fish1.png" id="26_w7nfq"]
 [ext_resource type="Texture2D" uid="uid://c7iqt8unxm2ec" path="res://assets/ui/fish2.png" id="27_bfmcl"]
@@ -126,7 +127,7 @@ shadow_color = Color(0, 0, 0, 0.3137255)
 shadow_size = 7
 anti_aliasing = false
 
-[node name="GameUI" type="CanvasLayer" unique_id=4700273 node_paths=PackedStringArray("topbar", "nation_flag", "label_date", "radios_panel", "label_pp", "label_manpower", "label_money", "label_industry", "label_stability", "label_war_support", "label_world_tension", "notif_box", "plus", "minus", "progress_bar", "sidemenu", "sidemenu_pointer", "play_btn", "sidemenu_country_label", "sidemenu_context", "sidemenu_trooplist", "sidemenu_buildings", "sidemenu_leader_portrait", "building_dropdown", "relations_hbox", "flag1", "flag2", "owner1", "owner2", "relation1", "relation2", "factions_box", "faction_prompt", "military_access_label", "accepted_cultures", "unaccepted_cultures", "select_player_stat", "radio_list", "now_playing", "map_tabs", "sewage_graph", "population_graph", "water_graph", "power_graph", "military_extra_panel", "input_division", "button_train", "division_type", "div_type", "div_stats", "costs", "manpower", "troop_container", "troop_list_parent", "building_designer", "logistics")]
+[node name="GameUI" type="CanvasLayer" unique_id=4700273 node_paths=PackedStringArray("topbar", "nation_flag", "label_date", "radios_panel", "label_pp", "label_manpower", "label_money", "label_industry", "label_stability", "label_war_support", "label_world_tension", "notif_box", "plus", "minus", "progress_bar", "sidemenu", "sidemenu_pointer", "play_btn", "sidemenu_country_label", "sidemenu_context", "sidemenu_trooplist", "sidemenu_buildings", "sidemenu_leader_portrait", "building_dropdown", "relations_hbox", "flag1", "flag2", "owner1", "owner2", "relation1", "relation2", "factions_box", "faction_prompt", "military_access_label", "puppetBadge", "warBadge", "accepted_cultures", "unaccepted_cultures", "select_player_stat", "radio_list", "now_playing", "map_tabs", "sewage_graph", "population_graph", "water_graph", "power_graph", "military_extra_panel", "input_division", "button_train", "division_type", "div_type", "div_stats", "costs", "manpower", "troop_container", "troop_list_parent", "building_designer", "logistics")]
 script = ExtResource("1_rp7y5")
 topbar = NodePath("Control/Topbar/HBoxContainer")
 nation_flag = NodePath("Control/Topbar/HBoxContainer/nation_flag")
@@ -161,7 +162,9 @@ relation1 = NodePath("Control/SIDEBAR/SidemenuBG/Content/RelationsHbox/Relation1
 relation2 = NodePath("Control/SIDEBAR/SidemenuBG/Content/RelationsHbox/Relation2")
 factions_box = NodePath("Control/SIDEBAR/SidemenuBG/Content/PanelContainer/HBoxContainer/VBoxContainer/ScrollContainer/Factions")
 faction_prompt = NodePath("Control/CenterStuff/CreateFaction")
-military_access_label = NodePath("Control/SIDEBAR/SidemenuBG/Content/Label")
+military_access_label = NodePath("Control/SIDEBAR/SidemenuBG/Content/HBoxContainer/Label")
+puppetBadge = NodePath("Control/SIDEBAR/SidemenuBG/Content/HBoxContainer/PuppetBadge")
+warBadge = NodePath("Control/SIDEBAR/SidemenuBG/Content/HBoxContainer/WarBadge")
 accepted_cultures = NodePath("Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/AcceptedCultures/ScrollContainer/VBoxContainer")
 unaccepted_cultures = NodePath("Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/UnacceptedCultures/ScrollContainer/VBoxContainer")
 select_player_stat = NodePath("Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Select/ScrollContainer/VBoxContainer/ActionsList")
@@ -684,11 +687,32 @@ texture = ExtResource("29_anvjc")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Control/SIDEBAR/SidemenuBG/Content" unique_id=825848418]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content" unique_id=2126832190]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/SIDEBAR/SidemenuBG/Content/HBoxContainer" unique_id=825848418]
 use_parent_material = true
+custom_minimum_size = Vector2(123, 0)
 layout_mode = 2
 text = "Military Access: No"
-horizontal_alignment = 1
+
+[node name="PuppetBadge" type="TextureRect" parent="Control/SIDEBAR/SidemenuBG/Content/HBoxContainer" unique_id=201642358]
+modulate = Color(0.1764706, 0.1764706, 0.1764706, 1)
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("26_0c8l0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="WarBadge" type="TextureRect" parent="Control/SIDEBAR/SidemenuBG/Content/HBoxContainer" unique_id=2088011636]
+modulate = Color(0.1764706, 0.1764706, 0.1764706, 1)
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("26_0c8l0")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="ContextAndButtons" type="TabContainer" parent="Control/SIDEBAR/SidemenuBG/Content" unique_id=1596917807]
 use_parent_material = true
@@ -697,7 +721,7 @@ size_flags_vertical = 3
 theme = ExtResource("13_sdmnd")
 theme_type_variation = &"InfoTabContainer"
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ilaaa")
-current_tab = 3
+current_tab = 5
 tabs_visible = false
 
 [node name="PlayerTabs" type="TabContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons" unique_id=1238660091]
@@ -710,7 +734,6 @@ theme_type_variation = &"InfoTabContainer"
 tab_alignment = 1
 current_tab = 3
 clip_tabs = false
-all_tabs_in_front = true
 tab_0/icon = ExtResource("5_0e43j")
 tab_1/icon = ExtResource("7_lpwmk")
 tab_2/icon = ExtResource("8_qum3k")
@@ -1238,7 +1261,6 @@ theme_type_variation = &"InfoTabContainer"
 tab_alignment = 1
 current_tab = 0
 clip_tabs = false
-all_tabs_in_front = true
 tab_0/icon = ExtResource("5_0e43j")
 tab_1/icon = ExtResource("7_lpwmk")
 tab_2/icon = ExtResource("8_qum3k")
@@ -1394,7 +1416,6 @@ theme_type_variation = &"InfoTabContainer"
 tab_alignment = 1
 current_tab = 0
 clip_tabs = false
-all_tabs_in_front = true
 tab_0/icon = ExtResource("5_0e43j")
 tab_1/icon = ExtResource("7_lpwmk")
 tab_2/icon = ExtResource("8_qum3k")
@@ -1587,6 +1608,7 @@ theme_override_styles/normal = ExtResource("33_oouja")
 text = "Launch Nuke"
 
 [node name="Puppet" type="TabContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons" unique_id=2040957791]
+visible = false
 use_parent_material = true
 layout_mode = 2
 theme = ExtResource("13_sdmnd")
@@ -1594,7 +1616,6 @@ theme_type_variation = &"InfoTabContainer"
 tab_alignment = 1
 current_tab = 0
 clip_tabs = false
-all_tabs_in_front = true
 tab_0/icon = ExtResource("5_0e43j")
 tab_1/icon = ExtResource("7_lpwmk")
 tab_2/icon = ExtResource("8_qum3k")
@@ -1782,7 +1803,6 @@ theme_type_variation = &"InfoTabContainer"
 tab_alignment = 1
 current_tab = 2
 clip_tabs = false
-all_tabs_in_front = true
 tab_0/icon = ExtResource("5_0e43j")
 tab_1/icon = ExtResource("7_lpwmk")
 tab_2/icon = ExtResource("8_qum3k")
@@ -1978,7 +1998,6 @@ theme_override_styles/normal = ExtResource("33_oouja")
 text = "Kindly Ask For Manpower"
 
 [node name="Select" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons" unique_id=1473921671]
-visible = false
 use_parent_material = true
 layout_mode = 2
 theme_override_constants/separation = 4
@@ -2028,7 +2047,7 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 6
 
-[node name="WhatIsThisControlFor?" type="Control" parent="Control/SIDEBAR" unique_id=1378811327]
+[node name="WhatIsThisControlFor?|SizingTheSidebarCorrectly!" type="Control" parent="Control/SIDEBAR" unique_id=1378811327]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2

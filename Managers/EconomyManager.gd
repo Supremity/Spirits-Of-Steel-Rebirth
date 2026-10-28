@@ -39,7 +39,20 @@ func process_economy_day():
 
 	for pid in finished_projects:
 		construction_queue.erase(pid)
+	
+	for I_buildingPretaData: String in MapManager.buildingTypesToCountryCount.keys():
+		var country: String = I_buildingPretaData.split(":")[0]
+		var building: String = I_buildingPretaData.split(":")[1]
+		var template: BuildingTemplate = building_designs[country][building]
+		for I_country: String in MapManager.buildingTypesToCountryCount[I_buildingPretaData].keys():
+			CountryManager.countries[I_country].money += template.produces * MapManager.buildingTypesToCountryCount[I_buildingPretaData][I_country]
 
+func LoadBuildings(a_globohomo: Dictionary):
+	for I_country: String in a_globohomo.keys():
+		building_designs[I_country] = {}
+		for I_buildingTemplateData: Dictionary in a_globohomo[I_country]:
+			var buildingTemplate: BuildingTemplate = BuildingTemplate.FromDict(I_buildingTemplateData)
+			building_designs[I_country][buildingTemplate.name] = buildingTemplate
 
 func StartInfrastructureConstruction(a_provinceID: int, a_totalDays: int, a_dailyCost: float, a_country: CountryData) -> void:
 	if a_country == CountryManager.player_country:

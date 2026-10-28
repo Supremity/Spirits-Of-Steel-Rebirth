@@ -155,6 +155,9 @@ func load_map_data(mapData: Dictionary):
 	var r_data = mapData.get("resources")
 	MapManager.LoadResources(r_data if r_data is Array else [])
 	
+	var buildingData = mapData.get("buildings")
+	EconomyManager.LoadBuildings(buildingData if buildingData is Dictionary else {})
+	
 	var i_data = mapData.get("ideologies")
 	IdeologyManager.Initialize(i_data if i_data is Dictionary else {})
 	
@@ -176,11 +179,12 @@ func load_map_data(mapData: Dictionary):
 	MapManager.load_country_data(regions_tex, mapData.get("provinces", {}) as Dictionary, [0])
 	
 	# Restore Clock
-	if mapData.has("clock") and clock:
-		clock.FromDict(mapData["clock"])
-	elif clock:
-		# Default start date for scenarios/new games
-		clock.FromDict({"hour": 0, "date": {"year": 2010, "month": 1, "day": 1}})
+	if clock:
+		if mapData.has("clock"):
+			clock.FromDict(mapData["clock"])
+		else:
+			# Default start date for scenarios/new games
+			clock.FromDict({"hour": 0, "date": {"year": 2010, "month": 1, "day": 1}})
 	
 	WarManager.load_wars(mapData.get("wars", []))
 	WarManager.load_original_territories(mapData.get("original_territories", {}))
@@ -200,10 +204,11 @@ func load_map_data(mapData: Dictionary):
 
 func save_game(slot: String):
 	# Construct a unified save dictionary
-	var save_data = {
+	var save_data: Dictionary = {
 		"clock": clock.ToDict() if clock else {},
 		"resources": MapManager.SaveResourcesData(),
 		"biomes": MapManager.SaveBiomeData(),
+		"buildings": MapManager.SaveBuildingData(),
 		"provinces": MapManager.save_country_data(),
 		"polities": CountryManager.save_countries(),
 		"ideologies": IdeologyManager.ideologies,
@@ -233,7 +238,7 @@ func save_game(slot: String):
 
 	
 func load_game(save_name: String):
-	var path = "res://saves/" + save_name + ".json"
+	var path: String = "res://saves/" + save_name + ".json"
 
 	if not FileAccess.file_exists(path):
 		push_error("Save file not found: " + path)

@@ -249,7 +249,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_2kayk")
 expand_mode = 1
-stretch_mode = 4
+stretch_mode = 5
 
 [node name="PanelContainer3" type="PanelContainer" parent="DiplomatSelf/VBoxContainer" unique_id=623267008]
 layout_mode = 2
@@ -342,8 +342,8 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="OptionButton" type="OptionButton" parent="DiplomatOther/VBoxContainer/PanelContainer3" unique_id=507659629]
-layout_direction = 3
 layout_mode = 2
+layout_direction = 3
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_c3ug3")
 selected = 0
 item_count = 1

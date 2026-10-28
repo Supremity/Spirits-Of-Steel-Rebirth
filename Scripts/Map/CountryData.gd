@@ -9,8 +9,6 @@ var military_size_ratio := 0.005
 const BASE_ARMY_COST := 20
 #endregion
 
-var builtBuildings: Dictionary[String, int] = {}
-
 #region --- Properties ---
 var country_name: String
 var display_name: String

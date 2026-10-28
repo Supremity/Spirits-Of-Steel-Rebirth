@@ -29,6 +29,7 @@ var country_to_occupied_provinces: Dictionary = {}
 var country_to_rightful_provinces: Dictionary = {}
 var country_to_cities: Dictionary[String, Array] = {}
 var province_objects: Dictionary[int, Province] = {}
+var buildingTypesToCountryCount: Dictionary[String, Dictionary] = {} # Stores {BuildingID: {CountryName: nuumber}}
 
 var biomes: Dictionary[String, BiomeData] = {}
 var resources: Dictionary[String, ResourceData] = {}
@@ -55,8 +56,8 @@ var gay: Label = Label.new()
 # soiladin time
 var allowed_pids: Dictionary = {}
 
-func increase_world_tension(amount: float) -> void:
-	world_tension = clamp(world_tension + amount, 0.1, 1.0)
+func increase_world_tension(a_amount: float) -> void:
+	world_tension = clamp(world_tension + a_amount, 0.1, 1.0)
 const CACHE_FOLDER = "res://map_data/"
 
 @export var region_texture: Texture2D
@@ -84,7 +85,7 @@ func LoadResources(a_resourceData: Array) -> void:
 
 # Helper to check both custom and default locations
 func FindResourceResource(sub_path: String):
-	var full_default = "res://assets/icons/Resources/" + sub_path
+	var full_default: String = "res://assets/icons/Resources/" + sub_path
 	if ResourceLoader.exists(full_default):
 		return full_default
 	return ""
@@ -103,7 +104,7 @@ func GetResourceIcon(a_resourceType: String):
 		return tex
 	
 	# 0. Check Redirects
-	var path = ""
+	var path: String = ""
 	
 	# 4. Fallback to old flat structure (just in case): {path}/country_flag.png
 	path = FindResourceResource("%s.svg" % resources[a_resourceType].icon)
@@ -146,18 +147,18 @@ func Initialize(a_map: Texture2D, a_provinceData: Dictionary, a_progress: Array)
 	id_map_image = Image.create(MAP_WIDTH, MAP_HEIGHT, false, Image.FORMAT_RGB8)
 	var next_id: int = 2
 
-	var mapImage = a_map.get_image()
+	var mapImage: Image = a_map.get_image()
 	($"../Main/MapContainer/CultureSprite" as Sprite2D).texture = a_map
 
 	var inc: float = 0.1 / (MAP_WIDTH * MAP_HEIGHT)
 
-	for i in range(MAP_WIDTH * MAP_HEIGHT):
+	for i: int in range(MAP_WIDTH * MAP_HEIGHT):
 		#print("%d/%d -> %f" % [i, blink, a_progress[0]])
 		a_progress[0] += inc
 		var x: int = i % MAP_WIDTH
 		@warning_ignore("integer_division")
 		var y: int = i / MAP_WIDTH
-		var r_color = mapImage.get_pixel(x, y)
+		var r_color: Color = mapImage.get_pixel(x, y)
 
 		var index: String = "%d" % (r_color.to_rgba32() >> 8) # I hate alpha.
 
@@ -171,7 +172,7 @@ func Initialize(a_map: Texture2D, a_provinceData: Dictionary, a_progress: Array)
 		if !unique_regions.has(index):
 			unique_regions[index] = next_id
 
-			var province_dict = a_provinceData.get(index, {})
+			var province_dict: Dictionary = a_provinceData.get(index, {})
 			var province: Province = Province.FromDict(province_dict)
 			province.id = next_id
 
@@ -189,9 +190,9 @@ func Initialize(a_map: Texture2D, a_provinceData: Dictionary, a_progress: Array)
 	a_progress[0] += 0.01
 	
 	# Pass 2: Load troops now that centroids (positions) are definitely known
-	for index in a_provinceData:
+	for index: int in a_provinceData:
 		if unique_regions.has(index):
-			var p_dict = a_provinceData[index]
+			var p_dict: Dictionary = a_provinceData[index]
 			if p_dict.has("troops"):
 				TroopManager.load_troops_for_province(unique_regions[index], p_dict["troops"])
 
@@ -203,15 +204,11 @@ func Initialize(a_map: Texture2D, a_provinceData: Dictionary, a_progress: Array)
 	a_progress[0] += 0.025
 
 
-func load_country_data(
-	region_map: CompressedTexture2D,
-	a_provinceData: Dictionary,
-	a_progress: Array
-) -> void:
+func load_country_data(region_map: CompressedTexture2D, a_provinceData: Dictionary, a_progress: Array) -> void:
 	Initialize(region_map, a_provinceData, a_progress)
 
 func save_map_data():
-	var map_data := MapData.new()
+	var map_data: MapData = MapData.new()
 	map_data.province_centers = province_centers.duplicate()
 	# map_data.adjacency_list = adjacency_list.duplicate(true)
 	map_data.country_to_provinces = country_to_provinces.duplicate()
@@ -224,9 +221,9 @@ func save_map_data():
 func save_country_data() -> Dictionary:
 	var provinces: Dictionary = {}
 	for index in unique_regions:
-		var next_id = unique_regions[index]
+		var next_id: int = unique_regions[index]
 		var province: Province = province_objects[next_id]
-		var troops = TroopManager.get_serialized_troops_for_province(next_id)
+		var troops: Array = TroopManager.get_serialized_troops_for_province(next_id)
 		provinces[str(index)] = province.ToDict(troops)
 	return provinces
 
@@ -242,12 +239,21 @@ func SaveBiomeData() -> Array:
 		returnBiomes.append(biome.ToDict())
 	return returnBiomes
 
+func SaveBuildingData() -> Dictionary:
+	var returnBuildings: Dictionary = {};
+	for I_country: String in EconomyManager.building_designs.keys():
+		returnBuildings[I_country] = [];
+		for I_building: BuildingTemplate in EconomyManager.building_designs[I_country].values():
+			returnBuildings[I_country].append(I_building.ToDict());
+	return returnBuildings;
+
 func export_scenario_data(path: String) -> void:
 	var fig_dicts: Array[Dictionary] = []
-	for x in significantFigures.values():
+	for x: ImportantFigure in significantFigures.values():
 		fig_dicts.append(x.ToDict())
 	var export = {
 		"clock": GameState.current_world.clock.ToDict() if GameState.current_world.clock else {},
+		"buildings": SaveBuildingData(),
 		"resources": SaveResourcesData(),
 		"biomes": SaveBiomeData(),
 		"provinces": save_country_data(),
@@ -257,7 +263,7 @@ func export_scenario_data(path: String) -> void:
 		"significant_figures": fig_dicts
 	}
 
-	var file = FileAccess.open(path, FileAccess.WRITE)
+	var file: FileAccess = FileAccess.open(path, FileAccess.WRITE)
 	if file:
 		file.store_string(JSON.stringify(export , "\t"))
 		file.close()
@@ -268,7 +274,7 @@ func export_scenario_data(path: String) -> void:
 func _try_load_cached_data() -> bool:
 	if not ResourceLoader.exists(MAP_DATA_PATH):
 		return false
-	var loaded := ResourceLoader.load(MAP_DATA_PATH) as MapData
+	var loaded: MapData = ResourceLoader.load(MAP_DATA_PATH) as MapData
 	if not loaded:
 		return false
 
@@ -345,12 +351,12 @@ func _build_country_to_provinces():
 func build_lookup_texture() -> void:
 	state_color_image = Image.create(max_province_id + 1, 2, false, Image.FORMAT_RGBA8)
 
-	for pid in range(max_province_id + 1):
+	for pid: int in range(max_province_id + 1):
 		if pid <= 1:
 			state_color_image.set_pixel(pid, 0, Color.BLACK)
 			state_color_image.set_pixel(pid, 1, Color.BLACK)
 			continue
-		var province = province_objects.get(pid)
+		var province: Province = province_objects.get(pid)
 
 		if province == null or province.type == 0: # 0 is province.SEA
 			state_color_image.set_pixel(pid, 0, Color.BLACK)
@@ -372,7 +378,7 @@ func update_province_color(pid: int, country_name: String) -> void:
 	if pid <= 1 or pid > max_province_id:
 		return
 
-	var new_color = CountryManager.GetCountryColor(country_name, Color.GRAY)
+	var new_color: Color = CountryManager.GetCountryColor(country_name, Color.GRAY)
 	update_lookup(pid, new_color, new_color)
 
 	if pid == last_hovered_pid:
@@ -398,11 +404,11 @@ func ResetProvinceColor(pid: int) -> void:
 	update_lookup(pid, CountryManager.GetCountryColor(province_objects[pid].GetFunctionalOwner(), Color.GRAY), CountryManager.GetCountryColor(province_objects[pid].country, Color.GRAY))
 
 func set_country_color(country_name: String, custom_color: Color = Color.TRANSPARENT) -> void:
-	var new_color = custom_color
+	var new_color: Color = custom_color
 	if new_color == Color.TRANSPARENT:
 		new_color = CountryManager.GetCountryColor(country_name, Color.GRAY)
 
-	var provinces = country_to_provinces.get(country_name, [])
+	var provinces: Array = country_to_provinces.get(country_name, [])
 
 	if provinces.is_empty():
 		print("Warning: No provinces found for country: ", country_name)
@@ -459,29 +465,31 @@ func handle_hover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 			_reset_last_hover()
 		return
 
-	var pid = get_province_at_pos(global_pos, map_sprite)
+	var pid: int = get_province_at_pos(global_pos, map_sprite)
 	current_hovered_pid = pid
 
-	var highlight_color = _get_contextual_highlight(pid)
+	var highlight_color: Color = _get_contextual_highlight(pid)
 
 	if pid != last_hovered_pid:
 		if GameState.selectingCountry:
 			if (last_hovered_pid in province_objects
 				&& pid in province_objects
-				&& province_objects[last_hovered_pid].country == province_objects[pid].country):
+				&& province_objects[last_hovered_pid].GetFunctionalOwner() == province_objects[pid].GetFunctionalOwner()):
 				pass
 			else:
 				last_hovered_pid = -1
-				if pid > 1 and highlight_color != Color.TRANSPARENT:
-					if hoveredCountry != province_objects[pid].country:
-						if hoveredCountry != "Sea" && country_to_provinces.has(hoveredCountry):
+				if pid > 1 && highlight_color != Color.TRANSPARENT:
+					if hoveredCountry != province_objects[pid].GetFunctionalOwner():
+						if hoveredCountry != "Sea":
 							original_hover_color = GetCountryDisplayColor(hoveredCountry)
-							for province: int in country_to_provinces[hoveredCountry]:
-								update_lookup(province, GetCountryDisplayColor(province_objects[province].country), original_hover_color)
-							for province: int in country_to_rightful_provinces[hoveredCountry]:
-								update_lookup(province, original_hover_color, GetCountryDisplayColor(province_objects[province].GetFunctionalOwner()))
+							if (country_to_provinces.has(hoveredCountry)):
+								for province: int in country_to_provinces[hoveredCountry]:
+									update_lookup(province, GetCountryDisplayColor(province_objects[province].country), original_hover_color)
+							if (country_to_rightful_provinces.has(hoveredCountry)):
+								for province: int in country_to_rightful_provinces[hoveredCountry]:
+									update_lookup(province, original_hover_color, GetCountryDisplayColor(province_objects[province].GetFunctionalOwner()))
 						if pid in province_objects:
-							if province_objects[pid].country != "Sea" && highlight_color != Color.TRANSPARENT:
+							if province_objects[pid].country != "Sea":
 								original_hover_color = state_color_image.get_pixel(pid, 0)
 								var tempChecker: String = province_objects[pid].GetFunctionalOwner()
 								for province in country_to_provinces[tempChecker]:
@@ -532,8 +540,8 @@ func _get_contextual_highlight(pid: int) -> Color:
 	if GameState.selectingCountry:
 		return Color.ANTIQUE_WHITE
 
-	var player_name = CountryManager.player_country.country_name
-	var is_player_owned = MapManager.province_objects[pid].GetFunctionalOwner() == player_name
+	var player_name: String = CountryManager.player_country.country_name
+	var is_player_owned: bool = MapManager.province_objects[pid].GetFunctionalOwner() == player_name
 
 	if not is_player_owned:
 		return Color.TRANSPARENT
@@ -563,7 +571,7 @@ func handle_click(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 	if _is_mouse_over_ui() or Console.is_visible() or GameState.in_peace_process:
 		return
 
-	var pid = get_province_with_radius(global_pos, map_sprite, 5)
+	var pid: int = get_province_with_radius(global_pos, map_sprite, 5)
 	# 1. Handle Clicks on Water or Invalid Areas
 	if pid <= 1 or province_objects[pid].type == 0: # 0 is SEA
 		if GameState.industry_building != GameState.IndustryType.DEFAULT:
@@ -578,9 +586,9 @@ func handle_click(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 		GameState.game_ui.DoUpdateSidemenuVisuals()
 		show_countries_map()
 	else:
-		var player_country_name = CountryManager.player_country.country_name
-		var is_player_owned = MapManager.province_objects[pid].GetFunctionalOwner() == player_country_name
-		var is_puppet_owned = MapManager.province_objects[pid].GetFunctionalOwner() in CountryManager.player_country.puppets
+		var player_country_name: String = CountryManager.player_country.country_name
+		var is_player_owned: bool = MapManager.province_objects[pid].GetFunctionalOwner() == player_country_name
+		var is_puppet_owned: bool = MapManager.province_objects[pid].GetFunctionalOwner() in CountryManager.player_country.puppets
 
 		if GameState.choosing_deploy_city:
 			if is_player_owned and province_objects[pid].city != "":
@@ -619,7 +627,7 @@ func _execute_deployment(pid: int, player_name: String) -> void:
 	_cleanup_interaction_state()
 
 func _province_build_industry(pid: int, a_countryName: String, type: GameState.IndustryType) -> bool:
-	var province = province_objects[pid]
+	var province: Province = province_objects[pid]
 
 	# 1. Safety Check: Is there already something there or currently building?
 	# Using your Enums: 0 = NO, 1 = BUILDING, 2 = BUILT
@@ -659,7 +667,7 @@ func _cleanup_interaction_state() -> void:
 
 # To probe around and still register a click if we hit province/coutnry border
 func get_province_with_radius(center: Vector2, map_sprite: Sprite2D, radius: int) -> int:
-	var offsets = [
+	var offsets: Array[Vector2] = [
 		Vector2(0, 0),
 		Vector2(radius, 0),
 		Vector2(-radius, 0),
@@ -671,7 +679,7 @@ func get_province_with_radius(center: Vector2, map_sprite: Sprite2D, radius: int
 		Vector2(-radius, -radius),
 	]
 
-	for off in offsets:
+	for off: Vector2 in offsets:
 		var pid: int = get_province_at_pos(center + off, map_sprite)
 		if pid > 1:
 			return pid
@@ -688,11 +696,11 @@ func _calculate_province_centroids() -> void:
 	var accumulators: Dictionary = {}
 
 	# Initialize accumulators for all valid province IDs (IDs > 1)
-	for i in range(2, max_province_id + 1):
+	for i: int in range(2, max_province_id + 1):
 		accumulators[i] = [0.0, 0.0, 0]
 
 	# --- Pass 1: Accumulate Coordinates ---
-	for i in range(MAP_WIDTH * MAP_HEIGHT):
+	for i: int in range(MAP_WIDTH * MAP_HEIGHT):
 		var x: int = i % MAP_WIDTH
 		@warning_ignore("integer_division")
 		var y: int = i / MAP_WIDTH
@@ -706,11 +714,11 @@ func _calculate_province_centroids() -> void:
 	# --- Pass 2: Calculate Average (Centroid) ---
 	for pid: int in accumulators:
 		var data = accumulators[pid]
-		var total_pixels = data[2]
+		var total_pixels: int = data[2]
 
 		if total_pixels > 0:
-			var center_x = data[0] / total_pixels
-			var center_y = data[1] / total_pixels
+			var center_x: float = data[0] / total_pixels
+			var center_y: float = data[1] / total_pixels
 
 			# Store the resulting centroid as a Vector2
 			province_centers[pid] = Vector2(center_x, center_y)
@@ -729,7 +737,7 @@ func _build_adjacency_list(a_progress: Array) -> void:
 	var inc: float = 0.1 / (MAP_WIDTH * MAP_HEIGHT)
 
 
-	for i in range(MAP_WIDTH * MAP_HEIGHT):
+	for i: int in range(MAP_WIDTH * MAP_HEIGHT):
 		a_progress[0] += inc
 		var x: int = i % MAP_WIDTH
 		@warning_ignore("integer_division")
@@ -825,8 +833,8 @@ func find_path(start_pid: int, end_pid: int, allowed_countries: Array[String] = 
 	if start_pid == end_pid:
 		return [start_pid]
 
-	var use_cache = allowed_countries.is_empty()
-	var cache_key := Vector2i(start_pid, end_pid)
+	var use_cache: bool = allowed_countries.is_empty()
+	var cache_key: Vector2i = Vector2i(start_pid, end_pid)
 
 	if use_cache && path_cache.has(cache_key):
 		return path_cache[cache_key].duplicate()
@@ -843,8 +851,8 @@ func find_path(start_pid: int, end_pid: int, allowed_countries: Array[String] = 
 
 func _find_path_astar(start_pid: int, end_pid: int, allowed_countries: Array[String]) -> Array[int]:
 	# 1. Optimize Allowed Check: O(1) Lookup
-	var allowed_dict = {}
-	var restricted_mode = not allowed_countries.is_empty()
+	var allowed_dict: Dictionary = {}
+	var restricted_mode: bool = not allowed_countries.is_empty()
 	if restricted_mode:
 		for c in allowed_countries:
 			allowed_dict[c] = true
@@ -863,13 +871,13 @@ func _find_path_astar(start_pid: int, end_pid: int, allowed_countries: Array[Str
 
 	while open_set.size() > 0:
 		# --- FIND LOWEST F-SCORE ---
-		var current = open_set[0]
-		var best_idx = 0
-		var best_f = f_score.get(current, INF)
+		var current: int = open_set[0]
+		var best_idx: int = 0
+		var best_f: float = f_score.get(current, INF)
 
-		for i in range(1, open_set.size()):
-			var pid = open_set[i]
-			var f = f_score.get(pid, INF)
+		for i: int in range(1, open_set.size()):
+			var pid: int = open_set[i]
+			var f: float = f_score.get(pid, INF)
 			if f < best_f:
 				best_f = f
 				current = pid
@@ -955,7 +963,7 @@ func print_cache_stats() -> void:
 	print("Path Cache Stats: %d paths cached" % path_cache.size())
 
 func force_bidirectional_connections() -> void:
-	var fix_count = 0
+	var fix_count: int = 0
 
 	# 1. Iterate through every province object
 	for pid_a: int in province_objects.keys():
@@ -963,7 +971,7 @@ func force_bidirectional_connections() -> void:
 
 		var neighbors_of_a = prov_a.neighbors
 
-		for pid_b in neighbors_of_a:
+		for pid_b: int in neighbors_of_a:
 			# Safety check: Does the neighbor ID even exist in our world?
 			if not province_objects.has(pid_b):
 				push_warning(
@@ -999,7 +1007,7 @@ func _get_heatmap_color(pop: int, max_pop: float) -> Color:
 		return Color(0.1, 0.1, 0.15, 1.0)
 
 	# Calculate intensity based on the REAL maximum in your current data
-	var intensity = clamp(float(pop) / max_pop, 0.0, 1.0)
+	var intensity: float = clamp(float(pop) / max_pop, 0.0, 1.0)
 
 	# We create a multi-stop gradient:
 	# Low: Cyan/Green -> Mid: Yellow -> High: Red
@@ -1015,7 +1023,7 @@ func _get_heatmap_color(pop: int, max_pop: float) -> Color:
 
 # soilad aneurysm time
 func show_faction_map() -> void:
-	var faction_color = Color.GRAY
+	var faction_color: Color = Color.GRAY
 	if province_objects.is_empty():
 		return
 
@@ -1072,7 +1080,7 @@ func ShowInfrastructureMap() -> void:
 		if !GameState.selectingCountry and CountryManager.player_country.country_name != province_objects[pid].country and !CountryManager.player_country.get_all_allowed_countries().has(province_objects[pid].country):
 			state_color_image.set_pixel(pid, 0, CountryManager.GetCountryColor(province_objects[pid].country))
 		else:
-			var infra = province_objects[pid].infrastructure
+			var infra: int = province_objects[pid].infrastructure
 			if infra == 0:
 				state_color_image.set_pixel(pid, 0, CountryManager.countries[province_objects[pid].country].country_color * 0.5 + Color.WHITE * 0.5)
 			elif infra == province_objects[pid].maxInfrastructure:
@@ -1095,10 +1103,10 @@ func show_ethnic_map() -> void:
 		var province: Province = province_objects[pid]
 		if (province.populations.size() <= 0):
 			continue
-		var eth_name = province.populations[0].ethnicity # Assuming this is the String name (e.g., "Igbo")
+		var eth_name: String = province.populations[0].ethnicity # Assuming this is the String name (e.g., "Igbo")
 
 		# Default to black or transparent if ethnicity not found
-		var display_color = Color.BLACK
+		var display_color: Color = Color.GRAY
 
 		if ethnic_name_to_color.has(eth_name):
 			display_color = ethnic_name_to_color[eth_name]
@@ -1217,11 +1225,11 @@ func show_industry_country(country_name: String) -> void:
 		push_warning("MapManager: Country " + country_name + " not found.")
 		return
 
-	var provinces_near_sea := get_provinces_near_sea(country_name)
+	var provinces_near_sea: PackedInt32Array = get_provinces_near_sea(country_name)
 
 	for pid in country_to_provinces.get(country_name):
-		var province = province_objects[pid]
-		var color = Color.WHITE # Default color
+		var province: Province = province_objects[pid]
+		var color: Color = Color.WHITE # Default color
 
 		# TODO(sockmit2007): This whole section has to be reworked.
 		if province.city.length() > 0:
@@ -1393,7 +1401,7 @@ func DeoccupyProvince(pid: int) -> void:
 	province_ownership_changed.emit(pid, old_controller, province.country)
 
 func _parse_color_string(s: String) -> Vector3:
-	var parts = s.replace("(", "").replace(")", "").replace(" ", "").split(",")
+	var parts: PackedStringArray = s.replace("(", "").replace(")", "").replace(" ", "").split(",")
 	return Vector3(float(parts[0]), float(parts[1]), float(parts[2]))
 
 # Helper to ensure we never return a single String when an Array is expected
@@ -1443,13 +1451,13 @@ func get_all_releasables(my_country: String) -> Array[Dictionary]:
 	
 	# 1. Get a list of all province IDs I currently own
 	var my_provinces: PackedInt32Array = []
-	for obj in province_objects.values():
+	for obj: Province in province_objects.values():
 		# Using 'country' as per your Province resource
 		if obj.country == my_country:
 			my_provinces.append(obj.id)
 			
 	# 2. Check every country in the registry
-	for potential_country in global_claims_registry.keys():
+	for potential_country: String in global_claims_registry.keys():
 		if potential_country == my_country:
 			continue
 		
@@ -1459,7 +1467,7 @@ func get_all_releasables(my_country: String) -> Array[Dictionary]:
 		var owned_provinces: PackedInt32Array = []
 		
 		# 3. Verify I own every province they claim
-		for p_id in required_provinces:
+		for p_id: int in required_provinces:
 			if p_id in my_provinces:
 				owned_provinces.append(p_id)
 		
@@ -1484,7 +1492,7 @@ func get_all_releasables(my_country: String) -> Array[Dictionary]:
 	return releasables
 
 func _country_exists_on_map(c_name: String) -> bool:
-	for obj in province_objects.values():
+	for obj: Province in province_objects.values():
 		if obj.country == c_name:
 			return true
 	return false
@@ -1492,9 +1500,9 @@ func _country_exists_on_map(c_name: String) -> bool:
 func ReleaseCountry(a_countryName: String) -> void:
 	CountryManager.add_country({"name": a_countryName})
 	
-	for obj in province_objects.values():
+	for obj: Province in province_objects.values():
 		if obj.claims.has(a_countryName):
-			for troop in TroopManager.troops_by_province.get(obj.id, []).duplicate():
+			for troop: TroopData in TroopManager.troops_by_province.get(obj.id, []).duplicate():
 				if is_instance_valid(troop):
 					TroopManager.RemoveTroop(troop)
 
@@ -1506,7 +1514,7 @@ func ReleaseCountry(a_countryName: String) -> void:
 func ReleasePuppet(a_puppeter: String, a_puppetee: String) -> void:
 	CountryManager.add_country({"name": a_puppetee})
 	
-	for obj in province_objects.values():
+	for obj: Province in province_objects.values():
 		if obj.claims.size() == 1 && obj.claims[0] == a_puppetee:
 			transfer_ownership(obj.id, a_puppetee)
 	
@@ -1522,7 +1530,7 @@ func InstantiateCountryFromClaims(a_countryData: Dictionary) -> void:
 	
 	for obj: Province in province_objects.values():
 		if obj.claims.has(a_countryData["name"]):
-			for troop in TroopManager.troops_by_province.get(obj.id, []).duplicate():
+			for troop: TroopData in TroopManager.troops_by_province.get(obj.id, []).duplicate():
 				if is_instance_valid(troop):
 					TroopManager.RemoveTroop(troop)
 
@@ -1534,7 +1542,7 @@ func InstantiateCountryFromClaims(a_countryData: Dictionary) -> void:
 func InstantiateCountryFromProvinces(a_countryData: Dictionary, a_claims: PackedInt32Array) -> CountryData:
 	var countryer: CountryData = CountryManager.add_country(a_countryData)
 	for pid: int in a_claims:
-		for troop in TroopManager.troops_by_province.get(pid, []).duplicate():
+		for troop: TroopData in TroopManager.troops_by_province.get(pid, []).duplicate():
 			if is_instance_valid(troop):
 				TroopManager.RemoveTroop(troop)
 
@@ -1557,8 +1565,8 @@ func get_all_cities() -> Array[Dictionary]:
 	return pids
 
 func get_cities_province_country(country_name) -> Array:
-	var provinces = []
-	for pid in country_to_provinces.get(country_name, []):
+	var provinces: Array = []
+	for pid: int in country_to_provinces.get(country_name, []):
 		if province_objects[pid].GetFunctionalOwner() == country_name and len(province_objects[pid].city) > 0:
 			provinces.append(pid)
 	return provinces
@@ -1589,13 +1597,13 @@ func annex_country(annexer: String, annexee: String) -> void:
 	for pid: int in country_to_occupied_provinces.get(annexee, []):
 		DeoccupyProvince(pid)
 
-	var provinces_to_transfer = country_to_owned_provinces.get(annexee, [])
+	var provinces_to_transfer: Array = country_to_owned_provinces.get(annexee, [])
 
 	if provinces_to_transfer.is_empty():
 		print("MapManager: No provinces found for ", annexee)
 		return
 
-	for pid in provinces_to_transfer.duplicate():
+	for pid: int in provinces_to_transfer.duplicate():
 		transfer_ownership(pid, annexer)
 
 	#playerobj.reset_manpower()
@@ -1603,8 +1611,8 @@ func annex_country(annexer: String, annexee: String) -> void:
 
 func _build_global_registry():
 	global_claims_registry.clear()
-	for obj in province_objects.values():
-		for country_name in obj.claims:
+	for obj: Province in province_objects.values():
+		for country_name: String in obj.claims:
 			if not global_claims_registry.has(country_name):
 				global_claims_registry[country_name] = []
 			global_claims_registry[country_name].append(obj.id)
@@ -1613,17 +1621,17 @@ func _build_global_registry():
 func allow_pids(accesser: CountryData, accessee: CountryData):
 	if !allowed_pids.has(accesser.country_name):
 		allowed_pids[accesser.country_name] = []
-	for province in country_to_provinces[accessee.country_name]:
+	for province: Province in country_to_provinces[accessee.country_name]:
 		allowed_pids[accesser.country_name].append(province)
 
 
 func unallow_pids(unaccesser: CountryData, unaccessee: CountryData):
-	for province in country_to_provinces[unaccessee.country_name]:
+	for province: Province in country_to_provinces[unaccessee.country_name]:
 		allowed_pids[unaccesser.country_name].erase(province)
 	
 
 func change_province_types(pids: Array[int], type: int, country_name: String = ""):
-	for pid in pids:
+	for pid: int in pids:
 		var province: Province = province_objects[pid]
 		province.type = type
 		province.country = country_name
@@ -1639,7 +1647,7 @@ func _set_type_map(mat: Material, type_img: Image):
 	var uncertain_pixels := []
 
 	# --- PASS 1: Direct Mapping ---
-	for i in range(MAP_HEIGHT * MAP_WIDTH):
+	for i: int in range(MAP_HEIGHT * MAP_WIDTH):
 		var x: int = i % MAP_WIDTH
 		@warning_ignore("integer_division")
 		var y: int = i / MAP_WIDTH

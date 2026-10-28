@@ -6,11 +6,12 @@
   "debug_mode": false,
   "edgeness_slider": 0.69,
   "map_effects": true,
-  "music_volume": 0.03,
-  "provinceBorderThickness": 0.51,
+  "music_volume": 0.0,
+  "provinceBorderThickness": 0.52,
   "province_borders": 0.11,
   "radios": [
-    "Ultrakill"
+    "Ultrakill",
+    "Terraria"
   ],
   "scanlines": 0.06,
   "sfx_volume": 0.26,

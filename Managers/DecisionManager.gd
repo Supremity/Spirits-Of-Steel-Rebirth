@@ -8,7 +8,7 @@ var country_file_paths: Dictionary = {} # { "Germany": "res://decisions/Germany.
 
 var active_decisions: Dictionary = {} # { "Germany": { "eco_1": 5 } }
 var ui_overlay = null
-var debug = false
+var debug: bool = false
 
 
 func _ready():
@@ -226,8 +226,8 @@ func has_available_decisions(country: CountryData) -> bool:
 
 
 func save_country_decisions(country_name: String):
-	var path = country_file_paths.get(country_name)
-	var cats = country_decisions_map.get(country_name)
+	var path: String = country_file_paths.get(country_name)
+	var cats: Dictionary = country_decisions_map.get(country_name)
 	
 	if not cats:
 		# If country doesn't have a specific file, check default
@@ -238,10 +238,10 @@ func save_country_decisions(country_name: String):
 		print("Error: Could not find path or categories for ", country_name)
 		return
 
-	var data = { "categories": cats }
-	var json_string = JSON.stringify(data, "\t")
+	var data: Dictionary = { "categories": cats }
+	var json_string: String = JSON.stringify(data, "\t")
 	
-	var file = FileAccess.open(path, FileAccess.WRITE)
+	var file: FileAccess = FileAccess.open(path, FileAccess.WRITE)
 	if file:
 		file.store_string(json_string)
 		file.close()

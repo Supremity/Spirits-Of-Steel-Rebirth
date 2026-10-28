@@ -11,6 +11,11 @@ func _process(delta: float) -> void:
 	if get_viewport().gui_get_focus_owner() != null || GameState.decision_menu_open:
 		return
 	camera.position += Input.get_vector("move_left", "move_right", "move_up", "move_down") * (base_speed / camera.zoom.x) * delta
+	camera.position.y = clampf(
+		camera.position.y, 
+		-top_bar_height / camera.zoom.y,  
+		MapManager.MAP_HEIGHT - (camera.get_viewport_rect().size.y / camera.zoom.y)
+	)
 
 
 func _is_mouse_over_ui() -> bool:
@@ -41,14 +46,16 @@ func _input(event: InputEvent) -> void:
 			zoom_dir = -1
 
 		if zoom_dir != 0:
-			_perform_zoom(zoom_dir)
+			_perform_zoom(zoom_dir * event.factor)
 
 
-func _perform_zoom(direction: int) -> void:
+func _perform_zoom(direction: float) -> void:
 	var mouse_pos_before := camera.get_global_mouse_position()
 
-	camera.zoom = (camera.zoom + Vector2.ONE * direction).clamp(
-		Vector2.ONE,
+	
+
+	camera.zoom = (camera.zoom * (1.0 + direction * 0.1)).clamp(
+		Vector2.ONE * camera.get_viewport_rect().size.y / MapManager.MAP_HEIGHT,
 		Vector2.ONE * 12 
 	)
 

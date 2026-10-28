@@ -429,7 +429,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_805gj")
 theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_h3kqk")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_8gy0p")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_rao00")
-current_tab = 1
+current_tab = 0
 tab_0/icon = ExtResource("4_w4c1b")
 tab_1/icon = ExtResource("5_k4t4n")
 tab_2/icon = ExtResource("6_jir1k")
@@ -438,7 +438,6 @@ tab_4/icon = ExtResource("1_nxm7u")
 tab_5/icon = ExtResource("8_md4s8")
 
 [node name="Sabotage" type="HBoxContainer" parent="PanelContainer/HBoxContainer/MainContent/HBoxContainer/TabContainer/Plan Operation/TabContainer" unique_id=786149374]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 metadata/_tab_name = ""
@@ -555,6 +554,7 @@ item_count = 1
 item_0/text = "Benjamin Franklin"
 
 [node name="Influence" type="HBoxContainer" parent="PanelContainer/HBoxContainer/MainContent/HBoxContainer/TabContainer/Plan Operation/TabContainer" unique_id=711619654]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 metadata/_tab_name = ""
