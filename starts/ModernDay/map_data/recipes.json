@@ -1,0 +1,57 @@
+[
+    {
+        "produced_resource": "Lumber",
+        "resources_required": [
+            "Timber"
+        ]
+    },
+    {
+        "produced_resource": "Silicon",
+        "resources_required": [
+            "Sandstone"
+        ]
+    },
+    {
+        "produced_resource": "Steel_ingot",
+        "resources_required": [
+            "Iron",
+            "Coal"
+        ]
+    },
+    {
+        "produced_resource": "Stainless_steel_ingot",
+        "resources_required": [
+            "Iron",
+            "Chromium",
+            "Coal"
+        ]
+    },
+    {
+        "produced_resource": "Basic_circuitry",
+        "resources_required": [
+            "Silicon",
+            "Copper"
+        ]
+    },
+    {
+        "produced_resource": "Infantry_equipment",
+        "resources_required": [
+            "Steel_ingot",
+            "Lumber"
+        ]
+    },
+    {
+        "produced_resource": "Tank_equipment",
+        "resources_required": [
+            "Stainless_steel_ingot",
+            "Crude_oil"
+        ]
+    },
+    {
+        "produced_resource": "Artillery_equipment",
+        "resources_required": [
+            "Steel_ingot",
+            "Coal"
+        ]
+    }
+]

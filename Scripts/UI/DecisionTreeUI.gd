@@ -122,7 +122,8 @@ func open_menu():
 	_load_category(current_category)
 	GameState.decision_menu_open = true
 	edit_button.visible = DecisionManager.debug
-	if not DecisionManager.debug:
+	if not DecisionManager.debug and edit_mode:
+		edit_button.set_pressed_no_signal(false)
 		_on_edit_mode_toggled(false)
 	_toggle_pause(true)
 
@@ -487,13 +488,17 @@ func _on_reload_decisions_pressed():
 
 
 func _on_edit_mode_toggled(toggled_on: bool):
-	edit_mode = !toggled_on
-	editing_buttons.visible = !toggled_on
+	edit_mode = toggled_on and DecisionManager.debug
+	editing_buttons.visible = edit_mode
 	
 	if info_tab:
-		info_tab.current_tab = 0 if toggled_on else 1
+		info_tab.current_tab = 1 if edit_mode else 0
 
-	if not toggled_on:
+	if not edit_mode:
+		dragging_node = null
+		connecting_id = ""
+		add_decision.text = "Add Decision"
+		edit_function.button_pressed = false
 		selected_decision = {}
 		selected_node_btn = null
 		edit_label.text = ""
@@ -574,7 +579,7 @@ func _on_node_gui_input(event: InputEvent, btn: Button, data: Dictionary):
 									data["prereq"] = prereqs
 
 						connecting_id = ""
-						add_decision.text = "Add Button"
+						add_decision.text = "Add Decision"
 					else:
 						connecting_id = data["id"]
 						add_decision.text = "[connecting]: %s" % connecting_id

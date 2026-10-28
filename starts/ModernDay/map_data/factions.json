@@ -1,0 +1,759 @@
+[
+    {
+        "color": "#0048E6",
+        "members": [
+            {
+                "polity": "Germany",
+                "status": "Leader"
+            },
+            {
+                "polity": "France",
+                "status": "Member"
+            },
+            {
+                "polity": "Belgium",
+                "status": "Member"
+            },
+            {
+                "polity": "Netherlands",
+                "status": "Member"
+            },
+            {
+                "polity": "Italy",
+                "status": "Member"
+            },
+            {
+                "polity": "Austria",
+                "status": "Member"
+            },
+            {
+                "polity": "Czechia",
+                "status": "Member"
+            },
+            {
+                "polity": "Slovakia",
+                "status": "Member"
+            },
+            {
+                "polity": "Hungary",
+                "status": "Member"
+            },
+            {
+                "polity": "Greece",
+                "status": "Member"
+            },
+            {
+                "polity": "Romania",
+                "status": "Member"
+            },
+            {
+                "polity": "Slovenia",
+                "status": "Member"
+            },
+            {
+                "polity": "Croatia",
+                "status": "Member"
+            },
+            {
+                "polity": "Poland",
+                "status": "Member"
+            },
+            {
+                "polity": "Sweden",
+                "status": "Member"
+            },
+            {
+                "polity": "Finland",
+                "status": "Member"
+            },
+            {
+                "polity": "Latvia",
+                "status": "Member"
+            },
+            {
+                "polity": "Estonia",
+                "status": "Member"
+            },
+            {
+                "polity": "Lithuania",
+                "status": "Member"
+            },
+            {
+                "polity": "Bulgaria",
+                "status": "Member"
+            },
+            {
+                "polity": "Spain",
+                "status": "Member"
+            },
+            {
+                "polity": "Portugal",
+                "status": "Member"
+            },
+            {
+                "polity": "Denmark",
+                "status": "Member"
+            },
+            {
+                "polity": "Ireland",
+                "status": "Member"
+            }
+        ],
+        "name": "European_union"
+    },
+    {
+        "color": "#281371",
+        "members": [
+            {
+                "polity": "United_states",
+                "status": "Leader"
+            },
+            {
+                "polity": "Canada",
+                "status": "Member"
+            },
+            {
+                "polity": "Denmark",
+                "status": "Member"
+            },
+            {
+                "polity": "Norway",
+                "status": "Member"
+            },
+            {
+                "polity": "Finland",
+                "status": "Member"
+            },
+            {
+                "polity": "United_kingdom",
+                "status": "Member"
+            },
+            {
+                "polity": "France",
+                "status": "Member"
+            },
+            {
+                "polity": "Sweden",
+                "status": "Member"
+            },
+            {
+                "polity": "Iceland",
+                "status": "Member"
+            },
+            {
+                "polity": "Estonia",
+                "status": "Member"
+            },
+            {
+                "polity": "Latvia",
+                "status": "Member"
+            },
+            {
+                "polity": "Germany",
+                "status": "Member"
+            },
+            {
+                "polity": "Poland",
+                "status": "Member"
+            },
+            {
+                "polity": "Netherlands",
+                "status": "Member"
+            },
+            {
+                "polity": "Belgium",
+                "status": "Member"
+            },
+            {
+                "polity": "Czechia",
+                "status": "Member"
+            },
+            {
+                "polity": "Lithuania",
+                "status": "Member"
+            },
+            {
+                "polity": "Luxembourg",
+                "status": "Member"
+            },
+            {
+                "polity": "Slovakia",
+                "status": "Member"
+            },
+            {
+                "polity": "Croatia",
+                "status": "Member"
+            },
+            {
+                "polity": "Hungary",
+                "status": "Member"
+            },
+            {
+                "polity": "Slovenia",
+                "status": "Member"
+            },
+            {
+                "polity": "Italy",
+                "status": "Member"
+            },
+            {
+                "polity": "Turkey",
+                "status": "Member"
+            },
+            {
+                "polity": "North_macedonia",
+                "status": "Member"
+            },
+            {
+                "polity": "Greece",
+                "status": "Member"
+            },
+            {
+                "polity": "Bulgaria",
+                "status": "Member"
+            },
+            {
+                "polity": "Romania",
+                "status": "Member"
+            },
+            {
+                "polity": "Spain",
+                "status": "Member"
+            },
+            {
+                "polity": "Portugal",
+                "status": "Member"
+            },
+            {
+                "polity": "Albania",
+                "status": "Member"
+            },
+            {
+                "polity": "Montenegro",
+                "status": "Member"
+            },
+            {
+                "polity": "Israel",
+                "status": "Member"
+            }
+        ],
+        "name": "NATO"
+    },
+    {
+        "color": "#146B33",
+        "members": [
+            {
+                "polity": "Russia",
+                "status": "Leader"
+            },
+            {
+                "polity": "Belarus",
+                "status": "Member"
+            },
+            {
+                "polity": "Tajikistan",
+                "status": "Member"
+            },
+            {
+                "polity": "Kazakhstan",
+                "status": "Member"
+            },
+            {
+                "polity": "Kyrgyzstan",
+                "status": "Member"
+            },
+            {
+                "polity": "Armenia",
+                "status": "Member"
+            },
+            {
+                "polity": "Abkhazia",
+                "status": "Member"
+            },
+            {
+                "polity": "South_ossetia",
+                "status": "Member"
+            },
+            {
+                "polity": "Transnistria",
+                "status": "Member"
+            },
+            {
+                "polity": "Donetsk",
+                "status": "Member"
+            },
+            {
+                "polity": "Luhansk",
+                "status": "Member"
+            }
+        ],
+        "name": "CSTO"
+    },
+    {
+        "color": "#243824",
+        "members": [
+            {
+                "polity": "Saudi_arabia",
+                "status": "Leader"
+            },
+            {
+                "polity": "Bahrain",
+                "status": "Member"
+            },
+            {
+                "polity": "Oman",
+                "status": "Member"
+            },
+            {
+                "polity": "Qatar",
+                "status": "Member"
+            },
+            {
+                "polity": "United_arab_emirates",
+                "status": "Member"
+            },
+            {
+                "polity": "Kuwait",
+                "status": "Member"
+            }
+        ],
+        "name": "Unified Military Command"
+    },
+    {
+        "color": "#C41414",
+        "members": [
+            {
+                "polity": "Burkina_faso",
+                "status": "Leader"
+            },
+            {
+                "polity": "Niger",
+                "status": "Member"
+            },
+            {
+                "polity": "Mali",
+                "status": "Member"
+            }
+        ],
+        "name": "Alliance of Sahel States"
+    },
+    {
+        "color": "#37D9EA",
+        "members": [],
+        "name": "Compacts_of_Free_Association"
+    },
+    {
+        "color": "#745353",
+        "members": [
+            {
+                "polity": "United_states",
+                "status": "Leader"
+            },
+            {
+                "polity": "Australia",
+                "status": "Member"
+            },
+            {
+                "polity": "New_zealand",
+                "status": "Member"
+            },
+            {
+                "polity": "Israel",
+                "status": "Member"
+            }
+        ],
+        "name": "ANZUS"
+    },
+    {
+        "color": "#39985C",
+        "members": [
+            {
+                "polity": "United_states",
+                "status": "Leader"
+            },
+            {
+                "polity": "Brazil",
+                "status": "Member"
+            },
+            {
+                "polity": "Argentina",
+                "status": "Member"
+            },
+            {
+                "polity": "Colombia",
+                "status": "Member"
+            },
+            {
+                "polity": "Panama",
+                "status": "Member"
+            },
+            {
+                "polity": "Uruguay",
+                "status": "Member"
+            },
+            {
+                "polity": "Chile",
+                "status": "Member"
+            },
+            {
+                "polity": "Paraguay",
+                "status": "Member"
+            },
+            {
+                "polity": "Peru",
+                "status": "Member"
+            },
+            {
+                "polity": "Haiti",
+                "status": "Member"
+            },
+            {
+                "polity": "Guatemala",
+                "status": "Member"
+            },
+            {
+                "polity": "Costa_rica",
+                "status": "Member"
+            },
+            {
+                "polity": "El_salvador",
+                "status": "Member"
+            },
+            {
+                "polity": "Honduras",
+                "status": "Member"
+            },
+            {
+                "polity": "Dominican_republic",
+                "status": "Member"
+            },
+            {
+                "polity": "Israel",
+                "status": "Member"
+            }
+        ],
+        "name": "Rio_Treaty"
+    },
+    {
+        "color": "#4B741F",
+        "members": [
+            {
+                "polity": "Brazil",
+                "status": "Leader"
+            },
+            {
+                "polity": "Argentina",
+                "status": "Member"
+            },
+            {
+                "polity": "Bolivia",
+                "status": "Member"
+            },
+            {
+                "polity": "Paraguay",
+                "status": "Member"
+            },
+            {
+                "polity": "Uruguay",
+                "status": "Member"
+            }
+        ],
+        "name": "Mercosur"
+    },
+    {
+        "color": "#BEC024",
+        "members": [
+            {
+                "polity": "Brazil",
+                "status": "Leader"
+            },
+            {
+                "polity": "Paraguay",
+                "status": "Member"
+            },
+            {
+                "polity": "Argentina",
+                "status": "Member"
+            },
+            {
+                "polity": "Peru",
+                "status": "Member"
+            },
+            {
+                "polity": "Guyana",
+                "status": "Member"
+            },
+            {
+                "polity": "Suriname",
+                "status": "Member"
+            },
+            {
+                "polity": "Ecuador",
+                "status": "Member"
+            },
+            {
+                "polity": "Colombia",
+                "status": "Member"
+            }
+        ],
+        "name": "Prosur"
+    },
+    {
+        "color": "#E1A3A3",
+        "members": [
+            {
+                "polity": "Iran",
+                "status": "Leader"
+            },
+            {
+                "polity": "Iraq",
+                "status": "Member"
+            },
+            {
+                "polity": "Oman",
+                "status": "Member"
+            },
+            {
+                "polity": "Lebanon",
+                "status": "Member"
+            },
+            {
+                "polity": "Syria",
+                "status": "Member"
+            }
+        ],
+        "name": "Axis_of_Resistance"
+    },
+    {
+        "color": "#2525A6",
+        "members": [
+            {
+                "polity": "Indonesia",
+                "status": "Leader"
+            },
+            {
+                "polity": "Thailand",
+                "status": "Member"
+            },
+            {
+                "polity": "Brunei",
+                "status": "Member"
+            },
+            {
+                "polity": "Vietnam",
+                "status": "Member"
+            },
+            {
+                "polity": "Laos",
+                "status": "Member"
+            },
+            {
+                "polity": "Cambodia",
+                "status": "Member"
+            },
+            {
+                "polity": "Myanmar",
+                "status": "Member"
+            },
+            {
+                "polity": "Philippines",
+                "status": "Member"
+            },
+            {
+                "polity": "Malaysia",
+                "status": "Member"
+            },
+            {
+                "polity": "East_timor",
+                "status": "Member"
+            },
+            {
+                "polity": "Singapore",
+                "status": "Member"
+            }
+        ],
+        "name": "ASEAN"
+    },
+    {
+        "color": "#4CBA46",
+        "members": [
+            {
+                "polity": "Nigeria",
+                "status": "Leader"
+            },
+            {
+                "polity": "Egypt",
+                "status": "Member"
+            },
+            {
+                "polity": "Morocco",
+                "status": "Member"
+            },
+            {
+                "polity": "South_africa",
+                "status": "Member"
+            },
+            {
+                "polity": "Botswana",
+                "status": "Member"
+            },
+            {
+                "polity": "Ethiopia",
+                "status": "Member"
+            },
+            {
+                "polity": "Dr_congo",
+                "status": "Member"
+            },
+            {
+                "polity": "Algeria",
+                "status": "Member"
+            },
+            {
+                "polity": "Libya",
+                "status": "Member"
+            },
+            {
+                "polity": "Zimbabwe",
+                "status": "Member"
+            },
+            {
+                "polity": "Malawi",
+                "status": "Member"
+            },
+            {
+                "polity": "Zambia",
+                "status": "Member"
+            },
+            {
+                "polity": "Angola",
+                "status": "Member"
+            },
+            {
+                "polity": "Namibia",
+                "status": "Member"
+            },
+            {
+                "polity": "Gabon",
+                "status": "Member"
+            },
+            {
+                "polity": "Chad",
+                "status": "Member"
+            },
+            {
+                "polity": "Ghana",
+                "status": "Member"
+            },
+            {
+                "polity": "Kenya",
+                "status": "Member"
+            },
+            {
+                "polity": "Djibouti",
+                "status": "Member"
+            },
+            {
+                "polity": "South_sudan",
+                "status": "Member"
+            },
+            {
+                "polity": "Tanzania",
+                "status": "Member"
+            },
+            {
+                "polity": "Uganda",
+                "status": "Member"
+            },
+            {
+                "polity": "Central_african_republic",
+                "status": "Member"
+            },
+            {
+                "polity": "Cameroon",
+                "status": "Member"
+            },
+            {
+                "polity": "Togo",
+                "status": "Member"
+            },
+            {
+                "polity": "Benin",
+                "status": "Member"
+            },
+            {
+                "polity": "Burundi",
+                "status": "Member"
+            },
+            {
+                "polity": "Congo",
+                "status": "Member"
+            },
+            {
+                "polity": "Equatorial_guinea",
+                "status": "Member"
+            },
+            {
+                "polity": "Eritrea",
+                "status": "Member"
+            },
+            {
+                "polity": "Eswatini",
+                "status": "Member"
+            },
+            {
+                "polity": "Gambia",
+                "status": "Member"
+            },
+            {
+                "polity": "Ivory_coast",
+                "status": "Member"
+            },
+            {
+                "polity": "Lesotho",
+                "status": "Member"
+            },
+            {
+                "polity": "Liberia",
+                "status": "Member"
+            },
+            {
+                "polity": "Tunisia",
+                "status": "Member"
+            },
+            {
+                "polity": "Mauritius",
+                "status": "Member"
+            },
+            {
+                "polity": "Mauritania",
+                "status": "Member"
+            },
+            {
+                "polity": "Mozambique",
+                "status": "Member"
+            },
+            {
+                "polity": "Senegal",
+                "status": "Member"
+            },
+            {
+                "polity": "Rwanda",
+                "status": "Member"
+            },
+            {
+                "polity": "Guinea",
+                "status": "Member"
+            },
+            {
+                "polity": "Sierra_leone",
+                "status": "Member"
+            },
+            {
+                "polity": "Somalia",
+                "status": "Member"
+            }
+        ],
+        "name": "African union"
+    }
+]

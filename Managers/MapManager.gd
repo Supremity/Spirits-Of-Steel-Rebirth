@@ -268,7 +268,7 @@ func SaveBiomeData() -> Array:
 		returnBiomes.append(biome.ToDict())
 	return returnBiomes
 
-func export_scenario_data(path: String) -> void:
+func export_scenario_data(folder: String) -> void:
 	var fig_dicts: Array[Dictionary] = []
 	for x in significantFigures.values():
 		fig_dicts.append(x.ToDict())
@@ -284,13 +284,10 @@ func export_scenario_data(path: String) -> void:
 		"significant_figures": fig_dicts
 	}
 
-	var file = FileAccess.open(path, FileAccess.WRITE)
-	if file:
-		file.store_string(JSON.stringify(export , "\t"))
-		file.close()
-		print("Scenario exported to: ", path)
+	if ScenarioData.save_split(export, folder):
+		print("Scenario exported to: ", folder)
 	else:
-		push_error("Failed to export scenario to: ", path)
+		push_error("Failed to export scenario to: ", folder)
 
 func _try_load_cached_data() -> bool:
 	if not ResourceLoader.exists(MAP_DATA_PATH):
@@ -467,9 +464,7 @@ func handle_hover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 		GameState.tooltip.SwitchTooltip(-1)
 		if GameState.selectingCountry:
 			if last_hovered_pid > 1 && hoveredCountry != "Sea" && country_to_provinces.has(hoveredCountry):
-				original_hover_color = CountryManager.countries[hoveredCountry].country_color
-				for province in country_to_provinces[hoveredCountry]:
-					update_lookup(province, original_hover_color, CountryManager.countries[province_objects[province].GetFunctionalOwner()].country_color)
+				_restore_country_hover(hoveredCountry)
 			last_hovered_pid = -1
 		else:
 			_reset_last_hover()
@@ -491,9 +486,7 @@ func handle_hover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 				if pid > 1 and highlight_color != Color.TRANSPARENT:
 					if hoveredCountry != province_objects[pid].country:
 						if hoveredCountry != "Sea" && country_to_provinces.has(hoveredCountry):
-							original_hover_color = CountryManager.countries[hoveredCountry].country_color
-							for province in country_to_provinces[hoveredCountry]:
-								update_lookup(province, original_hover_color, CountryManager.countries[province_objects[province].GetFunctionalOwner()].country_color)
+							_restore_country_hover(hoveredCountry)
 						if pid in province_objects:
 							if province_objects[pid].country != "Sea" && highlight_color != Color.TRANSPARENT:
 								original_hover_color = state_color_image.get_pixel(pid, 0)
@@ -527,6 +520,14 @@ func handle_hover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 				Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 				province_hovered.emit(-1, "")
 				GameState.tooltip.SwitchTooltip(-1)
+
+# Puts back the normal country-map colors on every province highlighted by a country hover.
+# Uses each province's real owner/controller, since the hovered list includes provinces it occupies.
+func _restore_country_hover(country_name: String) -> void:
+	for province in country_to_provinces[country_name]:
+		state_color_image.set_pixel(province, 0, GetCountryDisplayColor(province_objects[province].country))
+		state_color_image.set_pixel(province, 1, GetCountryDisplayColor(province_objects[province].GetFunctionalOwner()))
+	state_color_texture.update(state_color_image)
 
 func _reset_last_hover() -> void:
 	if last_hovered_pid > 1:
@@ -912,9 +913,12 @@ func find_path(start_pid: int, end_pid: int, allowed_countries: Array[String] = 
 		return path_cache[cache_key].duplicate()
 
 	# Set context for SoiStar filtering
-	province_graph.context_allowed_countries = allowed_countries
+	var allowed_set: Dictionary = {}
+	for c in allowed_countries:
+		allowed_set[c] = true
+	province_graph.context_allowed_countries = allowed_set
 	var path: PackedInt64Array = province_graph.get_id_path(start_pid, end_pid)
-	province_graph.context_allowed_countries = []
+	province_graph.context_allowed_countries = {}
 
 	if use_cache && !path.is_empty():
 		path_cache[cache_key] = path.duplicate()

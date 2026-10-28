@@ -247,7 +247,7 @@ offset_left = -154.0
 offset_bottom = 40.0
 grow_horizontal = 0
 bbcode_enabled = true
-text = "[url=https://discord.gg/GbyABEssVE]SOS:R Discord!!!![/url]"
+text = "[url=https://discord.gg/TS9unVHXXV]SOS:R Discord!!!![/url]"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("18_ujyyl")

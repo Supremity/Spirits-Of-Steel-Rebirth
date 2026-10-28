@@ -11,9 +11,7 @@
   "province_borders": 0.11,
   "radios": [
     "default",
-    "Lead poisoning",
-    "Terraria",
-    "Ultrakill"
+    "Lead poisoning"
   ],
   "scanlines": 0.0,
   "sfx_volume": 0.26,

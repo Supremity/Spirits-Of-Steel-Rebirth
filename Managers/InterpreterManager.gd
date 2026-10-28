@@ -292,8 +292,8 @@ func get_function(block, country: CountryData = null):
 			result = country.factories_amount
 		"declare_war":
 			if evaled_args.size() >= 2:
-				var attacker: CountryData = CountryManager.countries[evaled_args[0]]
-				var defender: CountryData = CountryManager.countries[evaled_args[1]]
+				var attacker: CountryData = CountryManager.countries.get(evaled_args[0])
+				var defender: CountryData = CountryManager.countries.get(evaled_args[1])
 				if attacker and defender:
 					WarManager.declare_war(attacker, defender)
 					result = true
@@ -316,12 +316,15 @@ func get_function(block, country: CountryData = null):
 				MapManager.annex_country(evaled_args[0], evaled_args[1])
 				result = true
 		"add_ideology_drift":
-			var country_obj: CountryData = CountryManager.countries[evaled_args[0]]
-			country_obj.driftTargets[args[1]] = IdeologyDriftTarget.FromDict(args[2])
-			result = country_obj.driftTargets
+			var country_obj: CountryData = CountryManager.countries.get(evaled_args[0])
+			if country_obj:
+				country_obj.driftTargets[args[1]] = IdeologyDriftTarget.FromDict(args[2])
+				result = country_obj.driftTargets
 		"make_puppet":
-			if evaled_args.size() >= 2:
-				CountryManager.make_puppet(CountryManager.countries[evaled_args[0]], CountryManager.countries[evaled_args[1]])
+			var overlord: CountryData = CountryManager.countries.get(evaled_args[0]) if evaled_args.size() >= 2 else null
+			var puppet: CountryData = CountryManager.countries.get(evaled_args[1]) if evaled_args.size() >= 2 else null
+			if overlord and puppet:
+				CountryManager.make_puppet(overlord, puppet)
 				result = true
 		"has_pids":
 			if evaled_args.size() >= 2:
@@ -353,8 +356,10 @@ func get_function(block, country: CountryData = null):
 				EventManager.schedule_event(int(evaled_args[0]), evaled_args[1])
 				result = true
 		"invite":
-			if evaled_args.size() >= 2:
-				FactionManager.invite_faction(CountryManager.countries[evaled_args[0]], CountryManager.countries[evaled_args[1]])
+			var inviter: CountryData = CountryManager.countries.get(evaled_args[0]) if evaled_args.size() >= 2 else null
+			var invitee: CountryData = CountryManager.countries.get(evaled_args[1]) if evaled_args.size() >= 2 else null
+			if inviter and invitee:
+				FactionManager.invite_faction(inviter, invitee)
 		"change_province_types":
 			if evaled_args.size() >= 3:
 				var pids = evaled_args[0]

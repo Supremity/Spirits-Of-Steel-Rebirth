@@ -231,7 +231,11 @@ func cleanup_empty_countries() -> void:
 	var to_remove: PackedStringArray = []
 	
 	for c_name: String in countryNames:
-		if MapManager.country_to_provinces.get(c_name, []).is_empty() && !countries[c_name].is_exiled:
+		# A fully occupied country still owns its land, so it isn't dead yet (removing it
+		# would leave provinces pointing at a country that no longer exists)
+		if MapManager.country_to_provinces.get(c_name, []).is_empty() \
+			&& MapManager.country_to_owned_provinces.get(c_name, []).is_empty() \
+			&& !countries[c_name].is_exiled:
 			to_remove.append(c_name)
 
 	for c_name: String in to_remove:

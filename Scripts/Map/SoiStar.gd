@@ -2,14 +2,16 @@ extends AStar2D
 class_name SoiStar
 # NOTE(soi): I AM A SUPERSTAR
 
-var context_allowed_countries: Array[String] = []
+# Set of country names (name -> true) a path may enter. Empty = no restriction.
+var context_allowed_countries: Dictionary = {}
 
-func _compute_cost(from_id: int, to_id: int) -> float:
-	if neighbor_filter_enabled and _filter_neighbor(from_id, to_id):
-		return INF
-	return get_point_position(from_id).distance_to(get_point_position(to_id))
+# NOTE: No _compute_cost override on purpose. The default native cost (point
+# distance) is used, and AStar2D skips any neighbor _filter_neighbor rejects.
 
 func _filter_neighbor(from_id: int, to_id: int) -> bool:
+	if context_allowed_countries.is_empty():
+		return false
+
 	var from_prov = MapManager.province_objects.get(from_id)
 	var to_prov = MapManager.province_objects.get(to_id)
 	
@@ -37,18 +39,14 @@ func _filter_neighbor(from_id: int, to_id: int) -> bool:
 	# 	if !has_port: return true
 
 	# --- 2. Political Access (Context-aware) ---
-	if !context_allowed_countries.is_empty():
-		# Destination is allowed -> Go ahead
-		if context_allowed_countries.has(to_owner):
-			return false
-			
-		# ESCAPE RULE: Starting province is disallowed? 
-		# Allow one-step movement to find a way out.
-		if !context_allowed_countries.has(from_owner):
-			return false
-			
-		# Restricted: Path tries to enter territory we don't have access to
-		return true
-	
-	# Default: Allow if no context (used during graph initialization)
-	return false
+	# Destination is allowed -> Go ahead
+	if context_allowed_countries.has(to_owner):
+		return false
+
+	# ESCAPE RULE: Starting province is disallowed?
+	# Allow one-step movement to find a way out.
+	if !context_allowed_countries.has(from_owner):
+		return false
+
+	# Restricted: Path tries to enter territory we don't have access to
+	return true

@@ -31,11 +31,42 @@ var troop_multimesh: MultiMeshInstance2D
 var _last_cam_pos := Vector2.INF
 var _last_cam_zoom := Vector2.INF
 
+# Cities live on their own canvas item so they only get redrawn when something about them changes,
+# instead of every frame with the troops.
+const CITY_REFRESH_FRAMES := 30 # Fallback refresh to pick up capital changes
+var _city_layer: Node2D
+var _city_dirty := true
+var _city_last_hovered := -1
+var _city_frames_since_redraw := 0
+
+# Battles get their own layer too. They're drawn in map space with no zoom scaling,
+# so camera movement never needs a redraw; only battle progress does.
+var _battle_layer: Node2D
+var _battle_last_count := -1
+var _battle_frames_since_redraw := 0
+
 
 # --- Lifecycle ---
 func _ready() -> void:
 	z_index = 20 # Keep renderer high
 	_setup_multimesh()
+
+	_city_layer = Node2D.new()
+	_city_layer.name = "CityLayer"
+	add_child(_city_layer)
+	_city_layer.draw.connect(_draw_cities)
+
+	# Added after the city layer so battles draw on top of cities
+	_battle_layer = Node2D.new()
+	_battle_layer.name = "BattleLayer"
+	add_child(_battle_layer)
+	_battle_layer.draw.connect(draw_battles)
+	MapManager.province_ownership_changed.connect(_on_province_ownership_changed)
+
+
+func _on_province_ownership_changed(_pid: int, _old_owner: String, _new_owner: String) -> void:
+	_city_dirty = true
+
 
 func _process(_delta: float) -> void:
 	if !map_sprite:
@@ -52,10 +83,31 @@ func _process(_delta: float) -> void:
 
 		_last_cam_zoom = cam.zoom
 		_last_cam_pos = cam.global_position
+		_city_dirty = true
 
 	_update_multimesh_buffer()
 
 	queue_redraw()
+
+	_city_frames_since_redraw += 1
+	if (_city_dirty
+		|| MapManager.current_hovered_pid != _city_last_hovered
+		|| _city_frames_since_redraw >= CITY_REFRESH_FRAMES):
+		_city_dirty = false
+		_city_last_hovered = MapManager.current_hovered_pid
+		_city_frames_since_redraw = 0
+		_city_layer.queue_redraw()
+
+	_battle_layer.visible = !GameState.in_peace_process
+	var battle_count: int = WarManager.active_battles.size()
+	var clock_running: bool = GameState.current_world && !GameState.current_world.clock.paused
+	_battle_frames_since_redraw += 1
+	if (battle_count != _battle_last_count
+		|| (battle_count > 0 && clock_running)
+		|| _battle_frames_since_redraw >= CITY_REFRESH_FRAMES):
+		_battle_last_count = battle_count
+		_battle_frames_since_redraw = 0
+		_battle_layer.queue_redraw()
 
 
 # --- MultiMesh Setup ---
@@ -148,10 +200,6 @@ func _draw() -> void:
 		_draw_troops()
 		
 	troop_multimesh.visible = !GameState.in_peace_process
-	
-	_draw_cities()
-	if !GameState.in_peace_process:
-		draw_battles()
 
 
 func _draw_troops() -> void:
@@ -294,8 +342,9 @@ func _update_screen_rect():
 	).grow(200.0)
 
 
+# Drawn onto _city_layer (connected to its draw signal), not onto the renderer itself.
 func _draw_cities() -> void:
-	if !MapManager.id_map_image:
+	if !MapManager.id_map_image or !map_sprite or map_width <= 0:
 		return
 
 	var hovered_pid = MapManager.current_hovered_pid
@@ -303,29 +352,34 @@ func _draw_cities() -> void:
 	const base_font_size = 24
 	const offset = Vector2(10, base_font_size * 0.3)
 
-	var zoom_vec = Vector2(_current_inv_zoom, _current_inv_zoom)
+	var dot_radius := base_dot_radius * _current_inv_zoom
+	var sprite_pos := map_sprite.position
+	var wrap_offsets := [Vector2(-map_width, 0), Vector2.ZERO, Vector2(map_width, 0)]
 
 	for city_data in MapManager.all_cities:
 		var pid = city_data["id"]
-		var city_name = city_data["city"]
-		var base_pos = MapManager.province_centers[pid]
-		var color: Color = Color.RED if CountryManager.countries[MapManager.province_objects[pid].country].capital == city_name else Color.WHITE 
-
+		var base_pos: Vector2 = MapManager.province_centers.get(pid, Vector2.ZERO)
 		if base_pos == Vector2.ZERO:
 			continue
-		base_pos += map_sprite.position
+		base_pos += sprite_pos
 
-		for j in range(-1, 2):
-			var world_pos = base_pos + Vector2(map_width * j, 0)
+		for wrap in wrap_offsets:
+			var world_pos: Vector2 = base_pos + wrap
+			# Cull before doing any lookups
 			if !_screen_rect.has_point(world_pos):
 				continue
 
-			draw_set_transform_matrix(Transform2D(0, zoom_vec, 0, world_pos))
+			var city_name: String = city_data["city"]
+			# Owner may have been removed from countries (dead/annexed) while the province still points at it
+			var province = MapManager.province_objects.get(pid)
+			var city_owner: CountryData = CountryManager.countries.get(province.country) if province else null
+			var color: Color = Color.RED if city_owner and city_owner.capital == city_name else Color.WHITE
 
-			draw_circle(Vector2.ZERO, base_dot_radius, color)
+			_city_layer.draw_circle(world_pos, dot_radius, color)
 
 			if pid == hovered_pid:
-				draw_string_outline(
+				_city_layer.draw_set_transform_matrix(Transform2D(0, Vector2(_current_inv_zoom, _current_inv_zoom), 0, world_pos))
+				_city_layer.draw_string_outline(
 					_font,
 					offset,
 					city_name,
@@ -335,7 +389,7 @@ func _draw_cities() -> void:
 					4,
 					Color(0, 0, 0, 0.8)
 				)
-				draw_string(
+				_city_layer.draw_string(
 					_font,
 					offset,
 					city_name,
@@ -344,10 +398,10 @@ func _draw_cities() -> void:
 					base_font_size,
 					color
 				)
+				_city_layer.draw_set_transform_matrix(Transform2D.IDENTITY)
 
-	draw_set_transform_matrix(Transform2D.IDENTITY)
 
-
+# Drawn onto _battle_layer (connected to its draw signal), not onto the renderer itself.
 func draw_battles():
 	var player_country = CountryManager.player_country.country_name if !GameState.selectingCountry else ""
 	const base_radius = 1.0
@@ -382,7 +436,7 @@ func draw_battles():
 
 		# 4. Draw Background/Outline (Crucial for tiny icons)
 		# We draw a slightly larger black circle first so the icon "pops"
-		draw_circle(pos, ring_radius + 0.3, Color(0, 0, 0, 0.8))
+		_battle_layer.draw_circle(pos, ring_radius + 0.3, Color(0, 0, 0, 0.8))
 
 		# 5. Draw Progress Arc
 		start_angle = START_ANGLE
@@ -391,7 +445,7 @@ func draw_battles():
 			end_angle += display_ratio * TAU
 		else:
 			start_angle -= display_ratio * TAU
-		draw_arc(pos, ring_radius, start_angle, end_angle, 16, (Color(0.0, 1.0, 0.0) if is_winning else Color(1.0, 0.0, 0.0)) if is_player_involved else Color(0.8, 0.5, 0.0), line_width, true)
+		_battle_layer.draw_arc(pos, ring_radius, start_angle, end_angle, 16, (Color(0.0, 1.0, 0.0) if is_winning else Color(1.0, 0.0, 0.0)) if is_player_involved else Color(0.8, 0.5, 0.0), line_width, true)
 
 		# 6. Static Center White Dot (No Pulse)
-		draw_circle(pos, base_radius, Color.WHITE)
+		_battle_layer.draw_circle(pos, base_radius, Color.WHITE)

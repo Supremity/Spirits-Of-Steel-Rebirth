@@ -1,0 +1,222 @@
+[
+    {
+        "base_price": 613,
+        "color": "#71797E",
+        "icon": "Ingot",
+        "name": "Steel_ingot",
+        "tags": {
+            "metal": 1.0,
+            "structural_metal": 2.0
+        }
+    },
+    {
+        "base_price": 613,
+        "color": "#7179AE",
+        "icon": "Ingot",
+        "name": "Stainless_steel_ingot",
+        "tags": {
+            "metal": 1.0,
+            "structural_metal": 2.0
+        }
+    },
+    {
+        "base_price": 250,
+        "color": "#7B4A1B",
+        "icon": "Timber",
+        "name": "Timber",
+        "tags": {
+            "fuel": 0.5,
+            "wood": 1.0
+        }
+    },
+    {
+        "base_price": 250,
+        "color": "#8B5A2B",
+        "icon": "Lumber",
+        "name": "Lumber",
+        "tags": {
+            "fuel": 0.5,
+            "wood": 1.0
+        }
+    },
+    {
+        "base_price": 108,
+        "color": "#424242",
+        "icon": "Ore",
+        "name": "Coal",
+        "tags": {
+            "fuel": 2.0
+        }
+    },
+    {
+        "base_price": 50,
+        "color": "#24281F",
+        "icon": "Droplet",
+        "name": "Crude_oil",
+        "tags": {
+            "fuel": 5.0
+        }
+    },
+    {
+        "base_price": 825,
+        "color": "#8AAAFA",
+        "icon": "Gear",
+        "name": "Silicon",
+        "tags": {
+            "electronic": 1.0
+        }
+    },
+    {
+        "base_price": 825,
+        "color": "#00FF00",
+        "icon": "Ingot",
+        "name": "Basic_circuitry",
+        "tags": {
+            "electronic": 1.0
+        }
+    },
+    {
+        "base_price": 250,
+        "color": "#DDDDDD",
+        "icon": "Ingot",
+        "name": "Limestone",
+        "tags": {
+            "stone": 1.0
+        }
+    },
+    {
+        "base_price": 238,
+        "color": "#467849",
+        "icon": "Ingot",
+        "name": "Bauxite",
+        "tags": {}
+    },
+    {
+        "base_price": 239,
+        "color": "#463458",
+        "icon": "Ingot",
+        "name": "Lead",
+        "tags": {}
+    },
+    {
+        "base_price": 245,
+        "color": "#61A1C9",
+        "icon": "Ingot",
+        "name": "Chromium",
+        "tags": {}
+    },
+    {
+        "base_price": 235,
+        "color": "#C68636",
+        "icon": "Ingot",
+        "name": "Copper",
+        "tags": {}
+    },
+    {
+        "base_price": 229,
+        "color": "#D7CA29",
+        "icon": "Ingot",
+        "name": "Gold",
+        "tags": {}
+    },
+    {
+        "base_price": 242,
+        "color": "#A38A54",
+        "icon": "Ingot",
+        "name": "Nickel",
+        "tags": {}
+    },
+    {
+        "base_price": 241,
+        "color": "#7A9398",
+        "icon": "Ingot",
+        "name": "Tin",
+        "tags": {}
+    },
+    {
+        "base_price": 246,
+        "color": "#222C3F",
+        "icon": "Ingot",
+        "name": "Titanium",
+        "tags": {}
+    },
+    {
+        "base_price": 238,
+        "color": "#3D4C58",
+        "icon": "Ingot",
+        "name": "Zinc",
+        "tags": {}
+    },
+    {
+        "base_price": 244,
+        "color": "#E89E9E",
+        "icon": "Ingot",
+        "name": "Manganese",
+        "tags": {}
+    },
+    {
+        "base_price": 242,
+        "color": "#D6D5D5",
+        "icon": "Ingot",
+        "name": "Silver",
+        "tags": {}
+    },
+    {
+        "base_price": 248,
+        "color": "#B8E0E7",
+        "icon": "Ingot",
+        "name": "Platinum",
+        "tags": {}
+    },
+    {
+        "base_price": 250,
+        "color": "#00FF08",
+        "icon": "Ingot",
+        "name": "Sandstone",
+        "tags": {}
+    },
+    {
+        "base_price": 248,
+        "color": "#00FF08",
+        "icon": "Ingot",
+        "name": "Uranium",
+        "tags": {}
+    },
+    {
+        "base_price": 1417,
+        "color": "#556B2F",
+        "icon": "Infantry",
+        "name": "Infantry_equipment",
+        "tags": {
+            "military": 1.0
+        }
+    },
+    {
+        "base_price": 2771,
+        "color": "#8B0000",
+        "icon": "Tank",
+        "name": "Tank_equipment",
+        "tags": {
+            "military": 2.0
+        }
+    },
+    {
+        "base_price": 1134,
+        "color": "#B8860B",
+        "icon": "Artillery",
+        "name": "Artillery_equipment",
+        "tags": {
+            "military": 1.5
+        }
+    },
+    {
+        "base_price": 250,
+        "color": "#434B4D",
+        "icon": "Ingot",
+        "name": "Iron",
+        "tags": {
+            "metal": 0.5,
+            "structural_metal": 0.5
+        }
+    }
+]

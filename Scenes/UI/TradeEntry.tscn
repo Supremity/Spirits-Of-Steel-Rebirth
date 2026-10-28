@@ -18,8 +18,9 @@ exports = NodePath("ResourceStats/HBoxContainer/Exports")
 use_parent_material = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+size_flags_vertical = 4
 texture = ExtResource("2_m7pvk")
-expand_mode = 2
+expand_mode = 1
 stretch_mode = 5
 
 [node name="ResourceStats" type="VBoxContainer" parent="." unique_id=2007483340]

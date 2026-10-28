@@ -7,23 +7,19 @@ extends Control
 func _ready():
 	pass
 
-func setup(a_text: String, a_background: String, mapdata_path: String):
+func setup(a_text: String, a_background: String, start_folder: String):
 	# Data format: { "background": "ww3", "desc": "...", "button": "..." }
 	# if data.has("desc"):
 	# 	desc_label.text = data["desc"]
 	if button:
 		button.text = a_text
-		var json_file = FileAccess.open(mapdata_path, FileAccess.READ)
-		var json_text = json_file.get_as_text() if json_file else "{}"
-		var json_data = JSON.parse_string(json_text)
-		var map_data: Dictionary = json_data if json_data is Dictionary else {}
+		var map_data: Dictionary = ScenarioData.load_start(start_folder)
 		
 		var load_map_data = func():
-			var start_folder = mapdata_path.get_base_dir() + "/"
 			SceneSwitcher.switch_to(SceneSwitcher.Type.WORLD, func(a_percent: Array):
 				#a_percent = [0.0]
 				GameState.current_start = a_text
-				# GameState.current_scenario_path = mapdata_path #dear god lets not 
+				# GameState.current_scenario_path = start_folder #dear god lets not 
 				a_percent[0] = 0.01
 				EconomyManager.initialize(start_folder + "building_functions.json")
 				a_percent[0] = 0.02

@@ -84,7 +84,6 @@ func SwitchTooltip(a_mode: int) -> void:
 
 			for resource in resourcesGrid.get_children(): resource.queue_free()
 			for resource in prov.resources:
-				print(resource)
 				var resourceBop: HBoxContainer = resourceTemplate.duplicate()
 				resourceBop.get_node("TextureRect").texture = MapManager.GetResourceIcon(resource.type)
 				resourceBop.get_node("TextureRect").modulate = MapManager.resources[resource.type].color

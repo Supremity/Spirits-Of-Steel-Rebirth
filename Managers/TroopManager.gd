@@ -192,7 +192,7 @@ func command_move_assigned(payload: Array) -> void:
 # Helper to keep your code clean
 func _apply_movement_path(troop: TroopData, target_pid: int) -> void:
 	if troop.province_id == target_pid:
-		_stop_troop(troop)
+		_return_to_province_center(troop)
 		return
 
 	var allowed = troop.country_obj.get_all_allowed_countries()
@@ -206,7 +206,20 @@ func _apply_movement_path(troop: TroopData, target_pid: int) -> void:
 		troop.set_meta("start_pos", troop.position)
 		_start_next_leg(troop)
 	else:
+		_return_to_province_center(troop)
+
+
+# Stops the troop, but if it was caught mid-leg, walks it back to its province center
+# so it doesn't stay stranded between provinces.
+func _return_to_province_center(troop: TroopData) -> void:
+	var center = MapManager.province_centers.get(troop.province_id, troop.position)
+	if troop.position.distance_to(center) < 0.5:
+		troop.position = center
 		_stop_troop(troop)
+		return
+
+	troop.path = [troop.province_id]
+	_start_next_leg(troop)
 
 
 func _get_cached_path(start_id: int, target_id: int, allowed_countries: Array[String]) -> Array:

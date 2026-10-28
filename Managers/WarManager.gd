@@ -462,6 +462,9 @@ func is_at_war_names(a_name: String, b_name: String) -> bool:
 func get_countries_at_war() -> Array:
 	return wars.keys()
 
+func has_enemies_of(country_name: String) -> bool:
+	var country_data = CountryManager.countries.get(country_name)
+	return country_data && wars.has(country_data)
 
 ## Returns an array of country names that are currently at war with the given country name
 func get_enemies_of(country_name: String) -> Array[String]:
@@ -498,7 +501,10 @@ func _handle_total_collapse(fallen_name: String, victor_name: String) -> void:
 	if !wars.has(loser):
 		return
 	var player := CountryManager.player_country
-	var player_won = player && (winner.is_player || is_at_war(player, loser))
+	# Only counts as a player win if the player (or someone on their side) made the kill.
+	# Otherwise, e.g. with gates_of_hell, every collapse would open a peace treaty.
+	var player_won = player && player.is_player && CountryManager.countries.has(player.country_name) \
+		&& (winner == player || (is_at_war(player, loser) && !is_at_war(player, winner)))
 	var winners := get_enemies_of(fallen_name)
 	# Ensure the primary winner is included (might already be if they were at war)
 	if !winners.has(victor_name):
@@ -555,7 +561,8 @@ func _handle_total_collapse(fallen_name: String, victor_name: String) -> void:
 		var winners_data: Array[CountryData] = []
 		for w_name in winners:
 			var w_data = CountryManager.countries.get(w_name)
-			if w_data:
+			# Don't let the player's own enemies share the spoils
+			if w_data and (w_data == player || !is_at_war(player, w_data)):
 				winners_data.append(w_data)
 
 		var peace_ui = get_tree().root.find_child("PeaceProcessUI", true, false)

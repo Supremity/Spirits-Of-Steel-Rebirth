@@ -1,0 +1,116 @@
+[
+    {
+        "color": "#B38E28",
+        "forest": false,
+        "name": "Mediterranean",
+        "temperature": 1
+    },
+    {
+        "color": "#656565",
+        "forest": false,
+        "name": "Mountainous",
+        "temperature": 1
+    },
+    {
+        "color": "#887B6A",
+        "forest": false,
+        "name": "Plateau",
+        "temperature": 1
+    },
+    {
+        "color": "#87AFAB",
+        "forest": false,
+        "name": "Tundra",
+        "temperature": 1
+    },
+    {
+        "color": "#85CC54",
+        "forest": true,
+        "name": "Temperate_forest",
+        "temperature": 1
+    },
+    {
+        "color": "#BDE526",
+        "forest": false,
+        "name": "Temperate_steppe",
+        "temperature": 1
+    },
+    {
+        "color": "#32583F",
+        "forest": false,
+        "name": "Taiga",
+        "temperature": 1
+    },
+    {
+        "color": "#838333",
+        "forest": false,
+        "name": "Dry_steppe",
+        "temperature": 1
+    },
+    {
+        "color": "#FAE8B9",
+        "forest": false,
+        "name": "Semi_arid_desert",
+        "temperature": 1
+    },
+    {
+        "color": "#88480B",
+        "forest": false,
+        "name": "Arid_desert",
+        "temperature": 1
+    },
+    {
+        "color": "#99803E",
+        "forest": false,
+        "name": "Xeric_shrubland",
+        "temperature": 1
+    },
+    {
+        "color": "#317E48",
+        "forest": true,
+        "name": "Monsoon_forest",
+        "temperature": 1
+    },
+    {
+        "color": "#0D5522",
+        "forest": true,
+        "name": "Tropical_rainforest",
+        "temperature": 1
+    },
+    {
+        "color": "#3D9B07",
+        "forest": false,
+        "name": "Subtropical_evergreen",
+        "temperature": 1
+    },
+    {
+        "color": "#555E4F",
+        "forest": true,
+        "name": "Montane_forest",
+        "temperature": 1
+    },
+    {
+        "color": "#B5C22B",
+        "forest": false,
+        "name": "Grass_savanna",
+        "temperature": 1
+    },
+    {
+        "color": "#36A51C",
+        "forest": false,
+        "name": "Tree_savanna",
+        "temperature": 1
+    },
+    {
+        "color": "#42820A",
+        "forest": true,
+        "name": "Dry_forest",
+        "temperature": 1
+    },
+    {
+        "color": "#019A6C",
+        "forest": false,
+        "name": "Temperate_broadleaf",
+        "temperature": 1
+    }
+]

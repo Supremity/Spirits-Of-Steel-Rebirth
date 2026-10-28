@@ -1,0 +1,6239 @@
+[
+    {
+        "accepted_cultures": [
+            "Inuit",
+            "Canada",
+            "Quebecs"
+        ],
+        "capital": "",
+        "color": "#C35C6D",
+        "display_name": "Canada",
+        "factory_allocation": {},
+        "figures": [
+            "MarkCarney"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MarkCarney"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Canada",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Greenlandish",
+            "Danish"
+        ],
+        "capital": "",
+        "color": "#99745D",
+        "display_name": "Denmark",
+        "factory_allocation": {},
+        "figures": [
+            "MetteFrederiksen"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MetteFrederiksen"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Denmark",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Russians",
+            "Evenkis",
+            "Nenets",
+            "Yakuts",
+            "Chukoktans",
+            "Komi",
+            "Finnish",
+            "Evens",
+            "Berlarussians",
+            "Mari",
+            "Tartars",
+            "Balkarsk",
+            "Chuvash",
+            "Mordvins",
+            "Tuvans",
+            "Mongols",
+            "Altayns",
+            "Udegens",
+            "Kalmykians",
+            "Dagestani",
+            "Checnyians"
+        ],
+        "capital": "Moscow",
+        "color": "#386038",
+        "display_name": "Russia",
+        "factory_allocation": {},
+        "figures": [
+            "VladimirPutin",
+            "EoldialiolpEethroisplauss"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "VladimirPutin"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Russia",
+        "political_power": 501.36,
+        "puppets": [
+            "Abkhazia",
+            "South_ossetia",
+            "Transnistria",
+            "Luhansk",
+            "Donetsk"
+        ],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Norway"
+        ],
+        "capital": "",
+        "color": "#6F4747",
+        "display_name": "Norway",
+        "factory_allocation": {},
+        "figures": [
+            "JonasGahrStore"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "JonasGahrStore"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Norway",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Anglo-americans"
+        ],
+        "capital": "",
+        "color": "#1485ED",
+        "display_name": "United_states",
+        "factory_allocation": {},
+        "figures": [
+            "DonaldJohnTrump"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "DonaldJohnTrump"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": true,
+        "money": 100000.0,
+        "name": "United_states",
+        "political_power": 501.36,
+        "puppets": [
+            "Israel"
+        ],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Finnish"
+        ],
+        "capital": "",
+        "color": "#C2C6D7",
+        "display_name": "Finland",
+        "factory_allocation": {},
+        "figures": [
+            "PetteriOrpo"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "PetteriOrpo"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Finland",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Sweden"
+        ],
+        "capital": "",
+        "color": "#2484F7",
+        "display_name": "Sweden",
+        "factory_allocation": {},
+        "figures": [
+            "UlfKristersson"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "UlfKristersson"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Sweden",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Icelandish"
+        ],
+        "capital": "",
+        "color": "#445171",
+        "display_name": "Iceland",
+        "factory_allocation": {},
+        "figures": [
+            "KristrunFrostadottir"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "KristrunFrostadottir"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Iceland",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Estonia"
+        ],
+        "capital": "",
+        "color": "#3287AF",
+        "display_name": "Estonia",
+        "factory_allocation": {},
+        "figures": [
+            "KristenMichal"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "KristenMichal"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Estonia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Scottish",
+            "English",
+            "Ireland",
+            "Welish",
+            "Spaniards",
+            "Montserrat",
+            "Indian-ocean"
+        ],
+        "capital": "",
+        "color": "#C8385D",
+        "display_name": "United_kingdom",
+        "factory_allocation": {},
+        "figures": [
+            "Keir_Starmer"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "Keir_Starmer"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "United_kingdom",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Latvia",
+            "Lithuanian"
+        ],
+        "capital": "",
+        "color": "#4B4DBA",
+        "display_name": "Latvia",
+        "factory_allocation": {},
+        "figures": [
+            "AndrisKulbergs"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AndrisKulbergs"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Latvia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Lithuanian",
+            "Berlarussians"
+        ],
+        "capital": "",
+        "color": "#DBDB77",
+        "display_name": "Lithuania",
+        "factory_allocation": {},
+        "figures": [
+            "MindaugasSinkevicius"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MindaugasSinkevicius"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Lithuania",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Berlarussians"
+        ],
+        "capital": "",
+        "color": "#C7D5E0",
+        "display_name": "Belarus",
+        "factory_allocation": {},
+        "figures": [
+            "AlexanderLukashenko",
+            "IastriekoikaischasheackIoukooshuirkaispruybioflioOangiastaugguoskei"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AlexanderLukashenko"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Belarus",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Ireland"
+        ],
+        "capital": "",
+        "color": "#509F5A",
+        "display_name": "Ireland",
+        "factory_allocation": {},
+        "figures": [
+            "MichealMartin"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MichealMartin"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Ireland",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Russians",
+            "Khazaks"
+        ],
+        "capital": "",
+        "color": "#58A1C1",
+        "display_name": "Kazakhstan",
+        "factory_allocation": {},
+        "figures": [
+            "KassymjomartTokayev"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "KassymjomartTokayev"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Kazakhstan",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Germans",
+            "Unknown"
+        ],
+        "capital": "",
+        "color": "#49484D",
+        "display_name": "Germany",
+        "factory_allocation": {},
+        "figures": [
+            "FriedrichMerz"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "FriedrichMerz"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Germany",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Poles"
+        ],
+        "capital": "",
+        "color": "#C55C6A",
+        "display_name": "Poland",
+        "factory_allocation": {},
+        "figures": [
+            "DonaldTusk"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "DonaldTusk"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Poland",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Dutch"
+        ],
+        "capital": "",
+        "color": "#C78749",
+        "display_name": "Netherlands",
+        "factory_allocation": {},
+        "figures": [
+            "RobJetten"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "RobJetten"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Netherlands",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Russians",
+            "Mongols",
+            "Han-chinise",
+            "East-turks",
+            "Koreans",
+            "Tajiks",
+            "Tibet",
+            "Yunnans",
+            "Thai"
+        ],
+        "capital": "",
+        "color": "#A7575A",
+        "display_name": "China",
+        "factory_allocation": {},
+        "figures": [
+            "XiJinping",
+            "DdiangoofuakroysnudwIastrouggunteikkaebraukkNtospoortoeschucciu"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "XiJinping"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "China",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Ukranian",
+            "Carpanthian-russ",
+            "Russians"
+        ],
+        "capital": "",
+        "color": "#34588A",
+        "display_name": "Ukraine",
+        "factory_allocation": {},
+        "figures": [
+            "VolodymyrZelenskyy",
+            "TchaengyrdaoshuaboaptRpuouddaocceyccuoccaushAygruj"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "VolodymyrZelenskyy"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Ukraine",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Mongols"
+        ],
+        "capital": "",
+        "color": "#A38E4B",
+        "display_name": "Mongolia",
+        "factory_allocation": {},
+        "figures": [
+            "NyamosorynUchral"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "NyamosorynUchral"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Mongolia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Dutch",
+            "France"
+        ],
+        "capital": "",
+        "color": "#C1AB08",
+        "display_name": "Belgium",
+        "factory_allocation": {},
+        "figures": [
+            "BartDeWever"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "BartDeWever"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Belgium",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "France",
+            "",
+            "Guadeloupe",
+            "French-guyanese",
+            "Mayotte",
+            "French-polynesian",
+            "New-caledonia",
+            "Reunion-creole",
+            "French-antartic"
+        ],
+        "capital": "",
+        "color": "#3D75E8",
+        "display_name": "France",
+        "factory_allocation": {},
+        "figures": [
+            "EmmanuelMacron"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "EmmanuelMacron"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "France",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Czech"
+        ],
+        "capital": "",
+        "color": "#36A79C",
+        "display_name": "Czechia",
+        "factory_allocation": {},
+        "figures": [
+            "AndrejBabis"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AndrejBabis"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Czechia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "France"
+        ],
+        "capital": "",
+        "color": "#55E4E9",
+        "display_name": "Luxembourg",
+        "factory_allocation": {},
+        "figures": [
+            "LucFrieden"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "LucFrieden"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Luxembourg",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Slovaks"
+        ],
+        "capital": "",
+        "color": "#795C9F",
+        "display_name": "Slovakia",
+        "factory_allocation": {},
+        "figures": [
+            "RobertFico"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "RobertFico"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Slovakia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Germans"
+        ],
+        "capital": "",
+        "color": "#A8AEC6",
+        "display_name": "Austria",
+        "factory_allocation": {},
+        "figures": [
+            "ChristianStocker"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "ChristianStocker"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Austria",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Hungarians"
+        ],
+        "capital": "",
+        "color": "#4E7D73",
+        "display_name": "Hungary",
+        "factory_allocation": {},
+        "figures": [
+            "PeterMagyar"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "PeterMagyar"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Hungary",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Romanian",
+            "Gagauz-turks"
+        ],
+        "capital": "",
+        "color": "#866E52",
+        "display_name": "Moldova",
+        "factory_allocation": {},
+        "figures": [
+            "MaiaSandu"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MaiaSandu"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Moldova",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Romanian",
+            "Hungarians"
+        ],
+        "capital": "",
+        "color": "#D7C448",
+        "display_name": "Romania",
+        "factory_allocation": {},
+        "figures": [
+            "IlieBolojan"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "IlieBolojan"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Romania",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Romanian",
+            "Russians"
+        ],
+        "capital": "",
+        "color": "#2A1618",
+        "display_name": "Transnistria",
+        "factory_allocation": {},
+        "figures": [
+            "VadimKrasnoselsky"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "VadimKrasnoselsky"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Transnistria",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Germans",
+            "Romanch",
+            "France",
+            "Italians"
+        ],
+        "capital": "",
+        "color": "#E00505",
+        "display_name": "Switzerland",
+        "factory_allocation": {},
+        "figures": [
+            "FederalCouncil"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "FederalCouncil"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Switzerland",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Liechtenstein"
+        ],
+        "capital": "",
+        "color": "#575A7F",
+        "display_name": "Liechtenstein",
+        "factory_allocation": {},
+        "figures": [
+            "HansadamIi"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "HansadamIi"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Liechtenstein",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Germans",
+            "Italians",
+            "France"
+        ],
+        "capital": "",
+        "color": "#437F3F",
+        "display_name": "Italy",
+        "factory_allocation": {},
+        "figures": [
+            "GiorgiaMeloni"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "GiorgiaMeloni"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Italy",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Slovenes"
+        ],
+        "capital": "",
+        "color": "#4F6F96",
+        "display_name": "Slovenia",
+        "factory_allocation": {},
+        "figures": [
+            "JanezJansa"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "JanezJansa"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Slovenia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Croat"
+        ],
+        "capital": "",
+        "color": "#2A2D60",
+        "display_name": "Croatia",
+        "factory_allocation": {},
+        "figures": [
+            "AndrejPlenkovic"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AndrejPlenkovic"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Croatia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Serbs",
+            "Bulgarians"
+        ],
+        "capital": "",
+        "color": "#9A6867",
+        "display_name": "Serbia",
+        "factory_allocation": {},
+        "figures": [
+            "AleksandarVucic"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AleksandarVucic"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Serbia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Serbs",
+            "Bosnia-and-herzegovina"
+        ],
+        "capital": "",
+        "color": "#DFC087",
+        "display_name": "Bosnia_and_herzegovina",
+        "factory_allocation": {},
+        "figures": [
+            "LouisCrishock"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "LouisCrishock"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Bosnia_and_herzegovina",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Uzebeks"
+        ],
+        "capital": "",
+        "color": "#CACEFD",
+        "display_name": "Uzbekistan",
+        "factory_allocation": {},
+        "figures": [
+            "ShavkatMirziyoyev"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "ShavkatMirziyoyev"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Uzbekistan",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Japanase"
+        ],
+        "capital": "",
+        "color": "#FFC9B2",
+        "display_name": "Japan",
+        "factory_allocation": {},
+        "figures": [
+            "SanaeTakaichi"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "SanaeTakaichi"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Japan",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Bulgarians"
+        ],
+        "capital": "",
+        "color": "#339B00",
+        "display_name": "Bulgaria",
+        "factory_allocation": {},
+        "figures": [
+            "RumenRadev"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "RumenRadev"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Bulgaria",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Spaniards",
+            "Basque",
+            "Catalonians",
+            "Portugese",
+            "Canary-islander"
+        ],
+        "capital": "",
+        "color": "#F2CD5E",
+        "display_name": "Spain",
+        "factory_allocation": {},
+        "figures": [
+            "PedroSanchez"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "PedroSanchez"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Spain",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "San-marino"
+        ],
+        "capital": "",
+        "color": "#62B0C6",
+        "display_name": "San_marino",
+        "factory_allocation": {},
+        "figures": [
+            "LucaBeccari"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "LucaBeccari"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "San_marino",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Monaco"
+        ],
+        "capital": "",
+        "color": "#EDA2BA",
+        "display_name": "Monaco",
+        "factory_allocation": {},
+        "figures": [
+            "AlbertIi"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AlbertIi"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Monaco",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Russians"
+        ],
+        "capital": "",
+        "color": "#3F1F2D",
+        "display_name": "Abkhazia",
+        "factory_allocation": {},
+        "figures": [
+            "BadraGunba"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "BadraGunba"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Abkhazia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Serbs"
+        ],
+        "capital": "",
+        "color": "#FC7279",
+        "display_name": "Montenegro",
+        "factory_allocation": {},
+        "figures": [
+            "MilojkoSpajic"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MilojkoSpajic"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Montenegro",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Albanians"
+        ],
+        "capital": "",
+        "color": "#768EBA",
+        "display_name": "Kosovo",
+        "factory_allocation": {},
+        "figures": [
+            "AlbinKurti"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AlbinKurti"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Kosovo",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Georgia"
+        ],
+        "capital": "",
+        "color": "#EFE4E8",
+        "display_name": "Georgia",
+        "factory_allocation": {},
+        "figures": [
+            "BidzinaIvanishvili"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "BidzinaIvanishvili"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Georgia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Kirghiz"
+        ],
+        "capital": "",
+        "color": "#F43D6F",
+        "display_name": "Kyrgyzstan",
+        "factory_allocation": {},
+        "figures": [
+            "SadyrJaparov"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "SadyrJaparov"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Kyrgyzstan",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Andorra"
+        ],
+        "capital": "",
+        "color": "#C90001",
+        "display_name": "Andorra",
+        "factory_allocation": {},
+        "figures": [
+            "XavierEspotZamora"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "XavierEspotZamora"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Andorra",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Russians"
+        ],
+        "capital": "",
+        "color": "#C29657",
+        "display_name": "South_ossetia",
+        "factory_allocation": {},
+        "figures": [
+            "MaratKambolov"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MaratKambolov"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "South_ossetia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Turkmen",
+            "Uzebeks"
+        ],
+        "capital": "",
+        "color": "#BD8C6E",
+        "display_name": "Turkmenistan",
+        "factory_allocation": {},
+        "figures": [
+            "GurbangulyBerdimuhamedow"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "GurbangulyBerdimuhamedow"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Turkmenistan",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Koreans"
+        ],
+        "capital": "",
+        "color": "#F50C37",
+        "display_name": "North_korea",
+        "factory_allocation": {},
+        "figures": [
+            "KimJongUn"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "KimJongUn"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "North_korea",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Albanians"
+        ],
+        "capital": "",
+        "color": "#952D66",
+        "display_name": "Albania",
+        "factory_allocation": {},
+        "figures": [
+            "EdiRama"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "EdiRama"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Albania",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Macedonians",
+            "Albanians"
+        ],
+        "capital": "",
+        "color": "#CA9576",
+        "display_name": "North_macedonia",
+        "factory_allocation": {},
+        "figures": [
+            "HristijanMickoski"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "HristijanMickoski"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "North_macedonia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Azerbis"
+        ],
+        "capital": "",
+        "color": "#728CD9",
+        "display_name": "Azerbaijan",
+        "factory_allocation": {},
+        "figures": [
+            "IlhamAliyev"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "IlhamAliyev"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Azerbaijan",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Portugese"
+        ],
+        "capital": "",
+        "color": "#277446",
+        "display_name": "Portugal",
+        "factory_allocation": {},
+        "figures": [
+            "LuisMontenegro"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "LuisMontenegro"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Portugal",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Turks",
+            "Kurds",
+            "Arab"
+        ],
+        "capital": "",
+        "color": "#A63443",
+        "display_name": "Turkey",
+        "factory_allocation": {},
+        "figures": [
+            "RecepTayyipErdogan"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "RecepTayyipErdogan"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Turkey",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Vatican-city"
+        ],
+        "capital": "",
+        "color": "#C4B582",
+        "display_name": "Vatican_city",
+        "factory_allocation": {},
+        "figures": [
+            "LeoXiv"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "LeoXiv"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Vatican_city",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Hellenics"
+        ],
+        "capital": "",
+        "color": "#5DB5E3",
+        "display_name": "Greece",
+        "factory_allocation": {},
+        "figures": [
+            "KyriakosMitsotakis"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "KyriakosMitsotakis"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Greece",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Armenia"
+        ],
+        "capital": "",
+        "color": "#F6A286",
+        "display_name": "Armenia",
+        "factory_allocation": {},
+        "figures": [
+            "NikolPashinyan"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "NikolPashinyan"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Armenia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Tajiks"
+        ],
+        "capital": "",
+        "color": "#6D9482",
+        "display_name": "Tajikistan",
+        "factory_allocation": {},
+        "figures": [
+            "EmomaliRahmon"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "EmomaliRahmon"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Tajikistan",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Persians",
+            "Azerbis",
+            "Kurds",
+            "Turkmen",
+            "Lurs",
+            "Arab",
+            "Balochs"
+        ],
+        "capital": "",
+        "color": "#5A8F7B",
+        "display_name": "Iran",
+        "factory_allocation": {},
+        "figures": [
+            "MojtabaKhamenei"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MojtabaKhamenei"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Iran",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Tajiks",
+            "Hazara",
+            "Pashtuns",
+            "Balochs"
+        ],
+        "capital": "",
+        "color": "#716B79",
+        "display_name": "Afghanistan",
+        "factory_allocation": {},
+        "figures": [
+            "HibatullahAkhundzada"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "HibatullahAkhundzada"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Afghanistan",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Koreans"
+        ],
+        "capital": "",
+        "color": "#5E76BE",
+        "display_name": "South_korea",
+        "factory_allocation": {},
+        "figures": [
+            "LeeJaeMyung"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "LeeJaeMyung"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "South_korea",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Arab"
+        ],
+        "capital": "",
+        "color": "#B9566A",
+        "display_name": "Tunisia",
+        "factory_allocation": {},
+        "figures": [
+            "KaisSaied"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "KaisSaied"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Tunisia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Kurds",
+            "Assyrians",
+            "Arab"
+        ],
+        "capital": "",
+        "color": "#B27263",
+        "display_name": "Iraq",
+        "factory_allocation": {},
+        "figures": [
+            "AliAlzaidi"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AliAlzaidi"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Iraq",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Kurds",
+            "Arab"
+        ],
+        "capital": "",
+        "color": "#374E5C",
+        "display_name": "Syria",
+        "factory_allocation": {},
+        "figures": [
+            "AhmedAlsharaa"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AhmedAlsharaa"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Syria",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Kashmiri",
+            "Chitrall",
+            "Pashtu",
+            "",
+            "Punjabs",
+            "Saeaikis",
+            "Balochs",
+            "Saraikis"
+        ],
+        "capital": "",
+        "color": "#002917",
+        "display_name": "Pakistan",
+        "factory_allocation": {},
+        "figures": [
+            "ShehbazSharif"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "ShehbazSharif"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Pakistan",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Arab",
+            ""
+        ],
+        "capital": "",
+        "color": "#0A2B24",
+        "display_name": "Algeria",
+        "factory_allocation": {},
+        "figures": [
+            "AbdelmadjidTebboune"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AbdelmadjidTebboune"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Algeria",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Arab",
+            "",
+            "Western-sahara"
+        ],
+        "capital": "",
+        "color": "#9B4A59",
+        "display_name": "Morocco",
+        "factory_allocation": {},
+        "figures": [
+            "MohammedBenElHassan"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MohammedBenElHassan"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Morocco",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Malta"
+        ],
+        "capital": "",
+        "color": "#D9D9D9",
+        "display_name": "Malta",
+        "factory_allocation": {},
+        "figures": [
+            "RobertAbela"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "RobertAbela"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Malta",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Turks"
+        ],
+        "capital": "",
+        "color": "#5C4D32",
+        "display_name": "Turkish_cyprus",
+        "factory_allocation": {},
+        "figures": [
+            "TufanErhurman"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "TufanErhurman"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Turkish_cyprus",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Ladakashi",
+            "Kashmiri",
+            "Kinnauris",
+            "Bbagris",
+            "",
+            "Saraikis",
+            "Adi",
+            "Kaurais",
+            "Marwais",
+            "Chakma",
+            "Sikinn",
+            "Tada",
+            "Awashis",
+            "Kannaujis",
+            "Maithils",
+            "Bengal",
+            "Bundelis",
+            "Magahis",
+            "Gukarati",
+            "Baghelis",
+            "Mizo",
+            "Chhattisgrahiya",
+            "Bhils",
+            "Nimads",
+            "Odia",
+            "Marathi",
+            "Gond",
+            "Teiugu",
+            "Kannada",
+            "Tami",
+            "Malayali",
+            "India"
+        ],
+        "capital": "",
+        "color": "#D0A36C",
+        "display_name": "India",
+        "factory_allocation": {},
+        "figures": [
+            "NarendraModi"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "NarendraModi"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "India",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Hellenics"
+        ],
+        "capital": "",
+        "color": "#DEB51B",
+        "display_name": "Cyprus",
+        "factory_allocation": {},
+        "figures": [
+            "NikosChristodoulides"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "NikosChristodoulides"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Cyprus",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Lebanon"
+        ],
+        "capital": "",
+        "color": "#549C8B",
+        "display_name": "Lebanon",
+        "factory_allocation": {},
+        "figures": [
+            "NawafSalam"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "NawafSalam"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Lebanon",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Arab",
+            ""
+        ],
+        "capital": "",
+        "color": "#2A7054",
+        "display_name": "Libya",
+        "factory_allocation": {},
+        "figures": [
+            "AbdulHamidDbeibeh"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AbdulHamidDbeibeh"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Libya",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Israel"
+        ],
+        "capital": "",
+        "color": "#4569D9",
+        "display_name": "Israel",
+        "factory_allocation": {},
+        "figures": [
+            "BenjaminNetanyahu"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "BenjaminNetanyahu"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Israel",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Arab"
+        ],
+        "capital": "",
+        "color": "#E3989C",
+        "display_name": "Jordan",
+        "factory_allocation": {},
+        "figures": [
+            "AbdullahIi"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AbdullahIi"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Jordan",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Mexican"
+        ],
+        "capital": "",
+        "color": "#689752",
+        "display_name": "Mexico",
+        "factory_allocation": {},
+        "figures": [
+            "ClaudiaSheinbaumPardo"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "ClaudiaSheinbaumPardo"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Mexico",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Arab"
+        ],
+        "capital": "",
+        "color": "#ABBE98",
+        "display_name": "Saudi_arabia",
+        "factory_allocation": {},
+        "figures": [
+            "MohammedBinSalman"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MohammedBinSalman"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Saudi_arabia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Arab"
+        ],
+        "capital": "",
+        "color": "#564857",
+        "display_name": "Palestine",
+        "factory_allocation": {},
+        "figures": [
+            "MahmoudAbbas"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MahmoudAbbas"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Palestine",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Arab"
+        ],
+        "capital": "",
+        "color": "#AFA358",
+        "display_name": "Egypt",
+        "factory_allocation": {},
+        "figures": [
+            "AbdelFattahElsisi"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AbdelFattahElsisi"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Egypt",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Nepali"
+        ],
+        "capital": "",
+        "color": "#003893",
+        "display_name": "Nepal",
+        "factory_allocation": {},
+        "figures": [
+            "BalenShah"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "BalenShah"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Nepal",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Arab"
+        ],
+        "capital": "",
+        "color": "#5A402A",
+        "display_name": "Kuwait",
+        "factory_allocation": {},
+        "figures": [
+            "MishalAlahmadAljaberAlsabah"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MishalAlahmadAljaberAlsabah"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Kuwait",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Bhutanese"
+        ],
+        "capital": "",
+        "color": "#79645F",
+        "display_name": "Bhutan",
+        "factory_allocation": {},
+        "figures": [
+            "TsheringTobgay"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "TsheringTobgay"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Bhutan",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Myammar"
+        ],
+        "capital": "",
+        "color": "#3B714F",
+        "display_name": "Myanmar",
+        "factory_allocation": {},
+        "figures": [
+            "MinAungHlaing"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MinAungHlaing"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Myanmar",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Western-sahara"
+        ],
+        "capital": "",
+        "color": "#C5AE78",
+        "display_name": "Western_sahara",
+        "factory_allocation": {},
+        "figures": [
+            "BrahimGhali"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "BrahimGhali"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Western_sahara",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            ""
+        ],
+        "capital": "",
+        "color": "#2A6F53",
+        "display_name": "Mauritania",
+        "factory_allocation": {},
+        "figures": [
+            "MohamedOuldGhazouani"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MohamedOuldGhazouani"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Mauritania",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Arab"
+        ],
+        "capital": "",
+        "color": "#3A414B",
+        "display_name": "Bahrain",
+        "factory_allocation": {},
+        "figures": [
+            "HamadBinIsaAlKhalifa"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "HamadBinIsaAlKhalifa"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Bahrain",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Bengal"
+        ],
+        "capital": "",
+        "color": "#002A30",
+        "display_name": "Bangladesh",
+        "factory_allocation": {},
+        "figures": [
+            "TariqueRahman"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "TariqueRahman"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Bangladesh",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Arab"
+        ],
+        "capital": "",
+        "color": "#6F2373",
+        "display_name": "Qatar",
+        "factory_allocation": {},
+        "figures": [
+            "TamimBinHamadAlThani"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "TamimBinHamadAlThani"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Qatar",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Arab"
+        ],
+        "capital": "",
+        "color": "#815458",
+        "display_name": "Oman",
+        "factory_allocation": {},
+        "figures": [
+            "HaithamBinTariq"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "HaithamBinTariq"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Oman",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Han-chinise"
+        ],
+        "capital": "",
+        "color": "#5B4D5C",
+        "display_name": "Taiwan",
+        "factory_allocation": {},
+        "figures": [
+            "LaiChingte"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "LaiChingte"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Taiwan",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Mali-amazigh",
+            "Fulani",
+            "Malinke",
+            "Nenets",
+            "Bomu"
+        ],
+        "capital": "",
+        "color": "#9E8A57",
+        "display_name": "Mali",
+        "factory_allocation": {},
+        "figures": [
+            "AssimiGoita"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AssimiGoita"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Mali",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Arab"
+        ],
+        "capital": "",
+        "color": "#279678",
+        "display_name": "United_arab_emirates",
+        "factory_allocation": {},
+        "figures": [
+            "MohamedBinZayedAlNahyan"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MohamedBinZayedAlNahyan"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "United_arab_emirates",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Tuareg",
+            "Kanura",
+            "Hausa",
+            "Nenets"
+        ],
+        "capital": "",
+        "color": "#26584D",
+        "display_name": "Niger",
+        "factory_allocation": {},
+        "figures": [
+            "AbdourahamaneTiani"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AbdourahamaneTiani"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Niger",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Cuba"
+        ],
+        "capital": "",
+        "color": "#9744B0",
+        "display_name": "Cuba",
+        "factory_allocation": {},
+        "figures": [
+            "MiguelDiazcanel"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MiguelDiazcanel"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Cuba",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Arab",
+            "Muslims-cristian-minotiry"
+        ],
+        "capital": "",
+        "color": "#BBAA7E",
+        "display_name": "Chad",
+        "factory_allocation": {},
+        "figures": [
+            "MahamatDeby"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MahamatDeby"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Chad",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Arab",
+            "Beja",
+            "Koalib-tagoi",
+            "Moro-bamgetu",
+            "Sudan-dago",
+            "Shilluk"
+        ],
+        "capital": "",
+        "color": "#0C3827",
+        "display_name": "Sudan",
+        "factory_allocation": {},
+        "figures": [
+            "TransitionalSovereigntyCouncil"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "TransitionalSovereigntyCouncil"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Sudan",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Vietnam"
+        ],
+        "capital": "",
+        "color": "#C6BE75",
+        "display_name": "Vietnam",
+        "factory_allocation": {},
+        "figures": [
+            "ToLam"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "ToLam"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Vietnam",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Lao"
+        ],
+        "capital": "",
+        "color": "#594D3F",
+        "display_name": "Laos",
+        "factory_allocation": {},
+        "figures": [
+            "ThonglounSisoulith"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "ThonglounSisoulith"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Laos",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Myammar",
+            "Thai",
+            "Lao",
+            "Cambodia",
+            "Malaya"
+        ],
+        "capital": "",
+        "color": "#142D4C",
+        "display_name": "Thailand",
+        "factory_allocation": {},
+        "figures": [
+            "AnutinCharnvirakul"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AnutinCharnvirakul"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Thailand",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Haiti"
+        ],
+        "capital": "",
+        "color": "#A5746F",
+        "display_name": "Haiti",
+        "factory_allocation": {},
+        "figures": [
+            "President"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "President"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Haiti",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Dominican-republic"
+        ],
+        "capital": "",
+        "color": "#728877",
+        "display_name": "Dominican_republic",
+        "factory_allocation": {},
+        "figures": [
+            "LuisAbinader"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "LuisAbinader"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Dominican_republic",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Belize"
+        ],
+        "capital": "",
+        "color": "#823214",
+        "display_name": "Belize",
+        "factory_allocation": {},
+        "figures": [
+            "JohnnyBriceno"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "JohnnyBriceno"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Belize",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Arab"
+        ],
+        "capital": "",
+        "color": "#4E3235",
+        "display_name": "Yemen",
+        "factory_allocation": {},
+        "figures": [
+            "RashadAlalimi"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "RashadAlalimi"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Yemen",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Jamaica"
+        ],
+        "capital": "",
+        "color": "#8BDC0A",
+        "display_name": "Jamaica",
+        "factory_allocation": {},
+        "figures": [
+            "AndrewHolness"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AndrewHolness"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Jamaica",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Filipino"
+        ],
+        "capital": "",
+        "color": "#7255A6",
+        "display_name": "Philippines",
+        "factory_allocation": {},
+        "figures": [
+            "BongbongMarcos"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "BongbongMarcos"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Philippines",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Guatemala"
+        ],
+        "capital": "",
+        "color": "#48306D",
+        "display_name": "Guatemala",
+        "factory_allocation": {},
+        "figures": [
+            "BernardoArevalo"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "BernardoArevalo"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Guatemala",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Eritrea"
+        ],
+        "capital": "",
+        "color": "#CE8CA2",
+        "display_name": "Eritrea",
+        "factory_allocation": {},
+        "figures": [
+            "IsaiasAfwerki"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "IsaiasAfwerki"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Eritrea",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Cabo-verde"
+        ],
+        "capital": "",
+        "color": "#CE2027",
+        "display_name": "Cabo_verde",
+        "factory_allocation": {},
+        "figures": [
+            "FranciscoCarvalho"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "FranciscoCarvalho"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Cabo_verde",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "St-kitts-and-nevis"
+        ],
+        "capital": "",
+        "color": "#3B3800",
+        "display_name": "St_kitts_and_nevis",
+        "factory_allocation": {},
+        "figures": [
+            "TerranceDrew"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "TerranceDrew"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "St_kitts_and_nevis",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Serer",
+            "Nenets",
+            "Senagal-wolofia",
+            "Diola"
+        ],
+        "capital": "",
+        "color": "#B8757C",
+        "display_name": "Senegal",
+        "factory_allocation": {},
+        "figures": [
+            "BassirouDiomayeFaye"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "BassirouDiomayeFaye"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Senegal",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Honduras"
+        ],
+        "capital": "",
+        "color": "#99B04A",
+        "display_name": "Honduras",
+        "factory_allocation": {},
+        "figures": [
+            "NasryAsfura"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "NasryAsfura"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Honduras",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Peuls",
+            "Marka",
+            "Burkina-faso-mossi",
+            "Senofu"
+        ],
+        "capital": "",
+        "color": "#CA6E7B",
+        "display_name": "Burkina_faso",
+        "factory_allocation": {},
+        "figures": [
+            "IbrahimTraore"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "IbrahimTraore"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Burkina_faso",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "El-salvadoreans"
+        ],
+        "capital": "",
+        "color": "#9F88C6",
+        "display_name": "El_salvador",
+        "factory_allocation": {},
+        "figures": [
+            "NayibBukele"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "NayibBukele"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "El_salvador",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Nicaragua"
+        ],
+        "capital": "",
+        "color": "#91B2BE",
+        "display_name": "Nicaragua",
+        "factory_allocation": {},
+        "figures": [
+            "RosarioMurillo"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "RosarioMurillo"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Nicaragua",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Tigrayans",
+            "",
+            "Amharas",
+            "Somalia",
+            "Comoros",
+            "Aaris"
+        ],
+        "capital": "",
+        "color": "#30477B",
+        "display_name": "Ethiopia",
+        "factory_allocation": {},
+        "figures": [
+            "AbiyAhmed"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AbiyAhmed"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Ethiopia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Cambodia"
+        ],
+        "capital": "",
+        "color": "#E2B490",
+        "display_name": "Cambodia",
+        "factory_allocation": {},
+        "figures": [
+            "HunSen"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "HunSen"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Cambodia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Dominica"
+        ],
+        "capital": "",
+        "color": "#7670B2",
+        "display_name": "Dominica",
+        "factory_allocation": {},
+        "figures": [
+            "RooseveltSkerrit"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "RooseveltSkerrit"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Dominica",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Hausa-&-fulani",
+            "Yaruba",
+            "Igbo"
+        ],
+        "capital": "",
+        "color": "#C27A6B",
+        "display_name": "Nigeria",
+        "factory_allocation": {},
+        "figures": [
+            "BolaTinubu"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "BolaTinubu"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Nigeria",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Gambia"
+        ],
+        "capital": "",
+        "color": "#44355C",
+        "display_name": "Gambia",
+        "factory_allocation": {},
+        "figures": [
+            "AdamaBarrow"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AdamaBarrow"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Gambia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Barbados"
+        ],
+        "capital": "",
+        "color": "#FCD116",
+        "display_name": "Barbados",
+        "factory_allocation": {},
+        "figures": [
+            "MiaMottley"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MiaMottley"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Barbados",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "St-lucia"
+        ],
+        "capital": "",
+        "color": "#5DB7E6",
+        "display_name": "St_lucia",
+        "factory_allocation": {},
+        "figures": [
+            "PhilipJPierre"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "PhilipJPierre"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "St_lucia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Guinea-bissau"
+        ],
+        "capital": "",
+        "color": "#DABD81",
+        "display_name": "Guinea_bissau",
+        "factory_allocation": {},
+        "figures": [
+            "HortaIntaaNaMan"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "HortaIntaaNaMan"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Guinea_bissau",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "",
+            "Malinke",
+            "Soussou",
+            "Kpelle"
+        ],
+        "capital": "",
+        "color": "#205A4E",
+        "display_name": "Guinea",
+        "factory_allocation": {},
+        "figures": [
+            "MamadyDoumbouya"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MamadyDoumbouya"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Guinea",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Venezuelans",
+            "Colombia"
+        ],
+        "capital": "",
+        "color": "#DEBB5B",
+        "display_name": "Colombia",
+        "factory_allocation": {},
+        "figures": [
+            "AbelardoDeLaEspriella"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AbelardoDeLaEspriella"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Colombia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Venezuelans"
+        ],
+        "capital": "",
+        "color": "#C86496",
+        "display_name": "Venezuela",
+        "factory_allocation": {},
+        "figures": [
+            "NicolasMaduro"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "NicolasMaduro"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Venezuela",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Grenada"
+        ],
+        "capital": "",
+        "color": "#007B5F",
+        "display_name": "Grenada",
+        "factory_allocation": {},
+        "figures": [
+            "DickonMitchell"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "DickonMitchell"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Grenada",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Benin"
+        ],
+        "capital": "",
+        "color": "#DBC478",
+        "display_name": "Benin",
+        "factory_allocation": {},
+        "figures": [
+            "RomualdWadagni"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "RomualdWadagni"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Benin",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Djibouti"
+        ],
+        "capital": "",
+        "color": "#D7141A",
+        "display_name": "Djibouti",
+        "factory_allocation": {},
+        "figures": [
+            "IsmailOmarGuelleh"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "IsmailOmarGuelleh"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Djibouti",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Mbum",
+            "Bamileke",
+            "Bantu"
+        ],
+        "capital": "",
+        "color": "#185E61",
+        "display_name": "Cameroon",
+        "factory_allocation": {},
+        "figures": [
+            "PaulBiya"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "PaulBiya"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Cameroon",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Berta",
+            "Bande",
+            "Dinka",
+            "Berti",
+            "South-sudan--nuer",
+            "Azande",
+            "Bari"
+        ],
+        "capital": "",
+        "color": "#D4BF6E",
+        "display_name": "South_sudan",
+        "factory_allocation": {},
+        "figures": [
+            "SalvaKiir"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "SalvaKiir"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "South_sudan",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Somalia"
+        ],
+        "capital": "",
+        "color": "#6683AB",
+        "display_name": "Somalia",
+        "factory_allocation": {},
+        "figures": [
+            "HassanSheikhMohamud"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "HassanSheikhMohamud"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Somalia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Somalia"
+        ],
+        "capital": "",
+        "color": "#55AB70",
+        "display_name": "Somaliland",
+        "factory_allocation": {},
+        "figures": [
+            "AbdirahmanMohamedAbdullahi"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AbdirahmanMohamedAbdullahi"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Somaliland",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Costa-rica"
+        ],
+        "capital": "",
+        "color": "#A78C2A",
+        "display_name": "Costa_rica",
+        "factory_allocation": {},
+        "figures": [
+            "LauraFernandez"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "LauraFernandez"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Costa_rica",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "",
+            "Togo"
+        ],
+        "capital": "",
+        "color": "#153323",
+        "display_name": "Togo",
+        "factory_allocation": {},
+        "figures": [
+            "FaureGnassingbe"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "FaureGnassingbe"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Togo",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Maldives"
+        ],
+        "capital": "",
+        "color": "#929BA2",
+        "display_name": "Maldives",
+        "factory_allocation": {},
+        "figures": [
+            "MohamedMuizzu"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MohamedMuizzu"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Maldives",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Ghana"
+        ],
+        "capital": "",
+        "color": "#A24A58",
+        "display_name": "Ghana",
+        "factory_allocation": {},
+        "figures": [
+            "JohnMahama"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "JohnMahama"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Ghana",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "",
+            "Central-african-republic",
+            "Gbaya",
+            "Nzakara"
+        ],
+        "capital": "",
+        "color": "#A64D63",
+        "display_name": "Central_african_republic",
+        "factory_allocation": {},
+        "figures": [
+            "FaustinarchangeTouadera"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "FaustinarchangeTouadera"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Central_african_republic",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Trinidad-and-tobago"
+        ],
+        "capital": "",
+        "color": "#F05A27",
+        "display_name": "Trinidad_and_tobago",
+        "factory_allocation": {},
+        "figures": [
+            "KamlaPersadbissessar"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "KamlaPersadbissessar"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Trinidad_and_tobago",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Ivory-coast-mande",
+            "Voltaiqe",
+            "Krou",
+            "Akan"
+        ],
+        "capital": "",
+        "color": "#D1996A",
+        "display_name": "Ivory_coast",
+        "factory_allocation": {},
+        "figures": [
+            "AlassaneOuattara"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AlassaneOuattara"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Ivory_coast",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Sierra-leone-mende",
+            "Sherbor"
+        ],
+        "capital": "",
+        "color": "#729FBE",
+        "display_name": "Sierra_leone",
+        "factory_allocation": {},
+        "figures": [
+            "JuliusMaadaBio"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "JuliusMaadaBio"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Sierra_leone",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Panama"
+        ],
+        "capital": "",
+        "color": "#3C3558",
+        "display_name": "Panama",
+        "factory_allocation": {},
+        "figures": [
+            "JoseRaulMulino"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "JoseRaulMulino"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Panama",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Sri-lankan"
+        ],
+        "capital": "",
+        "color": "#564B39",
+        "display_name": "Sri_lanka",
+        "factory_allocation": {},
+        "figures": [
+            "AnuraKumaraDissanayake"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AnuraKumaraDissanayake"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Sri_lanka",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            ""
+        ],
+        "capital": "",
+        "color": "#513D76",
+        "display_name": "Liberia",
+        "factory_allocation": {},
+        "figures": [
+            "JosephBoakai"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "JosephBoakai"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Liberia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Guyanans"
+        ],
+        "capital": "",
+        "color": "#B49678",
+        "display_name": "Guyana",
+        "factory_allocation": {},
+        "figures": [
+            "IrfaanAli"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "IrfaanAli"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Guyana",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Palau"
+        ],
+        "capital": "",
+        "color": "#FFC90E",
+        "display_name": "Palau",
+        "factory_allocation": {},
+        "figures": [
+            "SurangelWhippsJr"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "SurangelWhippsJr"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Palau",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Nauru",
+            "Maldives"
+        ],
+        "capital": "",
+        "color": "#292F85",
+        "display_name": "Nauru",
+        "factory_allocation": {},
+        "figures": [
+            "DavidAdeang"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "DavidAdeang"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Nauru",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Malaya"
+        ],
+        "capital": "",
+        "color": "#C56064",
+        "display_name": "Malaysia",
+        "factory_allocation": {},
+        "figures": [
+            "AnwarIbrahim"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AnwarIbrahim"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Malaysia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Surinamians"
+        ],
+        "capital": "",
+        "color": "#803754",
+        "display_name": "Suriname",
+        "factory_allocation": {},
+        "figures": [
+            "JenniferGeerlingssimons"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "JenniferGeerlingssimons"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Suriname",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Acio",
+            "Javanese",
+            "Batak",
+            "Tobelo",
+            "Malau",
+            "Mihanasa",
+            "Kaili",
+            "Gorontalo",
+            "Minangkabau",
+            "",
+            "Papuans",
+            "Banjarese",
+            "Indonesia",
+            "Rejang",
+            "Tolaki",
+            "Javaenese",
+            "Batanese",
+            "Atoni",
+            "Mollucans"
+        ],
+        "capital": "",
+        "color": "#DDBEC4",
+        "display_name": "Indonesia",
+        "factory_allocation": {},
+        "figures": [
+            "PrabowoSubianto"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "PrabowoSubianto"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Indonesia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Brazilian-natives",
+            "Brazilians",
+            "Colombia",
+            "Uruguay"
+        ],
+        "capital": "",
+        "color": "#4C913F",
+        "display_name": "Brazil",
+        "factory_allocation": {},
+        "figures": [
+            "LuizInacioLulaDaSilva"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "LuizInacioLulaDaSilva"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Brazil",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Zande",
+            "Gbaya",
+            "",
+            "Komo-birra",
+            "Mongo",
+            "Lega",
+            "Kongo",
+            "Katanga",
+            "Lunda"
+        ],
+        "capital": "",
+        "color": "#416893",
+        "display_name": "Dr_congo",
+        "factory_allocation": {},
+        "figures": [
+            "FelixTshisekedi"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "FelixTshisekedi"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Dr_congo",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Mili-hmitic",
+            "Kamba",
+            "Somalia",
+            "Nilotic",
+            "Kenya-bantu"
+        ],
+        "capital": "",
+        "color": "#833640",
+        "display_name": "Kenya",
+        "factory_allocation": {},
+        "figures": [
+            "WilliamRuto"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "WilliamRuto"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Kenya",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Brunei"
+        ],
+        "capital": "",
+        "color": "#3C6E55",
+        "display_name": "Brunei",
+        "factory_allocation": {},
+        "figures": [
+            "HassanalBolkiah"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "HassanalBolkiah"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Brunei",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Uganda-bantu",
+            "",
+            "Uganda"
+        ],
+        "capital": "",
+        "color": "#92824F",
+        "display_name": "Uganda",
+        "factory_allocation": {},
+        "figures": [
+            "YoweriMuseveni"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "YoweriMuseveni"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Uganda",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Equatorial-guinea"
+        ],
+        "capital": "",
+        "color": "#5090AB",
+        "display_name": "Equatorial_guinea",
+        "factory_allocation": {},
+        "figures": [
+            "TeodoroObiangNguemaMbasogo"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "TeodoroObiangNguemaMbasogo"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Equatorial_guinea",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Sangha",
+            "Makaa",
+            "Mbere-nzabi",
+            "Teke"
+        ],
+        "capital": "",
+        "color": "#D16C78",
+        "display_name": "Congo",
+        "factory_allocation": {},
+        "figures": [
+            "DenisSassouNguesso"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "DenisSassouNguesso"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Congo",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Fang",
+            "Bakote",
+            "Okande",
+            "Omiene",
+            "Eshira"
+        ],
+        "capital": "",
+        "color": "#DCBF7B",
+        "display_name": "Gabon",
+        "factory_allocation": {},
+        "figures": [
+            "BriceOliguiNguema"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "BriceOliguiNguema"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Gabon",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Han-chinise"
+        ],
+        "capital": "",
+        "color": "#4D4986",
+        "display_name": "Singapore",
+        "factory_allocation": {},
+        "figures": [
+            "LawrenceWong"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "LawrenceWong"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Singapore",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Trinida-and-tobago-equador"
+        ],
+        "capital": "",
+        "color": "#F99262",
+        "display_name": "Ecuador",
+        "factory_allocation": {},
+        "figures": [
+            "DanielNoboa"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "DanielNoboa"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Ecuador",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Sao-tome-and-principe"
+        ],
+        "capital": "",
+        "color": "#12AD2B",
+        "display_name": "Sao_tome_and_principe",
+        "factory_allocation": {},
+        "figures": [
+            "AmericoRamos"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AmericoRamos"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Sao_tome_and_principe",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Peru"
+        ],
+        "capital": "",
+        "color": "#C4BDCC",
+        "display_name": "Peru",
+        "factory_allocation": {},
+        "figures": [
+            "KeikoFujimori"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "KeikoFujimori"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Peru",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Rwanda"
+        ],
+        "capital": "",
+        "color": "#1D3841",
+        "display_name": "Rwanda",
+        "factory_allocation": {},
+        "figures": [
+            "PaulKagame"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "PaulKagame"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Rwanda",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Sukuma",
+            "",
+            "Fipa",
+            "Rufiji",
+            "Turu",
+            "Chhattisgrahiya",
+            "Ngoni",
+            "Makonde"
+        ],
+        "capital": "",
+        "color": "#678792",
+        "display_name": "Tanzania",
+        "factory_allocation": {},
+        "figures": [
+            "SamiaSuluhuHassan"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "SamiaSuluhuHassan"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Tanzania",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Burundi"
+        ],
+        "capital": "",
+        "color": "#9A4BA0",
+        "display_name": "Burundi",
+        "factory_allocation": {},
+        "figures": [
+            "EvaristeNdayishimiye"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "EvaristeNdayishimiye"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Burundi",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Angan",
+            "Osapminlk",
+            "Papuans"
+        ],
+        "capital": "",
+        "color": "#2B385A",
+        "display_name": "Papua_new_guinea",
+        "factory_allocation": {},
+        "figures": [
+            "JamesMarape"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "JamesMarape"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Papua_new_guinea",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "",
+            "Lunda",
+            "Angola-kimbudu"
+        ],
+        "capital": "",
+        "color": "#2C1823",
+        "display_name": "Angola",
+        "factory_allocation": {},
+        "figures": [
+            "JoaoLourenco"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "JoaoLourenco"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Angola",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Seychelles"
+        ],
+        "capital": "",
+        "color": "#A11E24",
+        "display_name": "Seychelles",
+        "factory_allocation": {},
+        "figures": [
+            "PatrickHerminie"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "PatrickHerminie"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Seychelles",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Solomon-islands"
+        ],
+        "capital": "",
+        "color": "#E20C0C",
+        "display_name": "Solomon_islands",
+        "factory_allocation": {},
+        "figures": [
+            "MatthewWale"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MatthewWale"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Solomon_islands",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Zambia-mamba",
+            "Luyana",
+            "Tonga"
+        ],
+        "capital": "",
+        "color": "#22562F",
+        "display_name": "Zambia",
+        "factory_allocation": {},
+        "figures": [
+            "HakaindeHichilema"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "HakaindeHichilema"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Zambia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "East-timor"
+        ],
+        "capital": "",
+        "color": "#28AA4C",
+        "display_name": "East_timor",
+        "factory_allocation": {},
+        "figures": [
+            "XananaGusmao"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "XananaGusmao"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "East_timor",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Tuvalu"
+        ],
+        "capital": "",
+        "color": "#ED1C24",
+        "display_name": "Tuvalu",
+        "factory_allocation": {},
+        "figures": [
+            "XuaccoefloaccQuuouddyrruyldableovuabruouph",
+            "FeletiTeo"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "FeletiTeo"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Tuvalu",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Tumbuka",
+            "Malawi-chewa"
+        ],
+        "capital": "",
+        "color": "#A15468",
+        "display_name": "Malawi",
+        "factory_allocation": {},
+        "figures": [
+            "PeterMutharika"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "PeterMutharika"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Malawi",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Brazilians",
+            "Bolivia"
+        ],
+        "capital": "",
+        "color": "#CCA66C",
+        "display_name": "Bolivia",
+        "factory_allocation": {},
+        "figures": [
+            "ExodiaTheForbiddenOne",
+            "LkaungaommiumpaycoknIabethyjuashayryruiSmailmasploaltyslaowrionuo"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "ExodiaTheForbiddenOne"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Bolivia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Makonde",
+            "Loka-lomwe",
+            "Maravi",
+            "Xona-karanga",
+            "Mozambiue-tsonnga"
+        ],
+        "capital": "",
+        "color": "#0E363E",
+        "display_name": "Mozambique",
+        "factory_allocation": {},
+        "figures": [
+            "DanielChapo"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "DanielChapo"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Mozambique",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Australia"
+        ],
+        "capital": "",
+        "color": "#398F61",
+        "display_name": "Australia",
+        "factory_allocation": {},
+        "figures": [
+            "AnthonyAlbanese"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "AnthonyAlbanese"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Australia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "",
+            "Madagascar"
+        ],
+        "capital": "",
+        "color": "#2C8C04",
+        "display_name": "Madagascar",
+        "factory_allocation": {},
+        "figures": [
+            "MichaelRandrianirina"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MichaelRandrianirina"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Madagascar",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Vanuatu"
+        ],
+        "capital": "",
+        "color": "#EDA720",
+        "display_name": "Vanuatu",
+        "factory_allocation": {},
+        "figures": [
+            "JothamNapat"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "JothamNapat"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Vanuatu",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Shona",
+            "Northen-ndebele",
+            "Makonde",
+            "Tswa"
+        ],
+        "capital": "",
+        "color": "#AD585D",
+        "display_name": "Zimbabwe",
+        "factory_allocation": {},
+        "figures": [
+            "GavGrub"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "GavGrub"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Zimbabwe",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Fiji"
+        ],
+        "capital": "",
+        "color": "#8F4952",
+        "display_name": "Fiji",
+        "factory_allocation": {},
+        "figures": [
+            "SitiveniRabuka"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "SitiveniRabuka"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Fiji",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Namibia-himba",
+            "",
+            "Lozi",
+            "Nama"
+        ],
+        "capital": "",
+        "color": "#C1D9A7",
+        "display_name": "Namibia",
+        "factory_allocation": {},
+        "figures": [
+            "NetumboNandindaitwah"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "NetumboNandindaitwah"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Namibia",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Niue"
+        ],
+        "capital": "",
+        "color": "#B97A57",
+        "display_name": "Niue",
+        "factory_allocation": {},
+        "figures": [
+            "DaltonTagelagi"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "DaltonTagelagi"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Niue",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Chile"
+        ],
+        "capital": "",
+        "color": "#9B656B",
+        "display_name": "Chile",
+        "factory_allocation": {},
+        "figures": [
+            "JoseAntonioKast"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "JoseAntonioKast"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Chile",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Botswana",
+            "",
+            "Kqalaqai"
+        ],
+        "capital": "",
+        "color": "#889DBC",
+        "display_name": "Botswana",
+        "factory_allocation": {},
+        "figures": [
+            "DumaBoko"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "DumaBoko"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Botswana",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Paraguay"
+        ],
+        "capital": "",
+        "color": "#3971E4",
+        "display_name": "Paraguay",
+        "factory_allocation": {},
+        "figures": [
+            "SantiagoPena"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "SantiagoPena"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Paraguay",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Mauritius"
+        ],
+        "capital": "",
+        "color": "#B39500",
+        "display_name": "Mauritius",
+        "factory_allocation": {},
+        "figures": [
+            "NavinRamgoolam"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "NavinRamgoolam"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Mauritius",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Tonga"
+        ],
+        "capital": "",
+        "color": "#FF7578",
+        "display_name": "Tonga",
+        "factory_allocation": {},
+        "figures": [
+            "OarkueghaikuouTwiuwrayglioulootroascSpliouspl",
+            "FatafehiFakafanua"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "FatafehiFakafanua"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Tonga",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Argentina"
+        ],
+        "capital": "",
+        "color": "#919DEC",
+        "display_name": "Argentina",
+        "factory_allocation": {},
+        "figures": [
+            "RgierdairtaywrokkuischiOaphuouswuophotwaextuoMmuermynkuogayghtypl",
+            "JavierMilei"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "JavierMilei"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Argentina",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "North-sotho",
+            "Sesotho",
+            "Swasi",
+            "Tsawna",
+            "Afrikaan",
+            "Zulu",
+            "Xhosa"
+        ],
+        "capital": "",
+        "color": "#D2A56C",
+        "display_name": "South_africa",
+        "factory_allocation": {},
+        "figures": [
+            "CyrilRamaphosa"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "CyrilRamaphosa"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "South_africa",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Eswatini"
+        ],
+        "capital": "",
+        "color": "#575F86",
+        "display_name": "Eswatini",
+        "factory_allocation": {},
+        "figures": [
+            "RmuoubeauchaethyppeiplAveylkio",
+            "MswatiIii"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "MswatiIii"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Eswatini",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Lesotho"
+        ],
+        "capital": "",
+        "color": "#00BEF0",
+        "display_name": "Lesotho",
+        "factory_allocation": {},
+        "figures": [
+            "XtaysteaupreaxuabeylUoultoipoyswaylm",
+            "SamMatekane"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "SamMatekane"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Lesotho",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "Uruguay"
+        ],
+        "capital": "",
+        "color": "#AEC09C",
+        "display_name": "Uruguay",
+        "factory_allocation": {},
+        "figures": [
+            "EatchoedweoppiupeypsorraythStuopreermuaghteauTaeck",
+            "YamanduOrsi"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "YamanduOrsi"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "Uruguay",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [
+            "New-zealand"
+        ],
+        "capital": "",
+        "color": "#DAD1E9",
+        "display_name": "New_zealand",
+        "factory_allocation": {},
+        "figures": [
+            "ChristopherLuxon"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "ChristopherLuxon"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 100000.0,
+        "name": "New_zealand",
+        "political_power": 501.36,
+        "puppets": [],
+        "stability": 1.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 1.0
+    },
+    {
+        "accepted_cultures": [],
+        "capital": "",
+        "color": "#FDFDFD",
+        "display_name": "Antartica",
+        "factory_allocation": {},
+        "figures": [
+            "BenitoMussolini",
+            "OelpuyEafrutriesmoaghtorruextoefSleiscuyrpeaustei"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "BenitoMussolini"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 0.0,
+        "name": "Antartica",
+        "political_power": 1.36,
+        "puppets": [],
+        "stability": 0.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 0.0
+    },
+    {
+        "accepted_cultures": [],
+        "capital": "",
+        "color": "#22617E",
+        "display_name": "Donetsk",
+        "factory_allocation": {},
+        "figures": [
+            "OyspreythreimpOaglieMpempeauspang",
+            "DenisPushilin"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "DenisPushilin"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 0.0,
+        "name": "Donetsk",
+        "political_power": 0.8,
+        "puppets": [],
+        "stability": 0.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 0.0
+    },
+    {
+        "accepted_cultures": [],
+        "capital": "",
+        "color": "#2D6458",
+        "display_name": "Luhansk",
+        "factory_allocation": {},
+        "figures": [
+            "PokaessiettiouryAugleauxteerkoyAygrioulteoffoelmuis",
+            "LeonidPasechnik"
+        ],
+        "finished_decisions": [],
+        "government_positions": {
+            "Leader": "LeonidPasechnik"
+        },
+        "hostedGovernments": [],
+        "ideology": [
+            0.0,
+            0.0
+        ],
+        "is_player": false,
+        "money": 0.0,
+        "name": "Luhansk",
+        "political_power": 0.8,
+        "puppets": [],
+        "stability": 0.0,
+        "stockpile": {},
+        "trade_settings": {},
+        "war_support": 0.0
+    }
+]

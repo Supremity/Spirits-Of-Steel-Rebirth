@@ -37,7 +37,6 @@ func _enter_tree() -> void:
 
 func DoSetup(a_progress: Array) -> void:
 	var mapData: Dictionary = {}
-	var path = "res://starts/%s/map_data.json" % GameState.current_start
 
 	if GameState.pending_load_save != "":
 		var save_path = "res://saves/" + GameState.pending_load_save + ".json"
@@ -46,14 +45,12 @@ func DoSetup(a_progress: Array) -> void:
 			var save_json = JSON.parse_string(file.get_as_text())
 			if save_json is Dictionary:
 				mapData = save_json
-				path = mapData.get("scenario_path", path)
 				# GameState.current_scenario_path = path
 				GameState.is_loading_game = true
 				print("World: Pending save found. Loading from: ", GameState.pending_load_save)
 
 	if mapData.is_empty():
-		var json_data = JSON.parse_string(FileAccess.open(path, FileAccess.READ).get_as_text())
-		mapData = json_data if json_data is Dictionary else {}
+		mapData = ScenarioData.load_start("res://starts/%s/" % GameState.current_start)
 
 	a_progress[0] = 0.05
 
@@ -164,9 +161,7 @@ func load_map_data(mapData: Dictionary):
 	IdeologyManager.Initialize(i_data if i_data is Dictionary else {})
 	
 	# Determine scenario path and assets
-	var scenario_path: String = "res://starts/%s/map_data.json" % mapData.get("current_start", "ModernDay")
-	
-	var start_folder: String = scenario_path.get_base_dir() + "/"
+	var start_folder: String = "res://starts/%s/" % mapData.get("current_start", "ModernDay")
 	var regions_tex: Texture2D = load(start_folder + "regions.png")
 	
 	if !regions_tex:

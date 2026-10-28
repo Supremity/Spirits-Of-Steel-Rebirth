@@ -126,9 +126,9 @@ func _add_save_row(parent: Node, save_name: String, file_path: String) -> void:
 		var json_str = file.get_as_text()
 		var data = JSON.parse_string(json_str)
 		if data is Dictionary:
-			scenario_path = data.get("scenario_path", "res://starts/ModernDay/map_data.json")
+			scenario_path = "res://starts/%s/" % data.get("current_start", "ModernDay")
 			
-			if not FileAccess.file_exists(scenario_path):
+			if not ScenarioData.exists(scenario_path):
 				scenario_exists = false
 	
 	var lbl = Label.new()

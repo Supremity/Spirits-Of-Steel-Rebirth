@@ -8,9 +8,23 @@ var top_bar_height = 26
 
 
 func _process(delta: float) -> void:
-	if get_viewport().gui_get_focus_owner() != null || GameState.decision_menu_open:
+	if get_viewport().gui_get_focus_owner() == null && !GameState.decision_menu_open:
+		camera.position += Input.get_vector("move_left", "move_right", "move_up", "move_down") * (base_speed / camera.zoom.x) * delta
+	_clamp_vertical()
+
+
+# Keeps the map filling the window vertically (x wraps around in World.gd instead)
+func _clamp_vertical() -> void:
+	if MapManager.MAP_HEIGHT <= 0:
 		return
-	camera.position += Input.get_vector("move_left", "move_right", "move_up", "move_down") * (base_speed / camera.zoom.x) * delta
+	var view_height: float = camera.get_viewport_rect().size.y / camera.zoom.y
+	var min_y: float = -top_bar_height / camera.zoom.y
+	var max_y: float = MapManager.MAP_HEIGHT - view_height
+	if max_y < min_y:
+		# Window is taller than the map at this zoom, so just center it
+		camera.position.y = (MapManager.MAP_HEIGHT - view_height) * 0.5
+	else:
+		camera.position.y = clampf(camera.position.y, min_y, max_y)
 
 
 func _is_mouse_over_ui() -> bool:

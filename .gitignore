@@ -3,3 +3,7 @@
 /android/
 .vscode/
 starts/DravidianDusk/
+*.bak
+.wiki_leaders_cache.html
+utils/.wiki_leaders_cache.html
+__pycache__/

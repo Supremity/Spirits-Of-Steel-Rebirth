@@ -365,7 +365,7 @@ func _update_ideology_from_mouse(local_pos: Vector2, do_save: bool) -> void:
 	DoUpdateSidemenuVisuals()
 	
 	if do_save and SettingsManager.settings.debug_mode:
-		MapManager.export_scenario_data("user://map_data.json")
+		MapManager.export_scenario_data("user://map_data/")
 
 func _update_radio_visuals() -> void:
 	for child in radio_list.get_children():

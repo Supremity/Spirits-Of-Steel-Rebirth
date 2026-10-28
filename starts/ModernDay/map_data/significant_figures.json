@@ -1,0 +1,2996 @@
+[
+    {
+        "allegiance": "Bolivia",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 100,
+        "name": "ExodiaTheForbiddenOne",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Secret/Exodia.png",
+        "skills": {
+            "attackerAttackMitigation": 0.95,
+            "dailyPPGain": 0.1,
+            "defenderAttackMitigation": 0.95,
+            "divCostMod": 0.95,
+            "stability": 0.2,
+            "troopAttackAdd": 0.25,
+            "troopAttackMod": 1.01,
+            "troopDefendAdd": 0.15,
+            "troopDefendMod": 1.02,
+            "troopSpeed": 0.05,
+            "warSupport": 0.3
+        },
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Russia",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 100,
+        "name": "VladimirPutin",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Russia/VladimirPutin.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Antartica",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 100,
+        "name": "BenitoMussolini",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "United_states",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 100,
+        "name": "DonaldJohnTrump",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/UnitedStates/DonaldJohnTrump.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Belarus",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 100,
+        "name": "AlexanderLukashenko",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Belarus/AlexanderLukashenko.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "China",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 100,
+        "name": "XiJinping",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/China/XiJinping.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Ukraine",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 100,
+        "name": "VolodymyrZelenskyy",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Ukraine/VolodymyrZelenskyy.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Russia",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "EoldialiolpEethroisplauss",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Norway",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "JonasGahrStore",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Norway/JonasGahrStore.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "United_kingdom",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "Keir_Starmer",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/UnitedKingdom/KeirStarmer.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Belarus",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "IastriekoikaischasheackIoukooshuirkaispruybioflioOangiastaugguoskei",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Germany",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "FriedrichMerz",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Germany/FriedrichMerz.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "China",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "DdiangoofuakroysnudwIastrouggunteikkaebraukkNtospoortoeschucciu",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Ukraine",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "TchaengyrdaoshuaboaptRpuouddaocceyccuoccaushAygruj",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "France",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "EmmanuelMacron",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/France/EmmanuelMacron.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Japan",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "SanaeTakaichi",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Japan/SanaeTakaichi.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Spain",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "PedroSanchez",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Spain/PedroSanchez.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "North_korea",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "KimJongUn",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/NorthKorea/KimJongUn.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "South_korea",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "LeeJaeMyung",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/SouthKorea/LeeJaeMyung.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Morocco",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "MohammedBenElHassan",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Morocco/MohammedBenElHassan.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "India",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "NarendraModi",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/India/NarendraModi.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Mexico",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "ClaudiaSheinbaumPardo",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Mexico/ClaudiaSheinbaumPardo.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Saudi_arabia",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "MohammedBinSalman",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/SaudiArabia/MohammedBinSalman.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Burkina_faso",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "IbrahimTraore",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/BurkinaFaso/IbrahimTraore.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Brazil",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "LuizInacioLulaDaSilva",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Brazil/LuizInacioLulaDaSilva.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Tuvalu",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "XuaccoefloaccQuuouddyrruyldableovuabruouph",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Bolivia",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "LkaungaommiumpaycoknIabethyjuashayryruiSmailmasploaltyslaowrionuo",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Zimbabwe",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "GavGrub",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Zimbabwe/GavGrub.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Tonga",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "OarkueghaikuouTwiuwrayglioulootroascSpliouspl",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Argentina",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "RgierdairtaywrokkuischiOaphuouswuophotwaextuoMmuermynkuogayghtypl",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Eswatini",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "RmuoubeauchaethyppeiplAveylkio",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Lesotho",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "XtaysteaupreaxuabeylUoultoipoyswaylm",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Uruguay",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "EatchoedweoppiupeypsorraythStuopreermuaghteauTaeck",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Antartica",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "OelpuyEafrutriesmoaghtorruextoefSleiscuyrpeaustei",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Donetsk",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "OyspreythreimpOaglieMpempeauspang",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "allegiance": "Luhansk",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "name": "PokaessiettiouryAugleauxteerkoyAygrioulteoffoelmuis",
+        "occupation": "Leader",
+        "portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
+        "skills": {},
+        "status": 0,
+        "traits": []
+    },
+    {
+        "name": "BenjaminNetanyahu",
+        "allegiance": "Israel",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 100,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Israel/BenjaminNetanyahu.png",
+        "status": 0
+    },
+    {
+        "name": "MarkCarney",
+        "allegiance": "Canada",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Canada/MarkCarney.png",
+        "status": 0
+    },
+    {
+        "name": "MetteFrederiksen",
+        "allegiance": "Denmark",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Denmark/MetteFrederiksen.png",
+        "status": 0
+    },
+    {
+        "name": "PetteriOrpo",
+        "allegiance": "Finland",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Finland/PetteriOrpo.png",
+        "status": 0
+    },
+    {
+        "name": "UlfKristersson",
+        "allegiance": "Sweden",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Sweden/UlfKristersson.png",
+        "status": 0
+    },
+    {
+        "name": "KristrunFrostadottir",
+        "allegiance": "Iceland",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Iceland/KristrunFrostadottir.png",
+        "status": 0
+    },
+    {
+        "name": "KristenMichal",
+        "allegiance": "Estonia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Estonia/KristenMichal.png",
+        "status": 0
+    },
+    {
+        "name": "AndrisKulbergs",
+        "allegiance": "Latvia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Latvia/AndrisKulbergs.png",
+        "status": 0
+    },
+    {
+        "name": "MindaugasSinkevicius",
+        "allegiance": "Lithuania",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Lithuania/MindaugasSinkevicius.png",
+        "status": 0
+    },
+    {
+        "name": "MichealMartin",
+        "allegiance": "Ireland",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Ireland/MichealMartin.png",
+        "status": 0
+    },
+    {
+        "name": "KassymjomartTokayev",
+        "allegiance": "Kazakhstan",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Kazakhstan/KassymjomartTokayev.png",
+        "status": 0
+    },
+    {
+        "name": "DonaldTusk",
+        "allegiance": "Poland",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Poland/DonaldTusk.png",
+        "status": 0
+    },
+    {
+        "name": "RobJetten",
+        "allegiance": "Netherlands",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Netherlands/RobJetten.png",
+        "status": 0
+    },
+    {
+        "name": "NyamosorynUchral",
+        "allegiance": "Mongolia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Mongolia/NyamosorynUchral.png",
+        "status": 0
+    },
+    {
+        "name": "BartDeWever",
+        "allegiance": "Belgium",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Belgium/BartDeWever.png",
+        "status": 0
+    },
+    {
+        "name": "AndrejBabis",
+        "allegiance": "Czechia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Czechia/AndrejBabis.png",
+        "status": 0
+    },
+    {
+        "name": "LucFrieden",
+        "allegiance": "Luxembourg",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Luxembourg/LucFrieden.png",
+        "status": 0
+    },
+    {
+        "name": "RobertFico",
+        "allegiance": "Slovakia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Slovakia/RobertFico.png",
+        "status": 0
+    },
+    {
+        "name": "ChristianStocker",
+        "allegiance": "Austria",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Austria/ChristianStocker.png",
+        "status": 0
+    },
+    {
+        "name": "PeterMagyar",
+        "allegiance": "Hungary",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Hungary/VictorOrban.png",
+        "status": 0
+    },
+    {
+        "name": "MaiaSandu",
+        "allegiance": "Moldova",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Moldova/MaiaSandu.png",
+        "status": 0
+    },
+    {
+        "name": "IlieBolojan",
+        "allegiance": "Romania",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Romania/IlieBolojan.png",
+        "status": 0
+    },
+    {
+        "name": "VadimKrasnoselsky",
+        "allegiance": "Transnistria",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Transnistria/VadimKrasnoselsky.png",
+        "status": 0
+    },
+    {
+        "name": "FederalCouncil",
+        "allegiance": "Switzerland",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Switzerland/FederalCouncil.png",
+        "status": 0
+    },
+    {
+        "name": "HansadamIi",
+        "allegiance": "Liechtenstein",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Liechtenstein/HansadamIi.png",
+        "status": 0
+    },
+    {
+        "name": "GiorgiaMeloni",
+        "allegiance": "Italy",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Italy/GiorgiaMeloni.png",
+        "status": 0
+    },
+    {
+        "name": "JanezJansa",
+        "allegiance": "Slovenia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Slovenia/JanezJansa.png",
+        "status": 0
+    },
+    {
+        "name": "AndrejPlenkovic",
+        "allegiance": "Croatia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Croatia/AndrejPlenkovic.png",
+        "status": 0
+    },
+    {
+        "name": "AleksandarVucic",
+        "allegiance": "Serbia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Serbia/AleksandarVucic.png",
+        "status": 0
+    },
+    {
+        "name": "LouisCrishock",
+        "allegiance": "Bosnia_and_herzegovina",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Bosniaandherzegovina/LouisCrishock.png",
+        "status": 0
+    },
+    {
+        "name": "ShavkatMirziyoyev",
+        "allegiance": "Uzbekistan",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Uzbekistan/ShavkatMirziyoyev.png",
+        "status": 0
+    },
+    {
+        "name": "RumenRadev",
+        "allegiance": "Bulgaria",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Bulgaria/RumenRadev.png",
+        "status": 0
+    },
+    {
+        "name": "LucaBeccari",
+        "allegiance": "San_marino",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Sanmarino/LucaBeccari.png",
+        "status": 0
+    },
+    {
+        "name": "AlbertIi",
+        "allegiance": "Monaco",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Monaco/AlbertIi.png",
+        "status": 0
+    },
+    {
+        "name": "BadraGunba",
+        "allegiance": "Abkhazia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Abkhazia/BadraGunba.png",
+        "status": 0
+    },
+    {
+        "name": "MilojkoSpajic",
+        "allegiance": "Montenegro",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Montenegro/MilojkoSpajic.png",
+        "status": 0
+    },
+    {
+        "name": "AlbinKurti",
+        "allegiance": "Kosovo",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Kosovo/AlbinKurti.png",
+        "status": 0
+    },
+    {
+        "name": "BidzinaIvanishvili",
+        "allegiance": "Georgia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Georgia/BidzinaIvanishvili.png",
+        "status": 0
+    },
+    {
+        "name": "SadyrJaparov",
+        "allegiance": "Kyrgyzstan",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Kyrgyzstan/SadyrJaparov.png",
+        "status": 0
+    },
+    {
+        "name": "XavierEspotZamora",
+        "allegiance": "Andorra",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Andorra/XavierEspotZamora.png",
+        "status": 0
+    },
+    {
+        "name": "MaratKambolov",
+        "allegiance": "South_ossetia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Southossetia/MaratKambolov.png",
+        "status": 0
+    },
+    {
+        "name": "GurbangulyBerdimuhamedow",
+        "allegiance": "Turkmenistan",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Turkmenistan/GurbangulyBerdimuhamedow.png",
+        "status": 0
+    },
+    {
+        "name": "EdiRama",
+        "allegiance": "Albania",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Albania/EdiRama.png",
+        "status": 0
+    },
+    {
+        "name": "HristijanMickoski",
+        "allegiance": "North_macedonia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Northmacedonia/HristijanMickoski.png",
+        "status": 0
+    },
+    {
+        "name": "IlhamAliyev",
+        "allegiance": "Azerbaijan",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Azerbaijan/IlhamAliyev.png",
+        "status": 0
+    },
+    {
+        "name": "LuisMontenegro",
+        "allegiance": "Portugal",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Portugal/LuisMontenegro.png",
+        "status": 0
+    },
+    {
+        "name": "RecepTayyipErdogan",
+        "allegiance": "Turkey",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Turkey/RecepTayyipErdogan.png",
+        "status": 0
+    },
+    {
+        "name": "LeoXiv",
+        "allegiance": "Vatican_city",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Vaticancity/LeoXiv.png",
+        "status": 0
+    },
+    {
+        "name": "KyriakosMitsotakis",
+        "allegiance": "Greece",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Greece/KyriakosMitsotakis.png",
+        "status": 0
+    },
+    {
+        "name": "NikolPashinyan",
+        "allegiance": "Armenia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Armenia/NikolPashinyan.png",
+        "status": 0
+    },
+    {
+        "name": "EmomaliRahmon",
+        "allegiance": "Tajikistan",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Tajikistan/EmomaliRahmon.png",
+        "status": 0
+    },
+    {
+        "name": "MojtabaKhamenei",
+        "allegiance": "Iran",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Iran/MojtabaKhamenei.png",
+        "status": 0
+    },
+    {
+        "name": "HibatullahAkhundzada",
+        "allegiance": "Afghanistan",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Afghanistan/HibatullahAkhundzada.png",
+        "status": 0
+    },
+    {
+        "name": "KaisSaied",
+        "allegiance": "Tunisia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Tunisia/KaisSaied.png",
+        "status": 0
+    },
+    {
+        "name": "AliAlzaidi",
+        "allegiance": "Iraq",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Iraq/AliAlzaidi.png",
+        "status": 0
+    },
+    {
+        "name": "AhmedAlsharaa",
+        "allegiance": "Syria",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Syria/AhmedAlsharaa.png",
+        "status": 0
+    },
+    {
+        "name": "ShehbazSharif",
+        "allegiance": "Pakistan",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Pakistan/ShehbazSharif.png",
+        "status": 0
+    },
+    {
+        "name": "AbdelmadjidTebboune",
+        "allegiance": "Algeria",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Algeria/AbdelmadjidTebboune.png",
+        "status": 0
+    },
+    {
+        "name": "RobertAbela",
+        "allegiance": "Malta",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Malta/RobertAbela.png",
+        "status": 0
+    },
+    {
+        "name": "TufanErhurman",
+        "allegiance": "Turkish_cyprus",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Turkishcyprus/TufanErhurman.png",
+        "status": 0
+    },
+    {
+        "name": "NikosChristodoulides",
+        "allegiance": "Cyprus",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Cyprus/NikosChristodoulides.png",
+        "status": 0
+    },
+    {
+        "name": "NawafSalam",
+        "allegiance": "Lebanon",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Lebanon/NawafSalam.png",
+        "status": 0
+    },
+    {
+        "name": "AbdulHamidDbeibeh",
+        "allegiance": "Libya",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Libya/AbdulHamidDbeibeh.png",
+        "status": 0
+    },
+    {
+        "name": "AbdullahIi",
+        "allegiance": "Jordan",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 100,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Jordan/AbdullahIi.png",
+        "status": 0
+    },
+    {
+        "name": "MahmoudAbbas",
+        "allegiance": "Palestine",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Palestine/MahmoudAbbas.png",
+        "status": 0
+    },
+    {
+        "name": "AbdelFattahElsisi",
+        "allegiance": "Egypt",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Egypt/AbdelFattahElsisi.png",
+        "status": 0
+    },
+    {
+        "name": "BalenShah",
+        "allegiance": "Nepal",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Nepal/BalenShah.png",
+        "status": 0
+    },
+    {
+        "name": "MishalAlahmadAljaberAlsabah",
+        "allegiance": "Kuwait",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Kuwait/MishalAlahmadAljaberAlsabah.png",
+        "status": 0
+    },
+    {
+        "name": "TsheringTobgay",
+        "allegiance": "Bhutan",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Bhutan/TsheringTobgay.png",
+        "status": 0
+    },
+    {
+        "name": "MinAungHlaing",
+        "allegiance": "Myanmar",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Myanmar/MinAungHlaing.png",
+        "status": 0
+    },
+    {
+        "name": "BrahimGhali",
+        "allegiance": "Western_sahara",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Westernsahara/BrahimGhali.png",
+        "status": 0
+    },
+    {
+        "name": "MohamedOuldGhazouani",
+        "allegiance": "Mauritania",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Mauritania/MohamedOuldGhazouani.png",
+        "status": 0
+    },
+    {
+        "name": "HamadBinIsaAlKhalifa",
+        "allegiance": "Bahrain",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Bahrain/HamadBinIsaAlKhalifa.png",
+        "status": 0
+    },
+    {
+        "name": "TariqueRahman",
+        "allegiance": "Bangladesh",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Bangladesh/TariqueRahman.png",
+        "status": 0
+    },
+    {
+        "name": "TamimBinHamadAlThani",
+        "allegiance": "Qatar",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Qatar/TamimBinHamadAlThani.png",
+        "status": 0
+    },
+    {
+        "name": "HaithamBinTariq",
+        "allegiance": "Oman",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Oman/HaithamBinTariq.png",
+        "status": 0
+    },
+    {
+        "name": "LaiChingte",
+        "allegiance": "Taiwan",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Taiwan/LaiChingte.png",
+        "status": 0
+    },
+    {
+        "name": "AssimiGoita",
+        "allegiance": "Mali",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Mali/AssimiGoita.png",
+        "status": 0
+    },
+    {
+        "name": "MohamedBinZayedAlNahyan",
+        "allegiance": "United_arab_emirates",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Unitedarabemirates/MohamedBinZayedAlNahyan.png",
+        "status": 0
+    },
+    {
+        "name": "AbdourahamaneTiani",
+        "allegiance": "Niger",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Niger/AbdourahamaneTiani.png",
+        "status": 0
+    },
+    {
+        "name": "MiguelDiazcanel",
+        "allegiance": "Cuba",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Cuba/MiguelDiazcanel.png",
+        "status": 0
+    },
+    {
+        "name": "MahamatDeby",
+        "allegiance": "Chad",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Chad/MahamatDeby.png",
+        "status": 0
+    },
+    {
+        "name": "TransitionalSovereigntyCouncil",
+        "allegiance": "Sudan",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Sudan/TransitionalSovereigntyCouncil.png",
+        "status": 0
+    },
+    {
+        "name": "ToLam",
+        "allegiance": "Vietnam",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Vietnam/ToLam.png",
+        "status": 0
+    },
+    {
+        "name": "ThonglounSisoulith",
+        "allegiance": "Laos",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Laos/ThonglounSisoulith.png",
+        "status": 0
+    },
+    {
+        "name": "AnutinCharnvirakul",
+        "allegiance": "Thailand",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Thailand/AnutinCharnvirakul.png",
+        "status": 0
+    },
+    {
+        "name": "President",
+        "allegiance": "Haiti",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Haiti/President.png",
+        "status": 0
+    },
+    {
+        "name": "LuisAbinader",
+        "allegiance": "Dominican_republic",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Dominicanrepublic/LuisAbinader.png",
+        "status": 0
+    },
+    {
+        "name": "JohnnyBriceno",
+        "allegiance": "Belize",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Belize/JohnnyBriceno.png",
+        "status": 0
+    },
+    {
+        "name": "RashadAlalimi",
+        "allegiance": "Yemen",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Yemen/RashadAlalimi.png",
+        "status": 0
+    },
+    {
+        "name": "AndrewHolness",
+        "allegiance": "Jamaica",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Jamaica/AndrewHolness.png",
+        "status": 0
+    },
+    {
+        "name": "BongbongMarcos",
+        "allegiance": "Philippines",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Philippines/BongbongMarcos.png",
+        "status": 0
+    },
+    {
+        "name": "BernardoArevalo",
+        "allegiance": "Guatemala",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Guatemala/BernardoArevalo.png",
+        "status": 0
+    },
+    {
+        "name": "IsaiasAfwerki",
+        "allegiance": "Eritrea",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Eritrea/IsaiasAfwerki.png",
+        "status": 0
+    },
+    {
+        "name": "FranciscoCarvalho",
+        "allegiance": "Cabo_verde",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Caboverde/FranciscoCarvalho.png",
+        "status": 0
+    },
+    {
+        "name": "TerranceDrew",
+        "allegiance": "St_kitts_and_nevis",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Stkittsandnevis/TerranceDrew.png",
+        "status": 0
+    },
+    {
+        "name": "BassirouDiomayeFaye",
+        "allegiance": "Senegal",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Senegal/BassirouDiomayeFaye.png",
+        "status": 0
+    },
+    {
+        "name": "NasryAsfura",
+        "allegiance": "Honduras",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Honduras/NasryAsfura.png",
+        "status": 0
+    },
+    {
+        "name": "NayibBukele",
+        "allegiance": "El_salvador",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Elsalvador/NayibBukele.png",
+        "status": 0
+    },
+    {
+        "name": "RosarioMurillo",
+        "allegiance": "Nicaragua",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Nicaragua/RosarioMurillo.png",
+        "status": 0
+    },
+    {
+        "name": "AbiyAhmed",
+        "allegiance": "Ethiopia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Ethiopia/AbiyAhmed.png",
+        "status": 0
+    },
+    {
+        "name": "HunSen",
+        "allegiance": "Cambodia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Cambodia/HunSen.png",
+        "status": 0
+    },
+    {
+        "name": "RooseveltSkerrit",
+        "allegiance": "Dominica",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Dominica/RooseveltSkerrit.png",
+        "status": 0
+    },
+    {
+        "name": "BolaTinubu",
+        "allegiance": "Nigeria",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Nigeria/BolaTinubu.png",
+        "status": 0
+    },
+    {
+        "name": "AdamaBarrow",
+        "allegiance": "Gambia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Gambia/AdamaBarrow.png",
+        "status": 0
+    },
+    {
+        "name": "MiaMottley",
+        "allegiance": "Barbados",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Barbados/MiaMottley.png",
+        "status": 0
+    },
+    {
+        "name": "PhilipJPierre",
+        "allegiance": "St_lucia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Stlucia/PhilipJPierre.png",
+        "status": 0
+    },
+    {
+        "name": "HortaIntaaNaMan",
+        "allegiance": "Guinea_bissau",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Guineabissau/HortaIntaaNaMan.png",
+        "status": 0
+    },
+    {
+        "name": "MamadyDoumbouya",
+        "allegiance": "Guinea",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Guinea/MamadyDoumbouya.png",
+        "status": 0
+    },
+    {
+        "name": "AbelardoDeLaEspriella",
+        "allegiance": "Colombia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Colombia/AbelardoDeLaEspriella.png",
+        "status": 0
+    },
+    {
+        "name": "NicolasMaduro",
+        "allegiance": "Venezuela",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Venezuela/NicolasMaduro.png",
+        "status": 0
+    },
+    {
+        "name": "DickonMitchell",
+        "allegiance": "Grenada",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Grenada/DickonMitchell.png",
+        "status": 0
+    },
+    {
+        "name": "RomualdWadagni",
+        "allegiance": "Benin",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Benin/RomualdWadagni.png",
+        "status": 0
+    },
+    {
+        "name": "IsmailOmarGuelleh",
+        "allegiance": "Djibouti",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Djibouti/IsmailOmarGuelleh.png",
+        "status": 0
+    },
+    {
+        "name": "PaulBiya",
+        "allegiance": "Cameroon",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Cameroon/PaulBiya.png",
+        "status": 0
+    },
+    {
+        "name": "SalvaKiir",
+        "allegiance": "South_sudan",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Southsudan/SalvaKiir.png",
+        "status": 0
+    },
+    {
+        "name": "HassanSheikhMohamud",
+        "allegiance": "Somalia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Somalia/HassanSheikhMohamud.png",
+        "status": 0
+    },
+    {
+        "name": "AbdirahmanMohamedAbdullahi",
+        "allegiance": "Somaliland",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Somaliland/AbdirahmanMohamedAbdullahi.png",
+        "status": 0
+    },
+    {
+        "name": "LauraFernandez",
+        "allegiance": "Costa_rica",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Costarica/LauraFernandez.png",
+        "status": 0
+    },
+    {
+        "name": "FaureGnassingbe",
+        "allegiance": "Togo",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Togo/FaureGnassingbe.png",
+        "status": 0
+    },
+    {
+        "name": "MohamedMuizzu",
+        "allegiance": "Maldives",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Maldives/MohamedMuizzu.png",
+        "status": 0
+    },
+    {
+        "name": "JohnMahama",
+        "allegiance": "Ghana",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Ghana/JohnMahama.png",
+        "status": 0
+    },
+    {
+        "name": "FaustinarchangeTouadera",
+        "allegiance": "Central_african_republic",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Centralafricanrepublic/FaustinarchangeTouadera.png",
+        "status": 0
+    },
+    {
+        "name": "KamlaPersadbissessar",
+        "allegiance": "Trinidad_and_tobago",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Trinidadandtobago/KamlaPersadbissessar.png",
+        "status": 0
+    },
+    {
+        "name": "AlassaneOuattara",
+        "allegiance": "Ivory_coast",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Ivorycoast/AlassaneOuattara.png",
+        "status": 0
+    },
+    {
+        "name": "JuliusMaadaBio",
+        "allegiance": "Sierra_leone",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Sierraleone/JuliusMaadaBio.png",
+        "status": 0
+    },
+    {
+        "name": "JoseRaulMulino",
+        "allegiance": "Panama",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Panama/JoseRaulMulino.png",
+        "status": 0
+    },
+    {
+        "name": "AnuraKumaraDissanayake",
+        "allegiance": "Sri_lanka",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Srilanka/AnuraKumaraDissanayake.png",
+        "status": 0
+    },
+    {
+        "name": "JosephBoakai",
+        "allegiance": "Liberia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Liberia/JosephBoakai.png",
+        "status": 0
+    },
+    {
+        "name": "IrfaanAli",
+        "allegiance": "Guyana",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Guyana/IrfaanAli.png",
+        "status": 0
+    },
+    {
+        "name": "SurangelWhippsJr",
+        "allegiance": "Palau",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Palau/SurangelWhippsJr.png",
+        "status": 0
+    },
+    {
+        "name": "DavidAdeang",
+        "allegiance": "Nauru",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Nauru/DavidAdeang.png",
+        "status": 0
+    },
+    {
+        "name": "AnwarIbrahim",
+        "allegiance": "Malaysia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Malaysia/AnwarIbrahim.png",
+        "status": 0
+    },
+    {
+        "name": "JenniferGeerlingssimons",
+        "allegiance": "Suriname",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Suriname/JenniferGeerlingssimons.png",
+        "status": 0
+    },
+    {
+        "name": "PrabowoSubianto",
+        "allegiance": "Indonesia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Indonesia/PrabowoSubianto.png",
+        "status": 0
+    },
+    {
+        "name": "FelixTshisekedi",
+        "allegiance": "Dr_congo",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Drcongo/FelixTshisekedi.png",
+        "status": 0
+    },
+    {
+        "name": "WilliamRuto",
+        "allegiance": "Kenya",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Kenya/WilliamRuto.png",
+        "status": 0
+    },
+    {
+        "name": "HassanalBolkiah",
+        "allegiance": "Brunei",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Brunei/HassanalBolkiah.png",
+        "status": 0
+    },
+    {
+        "name": "YoweriMuseveni",
+        "allegiance": "Uganda",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Uganda/YoweriMuseveni.png",
+        "status": 0
+    },
+    {
+        "name": "TeodoroObiangNguemaMbasogo",
+        "allegiance": "Equatorial_guinea",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Equatorialguinea/TeodoroObiangNguemaMbasogo.png",
+        "status": 0
+    },
+    {
+        "name": "DenisSassouNguesso",
+        "allegiance": "Congo",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Congo/DenisSassouNguesso.png",
+        "status": 0
+    },
+    {
+        "name": "BriceOliguiNguema",
+        "allegiance": "Gabon",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Gabon/BriceOliguiNguema.png",
+        "status": 0
+    },
+    {
+        "name": "LawrenceWong",
+        "allegiance": "Singapore",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Singapore/LawrenceWong.png",
+        "status": 0
+    },
+    {
+        "name": "DanielNoboa",
+        "allegiance": "Ecuador",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Ecuador/DanielNoboa.png",
+        "status": 0
+    },
+    {
+        "name": "AmericoRamos",
+        "allegiance": "Sao_tome_and_principe",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Saotomeandprincipe/AmericoRamos.png",
+        "status": 0
+    },
+    {
+        "name": "KeikoFujimori",
+        "allegiance": "Peru",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Peru/KeikoFujimori.png",
+        "status": 0
+    },
+    {
+        "name": "PaulKagame",
+        "allegiance": "Rwanda",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Rwanda/PaulKagame.png",
+        "status": 0
+    },
+    {
+        "name": "SamiaSuluhuHassan",
+        "allegiance": "Tanzania",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Tanzania/SamiaSuluhuHassan.png",
+        "status": 0
+    },
+    {
+        "name": "EvaristeNdayishimiye",
+        "allegiance": "Burundi",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Burundi/EvaristeNdayishimiye.png",
+        "status": 0
+    },
+    {
+        "name": "JamesMarape",
+        "allegiance": "Papua_new_guinea",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Papuanewguinea/JamesMarape.png",
+        "status": 0
+    },
+    {
+        "name": "JoaoLourenco",
+        "allegiance": "Angola",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Angola/JoaoLourenco.png",
+        "status": 0
+    },
+    {
+        "name": "PatrickHerminie",
+        "allegiance": "Seychelles",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Seychelles/PatrickHerminie.png",
+        "status": 0
+    },
+    {
+        "name": "MatthewWale",
+        "allegiance": "Solomon_islands",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Solomonislands/MatthewWale.png",
+        "status": 0
+    },
+    {
+        "name": "HakaindeHichilema",
+        "allegiance": "Zambia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Zambia/HakaindeHichilema.png",
+        "status": 0
+    },
+    {
+        "name": "XananaGusmao",
+        "allegiance": "East_timor",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Easttimor/XananaGusmao.png",
+        "status": 0
+    },
+    {
+        "name": "FeletiTeo",
+        "allegiance": "Tuvalu",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 100,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Tuvalu/FeletiTeo.png",
+        "status": 0
+    },
+    {
+        "name": "PeterMutharika",
+        "allegiance": "Malawi",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Malawi/PeterMutharika.png",
+        "status": 0
+    },
+    {
+        "name": "DanielChapo",
+        "allegiance": "Mozambique",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Mozambique/DanielChapo.png",
+        "status": 0
+    },
+    {
+        "name": "AnthonyAlbanese",
+        "allegiance": "Australia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Australia/AnthonyAlbanese.png",
+        "status": 0
+    },
+    {
+        "name": "MichaelRandrianirina",
+        "allegiance": "Madagascar",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Madagascar/MichaelRandrianirina.png",
+        "status": 0
+    },
+    {
+        "name": "JothamNapat",
+        "allegiance": "Vanuatu",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Vanuatu/JothamNapat.png",
+        "status": 0
+    },
+    {
+        "name": "SitiveniRabuka",
+        "allegiance": "Fiji",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Fiji/SitiveniRabuka.png",
+        "status": 0
+    },
+    {
+        "name": "NetumboNandindaitwah",
+        "allegiance": "Namibia",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Namibia/NetumboNandindaitwah.png",
+        "status": 0
+    },
+    {
+        "name": "DaltonTagelagi",
+        "allegiance": "Niue",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Niue/DaltonTagelagi.png",
+        "status": 0
+    },
+    {
+        "name": "JoseAntonioKast",
+        "allegiance": "Chile",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Chile/JoseAntonioKast.png",
+        "status": 0
+    },
+    {
+        "name": "DumaBoko",
+        "allegiance": "Botswana",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Botswana/DumaBoko.png",
+        "status": 0
+    },
+    {
+        "name": "SantiagoPena",
+        "allegiance": "Paraguay",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Paraguay/SantiagoPena.png",
+        "status": 0
+    },
+    {
+        "name": "NavinRamgoolam",
+        "allegiance": "Mauritius",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Mauritius/NavinRamgoolam.png",
+        "status": 0
+    },
+    {
+        "name": "FatafehiFakafanua",
+        "allegiance": "Tonga",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 100,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Tonga/FatafehiFakafanua.png",
+        "status": 0
+    },
+    {
+        "name": "JavierMilei",
+        "allegiance": "Argentina",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 100,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Argentina/JavierMilei.png",
+        "status": 0
+    },
+    {
+        "name": "CyrilRamaphosa",
+        "allegiance": "South_africa",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Southafrica/CyrilRamaphosa.png",
+        "status": 0
+    },
+    {
+        "name": "MswatiIii",
+        "allegiance": "Eswatini",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 100,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Eswatini/MswatiIii.png",
+        "status": 0
+    },
+    {
+        "name": "SamMatekane",
+        "allegiance": "Lesotho",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 100,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Lesotho/SamMatekane.png",
+        "status": 0
+    },
+    {
+        "name": "YamanduOrsi",
+        "allegiance": "Uruguay",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 100,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Uruguay/YamanduOrsi.png",
+        "status": 0
+    },
+    {
+        "name": "ChristopherLuxon",
+        "allegiance": "New_zealand",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 0,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Newzealand/ChristopherLuxon.png",
+        "status": 0
+    },
+    {
+        "name": "DenisPushilin",
+        "allegiance": "Donetsk",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 100,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Donetsk/DenisPushilin.png",
+        "status": 0
+    },
+    {
+        "name": "LeonidPasechnik",
+        "allegiance": "Luhansk",
+        "occupation": "Leader",
+        "ideology": [
+            0,
+            0
+        ],
+        "legitimacy": 100,
+        "skills": {},
+        "traits": [],
+        "portrait_path": "res://starts/ModernDay/assets/portraits/Luhansk/LeonidPasechnik.png",
+        "status": 0
+    }
+]

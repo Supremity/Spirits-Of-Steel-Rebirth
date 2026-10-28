@@ -108,7 +108,7 @@ func _on_province_ownership_changed(_pid: int, _old_owner: String, _new_owner: S
 
 
 func think_hour() -> void:
-	if Engine.get_frames_drawn() % (TICK_RATE_WAR if !WarManager.get_enemies_of(country.country_name).is_empty() else TICK_RATE_PEACE) != 0:
+	if Engine.get_frames_drawn() % (TICK_RATE_WAR if !WarManager.has_enemies_of(country.country_name) else TICK_RATE_PEACE) != 0:
 		return
 	
 	_execute_best([
@@ -155,7 +155,7 @@ func _score_war() -> float:
 
 
 func _score_frontline() -> float:
-	if not WarManager.get_enemies_of(country.country_name).is_empty():
+	if not WarManager.has_enemies_of(country.country_name):
 		var deployed_count = 0
 		for troop in TroopManager.get_troops_for_country(country.country_name):
 			deployed_count += troop.divisions_count
@@ -188,7 +188,7 @@ func _execute_train() -> bool:
 		if max_affordable < 1:
 			continue
 			
-		var limit = 20 if !WarManager.get_enemies_of(country.country_name).is_empty() else 10
+		var limit = 20 if !WarManager.has_enemies_of(country.country_name) else 10
 		var train_count = clampi(max_affordable, 1, limit)
 		if country.train_troops(train_count, type):
 			trained_any = true
@@ -476,7 +476,7 @@ func _execute_frontline():
 
 
 func _score_call_to_arms() -> float:
-	if WarManager.get_enemies_of(country.country_name).is_empty():
+	if WarManager.has_enemies_of(country.country_name):
 		return 0.0
 	if country.factions.is_empty():
 		return 0.0
