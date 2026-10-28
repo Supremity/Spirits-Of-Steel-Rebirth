@@ -2,15 +2,7 @@
 	"categories": {
 		"Economy": [
 			{
-				"action": [
-					{
-						"args": [
-							"hourly_money_income",
-							5000.0
-						],
-						"func": "add_country_attr"
-					}
-				],
+				"action": [],
 				"cost_pp": 25,
 				"days": 3,
 				"desc": "Focus the state on basic monetary gain.",
@@ -20,29 +12,8 @@
 					300.0
 				],
 				"prereq": "eco_0",
-				"reqs": [
-					{
-						"args": [
-							{
-								"args": [
-									"China",
-									"India",
-									null
-								],
-								"func": "is_at_war"
-							},
-							{
-								"args": [
-									"Russia",
-									"United_states"
-								],
-								"func": "is_at_war"
-							}
-						],
-						"func": "and"
-					}
-				],
-				"title": "Industrial Effort"
+				"reqs": [],
+				"title": "fish\n"
 			},
 			{
 				"action": [

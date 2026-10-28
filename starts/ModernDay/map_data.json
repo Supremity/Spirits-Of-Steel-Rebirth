@@ -79,9 +79,9 @@
 	],
 	"clock": {
 		"date": {
-			"day": 1,
-			"month": 1,
-			"year": 2010
+			"day": 1.0,
+			"month": 1.0,
+			"year": 2010.0
 		},
 		"hour": 0
 	},
@@ -70344,8 +70344,8 @@
 			"infrastructure": 0,
 			"max_infrastructure": 5,
 			"name": "",
-			"occupier": "",
-			"polity": "Pakistan",
+			"occupier": "Pakistan",
+			"polity": "India",
 			"populations": [
 				{
 					"amount": 11499973,
@@ -70367,7 +70367,7 @@
 			"buildings": [],
 			"city": "",
 			"claims": [],
-			"gdp": 20000,
+			"gdp": 0,
 			"infrastructure": 0,
 			"max_infrastructure": 5,
 			"name": "",
@@ -71447,8 +71447,8 @@
 			"infrastructure": 0,
 			"max_infrastructure": 5,
 			"name": "",
-			"occupier": "",
-			"polity": "Pakistan",
+			"occupier": "Pakistan",
+			"polity": "India",
 			"populations": [
 				{
 					"amount": 11499973,
@@ -71812,8 +71812,8 @@
 			"infrastructure": 0,
 			"max_infrastructure": 5,
 			"name": "",
-			"occupier": "",
-			"polity": "Pakistan",
+			"occupier": "Pakistan",
+			"polity": "India",
 			"populations": [
 				{
 					"amount": 11499973,
@@ -71843,8 +71843,8 @@
 			"infrastructure": 0,
 			"max_infrastructure": 5,
 			"name": "",
-			"occupier": "",
-			"polity": "China",
+			"occupier": "China",
+			"polity": "India",
 			"populations": [
 				{
 					"amount": 10289562,
@@ -71874,8 +71874,8 @@
 			"infrastructure": 0,
 			"max_infrastructure": 5,
 			"name": "",
-			"occupier": "",
-			"polity": "China",
+			"occupier": "China",
+			"polity": "India",
 			"populations": [
 				{
 					"amount": 10289562,
@@ -72131,8 +72131,8 @@
 			"infrastructure": 0,
 			"max_infrastructure": 5,
 			"name": "",
-			"occupier": "",
-			"polity": "Pakistan",
+			"occupier": "Pakistan",
+			"polity": "India",
 			"populations": [
 				{
 					"amount": 11499973,
@@ -72946,8 +72946,8 @@
 			"infrastructure": 0,
 			"max_infrastructure": 5,
 			"name": "",
-			"occupier": "",
-			"polity": "Pakistan",
+			"occupier": "Pakistan",
+			"polity": "India",
 			"populations": [
 				{
 					"amount": 11499973,
@@ -73484,8 +73484,8 @@
 			"infrastructure": 0,
 			"max_infrastructure": 5,
 			"name": "",
-			"occupier": "",
-			"polity": "Pakistan",
+			"occupier": "Pakistan",
+			"polity": "India",
 			"populations": [
 				{
 					"amount": 11499973,
@@ -73510,11 +73510,11 @@
 				"India",
 				"Pakistan"
 			],
-			"gdp": 5000,
+			"gdp": 0,
 			"infrastructure": 0,
 			"max_infrastructure": 5,
 			"name": "",
-			"occupier": "",
+			"occupier": "China",
 			"polity": "India",
 			"populations": [
 				{
@@ -73837,11 +73837,11 @@
 				"India",
 				"Pakistan"
 			],
-			"gdp": 5000,
+			"gdp": 0,
 			"infrastructure": 0,
 			"max_infrastructure": 5,
 			"name": "",
-			"occupier": "",
+			"occupier": "China",
 			"polity": "India",
 			"populations": [
 				{
@@ -74512,8 +74512,8 @@
 			"infrastructure": 0,
 			"max_infrastructure": 5,
 			"name": "",
-			"occupier": "",
-			"polity": "Pakistan",
+			"occupier": "Pakistan",
+			"polity": "India",
 			"populations": [
 				{
 					"amount": 11499973,
@@ -74568,11 +74568,11 @@
 				"India",
 				"Pakistan"
 			],
-			"gdp": 5000,
+			"gdp": 0,
 			"infrastructure": 0,
 			"max_infrastructure": 5,
 			"name": "",
-			"occupier": "",
+			"occupier": "China",
 			"polity": "India",
 			"populations": [
 				{
@@ -75044,11 +75044,11 @@
 				"India",
 				"Pakistan"
 			],
-			"gdp": 5000,
+			"gdp": 0,
 			"infrastructure": 0,
 			"max_infrastructure": 5,
 			"name": "",
-			"occupier": "",
+			"occupier": "China",
 			"polity": "India",
 			"populations": [
 				{
@@ -75432,7 +75432,7 @@
 			"infrastructure": 0,
 			"max_infrastructure": 5,
 			"name": "",
-			"occupier": "",
+			"occupier": "China",
 			"polity": "India",
 			"populations": [
 				{
@@ -120780,9 +120780,7 @@
 			"name": "VladimirPutin",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/Russia/VladimirPutin.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -120796,9 +120794,7 @@
 			"name": "UrNammu",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -120812,9 +120808,7 @@
 			"name": "BenitoMussolini",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -120828,9 +120822,7 @@
 			"name": "DaleyJohnOttersbach",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -120844,9 +120836,7 @@
 			"name": "DonaldJohnTrump",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/UnitedStates/DonaldJohnTrump.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -120860,9 +120850,7 @@
 			"name": "JaneAustenCassandra",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -120876,9 +120864,7 @@
 			"name": "YukawaHideki",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -120892,9 +120878,7 @@
 			"name": "ChevalierDEon",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -120908,9 +120892,7 @@
 			"name": "TrofimLysenko",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -120924,9 +120906,7 @@
 			"name": "AlexanderLukashenko",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/Belarus/AlexanderLukashenko.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -120940,9 +120920,7 @@
 			"name": "JoshPaulraj",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -120956,9 +120934,7 @@
 			"name": "XiJinping",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/China/XiJinping.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -120972,9 +120948,7 @@
 			"name": "VolodymyrZelenskyy",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/Ukraine/VolodymyrZelenskyy.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -120988,9 +120962,7 @@
 			"name": "BenjaminFranklin",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121004,9 +120976,7 @@
 			"name": "Netanyahu",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/Israel/Netanyahu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121020,9 +120990,7 @@
 			"name": "EaulpassingEuthoildyxuilm",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121036,9 +121004,7 @@
 			"name": "AistreanuoschausiuswOesplaytwouEatragreippeerpoo",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121052,9 +121018,7 @@
 			"name": "EoldialiolpEethroisplauss",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121068,9 +121032,7 @@
 			"name": "JonasGahrStore",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/Norway/JonasGahrStore.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121084,9 +121046,7 @@
 			"name": "UolkybRmeeneasloSirlio",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121100,9 +121060,7 @@
 			"name": "IuffypteociudrauphauspaiqQuuylayAezzuouboygraps",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121116,9 +121074,7 @@
 			"name": "EurmaewhiagaskoystaynkucuoSlioughoistreummaextiuIrpou",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121132,9 +121088,7 @@
 			"name": "OastiouleazearluossuyskiJuolpaeddaurpRguounkeesheudwoesprustai",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121148,9 +121102,7 @@
 			"name": "Keir_Starmer",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/UnitedKingdom/Keir_Starmer.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121164,9 +121116,7 @@
 			"name": "IouyiSmuiphiold",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121180,9 +121130,7 @@
 			"name": "UokkailgSpaydweo",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121196,9 +121144,7 @@
 			"name": "IastriekoikaischasheackIoukooshuirkaispruybioflioOangiastaugguoskei",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121212,9 +121158,7 @@
 			"name": "HafrosmayckauckeeshaoflyflRduexteessoosk",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121228,9 +121172,7 @@
 			"name": "BbauyaestriaghtuophaulmeormLduoulkiawoedwiurleyrduygoomm",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121244,9 +121186,7 @@
 			"name": "FriedrichMerz",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/Germany/FriedrichMerz.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121260,9 +121200,7 @@
 			"name": "ThruirgeibiEingoacAerpeecceaunesouptientoe",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121276,9 +121214,7 @@
 			"name": "UybruikounoylpAuscoiduantuizzaowaygoeOynuythruyguefoigliaskoe",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121292,9 +121228,7 @@
 			"name": "DdiangoofuakroysnudwIastrouggunteikkaebraukkNtospoortoeschucciu",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121308,9 +121242,7 @@
 			"name": "TchaengyrdaoshuaboaptRpuouddaocceyccuoccaushAygruj",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121324,9 +121256,7 @@
 			"name": "GeevUykkyschuflierpoowriStruedrountyrgay",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121340,9 +121270,7 @@
 			"name": "OedheattaoldiaflompiowhUavi",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121356,9 +121284,7 @@
 			"name": "EmmanuelMacron",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/France/EmmanuelMacron.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121372,9 +121298,7 @@
 			"name": "StroesweauDdoynniolkeawhaisk",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121388,9 +121312,7 @@
 			"name": "EyttualmoimpyffRkuihioulmaestriupeorkeaupiouCeazzuofuadwoo",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121404,9 +121326,7 @@
 			"name": "AwhuyEultoyxteiRlourmeaulgui",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121420,9 +121340,7 @@
 			"name": "UitaixteikkeesproerruyzEozzaoppoorkeetcheepreyrdea",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121436,9 +121354,7 @@
 			"name": "EmmuiskiaghoystroommyttaoldSluouyeygayhooghtiaghaytheauTweaxefluybiu",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121452,9 +121368,7 @@
 			"name": "KkeulymoyntaopuapeygleyBlioulmoocc",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121468,9 +121382,7 @@
 			"name": "NylgiouHeespleaurroiplympoantiuxteiEodwau",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121484,9 +121396,7 @@
 			"name": "AutruzzuesplynnuabyluikkIulaorraudheoffaymmNneibriou",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121500,9 +121410,7 @@
 			"name": "EvuouwreyluodwuyUorkeihoelmUaquayciuxiormeiceimmio",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121516,9 +121424,7 @@
 			"name": "EbbylaorkoeghtourlEikkeytruyglaipoislylm",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121532,9 +121438,7 @@
 			"name": "EaustaulmioufeasoampuittaiUequoschoytwulkuallaeUougreekea",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121548,9 +121452,7 @@
 			"name": "YdueckouvadruytrOulpuowoippiampymEauspaoli",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121564,9 +121466,7 @@
 			"name": "LpaozzeynkeuwOeyoltuouvirguascoyzzais",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121580,9 +121480,7 @@
 			"name": "UoutchoybluardoangielmioswuweoXteobroikreoscee",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121596,9 +121494,7 @@
 			"name": "AnnoyzUeflilpaollaip",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121612,9 +121508,7 @@
 			"name": "GhtoyrkoogroantooggeessouxuoIelpoetruofloirpoytrShaossuilaytaidwuy",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121628,9 +121522,7 @@
 			"name": "SanaeTakaichi",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/Japan/SanaeTakaichi.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121644,9 +121536,7 @@
 			"name": "EytwuaquayseiRliggiruarpyqueujempauStreuxteildappeistroustaybreausc",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121660,9 +121550,7 @@
 			"name": "PedroSanchez",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/Spain/PedroSanchez.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121676,9 +121564,7 @@
 			"name": "IughtaeyoutriawuOeptuosmuykioUajue",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121692,9 +121578,7 @@
 			"name": "TcholeequaozugreaucciadwEartoiLdiouvokuyjiongeyxtoinkuy",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121708,9 +121592,7 @@
 			"name": "EolpauptogreestruistOugeijotrUagguazistiexaurteullupr",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121724,9 +121606,7 @@
 			"name": "AsweaustriuPheyppeequeascuaxtimmuscutr",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121740,9 +121620,7 @@
 			"name": "ScioupriabeonnoeggLkultuelteaskeorg",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121756,9 +121634,7 @@
 			"name": "TruehoxaetwaiswouknoyffNkouwrOaspreulkuefeaseauthroascayck",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121772,9 +121648,7 @@
 			"name": "LpiaroafyYnnoudeoswiaz",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121788,9 +121662,7 @@
 			"name": "AydaunuoggOazzadhuadheelpeyrgoyPyghaywhaelkyffuatoup",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121804,9 +121676,7 @@
 			"name": "OotchongealdaidwuounteypluiRuoureeUelgeulv",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121820,9 +121690,7 @@
 			"name": "UoffefaoZuowiasprablupreau",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121836,9 +121704,7 @@
 			"name": "KimJongUn",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/NorthKorea/KimJongUn.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121852,9 +121718,7 @@
 			"name": "GloelluobloympeydraiCkiephoybroingJaummao",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121868,9 +121732,7 @@
 			"name": "AequorliuhuoustriodwSceippeybloeAfrefrioulm",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121884,9 +121746,7 @@
 			"name": "ArgouprKiashouLmoykkurrempiujayj",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121900,9 +121760,7 @@
 			"name": "EaumpoildairguouchannIsciudhRdiotraeviolteeprou",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121916,9 +121774,7 @@
 			"name": "TtoospEautchaikoafoplualizou",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121932,9 +121788,7 @@
 			"name": "OglanetcheuxteasoesyplioEewreoploiphyblaerdioSmifleaustroadw",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121948,9 +121802,7 @@
 			"name": "EeppoulmeeHiowharluwhoykkeyrdeaup",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121964,9 +121816,7 @@
 			"name": "RmiusplayZziaspleyscaggyfl",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121980,9 +121830,7 @@
 			"name": "OangeaulpaischiarkeauwhusheegRkeuggaiziggaospioulgKnioussuyppietchaesnui",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -121996,9 +121844,7 @@
 			"name": "OesmauDhooddeinaspregluifeot",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122012,9 +121858,7 @@
 			"name": "OirlaibriourraeblThaeghiYydwoybraptuadrou",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122028,9 +121872,7 @@
 			"name": "LeeJaeMyung",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/SouthKorea/LeeJaeMyung.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122044,9 +121886,7 @@
 			"name": "OogloarpaurmayploeplokniBbaottuoultauspreemuoujoeph",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122060,9 +121900,7 @@
 			"name": "AstoyrduipsaorduonnuedhiuSeukroakkoeghtoufleyschoiqu",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122076,9 +121914,7 @@
 			"name": "OobuiwroiOermoethreostruoLgiuggoatch",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122092,9 +121928,7 @@
 			"name": "MmoynteychiesteyruykkIacusploelgidr",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122108,9 +121942,7 @@
 			"name": "PpiaxtiuSceauruycuabroosneyrleontoabIuyiedruiddeo",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122124,9 +121956,7 @@
 			"name": "MohammedBenElHassan",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/Morocco/MohammedBenElHassan.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122140,9 +121970,7 @@
 			"name": "AezzalvoyssasteaSchiourm",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122156,9 +121984,7 @@
 			"name": "OuthroinkarmuoubrProodraoluikniulkEempakn",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122172,9 +121998,7 @@
 			"name": "NarendraModi",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/India/NarendraModi.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122188,9 +122012,7 @@
 			"name": "SchoengQouthrasmuSlaefrikkodouthreubroahuy",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122204,9 +122026,7 @@
 			"name": "LveoscaompoikkedreespraoAixoymeeckeuspreafrioudoujee",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122220,9 +122040,7 @@
 			"name": "PhuoupUispreiseaulkouppiouduyskottSkeisseausluoulkuyghuefee",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122236,9 +122054,7 @@
 			"name": "BenjaminNetanyahu",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/BenjaminNetanyahu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122252,9 +122068,7 @@
 			"name": "ClaudiaSheinbaumPardo",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/Mexico/ClaudiaSheinbaumPardo.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122268,9 +122082,7 @@
 			"name": "MohammedBinSalman",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/SaudiArabia/MohammedBinSalman.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122284,9 +122096,7 @@
 			"name": "EostoyrdeuffeubrayrgakaiWralpoipsayjerpiuj",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122300,9 +122110,7 @@
 			"name": "RgaoghootraypsRuackadwioukioudaurreyTwyrguigiuwoychaemeosceo",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122316,9 +122124,7 @@
 			"name": "AoroeplybeisloeAilveejioyeySiakeau",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122332,9 +122138,7 @@
 			"name": "RmoazeaufrutwioupleylvoelgaexRleiforpualoasyflulmuemmTreyhiu",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122348,9 +122152,7 @@
 			"name": "UepeedriukoeryOunkuisloystreisuefiffou",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122364,9 +122166,7 @@
 			"name": "IastruarguarrDouvoy",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122380,9 +122180,7 @@
 			"name": "OytyldPpaiswegg",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122396,9 +122194,7 @@
 			"name": "OusproolkaugeolduagheirkAsmuiltuysployreirmei",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122412,9 +122208,7 @@
 			"name": "LtiurperUdhouboyflionneucc",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122428,9 +122222,7 @@
 			"name": "EipruyslippuoutrieckeakeauOrdeylmialveampyppaipabrau",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122444,9 +122236,7 @@
 			"name": "CceolmoaghiejoIuruemmeuspluorEywruypsoodhioutchuecuourrie",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122460,9 +122250,7 @@
 			"name": "AippemmuountuoulkoigryviouUibroyptuckeaudwuplualdieIoddugrerdeasuoffoegrouy",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122476,9 +122264,7 @@
 			"name": "AspluobonurryflazTrioltoslieproppisleelpoispr",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122492,9 +122278,7 @@
 			"name": "TchoungonnIuhuespreinealpoirkOofleilmueskaunkeuffuytuy",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122508,9 +122292,7 @@
 			"name": "IokkairluiphuyzziphoubbAeldeiffaiwCheufoiwhouphiuthygeasci",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122524,9 +122306,7 @@
 			"name": "YrloelmaidweoqEaskiadwauckiouldou",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122540,9 +122320,7 @@
 			"name": "UoxtuouOothreulpiourriaffaupseuz",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122556,9 +122334,7 @@
 			"name": "TufrustuodrioyaulmuolpeeflEtelkioddeaurkLpeauteypteyd",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122572,9 +122348,7 @@
 			"name": "FaerruoultoldyrySliurtuylvixeyrrioccou",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122588,9 +122362,7 @@
 			"name": "IourdaeghtuybbNkealuppiergoastiekk",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122604,9 +122376,7 @@
 			"name": "OrkialgeaurrooschoadhTchuelpagitriesmeenteRkaevayraegrouspaokkuaknobb",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122620,9 +122390,7 @@
 			"name": "TroepRdeaheaulpeotweortuycOspaongaofruasnee",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122636,9 +122404,7 @@
 			"name": "NgienkuygrelgRmaixtiwoskeuxeuckOmieschoetheyplyknaobbiathuo",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122652,9 +122418,7 @@
 			"name": "EukraufuycoaOaffuoubriacEeschoebinoeffuoudhayrpeau",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122668,9 +122432,7 @@
 			"name": "GreapruwoyrreughEzziofoypOusto",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122684,9 +122446,7 @@
 			"name": "PhayxuespruaglosaebruinnUebrueskeelduitaizzussientAutaoroexoergukniarpee",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122700,9 +122460,7 @@
 			"name": "QoedaethreipleelkialgoyGhtiarruympilmuigaipheu",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122716,9 +122474,7 @@
 			"name": "GgesmoashieffuouEermoi",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122732,9 +122488,7 @@
 			"name": "OasplealpeaudwaytchAigruytcheispreariakoYsuystust",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122748,9 +122502,7 @@
 			"name": "EobrayquuazzoirlorgAospiothruirkuywuoufriorka",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122764,9 +122516,7 @@
 			"name": "KkeelpoiflixiouAojynkeysouFadhuik",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122780,9 +122530,7 @@
 			"name": "RgaesmiesliosliespluoucheyqXiofruydruibbausloeryCcunkiouknaosm",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122796,9 +122544,7 @@
 			"name": "EdroampoibloentiettualdobbeUerlieskiaschaeshufeasch",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122812,9 +122558,7 @@
 			"name": "IouppiuWoukruoudaeheauxtiakneldiou",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122828,9 +122572,7 @@
 			"name": "IbrahimTraore",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/BurkinaFaso/IbrahimTraore.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122844,9 +122586,7 @@
 			"name": "ZeuccooquyfoelpieLtoackae",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122860,9 +122600,7 @@
 			"name": "KruygloaskeadweadhAystygroylgelkoepieqay",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122876,9 +122614,7 @@
 			"name": "SweorruppaghiertoalliTweawassuasniolkoyguakriaSchoozziuziu",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122892,9 +122628,7 @@
 			"name": "RraigeedassailtiffTreuzzuiffiouhiouldeauppoe",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122908,9 +122642,7 @@
 			"name": "EekoytwiothuatuepoaOapleostaidraeckuyflBezzioldeyphynteekiogipr",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122924,9 +122656,7 @@
 			"name": "UourleyduegholdoozzuountMmuigreyIushiugoa",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122940,9 +122670,7 @@
 			"name": "EaproasprouldolkDeeh",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122956,9 +122684,7 @@
 			"name": "TraoweoghyblEaskeequoUestuywruybbiawrue",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122972,9 +122698,7 @@
 			"name": "UouspreyeskaiviolpiouNuiggaontuoutteintaughuidr",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -122988,9 +122712,7 @@
 			"name": "OipseexaypleauzexAlliungeyrraonaormFiemmau",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123004,9 +122726,7 @@
 			"name": "UoucheauskikkoukkarmippoyrlYauvuef",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123020,9 +122740,7 @@
 			"name": "KreapoeshialviextueScuisneephoybre",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123036,9 +122754,7 @@
 			"name": "TteaspruypheyTchoottaydd",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123052,9 +122768,7 @@
 			"name": "ScoistaextiapaebuoumyEofriuxoustreyssuepuifruiy",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123068,9 +122782,7 @@
 			"name": "AossoirgXeidhoalvippaeghteiriorkieltMuockiubbeyffioussayxitr",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123084,9 +122796,7 @@
 			"name": "AybieEocinkuout",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123100,9 +122810,7 @@
 			"name": "IablaequiophaythouciolvoiqAocheesseaukeiquuedai",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123116,9 +122824,7 @@
 			"name": "XtuextuolmQiejoypezzodduoudwoy",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123132,9 +122838,7 @@
 			"name": "VeadruoustoyfoiyiurgoeRguydraquaesw",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123148,9 +122852,7 @@
 			"name": "PluapruolmKnoyldiurpadduyLteausplauvastrao",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123164,9 +122866,7 @@
 			"name": "NtiogguerpauprioxuingeaIefreaumpihiacciarmittoanneyPriespr",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123180,9 +122880,7 @@
 			"name": "AotchuiyetchykkuompoaccScioultiebliezee",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123196,9 +122894,7 @@
 			"name": "OuroordoukkuoSkipsoafrairdeeSeoplapreubleyskiarde",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123212,9 +122908,7 @@
 			"name": "UotwaknoiApseolteuccoipl",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123228,9 +122922,7 @@
 			"name": "PreentIennuayeauwievoe",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123244,9 +122936,7 @@
 			"name": "UouffueSceylmuzaiYrmae",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123260,9 +122950,7 @@
 			"name": "AnosniormuohuyBbiawhooffeantuascheeld",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123276,9 +122964,7 @@
 			"name": "PysmioussNkaerm",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123292,9 +122978,7 @@
 			"name": "FfaoxtuydwReecua",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123308,9 +122992,7 @@
 			"name": "ZzuschiokniuccuyPsoerkeutrioumpiarluofr",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123324,9 +123006,7 @@
 			"name": "RoirgauwhiafruildoawhaAoneilluyleylgounn",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123340,9 +123020,7 @@
 			"name": "LviethreirpeecyngooschoithreiOegguadhiouckiouphyrroi",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123356,9 +123034,7 @@
 			"name": "AopteauckaurkaermelveadwaedruaVaorpiuscousleontaifoi",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123372,9 +123048,7 @@
 			"name": "AifleinkeelmoirdeuddiouEighiousceebuourleiddu",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123388,9 +123062,7 @@
 			"name": "OilpuocizeaupliutheuphoyglCciouppeauph",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123404,9 +123076,7 @@
 			"name": "IouyoyEedhipeolv",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123420,9 +123090,7 @@
 			"name": "IrmouptiaPsayspleaummeauntooccoe",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123436,9 +123104,7 @@
 			"name": "LuizInacioLulaDaSilva",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/Brazil/LuizInacioLulaDaSilva.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123452,9 +123118,7 @@
 			"name": "IusythofEathraetruynneammebbay",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123468,9 +123132,7 @@
 			"name": "AifrieriourRtuouwuoptoaptioSplaytuounnuyshafroirtoo",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123484,9 +123146,7 @@
 			"name": "UywhybraokkoosEoxysnaulloeffauRdiohaemmeiyiappinuablao",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123500,9 +123160,7 @@
 			"name": "PriupeeIouptyhaeskeadLmousmeimpoirdau",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123516,9 +123174,7 @@
 			"name": "KkiuwayngoeffeEpluidweermoeslilpockaij",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123532,9 +123188,7 @@
 			"name": "WibraezeudwuiknElvuoustroomp",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123548,9 +123202,7 @@
 			"name": "OinkeybluyrrougroatwOigrairmaemmoaffoejaennaetteuOiwriustioroy",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123564,9 +123216,7 @@
 			"name": "KroyskayfuoLpioffaogaumm",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123580,9 +123230,7 @@
 			"name": "IourruydruahaurmoephaeIafluongiephiazzermuouhiu",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123596,9 +123244,7 @@
 			"name": "EaulpeathiuwhouswoangoutriEystuaRpuopleurgoysmyslio",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123612,9 +123258,7 @@
 			"name": "EuntiouAothruidhaepoestruahuouFleaurmuardoull",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123628,9 +123272,7 @@
 			"name": "LlueltoadweiptLairtoyccayyeu",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123644,9 +123286,7 @@
 			"name": "IarmeIoknuequosme",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123660,9 +123300,7 @@
 			"name": "NkaulmeorgormethrathackEauflioumetruykkaerIowearliuvoafr",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123676,9 +123314,7 @@
 			"name": "IghiopruerkeespluippayGiepl",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123692,9 +123328,7 @@
 			"name": "RmeaswybbeEilaeraytraubboasprieddioqGlauptodheipreilp",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123708,9 +123342,7 @@
 			"name": "IesloiduffirkeyzuevuysooThoiltiachestight",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123724,9 +123356,7 @@
 			"name": "AetchuyluihOefretruarreupteappioutwaeOikaurdoutteaprusleaulvicc",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123740,9 +123370,7 @@
 			"name": "EaubriompaybloazzeaurmoickUlvailpMaelvooquifeegucialtiou",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123756,9 +123384,7 @@
 			"name": "AobbuawhaikraoEaudwoiblZauppuaspoobbuikkoaspraytr",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123772,9 +123398,7 @@
 			"name": "XuaccoefloaccQuuouddyrruyldableovuabruouph",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123788,9 +123412,7 @@
 			"name": "AughoestryrpeoEdwykrioudeauldeyponiurrou",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123804,9 +123426,7 @@
 			"name": "LkaungaommiumpaycoknIabethyjuashayryruiSmailmasploaltyslaowrionuo",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123820,9 +123440,7 @@
 			"name": "RruobouqeithriutuylpeuscheauReexteeccautroeshaoknayswOepaeccoiboeffauscheiv",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123836,9 +123454,7 @@
 			"name": "AzzaepsiouccoykraezzuetweighoTrayo",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123852,9 +123468,7 @@
 			"name": "EegloeschiaZzuesluybbyrluousw",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123868,9 +123482,7 @@
 			"name": "NgeentiurgiattykriUouyuy",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123884,9 +123496,7 @@
 			"name": "GavGrub",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/Zimbabwe/GavGrub.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123900,9 +123510,7 @@
 			"name": "LdiouxyknaorkyOalpaibboibuinkuepluadweent",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123916,9 +123524,7 @@
 			"name": "EurmueskischyflioshStriudreopsilmophOwoirmostreu",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123932,9 +123538,7 @@
 			"name": "AirkoaproutwuiveaAurtacathimauschoosseimmuyNuogloeslooxtoilgoeggeaull",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123948,9 +123552,7 @@
 			"name": "LgoidwiompiostraoEycheiseerpul",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123964,9 +123566,7 @@
 			"name": "OutrauzooYaoccoewulvAchiourgouspl",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123980,9 +123580,7 @@
 			"name": "AuscuougialkiorrairgeilgiouquXtierduyrguordioubbea",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -123996,9 +123594,7 @@
 			"name": "OeltaedwiogruyyounEeckaird",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -124012,9 +123608,7 @@
 			"name": "OarkueghaikuouTwiuwrayglioulootroascSpliouspl",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -124028,9 +123622,7 @@
 			"name": "RgierdairtaywrokkuischiOaphuouswuophotwaextuoMmuermynkuogayghtypl",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -124044,9 +123636,7 @@
 			"name": "NgoirgoyrtouckiougleiknaEyptaynnuep",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -124060,9 +123650,7 @@
 			"name": "RmuoubeauchaethyppeiplAveylkio",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -124076,9 +123664,7 @@
 			"name": "XtaysteaupreaxuabeylUoultoipoyswaylm",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -124092,9 +123678,7 @@
 			"name": "EatchoedweoppiupeypsorraythStuopreermuaghteauTaeck",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -124108,9 +123692,7 @@
 			"name": "AyghaidhieveiAurgierdyjaolveoghturdathuaGluamuit",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -124124,9 +123706,7 @@
 			"name": "OelpuyEafrutriesmoaghtorruextoefSleiscuyrpeaustei",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -124140,9 +123720,7 @@
 			"name": "OyspreythreimpOaglieMpempeauspang",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		},
@@ -124156,9 +123734,7 @@
 			"name": "PokaessiettiouryAugleauxteerkoyAygrioulteoffoelmuis",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
-			"skills": {
-
-			},
+			"skills": {},
 			"status": 0,
 			"traits": []
 		}

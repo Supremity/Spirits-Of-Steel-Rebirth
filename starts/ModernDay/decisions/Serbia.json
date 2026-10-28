@@ -1,0 +1,89 @@
+{
+	"categories": {
+		"Military": [
+			{
+				"action": [],
+				"cost_pp": 25.0,
+				"days": 20.0,
+				"desc": "",
+				"id": "Military_2#87",
+				"pos": [
+					500.0,
+					300.0
+				],
+				"prereq": [
+					"Military_3#15"
+				],
+				"reqs": [],
+				"title": "Invade Bosnia"
+			},
+			{
+				"action": [
+					{
+						"args": [
+							"Serbia",
+							"Kosovo"
+						],
+						"func": "declare_war"
+					}
+				],
+				"cost_pp": 25.0,
+				"days": 20.0,
+				"desc": "",
+				"id": "Military_3#15",
+				"pos": [
+					200.0,
+					300.0
+				],
+				"reqs": [],
+				"title": "Invade Kosovo"
+			}
+		],
+		"Political": [
+			{
+				"action": [
+					{
+						"args": [
+							"Serbia",
+							"commie",
+							{
+								"drift_amount": 10.0,
+								"final_position": [
+									50.0,
+									50.0
+								]
+							}
+						],
+						"func": "add_ideology_drift"
+					}
+				],
+				"cost_pp": 25.0,
+				"days": 20.0,
+				"desc": "",
+				"id": "Political_0#65",
+				"pos": [
+					200.0,
+					300.0
+				],
+				"reqs": [],
+				"title": "Bring Back Yugoslavia"
+			},
+			{
+				"action": [],
+				"cost_pp": 25,
+				"days": 20,
+				"desc": "",
+				"id": "Political_1#61",
+				"pos": [
+					550.0,
+					300.0
+				],
+				"prereq": [
+					"Political_0#65"
+				],
+				"reqs": [],
+				"title": "Join CSTO"
+			}
+		]
+	}
+}

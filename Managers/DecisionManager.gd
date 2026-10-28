@@ -1,57 +1,67 @@
 extends Node
 # Autoload Name: DecisionManager
 
-# var categories: Dictionary = {}  <-- REMOVED
+const ROOT_DEFAULT_PATH := "res://decisions/default.json"
+
 var default_categories: Dictionary = {}
 var country_decisions_map: Dictionary = {} # { "China": { "Economy": [...] } }
-var country_file_paths: Dictionary = {} # { "Germany": "res://decisions/Germany.json" }
+var country_file_paths: Dictionary = {} # { "Germany": "res://starts/ModernDay/decisions/Germany.json" }
+var current_base_path: String = "" # Decisions folder of the loaded start
 
 var active_decisions: Dictionary = {} # { "Germany": { "eco_1": 5 } }
 var ui_overlay = null
 var debug: bool = false
 
 
-func _ready():
-	_load_decisions("res://decisions/")
-
-
+# Decisions are only loaded from a start's folder (see StartEntry / World).
 func load_decisions_from_path(base_path: String):
-	if not base_path.ends_with("/"):
-		base_path += "/"
 	_load_decisions(base_path)
 
 
 func _load_decisions(base_path: String):
+	if not base_path.ends_with("/"):
+		base_path += "/"
+	current_base_path = base_path
+
 	# Clear existing data before loading new ones
 	default_categories.clear()
 	country_decisions_map.clear()
-	
-	# 1. Load Default
+	country_file_paths.clear()
+
+	# 1. Load Default: start's default.json, else the root default.json
 	var default_path = base_path + "default.json"
-	if FileAccess.file_exists(default_path):
-		var default_text = FileAccess.get_file_as_string(default_path)
-		if default_text:
-			default_categories = JSON.parse_string(default_text).get("categories", {})
-			country_file_paths["_default"] = default_path
-	
+	if not FileAccess.file_exists(default_path):
+		default_path = ROOT_DEFAULT_PATH
+	var default_json = _read_json(default_path)
+	if default_json is Dictionary:
+		default_categories = default_json.get("categories", {})
+		country_file_paths["_default"] = default_path
+
 	# 2. Load Country Specific
 	var dir = DirAccess.open(base_path)
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if not dir.current_is_dir() and file_name.ends_with(".json") \
-				and file_name != "default.json":
-				var country_key = file_name.replace(".json", "")
-				
-				var content = FileAccess.get_file_as_string(base_path + file_name)
-				var json = JSON.parse_string(content)
-				if json and json.has("categories"):
-					country_decisions_map[country_key] = json["categories"]
-					country_file_paths[country_key] = base_path + file_name
-				print(country_key)
-			
-			file_name = dir.get_next()
+	if not dir:
+		return
+	dir.list_dir_begin()
+	var file_name = dir.get_next()
+	while file_name != "":
+		if not dir.current_is_dir() and file_name.ends_with(".json") \
+			and file_name != "default.json":
+			var country_key = file_name.trim_suffix(".json")
+			var json = _read_json(base_path + file_name)
+			if json is Dictionary and json.has("categories"):
+				country_decisions_map[country_key] = json["categories"]
+				country_file_paths[country_key] = base_path + file_name
+		file_name = dir.get_next()
+	dir.list_dir_end()
+
+
+func _read_json(path: String):
+	if not FileAccess.file_exists(path):
+		return null
+	var text = FileAccess.get_file_as_string(path)
+	if text.is_empty():
+		return null
+	return JSON.parse_string(text)
 
 
 func get_country_categories(country_name: String) -> Dictionary:
@@ -65,11 +75,11 @@ func get_country_categories_editable(country_name: String) -> Dictionary:
 		for cat_name in default_categories.keys():
 			copied_cats[cat_name] = default_categories[cat_name].duplicate(true)
 		country_decisions_map[country_name] = copied_cats
-		
-		# Set a default save path if none exists
+
+		# New country trees are saved next to the start's other decisions
 		if not country_file_paths.has(country_name):
-			country_file_paths[country_name] = "res://decisions/" + country_name + ".json"
-			
+			country_file_paths[country_name] = current_base_path + country_name + ".json"
+
 	return country_decisions_map[country_name]
 
 

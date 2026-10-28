@@ -56,6 +56,7 @@ var _is_loading_expr: bool = false
 
 func _ready():
 	DecisionManager.ui_overlay = self
+	edit_button.visible = DecisionManager.debug
 	_on_edit_mode_toggled(false)
 	tabs_container.tab_changed.connect(_on_tab_changed)
 
@@ -121,9 +122,11 @@ func open_menu():
 	_rebuild_tabs()
 	_load_category(current_category)
 	GameState.decision_menu_open = true
+	# Editing is only available in debug mode
 	edit_button.visible = DecisionManager.debug
 	if not DecisionManager.debug:
-		_on_edit_mode_toggled(false)
+		edit_button.set_pressed_no_signal(false)
+	_on_edit_mode_toggled(edit_button.button_pressed)
 	_toggle_pause(true)
 
 
@@ -487,13 +490,16 @@ func _on_reload_decisions_pressed():
 
 
 func _on_edit_mode_toggled(toggled_on: bool):
-	edit_mode = !toggled_on
-	editing_buttons.visible = !toggled_on
-	
-	if info_tab:
-		info_tab.current_tab = 0 if toggled_on else 1
+	edit_mode = toggled_on and DecisionManager.debug
+	editing_buttons.visible = edit_mode
 
-	if not toggled_on:
+	if info_tab:
+		info_tab.current_tab = 1 if edit_mode else 0
+
+	if not edit_mode:
+		dragging_node = null
+		if edit_function.button_pressed:
+			edit_function.button_pressed = false # Hides the expression editor
 		selected_decision = {}
 		selected_node_btn = null
 		edit_label.text = ""
