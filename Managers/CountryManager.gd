@@ -260,6 +260,7 @@ func cleanup_empty_countries() -> void:
 			
 			MapManager.country_to_provinces.erase(c_name)
 			MapManager.country_to_occupied_provinces.erase(c_name)
+			MapManager.country_to_rightful_provinces.erase(c_name)
 			MapManager.country_to_owned_provinces.erase(c_name)
 			countries.erase(c_name)
 			countryNames.erase(c_name)

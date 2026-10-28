@@ -23,10 +23,10 @@ var max_province_id: int = 0
 var ethnic_name_to_color: Dictionary = {}
 var gdp_map: Dictionary = {}
 
-var province_to_country: Dictionary[int, String] = {}
 var country_to_provinces: Dictionary = {}
 var country_to_owned_provinces: Dictionary = {}
 var country_to_occupied_provinces: Dictionary = {}
+var country_to_rightful_provinces: Dictionary = {}
 var country_to_cities: Dictionary[String, Array] = {}
 var province_objects: Dictionary[int, Province] = {}
 
@@ -122,7 +122,6 @@ func _clear_internal_data() -> void:
 	all_cities.clear()
 	unique_regions.clear()
 	province_objects.clear()
-	province_to_country.clear()
 	country_to_provinces.clear()
 	country_to_owned_provinces.clear()
 	country_to_occupied_provinces.clear()
@@ -302,6 +301,7 @@ func _build_country_to_provinces():
 	var result: Dictionary = {}
 	var owned: Dictionary = {}
 	var occupied: Dictionary = {}
+	var rightful: Dictionary = {}
 	var cities: Dictionary[String, Array] = {}
 
 	for pid in province_objects.keys():
@@ -312,6 +312,7 @@ func _build_country_to_provinces():
 			result[country] = []
 			owned[country] = []
 			occupied[country] = []
+			rightful[country] = []
 			cities[country] = []
 		
 		owned[country].append(pid)
@@ -320,10 +321,12 @@ func _build_country_to_provinces():
 				result[occupier] = []
 				owned[occupier] = []
 				occupied[occupier] = []
+				rightful[occupier] = []
 				cities[occupier] = []
 			
 			result[occupier].append(pid)
 			occupied[occupier].append(pid)
+			rightful[country].append(pid)
 			if province_objects[pid].city != "":
 				cities[occupier].append(pid)
 		else:
@@ -335,6 +338,7 @@ func _build_country_to_provinces():
 	allowed_pids = result.duplicate()
 	country_to_owned_provinces = owned
 	country_to_occupied_provinces = occupied
+	country_to_rightful_provinces = rightful
 	country_to_cities = cities
 	return
 
@@ -447,9 +451,9 @@ func handle_hover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 		GameState.tooltip.SwitchTooltip(-1)
 		if GameState.selectingCountry:
 			if last_hovered_pid > 1 && hoveredCountry != "Sea" && country_to_provinces.has(hoveredCountry):
-				original_hover_color = CountryManager.countries[hoveredCountry].country_color
+				original_hover_color = GetCountryDisplayColor(hoveredCountry)
 				for province in country_to_provinces[hoveredCountry]:
-					update_lookup(province, original_hover_color, CountryManager.countries[province_objects[province].GetFunctionalOwner()].country_color)
+					update_lookup(province, original_hover_color, GetCountryDisplayColor(province_objects[province].GetFunctionalOwner()))
 			last_hovered_pid = -1
 		else:
 			_reset_last_hover()
@@ -471,18 +475,28 @@ func handle_hover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 				if pid > 1 and highlight_color != Color.TRANSPARENT:
 					if hoveredCountry != province_objects[pid].country:
 						if hoveredCountry != "Sea" && country_to_provinces.has(hoveredCountry):
-							original_hover_color = CountryManager.countries[hoveredCountry].country_color
-							for province in country_to_provinces[hoveredCountry]:
-								update_lookup(province, original_hover_color, CountryManager.countries[province_objects[province].GetFunctionalOwner()].country_color)
+							original_hover_color = GetCountryDisplayColor(hoveredCountry)
+							for province: int in country_to_provinces[hoveredCountry]:
+								update_lookup(province, GetCountryDisplayColor(province_objects[province].country), original_hover_color)
+							for province: int in country_to_rightful_provinces[hoveredCountry]:
+								update_lookup(province, original_hover_color, GetCountryDisplayColor(province_objects[province].GetFunctionalOwner()))
 						if pid in province_objects:
 							if province_objects[pid].country != "Sea" && highlight_color != Color.TRANSPARENT:
 								original_hover_color = state_color_image.get_pixel(pid, 0)
-								for province in country_to_provinces[province_objects[pid].country]:
-									update_lookup(province, highlight_color, highlight_color)
+								var tempChecker: String = province_objects[pid].GetFunctionalOwner()
+								for province in country_to_provinces[tempChecker]:
+									if (province_objects[province].occupier == tempChecker):
+										update_lookup(province, GetCountryDisplayColor(province_objects[province].country), highlight_color)
+									else:
+										update_lookup(province, highlight_color, highlight_color)
+									
+								for province: int in country_to_rightful_provinces[tempChecker]:
+									update_lookup(province, highlight_color, GetCountryDisplayColor(province_objects[province].GetFunctionalOwner()))
+								
 								last_hovered_pid = pid
 								Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 								province_hovered.emit(pid, CountryManager.player_country.country_name if !GameState.selectingCountry else "")
-							hoveredCountry = province_objects[pid].country
+							hoveredCountry = province_objects[pid].GetFunctionalOwner()
 		else:
 			_reset_last_hover() # Clean up the old one
 
@@ -560,7 +574,7 @@ func handle_click(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 		return
 
 	if GameState.selectingCountry:
-		GameState.game_ui.selected_country = CountryManager.countries[MapManager.province_objects[pid].country]
+		GameState.game_ui.selected_country = CountryManager.countries[MapManager.province_objects[pid].GetFunctionalOwner()]
 		GameState.game_ui.DoUpdateSidemenuVisuals()
 		show_countries_map()
 	else:
@@ -1235,8 +1249,8 @@ func show_industry_country(country_name: String) -> void:
 
 func transfer_ownership(pid: int, new_owner_name: String) -> void:
 	var province: Province = province_objects[pid]
-	var old_owner_name = province.country
-	var oldControllerName = province.GetFunctionalOwner()
+	var old_owner_name: String = province.country
+	var oldControllerName: String = province.GetFunctionalOwner()
 	
 	if pid in EconomyManager.construction_queue:
 		EconomyManager.construction_queue[pid].country = CountryManager.countries[new_owner_name]
@@ -1262,6 +1276,9 @@ func transfer_ownership(pid: int, new_owner_name: String) -> void:
 	
 	if country_to_owned_provinces.has(old_owner_name):
 		country_to_owned_provinces[old_owner_name].erase(pid)
+		
+	if country_to_rightful_provinces.has(old_owner_name):
+		country_to_rightful_provinces[old_owner_name].erase(pid)
 	
 	if country_to_provinces.has(oldControllerName):
 		country_to_provinces[oldControllerName].erase(pid)
@@ -1277,8 +1294,6 @@ func transfer_ownership(pid: int, new_owner_name: String) -> void:
 		
 	if not pid in country_to_owned_provinces[new_owner_name]:
 		country_to_owned_provinces[new_owner_name].append(pid)
-		
-		#allowed_pids
 	
 	province.occupier = ""
 
@@ -1318,10 +1333,19 @@ func OccupyProvince(pid: int, new_owner_name: String) -> void:
 		province_objects[pid].occupier = ""
 		CountryManager.countries[new_owner_name].total_population += province_objects[pid].GetPopulation()
 		CountryManager.countries[new_owner_name].factories_amount += province_objects[pid].GetFactories()
+		
+		if country_to_rightful_provinces.has(old_owner_name):
+			country_to_rightful_provinces.erase(pid)
 	else:
 		if oldControllerName == old_owner_name && oldControllerName != "Sea":
 			CountryManager.countries[old_owner_name].total_population -= province_objects[pid].GetPopulation()
 			CountryManager.countries[old_owner_name].factories_amount -= province_objects[pid].GetFactories()
+	
+		if not country_to_rightful_provinces.has(old_owner_name):
+			country_to_rightful_provinces[old_owner_name] = []
+		
+		if not pid in country_to_rightful_provinces[old_owner_name]:
+			country_to_rightful_provinces[old_owner_name].append(pid)
 	
 		if not country_to_occupied_provinces.has(new_owner_name):
 			country_to_occupied_provinces[new_owner_name] = []
@@ -1337,7 +1361,8 @@ func OccupyProvince(pid: int, new_owner_name: String) -> void:
 
 func DeoccupyProvince(pid: int) -> void:
 	var province: Province = province_objects[pid]
-	var old_controller = province.GetFunctionalOwner()
+	var old_controller: String = province.GetFunctionalOwner()
+	
 	if province.occupier != "":
 		if province_objects[pid].city != "":
 			country_to_cities[province.occupier].erase(pid)
@@ -1352,6 +1377,9 @@ func DeoccupyProvince(pid: int) -> void:
 			
 		if country_to_occupied_provinces.has(province.occupier):
 			country_to_occupied_provinces[province.occupier].erase(pid)
+			
+		if country_to_rightful_provinces.has(province.country):
+			country_to_rightful_provinces.erase(pid)
 		
 		if not country_to_provinces.has(province.country):
 			country_to_provinces[province.country] = []

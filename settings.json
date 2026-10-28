@@ -10,8 +10,6 @@
   "provinceBorderThickness": 0.51,
   "province_borders": 0.11,
   "radios": [
-    "default",
-    "Terraria",
     "Ultrakill"
   ],
   "scanlines": 0.06,
