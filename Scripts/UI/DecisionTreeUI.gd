@@ -678,8 +678,12 @@ func _add_expr_to_block(block: Control):
 
 func _sync_expressions():
 	if _is_loading_expr or selected_decision.is_empty() or not selected_node_btn: return
-	selected_decision["reqs"] = reqs_block.get_children().filter(func(x): return !x.is_queued_for_deletion()).map(func(x): return x.ToDict())
-	selected_decision["action"] = finished_block.get_children().filter(func(x): return !x.is_queued_for_deletion()).map(func(x): return x.ToDict())
+	selected_decision["reqs"] = reqs_block.get_children().filter(
+		func(x): return !x.is_queued_for_deletion()
+	).map(func(x): return x.ToDict())
+	selected_decision["action"] = finished_block.get_children().filter(
+		func(x): return !x.is_queued_for_deletion()
+	).map(func(x): return x.ToDict())
 	_update_node_visuals(selected_node_btn, selected_decision)
 	DecisionManager.save_country_decisions(CountryManager.player_country.country_name)
 

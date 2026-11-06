@@ -191,6 +191,7 @@ static func FromDict(data, _is_child: bool = false) -> ExpressionBox:
 			box.args_box.add_child(child)
 			child.changed.connect(func(): box.changed.emit())
 		box._update_add_args_button()
+		box._update_arg_placeholders()
 
 	elif data.has("for"):
 		box.expression_tabs.current_tab = InterpreterManager.ExpressionTypes.Loop
@@ -288,6 +289,7 @@ static func FromDictInPlace(box: ExpressionBox, data):
 			box.args_box.add_child(child)
 			child.changed.connect(func(): box.changed.emit())
 		box._update_add_args_button()
+		box._update_arg_placeholders()
 
 	elif data.has("for"):
 		box.expression_tabs.current_tab = InterpreterManager.ExpressionTypes.Loop
@@ -381,6 +383,17 @@ func _update_add_args_button() -> void:
 		add_args_btn.disabled = not is_variadic and args_box.get_child_count() >= expected_args
 
 
+func _update_arg_placeholders() -> void:
+	var func_name = func_options.get_item_text(func_options.selected) if func_options.selected != -1 else ""
+	var index := 0
+	for child in args_box.get_children():
+		if child.is_queued_for_deletion():
+			continue
+		if child is ExpressionBox and child.value_edit:
+			child.value_edit.placeholder_text = InterpreterManager.get_param_name(func_name, index)
+		index += 1
+
+
 # func _process(delta: float) -> void:
 # 	print(ToDict())
 
@@ -446,11 +459,13 @@ func _on_func_selected(index: int) -> void:
 				expr._on_expression_type_tab_selected(type)
 	
 	_update_add_args_button()
+	_update_arg_placeholders()
 	changed.emit()
 
 
 func _on_add_args_button_pressed() -> void:
 	add_expression(args_box)
+	_update_arg_placeholders()
 
 
 func _on_add_match_pressed() -> void:

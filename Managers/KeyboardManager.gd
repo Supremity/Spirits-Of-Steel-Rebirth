@@ -38,7 +38,8 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("open_menu"):
 			if not _debounce && CountryManager.player_country:
 				_debounce = true
-				toggle_menu.emit()
+				GameState.game_ui.toggleSideMenu()
+				GameState.game_ui.DoUpdateSidemenuVisuals()
 
 		if Input.is_action_just_released("open_menu"):
 			_debounce = false

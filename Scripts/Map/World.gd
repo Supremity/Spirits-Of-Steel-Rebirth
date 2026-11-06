@@ -176,7 +176,7 @@ func load_map_data(mapData: Dictionary):
 	TroopManager.set_custom_flag_path(start_folder + "flags/")
 	
 	CountryManager.initialize_countries(mapData.get("polities", []) as Array)
-	MapManager.load_country_data(regions_tex, mapData.get("provinces", {}) as Dictionary, [0])
+	MapManager.loadCountryData(regions_tex, mapData.get("provinces", {}) as Dictionary, [0])
 	
 	# Restore Clock
 	if clock:
@@ -190,7 +190,7 @@ func load_map_data(mapData: Dictionary):
 	WarManager.load_original_territories(mapData.get("original_territories", {}))
 	WarManager.check_for_new_battles()
 	
-	MapManager.build_lookup_texture()
+	MapManager.buildLookupTexture()
 	FactionManager.Initialize(mapData.get("factions", []))
 	
 	if mapData.has("significant_figures"):
@@ -324,4 +324,4 @@ func _input(event: InputEvent) -> void:
 		else:
 			MapManager.handle_click(get_global_mouse_position(), map_sprite)
 	if event is InputEventMouseMotion:
-		MapManager.handle_hover(get_global_mouse_position(), map_sprite)
+		MapManager.handleHover(get_global_mouse_position(), map_sprite)

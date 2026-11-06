@@ -46,7 +46,7 @@ final_y = NodePath("ExpressionType/IdeologyDrift/FinalY")
 [node name="ExpressionType" type="TabContainer" parent="." unique_id=547955810]
 use_parent_material = true
 layout_mode = 2
-current_tab = 4
+current_tab = 0
 tab_0/icon = ExtResource("3_is7lw")
 tab_1/icon = ExtResource("4_q0juj")
 tab_3/icon = ExtResource("5_dq07d")
@@ -54,7 +54,6 @@ tab_4/icon = ExtResource("6_blat1")
 tab_5/icon = ExtResource("7_s2pgo")
 
 [node name="Value" type="VBoxContainer" parent="ExpressionType" unique_id=1105832426]
-visible = false
 use_parent_material = true
 layout_mode = 2
 metadata/_tab_index = 0
@@ -154,6 +153,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Loop" type="GridContainer" parent="ExpressionType" unique_id=1285511490]
+visible = false
 use_parent_material = true
 layout_mode = 2
 columns = 2

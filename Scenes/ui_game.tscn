@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://bbdjq5vt3uloi" path="res://assets/ui/fish1.png" id="26_w7nfq"]
 [ext_resource type="Texture2D" uid="uid://c7iqt8unxm2ec" path="res://assets/ui/fish2.png" id="27_bfmcl"]
 [ext_resource type="Texture2D" uid="uid://m0vdhqgoy3y6" path="res://assets/ui/fish3.jpg" id="28_1nbba"]
+[ext_resource type="Script" uid="uid://wdpw32skvwbn" path="res://Scripts/UI/Animations/Border.gd" id="29_0c8l0"]
 [ext_resource type="Texture2D" uid="uid://bsg7ftkm5j2h3" path="res://assets/ui/fish4.jpg" id="29_anvjc"]
 [ext_resource type="StyleBox" uid="uid://c7a4lb0uslu15" path="res://UI/GameUI/SectionHeader.tres" id="32_anvjc"]
 [ext_resource type="StyleBox" uid="uid://qsjt77iuokiv" path="res://UI/GameUI/SectionButton.tres" id="33_oouja"]
@@ -512,7 +513,6 @@ use_parent_material = true
 layout_mode = 2
 
 [node name="RelationsHbox" type="HBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content" unique_id=1938162432]
-visible = false
 use_parent_material = true
 layout_mode = 2
 
@@ -732,7 +732,7 @@ layout_mode = 2
 theme = ExtResource("13_sdmnd")
 theme_type_variation = &"InfoTabContainer"
 tab_alignment = 1
-current_tab = 3
+current_tab = 2
 clip_tabs = false
 tab_0/icon = ExtResource("5_0e43j")
 tab_1/icon = ExtResource("7_lpwmk")
@@ -802,6 +802,7 @@ theme_override_styles/normal = ExtResource("33_oouja")
 text = "Manage Country"
 icon = ExtResource("16_1nbba")
 expand_icon = true
+script = ExtResource("29_0c8l0")
 
 [node name="Button2" type="Button" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Diplomacy/ScrollContainer/ActionsList/HBoxContainer" unique_id=1788664696]
 use_parent_material = true
@@ -813,6 +814,7 @@ theme_override_styles/normal = ExtResource("33_oouja")
 text = "Decisions"
 icon = ExtResource("34_qsn4r")
 expand_icon = true
+script = ExtResource("29_0c8l0")
 
 [node name="Button4" type="Button" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Diplomacy/ScrollContainer/ActionsList/HBoxContainer" unique_id=1118971662]
 use_parent_material = true
@@ -822,6 +824,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Government"
+script = ExtResource("29_0c8l0")
 
 [node name="Button3" type="Button" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Diplomacy/ScrollContainer/ActionsList/HBoxContainer" unique_id=1961953376]
 use_parent_material = true
@@ -831,6 +834,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Research"
+script = ExtResource("29_0c8l0")
 
 [node name="Button4" type="Button" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Diplomacy/ScrollContainer/ActionsList" unique_id=779262759]
 use_parent_material = true
@@ -839,8 +843,10 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Create Faction"
+script = ExtResource("29_0c8l0")
 
 [node name="PanelContainer" type="PanelContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Diplomacy/ScrollContainer/ActionsList" unique_id=403757393]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -923,6 +929,7 @@ use_parent_material = true
 layout_mode = 2
 theme = ExtResource("13_sdmnd")
 text = "Building designer"
+script = ExtResource("29_0c8l0")
 
 [node name="OptionButton" type="OptionButton" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Economy/Diplomacy/ActionsList" unique_id=1597600351]
 use_parent_material = true
@@ -954,7 +961,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Military" type="Control" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs" unique_id=148025030]
-visible = false
 use_parent_material = true
 layout_mode = 2
 metadata/_tab_index = 2
@@ -985,7 +991,6 @@ theme = ExtResource("13_sdmnd")
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Military/MilitaryExtra/Stats/VBoxContainer" unique_id=1330084502]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 19
@@ -1026,7 +1031,6 @@ size_flags_vertical = 3
 theme_override_constants/separation = 4
 
 [node name="Type" type="HBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Military/MilitaryExtra/Stats/VBoxContainer/VBoxContainer" unique_id=770762487]
-visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Military/MilitaryExtra/Stats/VBoxContainer/VBoxContainer/Type" unique_id=55839728]
@@ -1178,6 +1182,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Choose Deployment City"
+script = ExtResource("29_0c8l0")
 
 [node name="Button2" type="Button" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Military/Military/ScrollContainer/ActionsList" unique_id=1602099174]
 use_parent_material = true
@@ -1186,6 +1191,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Deploy All"
+script = ExtResource("29_0c8l0")
 
 [node name="TroopList" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Military/Military/ScrollContainer/ActionsList" unique_id=940258689]
 use_parent_material = true
@@ -1194,6 +1200,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Cultures" type="HBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs" unique_id=1315655306]
+visible = false
 use_parent_material = true
 layout_mode = 2
 metadata/_tab_index = 3
@@ -1259,7 +1266,7 @@ layout_mode = 2
 theme = ExtResource("13_sdmnd")
 theme_type_variation = &"InfoTabContainer"
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
 clip_tabs = false
 tab_0/icon = ExtResource("5_0e43j")
 tab_1/icon = ExtResource("7_lpwmk")
@@ -1267,6 +1274,7 @@ tab_2/icon = ExtResource("8_qum3k")
 metadata/_tab_index = 1
 
 [node name="Diplomacy" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Enemy" unique_id=1083850577]
+visible = false
 use_parent_material = true
 layout_mode = 2
 theme_override_constants/separation = 4
@@ -1318,6 +1326,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Propose Ceasefire"
+script = ExtResource("29_0c8l0")
 
 [node name="Economy" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Enemy" unique_id=17172790]
 visible = false
@@ -1364,7 +1373,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Military" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Enemy" unique_id=713610224]
-visible = false
 use_parent_material = true
 layout_mode = 2
 metadata/_tab_index = 2
@@ -1472,6 +1480,7 @@ layout_mode = 2
 focus_mode = 0
 theme = ExtResource("13_sdmnd")
 text = "Improve Relations"
+script = ExtResource("29_0c8l0")
 
 [node name="Button5" type="Button" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Neutral/Diplomacy/ScrollContainer/ActionsList" unique_id=286592296]
 use_parent_material = true
@@ -1479,6 +1488,7 @@ layout_mode = 2
 focus_mode = 0
 theme = ExtResource("13_sdmnd")
 text = "Invite To Faction"
+script = ExtResource("29_0c8l0")
 
 [node name="Button4" type="Button" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Neutral/Diplomacy/ScrollContainer/ActionsList" unique_id=1421175975]
 use_parent_material = true
@@ -1486,6 +1496,7 @@ layout_mode = 2
 focus_mode = 0
 theme = ExtResource("13_sdmnd")
 text = "Force Puppet"
+script = ExtResource("29_0c8l0")
 
 [node name="Economy" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Neutral" unique_id=809065436]
 visible = false
@@ -1538,6 +1549,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Trade Deal"
+script = ExtResource("29_0c8l0")
 
 [node name="Military" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Neutral" unique_id=173220231]
 visible = false
@@ -1590,6 +1602,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Declare War"
+script = ExtResource("29_0c8l0")
 
 [node name="Button3" type="Button" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Neutral/Military/ScrollContainer/ActionsList" unique_id=1571239659]
 use_parent_material = true
@@ -1598,6 +1611,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Request Access"
+script = ExtResource("29_0c8l0")
 
 [node name="Button" type="Button" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Neutral/Military/ScrollContainer/ActionsList" unique_id=2131250622]
 use_parent_material = true
@@ -1606,6 +1620,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Launch Nuke"
+script = ExtResource("29_0c8l0")
 
 [node name="Puppet" type="TabContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons" unique_id=2040957791]
 visible = false
@@ -1673,6 +1688,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Annex Puppet"
+script = ExtResource("29_0c8l0")
 
 [node name="Button5" type="Button" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Puppet/Diplomacy/ScrollContainer/ActionsList" unique_id=2122222714]
 use_parent_material = true
@@ -1681,6 +1697,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Release Puppet"
+script = ExtResource("29_0c8l0")
 
 [node name="Economy" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Puppet" unique_id=243750632]
 visible = false
@@ -1733,6 +1750,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Steal Money"
+script = ExtResource("29_0c8l0")
 
 [node name="Military" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Puppet" unique_id=1403617755]
 visible = false
@@ -1785,6 +1803,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Steal Manpower"
+script = ExtResource("29_0c8l0")
 
 [node name="Button2" type="Button" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Puppet/Military/ScrollContainer/ActionsList" unique_id=2111600738]
 use_parent_material = true
@@ -1793,9 +1812,9 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Call to Arms"
+script = ExtResource("29_0c8l0")
 
 [node name="Ally" type="TabContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons" unique_id=1156143088]
-visible = false
 use_parent_material = true
 layout_mode = 2
 theme = ExtResource("13_sdmnd")
@@ -1861,6 +1880,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Improve Relations"
+script = ExtResource("29_0c8l0")
 
 [node name="Button5" type="Button" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Ally/Diplomacy/ScrollContainer/ActionsList" unique_id=1019195712]
 use_parent_material = true
@@ -1869,6 +1889,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Kick From Faction"
+script = ExtResource("29_0c8l0")
 
 [node name="Button4" type="Button" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Ally/Diplomacy/ScrollContainer/ActionsList" unique_id=2009539886]
 use_parent_material = true
@@ -1877,6 +1898,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Force Puppet"
+script = ExtResource("29_0c8l0")
 
 [node name="Economy" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Ally" unique_id=147033422]
 visible = false
@@ -1929,6 +1951,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Trade Deal"
+script = ExtResource("29_0c8l0")
 
 [node name="Button2" type="Button" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Ally/Economy/Diplomacy/ActionsList" unique_id=1662116374]
 use_parent_material = true
@@ -1937,6 +1960,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Kindly Ask For Money"
+script = ExtResource("29_0c8l0")
 
 [node name="Military" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Ally" unique_id=1928349567]
 use_parent_material = true
@@ -1988,6 +2012,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Call To Arms"
+script = ExtResource("29_0c8l0")
 
 [node name="Button3" type="Button" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Ally/Military/ScrollContainer/ActionsList" unique_id=1319266632]
 use_parent_material = true
@@ -1996,6 +2021,7 @@ focus_mode = 0
 theme = ExtResource("13_sdmnd")
 theme_override_styles/normal = ExtResource("33_oouja")
 text = "Kindly Ask For Manpower"
+script = ExtResource("29_0c8l0")
 
 [node name="Select" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons" unique_id=1473921671]
 use_parent_material = true
@@ -2041,6 +2067,7 @@ use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
+script = ExtResource("29_0c8l0")
 
 [node name="Control" type="Control" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons" unique_id=500580373]
 visible = false

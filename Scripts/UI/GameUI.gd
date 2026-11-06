@@ -259,9 +259,9 @@ func _ready() -> void:
 	GameState.game_ui = self
 
 	MapManager.country_clicked.connect(_on_province_clicked)
-	MapManager.close_sidemenu.connect(close_menu)
+	MapManager.close_sidemenu.connect(closeSideMenu)
 
-	KeyboardManager.toggle_menu.connect(toggle_menu)
+	KeyboardManager.toggle_menu.connect(toggleSideMenu)
 
 	var world: World = GameState.current_world
 	if world and world.clock:
@@ -360,7 +360,7 @@ func _update_ideology_from_mouse(local_pos: Vector2, do_save: bool) -> void:
 	DoUpdateSidemenuVisuals()
 	
 	if do_save and SettingsManager.settings.debug_mode:
-		MapManager.export_scenario_data("user://map_data.json")
+		MapManager.exportScenarioData("user://map_data.json")
 
 func _update_radio_visuals() -> void:
 	for child in radio_list.get_children():
@@ -490,21 +490,24 @@ func _on_province_clicked(country_name: String) -> void:
 		)
 
 		sidemenu_context.current_tab = new_context
-		open_menu(new_context, Category.GENERAL)
+		openSideMenu(new_context, Category.GENERAL)
 		_update_context_actions_visuals()
 
-func toggle_menu(context := Context.PLAYER) -> void:
+func toggleSideMenu(context := Context.PLAYER) -> void:
 	if is_open:
-		close_menu()
+		closeSideMenu()
 	else:
 		selected_country = CountryManager.player_country
 		sidemenu_country_label.text = selected_country.country_name
-		open_menu(context, Category.GENERAL)
+		openSideMenu(context, Category.GENERAL)
 		_update_context_actions_visuals()
 
 var custom_font = preload("res://font/Google_Sans/GoogleSans-VariableFont_GRAD,opsz,wght.ttf")
 
-func open_menu(context: Context, category: Category) -> void:
+func openSideMenu(
+	context: Context = Context.PLAYER,
+	category: Category = Category.GENERAL,
+) -> void:
 	if (
 		GameState.choosing_deploy_city
 		or GameState.industry_building != GameState.IndustryType.DEFAULT
@@ -633,7 +636,7 @@ func _on_menu_button_button_up(_menu_index: int) -> void:
 			for buildingTemplateName: String in EconomyManager.building_designs.get_or_add(CountryManager.player_country.country_name, {}):
 				building_dropdown.add_item(buildingTemplateName)
 		else:
-			MapManager.set_country_color(CountryManager.player_country.country_name, Color.TRANSPARENT)
+			MapManager.setCountryColor(CountryManager.player_country.country_name, Color.TRANSPARENT)
 			GameState.industry_building = GameState.IndustryType.DEFAULT
 			MapManager.show_countries_map()
 
@@ -733,7 +736,7 @@ func _update_flag() -> void:
 	nation_flag.texture = TroopManager.get_flag(CountryManager.player_country.country_name, CountryManager.player_country.ideology_name)
 	#_update_relations_visuals.call_deferred()
 
-func close_menu() -> void:
+func closeSideMenu() -> void:
 	if is_open:
 		MusicManager.play_sfx(MusicManager.SFX.CLOSE_MENU)
 	GameState.reset_industry_building()
@@ -770,7 +773,7 @@ func _declare_war():
 
 	# GameState.game_ui.military_access_label.text = ( "Military Access: " + String("Yes" if selected_country.country_name in CountryManager.player_country.allowedCountries else "No"))
 
-	open_menu(Context.ENEMY, Category.GENERAL)
+	openSideMenu(Context.ENEMY, Category.GENERAL)
 
 func _conscript(_data: Dictionary):
 	#var manpower = data.manpower * 0.0001
@@ -851,7 +854,7 @@ func _force_puppet():
 	
 	CountryManager.make_puppet(CountryManager.player_country, selected_country)
 	_update_context_actions_visuals()
-	close_menu()
+	closeSideMenu()
 
 func _on_release_puppet_pressed():
 	var cost = action_costs["_release_puppet"].call(CountryManager.player_country, selected_country)["cost"]
@@ -861,7 +864,7 @@ func _on_release_puppet_pressed():
 	
 	CountryManager.release_puppet(CountryManager.player_country, selected_country)
 	_update_context_actions_visuals()
-	close_menu()
+	closeSideMenu()
 
 func _improve_relations():
 	var cost = action_costs["_improve_relations"].call(CountryManager.player_country, selected_country)["cost"]
@@ -888,16 +891,16 @@ func open_research_tree():
 	print("Opening Research")
 
 func open_decisions_tree():
-	get_tree().root.find_child("DecisionTreeUI", true, false).open_menu()
+	get_tree().root.find_child("DecisionTreeUI", true, false).openSideMenu()
 
 func _open_faction():
 	faction_prompt.visible = !faction_prompt.visible
 
 func open_manage_country():
 	if logistics.visible:
-		logistics.close_menu()
+		logistics.closeSideMenu()
 	else:
-		logistics.open_menu(CountryManager.player_country)
+		logistics.openSideMenu(CountryManager.player_country)
 
 	#GameState.current_world.set_process(false)
 	#GameState.current_world.clock.set_process(false)
