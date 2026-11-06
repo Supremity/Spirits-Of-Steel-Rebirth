@@ -212,13 +212,6 @@ func Initialize(a_map: Texture2D, a_provinceData: Dictionary, a_progress: Array)
 	a_progress[0] += 0.025
 
 
-<<<<<<< HEAD
-func load_country_data(region_map: CompressedTexture2D, a_provinceData: Dictionary, a_progress: Array) -> void:
-	Initialize(region_map, a_provinceData, a_progress)
-
-func save_map_data():
-	var map_data: MapData = MapData.new()
-=======
 func loadCountryData(
 	region_map: CompressedTexture2D,
 	a_provinceData: Dictionary,
@@ -228,7 +221,6 @@ func loadCountryData(
 
 func saveMapData():
 	var map_data := MapData.new()
->>>>>>> 6ba47767 (animated some buttons + fixed SideMenu bug + more camelCase)
 	map_data.province_centers = province_centers.duplicate()
 	# map_data.adjacency_list = adjacency_list.duplicate(true)
 	map_data.country_to_provinces = country_to_provinces.duplicate()
@@ -540,14 +532,15 @@ func handleHover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 >>>>>>> 6ba47767 (animated some buttons + fixed SideMenu bug + more camelCase)
 								original_hover_color = state_color_image.get_pixel(pid, 0)
 								var tempChecker: String = pidProvince.GetFunctionalOwner()
+								var tempCheckerColor = GetCountryDisplayColor(tempChecker)
 								for province in country_to_provinces[tempChecker]:
 									if (province_objects[province].occupier == tempChecker):
-										update_lookup(province, GetCountryDisplayColor(province_objects[province].country), highlight_color)
+										update_lookup(province, tempCheckerColor, highlight_color)
 									else:
 										update_lookup(province, highlight_color, highlight_color)
 									
 								for province: int in country_to_rightful_provinces[tempChecker]:
-									update_lookup(province, highlight_color, GetCountryDisplayColor(province_objects[province].GetFunctionalOwner()))
+									update_lookup(province, highlight_color, tempCheckerColor)
 								
 								last_hovered_pid = pid
 								Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
@@ -581,13 +574,14 @@ func _reset_last_hover() -> void:
 		update_lookup(last_hovered_pid, original_hover_color, original_hover_color)
 	last_hovered_pid = -1
 
-func _get_contextual_highlight(pid: int) -> Color:
-	if pid <= 1:
+func _get_contextual_highlight(a_pid: int) -> Color:
+	if a_pid <= 1:
 		return Color.TRANSPARENT
 	
 	if GameState.selectingCountry:
 		return Color.ANTIQUE_WHITE
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 	var player_name: String = CountryManager.player_country.country_name
 	var is_player_owned: bool = MapManager.province_objects[pid].GetFunctionalOwner() == player_name
@@ -595,22 +589,27 @@ func _get_contextual_highlight(pid: int) -> Color:
 	var player_name = CountryManager.player_country.country_name
 	var is_player_owned = province_objects[pid].GetFunctionalOwner() == player_name
 >>>>>>> 6ba47767 (animated some buttons + fixed SideMenu bug + more camelCase)
+=======
+	var pidProvince = province_objects[a_pid]
+	var player_name = CountryManager.player_country.country_name
+	var is_player_owned = pidProvince.GetFunctionalOwner() == player_name
+>>>>>>> 2784ce9b (more african cities)
 
 	if not is_player_owned:
 		return Color.TRANSPARENT
 
 	if GameState.industry_building == GameState.IndustryType.PORT:
 		var coastal_provinces = get_provinces_near_sea(player_name)
-		if pid in coastal_provinces && province_objects[pid].buildings.find_custom(func(a_building): return a_building.type == "Port") != -1:
+		if a_pid in coastal_provinces && province_objects[a_pid].buildings.find_custom(func(a_building): return a_building.type == "Port") != -1:
 			return Color.CYAN
 		else:
 			return Color.TRANSPARENT
 	elif GameState.choosing_deploy_city:
-		if province_objects[pid].city.length() > 0:
+		if province_objects[a_pid].city.length() > 0:
 			return Color.CYAN.lightened(0.3)
 		return Color.TRANSPARENT # Don't highlight non-city provinces during deploy
 	elif GameState.industry_building != GameState.IndustryType.DEFAULT:
-		return state_color_image.get_pixel(pid, 0).lightened(0.2).blend(Color.GREEN_YELLOW)
+		return state_color_image.get_pixel(a_pid, 0).lightened(0.2).blend(Color.GREEN_YELLOW)
 
 	return Color.TRANSPARENT
 
