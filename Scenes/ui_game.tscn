@@ -1815,6 +1815,7 @@ text = "Call to Arms"
 script = ExtResource("29_0c8l0")
 
 [node name="Ally" type="TabContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons" unique_id=1156143088]
+visible = false
 use_parent_material = true
 layout_mode = 2
 theme = ExtResource("13_sdmnd")

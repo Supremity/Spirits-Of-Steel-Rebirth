@@ -2862,7 +2862,7 @@
 				0.0,
 				0.0
 			],
-			"is_player": true,
+			"is_player": false,
 			"money": 100000.0,
 			"name": "India",
 			"political_power": 500.56,

@@ -777,7 +777,7 @@ func m_PaintOwnerTool() -> void:
 			for pid: int in multiSelectPID:
 				MapManager.ResetProvinceColor(pid)
 			multiSelectPID = []
-	MapManager.show_countries_map()
+	MapManager.ShowCountriesMap()
 	currentTool = Tool.PAINT_SECONDARY
 	
 func m_PaintOccupationTool() -> void:
@@ -786,7 +786,7 @@ func m_PaintOccupationTool() -> void:
 			for pid: int in multiSelectPID:
 				MapManager.ResetProvinceColor(pid)
 			multiSelectPID = []
-	MapManager.show_countries_map()
+	MapManager.ShowCountriesMap()
 	currentTool = Tool.PAINT_PRIMARY
 	
 func m_PaintFactionTool() -> void:
@@ -795,7 +795,7 @@ func m_PaintFactionTool() -> void:
 			for pid: int in multiSelectPID:
 				MapManager.ResetProvinceColor(pid)
 			multiSelectPID = []
-	MapManager.show_faction_map()
+	MapManager.ShowFactionMap()
 	currentTool = Tool.PAINT_PRIMARY
 
 func m_PaintBiomeTool() -> void:
@@ -804,7 +804,7 @@ func m_PaintBiomeTool() -> void:
 			for pid: int in multiSelectPID:
 				MapManager.ResetProvinceColor(pid)
 			multiSelectPID = []
-	MapManager.show_biomes_map()
+	MapManager.ShowBiomesMap()
 	currentTool = Tool.PAINT_PRIMARY
 
 func m_MultiSelectTool() -> void:

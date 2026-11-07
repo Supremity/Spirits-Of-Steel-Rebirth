@@ -198,7 +198,7 @@ func Initialize(a_map: Texture2D, a_provinceData: Dictionary, a_progress: Array)
 	a_progress[0] += 0.01
 	
 	# Pass 2: Load troops now that centroids (positions) are definitely known
-	for index: int in a_provinceData:
+	for index in a_provinceData:
 		if unique_regions.has(index):
 			var p_dict: Dictionary = a_provinceData[index]
 			if p_dict.has("troops"):
@@ -251,7 +251,6 @@ func SaveBiomeData() -> Array:
 		returnBiomes.append(biome.ToDict())
 	return returnBiomes
 
-<<<<<<< HEAD
 func SaveBuildingData() -> Dictionary:
 	var returnBuildings: Dictionary = {};
 	for I_country: String in EconomyManager.building_designs.keys():
@@ -260,10 +259,7 @@ func SaveBuildingData() -> Dictionary:
 			returnBuildings[I_country].append(I_building.ToDict());
 	return returnBuildings;
 
-func export_scenario_data(path: String) -> void:
-=======
 func exportScenarioData(path: String) -> void:
->>>>>>> 6ba47767 (animated some buttons + fixed SideMenu bug + more camelCase)
 	var fig_dicts: Array[Dictionary] = []
 	for x: ImportantFigure in significantFigures.values():
 		fig_dicts.append(x.ToDict())
@@ -419,13 +415,8 @@ func ResetProvinceColor(pid: int) -> void:
 		
 	update_lookup(pid, CountryManager.GetCountryColor(province_objects[pid].GetFunctionalOwner(), Color.GRAY), CountryManager.GetCountryColor(province_objects[pid].country, Color.GRAY))
 
-<<<<<<< HEAD
-func set_country_color(country_name: String, custom_color: Color = Color.TRANSPARENT) -> void:
-	var new_color: Color = custom_color
-=======
 func setCountryColor(country_name: String, custom_color: Color = Color.TRANSPARENT) -> void:
-	var new_color = custom_color
->>>>>>> 6ba47767 (animated some buttons + fixed SideMenu bug + more camelCase)
+	var new_color: Color  = custom_color
 	if new_color == Color.TRANSPARENT:
 		new_color = CountryManager.GetCountryColor(country_name, Color.GRAY)
 
@@ -486,11 +477,7 @@ func handleHover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 			_reset_last_hover()
 		return
 
-<<<<<<< HEAD
-	var pid: int = get_province_at_pos(global_pos, map_sprite)
-=======
-	var pid = getProvinceAtPos(global_pos, map_sprite)
->>>>>>> 6ba47767 (animated some buttons + fixed SideMenu bug + more camelCase)
+	var pid: int = getProvinceAtPos(global_pos, map_sprite)
 	current_hovered_pid = pid
 
 	var highlight_color: Color = _get_contextual_highlight(pid)
@@ -500,15 +487,6 @@ func handleHover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 		if GameState.selectingCountry:
 			if (last_hovered_pid in province_objects
 				&& pid in province_objects
-<<<<<<< HEAD
-				&& province_objects[last_hovered_pid].GetFunctionalOwner() == province_objects[pid].GetFunctionalOwner()):
-				pass
-			else:
-				last_hovered_pid = -1
-				if pid > 1 && highlight_color != Color.TRANSPARENT:
-					if hoveredCountry != province_objects[pid].GetFunctionalOwner():
-						if hoveredCountry != "Sea":
-=======
 				&& province_objects[last_hovered_pid].country == pidProvince.country):
 				pass
 			else:
@@ -516,7 +494,6 @@ func handleHover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 				if pid > 1 and highlight_color != Color.TRANSPARENT:
 					if hoveredCountry != pidProvince.country:
 						if hoveredCountry != "Sea" && country_to_provinces.has(hoveredCountry):
->>>>>>> 6ba47767 (animated some buttons + fixed SideMenu bug + more camelCase)
 							original_hover_color = GetCountryDisplayColor(hoveredCountry)
 							if (country_to_provinces.has(hoveredCountry)):
 								for province: int in country_to_provinces[hoveredCountry]:
@@ -525,11 +502,7 @@ func handleHover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 								for province: int in country_to_rightful_provinces[hoveredCountry]:
 									update_lookup(province, original_hover_color, GetCountryDisplayColor(province_objects[province].GetFunctionalOwner()))
 						if pid in province_objects:
-<<<<<<< HEAD
-							if province_objects[pid].country != "Sea":
-=======
 							if pidProvince.country != "Sea" && highlight_color != Color.TRANSPARENT:
->>>>>>> 6ba47767 (animated some buttons + fixed SideMenu bug + more camelCase)
 								original_hover_color = state_color_image.get_pixel(pid, 0)
 								var tempChecker: String = pidProvince.GetFunctionalOwner()
 								var tempCheckerColor = GetCountryDisplayColor(tempChecker)
@@ -581,19 +554,10 @@ func _get_contextual_highlight(a_pid: int) -> Color:
 	if GameState.selectingCountry:
 		return Color.ANTIQUE_WHITE
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-	var player_name: String = CountryManager.player_country.country_name
-	var is_player_owned: bool = MapManager.province_objects[pid].GetFunctionalOwner() == player_name
-=======
-	var player_name = CountryManager.player_country.country_name
-	var is_player_owned = province_objects[pid].GetFunctionalOwner() == player_name
->>>>>>> 6ba47767 (animated some buttons + fixed SideMenu bug + more camelCase)
-=======
 	var pidProvince = province_objects[a_pid]
-	var player_name = CountryManager.player_country.country_name
-	var is_player_owned = pidProvince.GetFunctionalOwner() == player_name
->>>>>>> 2784ce9b (more african cities)
+
+	var player_name: String = CountryManager.player_country.country_name
+	var is_player_owned: bool = pidProvince.GetFunctionalOwner() == player_name
 
 	if not is_player_owned:
 		return Color.TRANSPARENT
@@ -634,36 +598,32 @@ func handle_click(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 		return
 
 	var pid: int = get_province_with_radius(global_pos, map_sprite, 5)
+	var pidProvince = province_objects.get(pid, null)
 	# 1. Handle Clicks on Water or Invalid Areas
-	if pid <= 1 or province_objects[pid].type == 0: # 0 is SEA
+	if pid <= 1 or pidProvince == null or province_objects[pid].type == 0: # 0 is SEA
 		GameState.game_ui.closeSideMenu()
 		if GameState.industry_building != GameState.IndustryType.DEFAULT:
 			GameState.reset_industry_building()
-			show_countries_map()
+			ShowCountriesMap()
 		else:
 			close_sidemenu.emit()
 		return
 
-	GameState.game_ui.openSideMenu()
-	var player_country_name  = CountryManager.player_country.country_name
-	var clicked_country_name = province_objects[pid].GetFunctionalOwner()
+	GameState.game_ui.OpenSideMenu()
+	var clicked_country_name = pidProvince.GetFunctionalOwner()
 
 	if GameState.selectingCountry:
 		GameState.game_ui.selected_country = CountryManager.countries[clicked_country_name]
 		GameState.game_ui.DoUpdateSidemenuVisuals()
-		show_countries_map()
+		ShowCountriesMap()
 	else:
-<<<<<<< HEAD
-		var player_country_name: String = CountryManager.player_country.country_name
-		var is_player_owned: bool = MapManager.province_objects[pid].GetFunctionalOwner() == player_country_name
-		var is_puppet_owned: bool = MapManager.province_objects[pid].GetFunctionalOwner() in CountryManager.player_country.puppets
-=======
-		var is_player_owned = clicked_country_name == player_country_name
-		var is_puppet_owned = clicked_country_name in CountryManager.player_country.puppets
->>>>>>> 6ba47767 (animated some buttons + fixed SideMenu bug + more camelCase)
+		var player_country_name  = CountryManager.player_country.country_name
+
+		var is_player_owned: bool = clicked_country_name == player_country_name
+		var is_puppet_owned: bool = clicked_country_name in CountryManager.player_country.puppets
 
 		if GameState.choosing_deploy_city:
-			if is_player_owned and province_objects[pid].city != "":
+			if is_player_owned and pidProvince.city != "":
 				_execute_deployment(pid, player_country_name)
 			else:
 				print("Action Failed: Province not owned by player or not a city.")
@@ -675,17 +635,17 @@ func handle_click(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 				if is_player_owned:
 					if _province_build_industry(pid, player_country_name, GameState.industry_building):
 						_cleanup_interaction_state()
-						show_industry_country(player_country_name)
+						ShowIndustryCountry(player_country_name)
 						country_clicked.emit(player_country_name)
 				elif is_puppet_owned:
 					if _province_build_industry(pid, clicked_country_name, GameState.industry_building):
 						_cleanup_interaction_state()
-						show_industry_country(clicked_country_name)
+						ShowIndustryCountry(clicked_country_name)
 						country_clicked.emit(clicked_country_name)
 				else:
 					print("Action Failed: Cannot build in foreign territory.")
 					GameState.reset_industry_building()
-					show_countries_map()
+					ShowCountriesMap()
 
 		if TroopManager.troop_selection.selected_troops.is_empty(): # Prevent menu from spawning when selecting troops (annoying)
 			#print("Pre Emit Click")
@@ -750,13 +710,8 @@ func get_province_with_radius(center: Vector2, map_sprite: Sprite2D, radius: int
 		Vector2(-radius, -radius),
 	]
 
-<<<<<<< HEAD
 	for off: Vector2 in offsets:
-		var pid: int = get_province_at_pos(center + off, map_sprite)
-=======
-	for off in offsets:
 		var pid: int = getProvinceAtPos(center + off, map_sprite)
->>>>>>> 6ba47767 (animated some buttons + fixed SideMenu bug + more camelCase)
 		if pid > 1:
 			return pid
 
@@ -1098,7 +1053,7 @@ func _get_heatmap_color(pop: int, max_pop: float) -> Color:
 	return col
 
 # soilad aneurysm time
-func show_faction_map() -> void:
+func ShowFactionMap() -> void:
 	var faction_color: Color = Color.GRAY
 	if province_objects.is_empty():
 		return
@@ -1126,7 +1081,7 @@ func show_faction_map() -> void:
 	GameState.game_ui.map_tabs.current_tab = KeyboardManager.current_view
 	print("MapManager: Faction View Updated")
 
-func show_population_map() -> void:
+func ShowPopulationMap() -> void:
 	if province_objects.is_empty():
 		return
 	var current_max_pop: float = 1.0
@@ -1167,7 +1122,7 @@ func ShowInfrastructureMap() -> void:
 	state_color_texture.update(state_color_image)
 	print("MapManager: Infrastructure View Updated.")
 
-func show_ethnic_map() -> void:
+func ShowEthnicMap() -> void:
 	if province_objects.is_empty():
 		return
 
@@ -1214,7 +1169,7 @@ func _get_gdp_heatmap_color(gdp: int, max_gdp: float) -> Color:
 
 	return col
 
-func show_gdp_map() -> void:
+func ShowGdpMap() -> void:
 	if province_objects.is_empty():
 		return
 
@@ -1245,7 +1200,7 @@ func GetCountryDisplayColor(a_countryName: String) -> Color:
 		return country_data.country_color
 	return (country_data.country_color + 3 * owner_data.country_color) * 0.25
 
-func show_countries_map() -> void:
+func ShowCountriesMap() -> void:
 	state_color_image.set_pixel(0, 0, SEA_MAIN) # ID 0: Sea
 	state_color_image.set_pixel(1, 0, Color.BLACK) # ID 1: Borders/Grid
 
@@ -1275,7 +1230,7 @@ func ShowResourcesMap() -> void:
 	KeyboardManager.current_view = KeyboardManager.MapView.RESOURCES
 	GameState.game_ui.map_tabs.current_tab = KeyboardManager.current_view
 
-func show_biomes_map() -> void:
+func ShowBiomesMap() -> void:
 	state_color_image.set_pixel(0, 0, SEA_MAIN) # ID 0: Sea
 	state_color_image.set_pixel(1, 0, Color.BLACK) # ID 1: Borders/Grid
 
@@ -1294,9 +1249,9 @@ func show_biomes_map() -> void:
 
 func province_updated():
 	if GameState.industry_building:
-		show_industry_country(CountryManager.player_country.country_name)
+		ShowIndustryCountry(CountryManager.player_country.country_name)
 
-func show_industry_country(country_name: String) -> void:
+func ShowIndustryCountry(country_name: String) -> void:
 	if not country_to_provinces.has(country_name):
 		push_warning("MapManager: Country " + country_name + " not found.")
 		return
@@ -1585,7 +1540,7 @@ func ReleaseCountry(a_countryName: String) -> void:
 			transfer_ownership(obj.id, a_countryName)
 	
 	CountryManager.cleanup_empty_countries()
-	show_countries_map()
+	ShowCountriesMap()
 
 func ReleasePuppet(a_puppeter: String, a_puppetee: String) -> void:
 	CountryManager.add_country({"name": a_puppetee})
@@ -1599,7 +1554,7 @@ func ReleasePuppet(a_puppeter: String, a_puppetee: String) -> void:
 		CountryManager.countries[a_puppetee]
 	)
 	CountryManager.cleanup_empty_countries()
-	show_countries_map()
+	ShowCountriesMap()
 
 func InstantiateCountryFromClaims(a_countryData: Dictionary) -> void:
 	CountryManager.add_country(a_countryData)
@@ -1613,7 +1568,7 @@ func InstantiateCountryFromClaims(a_countryData: Dictionary) -> void:
 			transfer_ownership(obj.id, a_countryData["name"])
 	
 	CountryManager.cleanup_empty_countries()
-	show_countries_map()
+	ShowCountriesMap()
 
 func InstantiateCountryFromProvinces(a_countryData: Dictionary, a_claims: PackedInt32Array) -> CountryData:
 	var countryer: CountryData = CountryManager.add_country(a_countryData)
@@ -1625,7 +1580,7 @@ func InstantiateCountryFromProvinces(a_countryData: Dictionary, a_claims: Packed
 		transfer_ownership(pid, a_countryData["name"])
 	
 	CountryManager.cleanup_empty_countries()
-	show_countries_map()
+	ShowCountriesMap()
 	return countryer
 
 func get_all_cities() -> Array[Dictionary]:

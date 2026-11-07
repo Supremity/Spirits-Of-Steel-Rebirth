@@ -24,7 +24,7 @@ var selectingCountry: bool = true
 
 func reset_industry_building():
 	industry_building = IndustryType.DEFAULT
-	MapManager.show_countries_map()
+	MapManager.ShowCountriesMap()
 
 var is_loading_game := false
 var pending_load_save: String = ""

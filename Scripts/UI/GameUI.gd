@@ -261,8 +261,6 @@ func _ready() -> void:
 	MapManager.country_clicked.connect(_on_province_clicked)
 	MapManager.close_sidemenu.connect(closeSideMenu)
 
-	KeyboardManager.toggle_menu.connect(toggleSideMenu)
-
 	var world: World = GameState.current_world
 	if world and world.clock:
 		world.clock.hour_passed.connect(_on_hour_passed)
@@ -427,7 +425,7 @@ func DoUpdateSidemenuVisuals() -> void:
 
 		play_btn.text = "Play as %s" % selected_country.country_name.capitalize()
 
-		MapManager.show_countries_map()
+		MapManager.ShowCountriesMap()
 
 	if selected_country.governmentPositions["Leader"]:
 		sidemenu_leader_portrait.texture = ImportantFigure.GetPortrait(
@@ -490,23 +488,29 @@ func _on_province_clicked(country_name: String) -> void:
 		)
 
 		sidemenu_context.current_tab = new_context
-		openSideMenu(new_context, Category.GENERAL)
+		OpenSideMenu()
 		_update_context_actions_visuals()
 
-func toggleSideMenu(context := Context.PLAYER) -> void:
+func ToggleSideMenu() -> void:
 	if is_open:
 		closeSideMenu()
 	else:
-		selected_country = CountryManager.player_country
-		sidemenu_country_label.text = selected_country.country_name
-		openSideMenu(context, Category.GENERAL)
-		_update_context_actions_visuals()
+		OpenSideMenu()
 
 var custom_font = preload("res://font/Google_Sans/GoogleSans-VariableFont_GRAD,opsz,wght.ttf")
 
-func openSideMenu(
-	context: Context = Context.PLAYER,
-	category: Category = Category.GENERAL,
+func ChangeContextCategory(
+		context: Context = Context.PLAYER,
+		category: Category = Category.GENERAL,
+	):
+	current_context = context
+	current_category = category
+
+	sidemenu_context.current_tab = context
+	sidemenu_context.get_child(context).current_tab = category
+
+
+func OpenSideMenu(
 ) -> void:
 	if (
 		GameState.choosing_deploy_city
@@ -514,8 +518,6 @@ func openSideMenu(
 	):
 		return
 	military_extra_panel.visible = true
-	current_context = context
-	current_category = category
 
 	if selected_country:
 		sidemenu_pointer.position.x = remap(selected_country.ideology[0], -100, 100, 3, 97)
@@ -628,7 +630,7 @@ func _on_menu_button_button_up(_menu_index: int) -> void:
 	if !CountryManager.player_country: return
 	if current_context == Context.PLAYER:
 		if _menu_index == Category.ECONOMY:
-			MapManager.show_industry_country(CountryManager.player_country.country_name)
+			MapManager.ShowIndustryCountry(CountryManager.player_country.country_name)
 			print(EconomyManager.building_designs)
 			print(EconomyManager.building_designs.get_or_add(CountryManager.player_country.country_name, {}))
 			building_dropdown.clear()
@@ -638,7 +640,7 @@ func _on_menu_button_button_up(_menu_index: int) -> void:
 		else:
 			MapManager.setCountryColor(CountryManager.player_country.country_name, Color.TRANSPARENT)
 			GameState.industry_building = GameState.IndustryType.DEFAULT
-			MapManager.show_countries_map()
+			MapManager.ShowCountriesMap()
 
 	# _build_action_list()
 
@@ -773,7 +775,7 @@ func _declare_war():
 
 	# GameState.game_ui.military_access_label.text = ( "Military Access: " + String("Yes" if selected_country.country_name in CountryManager.player_country.allowedCountries else "No"))
 
-	openSideMenu(Context.ENEMY, Category.GENERAL)
+	OpenSideMenu()
 
 func _conscript(_data: Dictionary):
 	#var manpower = data.manpower * 0.0001
@@ -891,7 +893,7 @@ func open_research_tree():
 	print("Opening Research")
 
 func open_decisions_tree():
-	get_tree().root.find_child("DecisionTreeUI", true, false).openSideMenu()
+	get_tree().root.find_child("DecisionTreeUI", true, false).OpenSideMenu()
 
 func _open_faction():
 	faction_prompt.visible = !faction_prompt.visible
@@ -900,7 +902,7 @@ func open_manage_country():
 	if logistics.visible:
 		logistics.closeSideMenu()
 	else:
-		logistics.openSideMenu(CountryManager.player_country)
+		logistics.OpenSideMenu(CountryManager.player_country)
 
 	#GameState.current_world.set_process(false)
 	#GameState.current_world.clock.set_process(false)
@@ -1156,11 +1158,11 @@ func _on_deploy_all_pressed():
 func _on_map_changed(tab: int) -> void:
 	match tab:
 		KeyboardManager.MapView.COUNTRIES:
-			MapManager.show_countries_map()
+			MapManager.ShowCountriesMap()
 			print("Map Mode: Countries")
 
 		KeyboardManager.MapView.POPULATION:
-			MapManager.show_population_map()
+			MapManager.ShowPopulationMap()
 			print("Map Mode: Population")
 
 		KeyboardManager.MapView.INFRASTRUCTURE:
@@ -1168,15 +1170,15 @@ func _on_map_changed(tab: int) -> void:
 			print("Map Mode: Infrastructure")
 			
 		KeyboardManager.MapView.GDP:
-			MapManager.show_gdp_map()
+			MapManager.ShowGdpMap()
 			print("Map Mode: GDP")
 
 		KeyboardManager.MapView.ETHNICITY:
-			MapManager.show_ethnic_map()
+			MapManager.ShowEthnicMap()
 			print("Map Mode: Ethnicity")
 
 		KeyboardManager.MapView.FACTION:
-			MapManager.show_faction_map()
+			MapManager.ShowFactionMap()
 			print("Map Mode: Factions")
 
 		KeyboardManager.MapView.RESOURCES:
@@ -1184,7 +1186,7 @@ func _on_map_changed(tab: int) -> void:
 			print("Map Mode: Resources")
 
 		KeyboardManager.MapView.BIOMES:
-			MapManager.show_biomes_map()
+			MapManager.ShowBiomesMap()
 			print("Map Mode: Biomes")
 
 
