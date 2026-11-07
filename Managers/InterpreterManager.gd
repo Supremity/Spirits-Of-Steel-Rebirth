@@ -38,6 +38,50 @@ var functions: Dictionary = {
 	"set_fig_attr": [ExpressionTypes.Variable, ExpressionTypes.Variable, ExpressionTypes.Variable],
 }
 
+# Parameter names per function, shown as placeholder text in the decision editor.
+# Variadic functions repeat their last name for extra args.
+var param_names: Dictionary = {
+	"return": ["value"],
+	"and": ["condition"],
+	"not": ["condition"],
+	"or": ["condition"],
+	"xor": ["condition_a", "condition_b"],
+	"eq": ["left", "right"],
+	"gt": ["left", "right"],
+	"lt": ["left", "right"],
+	"all": ["condition"],
+	"any": ["condition"],
+	"probability": ["chance"],
+	"get": ["country", "attribute"],
+	"set_country_attr": ["attribute", "value"],
+	"add_country_attr": ["attribute", "amount"],
+	"add": ["a", "b"],
+	"is_at_war": ["country_a", "country_b"],
+	"army_level_up": [],
+	"build_factory": ["amount"],
+	"declare_war": ["attacker", "defender"],
+	"release": ["country"],
+	"play_as": ["country"],
+	"annex": ["annexer", "annexee"],
+	"add_ideology_drift": ["country", "ideology", "drift"],
+	"make_puppet": ["puppeteer", "puppet"],
+	"release_puppet": ["puppeteer", "puppet"],
+	"has_pids": ["owner", "pid"],
+	"add_plans": ["plan"],
+	"remove_plan": ["plan"],
+	"event": ["event"],
+	"schedule_event": ["days", "event"],
+	"invite": ["inviter", "invitee"],
+	"change_province_types": ["pids", "type", "country_name"],
+	"set_fig_attr": ["figure", "attribute", "value"],
+}
+
+func get_param_name(func_name: String, index: int) -> String:
+	var names: Array = param_names.get(func_name, [])
+	if names.is_empty():
+		return ""
+	return names[min(index, names.size() - 1)]
+
 var debug: bool:
 	get:
 		return SettingsManager.settings.debug_mode

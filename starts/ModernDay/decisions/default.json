@@ -3,8 +3,8 @@
 		"Economy": [
 			{
 				"action": [],
-				"cost_pp": 25,
-				"days": 3,
+				"cost_pp": 25.0,
+				"days": 3.0,
 				"desc": "Focus the state on basic monetary gain.",
 				"id": "eco_1",
 				"pos": [
@@ -270,13 +270,13 @@
 					{
 						"args": [
 							"daily_pp_gain",
-							0.05
+							""
 						],
 						"func": "add_country_attr"
 					}
 				],
-				"cost_pp": 50.0,
-				"days": 20.0,
+				"cost_pp": 50,
+				"days": 20,
 				"desc": "Silencing dissent changes political power.",
 				"id": "pol_2",
 				"pos": [
@@ -284,6 +284,7 @@
 					300.0
 				],
 				"prereq": "pol_1",
+				"reqs": [],
 				"title": "Secret Police"
 			}
 		]

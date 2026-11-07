@@ -529,7 +529,7 @@ func _on_apply_pressed() -> void:
 	print("MapEditor: Applied changes and updated colors for ", new_country)
 
 func _on_export_pressed() -> void:
-	MapManager.export_scenario_data("user://map_data.json")
+	MapManager.exportScenarioData("user://map_data.json")
 
 func m_OnTabContainerTabChanged(tab: int) -> void:
 	m_NoneTool()
@@ -676,7 +676,7 @@ func m_OnProvinceGDPChanged(value: float) -> void:
 func m_OnColorChanged(color: Color) -> void:
 	if selectedCountry in CountryManager.countries:
 		CountryManager.countries[selectedCountry].country_color = color
-		MapManager.set_country_color(selectedCountry, color)
+		MapManager.setCountryColor(selectedCountry, color)
 
 func m_OnFactionColorChanged(color: Color) -> void:
 	if selectedFaction in FactionManager.factions:
@@ -777,7 +777,7 @@ func m_PaintOwnerTool() -> void:
 			for pid: int in multiSelectPID:
 				MapManager.ResetProvinceColor(pid)
 			multiSelectPID = []
-	MapManager.show_countries_map()
+	MapManager.ShowCountriesMap()
 	currentTool = Tool.PAINT_SECONDARY
 	
 func m_PaintOccupationTool() -> void:
@@ -786,7 +786,7 @@ func m_PaintOccupationTool() -> void:
 			for pid: int in multiSelectPID:
 				MapManager.ResetProvinceColor(pid)
 			multiSelectPID = []
-	MapManager.show_countries_map()
+	MapManager.ShowCountriesMap()
 	currentTool = Tool.PAINT_PRIMARY
 	
 func m_PaintFactionTool() -> void:
@@ -795,7 +795,7 @@ func m_PaintFactionTool() -> void:
 			for pid: int in multiSelectPID:
 				MapManager.ResetProvinceColor(pid)
 			multiSelectPID = []
-	MapManager.show_faction_map()
+	MapManager.ShowFactionMap()
 	currentTool = Tool.PAINT_PRIMARY
 
 func m_PaintBiomeTool() -> void:
@@ -804,7 +804,7 @@ func m_PaintBiomeTool() -> void:
 			for pid: int in multiSelectPID:
 				MapManager.ResetProvinceColor(pid)
 			multiSelectPID = []
-	MapManager.show_biomes_map()
+	MapManager.ShowBiomesMap()
 	currentTool = Tool.PAINT_PRIMARY
 
 func m_MultiSelectTool() -> void:

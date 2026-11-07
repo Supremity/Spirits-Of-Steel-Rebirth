@@ -2862,7 +2862,7 @@
 				0.0,
 				0.0
 			],
-			"is_player": true,
+			"is_player": false,
 			"money": 100000.0,
 			"name": "India",
 			"political_power": 500.56,
@@ -10005,7 +10005,7 @@
 		"10847": {
 			"biome": "Tropical_rainforest",
 			"buildings": [],
-			"city": "",
+			"city": "Ciudad de la Paz",
 			"claims": [],
 			"gdp": 20000,
 			"infrastructure": 0,
@@ -12868,7 +12868,7 @@
 		"11455": {
 			"biome": "Subtropical_evergreen",
 			"buildings": [],
-			"city": "",
+			"city": "Kigali",
 			"claims": [],
 			"gdp": 2500,
 			"infrastructure": 0,
@@ -13943,7 +13943,7 @@
 		"11661": {
 			"biome": "Subtropical_evergreen",
 			"buildings": [],
-			"city": "",
+			"city": "GItega",
 			"claims": [],
 			"gdp": 2500,
 			"infrastructure": 0,
@@ -15153,7 +15153,7 @@
 					"type": "Factory"
 				}
 			],
-			"city": "",
+			"city": "Kinshasa",
 			"claims": [],
 			"gdp": 1000,
 			"infrastructure": 0,
@@ -18707,7 +18707,7 @@
 					"type": "Factory"
 				}
 			],
-			"city": "",
+			"city": "Luanda",
 			"claims": [],
 			"gdp": 5000,
 			"infrastructure": 0,
@@ -21456,7 +21456,7 @@
 					"type": "Factory"
 				}
 			],
-			"city": "",
+			"city": "Lilongwe",
 			"claims": [],
 			"gdp": 1000,
 			"infrastructure": 0,
@@ -23335,7 +23335,7 @@
 					"type": "Factory"
 				}
 			],
-			"city": "",
+			"city": "Lusaka",
 			"claims": [],
 			"gdp": 2500,
 			"infrastructure": 0,
@@ -25008,7 +25008,7 @@
 		"14288": {
 			"biome": "Dry_forest",
 			"buildings": [],
-			"city": "",
+			"city": "Harare",
 			"claims": [],
 			"gdp": 2500,
 			"infrastructure": 0,
@@ -25970,7 +25970,7 @@
 					"type": "Factory"
 				}
 			],
-			"city": "",
+			"city": "Antananarivo",
 			"claims": [],
 			"gdp": 1000,
 			"infrastructure": 0,
@@ -26256,7 +26256,7 @@
 					"type": "Factory"
 				}
 			],
-			"city": "",
+			"city": "Windhoek",
 			"claims": [],
 			"gdp": 5000,
 			"infrastructure": 0,
@@ -29089,7 +29089,7 @@
 		"15386": {
 			"biome": "Dry_forest",
 			"buildings": [],
-			"city": "",
+			"city": "Gaborone",
 			"claims": [],
 			"gdp": 10000,
 			"infrastructure": 0,
@@ -30148,7 +30148,7 @@
 					"type": "Factory"
 				}
 			],
-			"city": "",
+			"city": "Maputo",
 			"claims": [],
 			"gdp": 1000,
 			"infrastructure": 0,
@@ -30947,7 +30947,7 @@
 		"15937": {
 			"biome": "Grass_savanna",
 			"buildings": [],
-			"city": "",
+			"city": "Lobamba",
 			"claims": [],
 			"gdp": 1500000,
 			"infrastructure": 0,
@@ -32458,7 +32458,7 @@
 					"type": "Factory"
 				}
 			],
-			"city": "",
+			"city": "Bloemfontein",
 			"claims": [],
 			"gdp": 10000,
 			"infrastructure": 0,
@@ -32485,7 +32485,7 @@
 		"16435": {
 			"biome": "Grass_savanna",
 			"buildings": [],
-			"city": "",
+			"city": "Maseru",
 			"claims": [],
 			"gdp": 2500,
 			"infrastructure": 0,
@@ -35448,7 +35448,7 @@
 					"type": "Factory"
 				}
 			],
-			"city": "",
+			"city": "Cape Town",
 			"claims": [],
 			"gdp": 10000,
 			"infrastructure": 0,
@@ -110597,7 +110597,7 @@
 		"8384": {
 			"biome": "Monsoon_forest",
 			"buildings": [],
-			"city": "",
+			"city": "Banjul",
 			"claims": [],
 			"gdp": 1500000,
 			"infrastructure": 0,
@@ -112045,7 +112045,7 @@
 		"8632": {
 			"biome": "Monsoon_forest",
 			"buildings": [],
-			"city": "",
+			"city": "Bissau",
 			"claims": [],
 			"gdp": 2500,
 			"infrastructure": 0,
@@ -112856,7 +112856,7 @@
 		"8739": {
 			"biome": "Semi_arid_desert",
 			"buildings": [],
-			"city": "",
+			"city": "Djibouti",
 			"claims": [],
 			"gdp": 1500000,
 			"infrastructure": 0,
@@ -115715,7 +115715,7 @@
 		"9201": {
 			"biome": "89, 129, 89",
 			"buildings": [],
-			"city": "",
+			"city": "Freetown",
 			"claims": [],
 			"gdp": 1000,
 			"infrastructure": 0,
@@ -119296,7 +119296,7 @@
 		"9750": {
 			"biome": "Tropical_rainforest",
 			"buildings": [],
-			"city": "",
+			"city": "Porto-Novo",
 			"claims": [],
 			"gdp": 2500,
 			"infrastructure": 0,
@@ -120075,7 +120075,7 @@
 		"9896": {
 			"biome": "Tropical_rainforest",
 			"buildings": [],
-			"city": "",
+			"city": "Lomé",
 			"claims": [],
 			"gdp": 2500,
 			"infrastructure": 0,

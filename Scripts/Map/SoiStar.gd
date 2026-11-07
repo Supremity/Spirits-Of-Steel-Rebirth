@@ -4,16 +4,18 @@ class_name SoiStar
 
 var context_allowed_countries: Array[String] = []
 
+
 func _compute_cost(from_id: int, to_id: int) -> float:
-	if neighbor_filter_enabled and _filter_neighbor(from_id, to_id):
-		return INF
 	return get_point_position(from_id).distance_to(get_point_position(to_id))
+
+func _estimate_cost(from_id: int, to_id: int) -> float:
+	return get_point_position(from_id).distance_squared_to(get_point_position(to_id))
 
 func _filter_neighbor(from_id: int, to_id: int) -> bool:
 	var from_prov = MapManager.province_objects.get(from_id)
 	var to_prov = MapManager.province_objects.get(to_id)
 	
-	if !from_prov || !to_prov:
+	if !(from_prov && to_prov):
 		return true
 
 	var from_owner: String = from_prov.GetFunctionalOwner()

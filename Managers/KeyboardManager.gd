@@ -1,14 +1,19 @@
 extends Node
 
 # Use the same names as your MapManager functions for clarity
-enum MapView {COUNTRIES, POPULATION, INFRASTRUCTURE, GDP, ETHNICITY, FACTION, RESOURCES, BIOMES}
+enum MapView {
+	COUNTRIES,
+	POPULATION,
+	INFRASTRUCTURE,
+	GDP,
+	ETHNICITY,
+	FACTION,
+	RESOURCES,
+	BIOMES,
+}
 var current_view = MapView.COUNTRIES
 
 var settings: CanvasLayer
-
-signal toggle_menu
-
-var _debounce := false
 
 func _ready() -> void:
 	settings = $/root/Main/SettingsLayer
@@ -36,12 +41,14 @@ func _process(_delta: float) -> void:
 
 	if SceneSwitcher._current_type != SceneSwitcher.Type.EDITOR:
 		if Input.is_action_just_pressed("open_menu"):
-			if not _debounce && CountryManager.player_country:
-				_debounce = true
-				toggle_menu.emit()
-
-		if Input.is_action_just_released("open_menu"):
-			_debounce = false
+			if CountryManager.player_country:
+				GameState.game_ui.ChangeContextCategory(
+					GameState.game_ui.Context.PLAYER,
+					GameState.game_ui.Category.GENERAL,
+				)
+				GameState.game_ui.selected_country = CountryManager.player_country
+				GameState.game_ui.DoUpdateSidemenuVisuals()
+			GameState.game_ui.ToggleSideMenu()
 
 	# --- 2. MAP MODE CYCLING (Independent of Menu) ---
 	if Input.is_action_just_pressed("cycle_map_mode"):
@@ -62,11 +69,11 @@ func _process(_delta: float) -> void:
 func _cycle_map_mode(shift: bool) -> void:
 	match (current_view + (1 if shift else -1) + MapView.size()) % MapView.size():
 		MapView.COUNTRIES:
-			MapManager.show_countries_map()
+			MapManager.ShowCountriesMap()
 			print("Map Mode: Countries")
 
 		MapView.POPULATION:
-			MapManager.show_population_map()
+			MapManager.ShowPopulationMap()
 			print("Map Mode: Population")
 
 		MapView.INFRASTRUCTURE:
@@ -74,15 +81,15 @@ func _cycle_map_mode(shift: bool) -> void:
 			print("Map Mode: Infrastructure")
 			
 		MapView.GDP:
-			MapManager.show_gdp_map()
+			MapManager.ShowGdpMap()
 			print("Map Mode: GDP")
 
 		MapView.ETHNICITY:
-			MapManager.show_ethnic_map()
+			MapManager.ShowEthnicMap()
 			print("Map Mode: Ethnicity")
 
 		MapView.FACTION:
-			MapManager.show_faction_map()
+			MapManager.ShowFactionMap()
 			print("Map Mode: Factions")
 
 		MapView.RESOURCES:
@@ -90,5 +97,5 @@ func _cycle_map_mode(shift: bool) -> void:
 			print("Map Mode: Resources")
 			
 		MapView.BIOMES:
-			MapManager.show_biomes_map()
+			MapManager.ShowBiomesMap()
 			print("Map Mode: Biomes")

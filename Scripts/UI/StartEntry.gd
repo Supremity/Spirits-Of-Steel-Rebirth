@@ -41,7 +41,7 @@ func setup(a_text: String, a_background: String, mapdata_path: String):
 				MapManager.LoadBiomes(b_data if b_data is Array else [])
 				var r_data = map_data.get("resources")
 				MapManager.LoadResources(r_data if r_data is Array else [])
-				MapManager.load_country_data(
+				MapManager.loadCountryData(
 					load(start_folder + "regions.png"),
 					map_data.get("provinces", {}) as Dictionary,
 					a_percent
@@ -53,7 +53,7 @@ func setup(a_text: String, a_background: String, mapdata_path: String):
 				a_percent[0] = 0.65
 				CountryManager.initialize_countries(map_data.get("polities", []) as Array)
 				a_percent[0] = 0.75
-				MapManager.build_lookup_texture()
+				MapManager.buildLookupTexture()
 				a_percent[0] = 0.85
 				FactionManager.Initialize(map_data.get("factions", []))
 				a_percent[0] = 0.9

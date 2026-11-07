@@ -1,12 +1,15 @@
 extends Node
 
 signal player_country_changed
+
 var countries: Dictionary[String, CountryData] = {}
 var countryNames: PackedStringArray = []
 var player_country: CountryData
 
 var Releasables: Array[ReleasableData] = []
 var dead_countries: Dictionary[String, CountryData] = {}
+
+const SEA_COUNTRY := CountryData.new()
 
 #var mutexer: Mutex = Mutex.new()
 
@@ -149,7 +152,6 @@ func add_country(a_countryData: Dictionary) -> CountryData:
 	
 	#mutexer.lock()
 	countries[tempName] = new_country
-	print(countries[tempName])
 	countryNames.append(tempName)
 	
 	if new_country.is_player:
@@ -286,7 +288,7 @@ func make_puppet(puppeter: CountryData, puppetee: CountryData):
 	FactionManager.clear_faction(puppetee)
 	puppetee.factions = puppeter.factions
 	FactionManager.invite_faction(puppeter, puppetee)
-	MapManager.show_countries_map()
+	MapManager.ShowCountriesMap()
 
 func release_puppet(puppeter: CountryData, puppetee: CountryData):
 	MapManager.unallow_pids(puppeter, puppetee)
@@ -296,7 +298,7 @@ func release_puppet(puppeter: CountryData, puppetee: CountryData):
 	puppetee.is_puppet = false
 	puppetee.owner = ""
 	puppetee.factions = []
-	MapManager.show_countries_map()
+	MapManager.ShowCountriesMap()
 
 func MakeHost(a_host: CountryData, a_hosted: CountryData) -> void:
 	a_host.hostedGovernments.append(a_hosted.country_name)
@@ -304,7 +306,7 @@ func MakeHost(a_host: CountryData, a_hosted: CountryData) -> void:
 	a_hosted.allowedCountries.append(a_host.country_name)
 	a_hosted.is_exiled = true
 	a_hosted.host = a_host.country_name
-	MapManager.show_countries_map()
+	MapManager.ShowCountriesMap()
 
 func FreeHost(a_host: CountryData, a_hosted: CountryData):
 	a_host.puppets.erase(a_hosted.country_name)
@@ -312,7 +314,7 @@ func FreeHost(a_host: CountryData, a_hosted: CountryData):
 	a_hosted.allowedCountries.erase(a_host.country_name)
 	a_hosted.is_exiled = false
 	a_hosted.host = ""
-	MapManager.show_countries_map()
+	MapManager.ShowCountriesMap()
 
 func RenameCountry(_a_old: String, _a_new: String) -> void:
 	pass
