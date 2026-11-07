@@ -17,10 +17,14 @@
 [ext_resource type="Texture2D" uid="uid://hm1xuuhxy0t6" path="res://assets/portraits/AdolfHitler.png" id="9_jr6u5"]
 [ext_resource type="Texture2D" uid="uid://dfsodrjldvwq5" path="res://assets/ui/ariect2.png" id="10_6m47u"]
 [ext_resource type="Texture2D" uid="uid://vmu5mixor70t" path="res://assets/ui/ariect.png" id="10_t1dhk"]
+[ext_resource type="Shader" uid="uid://cac81x4hbfwue" path="res://shaders/goober.gdshader" id="11_6dk6o"]
 [ext_resource type="Texture2D" uid="uid://dxagea0m3wa61" path="res://assets/ui/petpet.png" id="12_vtepg"]
 [ext_resource type="Script" uid="uid://cg4pa1ta81t7l" path="res://Scenes/starts.gd" id="14_8dnnj"]
 [ext_resource type="Script" uid="uid://wdpw32skvwbn" path="res://Scripts/UI/Animations/Border.gd" id="18_ehtkc"]
-[ext_resource type="Script" uid="uid://csrd7lwmkact6" path="res://Scripts/UI/Links.gd" id="18_ujyyl"]
+[ext_resource type="Script" path="res://Scripts/UI/Links.gd" id="18_ujyyl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ehtkc"]
+shader = ExtResource("11_6dk6o")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8dnnj"]
 shader = ExtResource("6_m3bi6")
@@ -68,6 +72,16 @@ grow_vertical = 2
 script = ExtResource("2_vtepg")
 USSR = Array[Texture]([ExtResource("10_t1dhk"), ExtResource("4_m3bi6"), ExtResource("2_opfnp"), ExtResource("7_wyh8j"), ExtResource("7_ehtkc"), ExtResource("8_6dk6o"), ExtResource("9_jr6u5"), ExtResource("10_6m47u")])
 AvatarImage = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="Butter" unique_id=88744107]
+material = SubResource("ShaderMaterial_ehtkc")
+layout_mode = 0
+offset_left = 66.0
+offset_top = 43.0
+offset_right = 231.0
+offset_bottom = 208.0
+expand_mode = 3
+stretch_mode = 5
 
 [node name="Hand" type="TextureRect" parent="Butter" unique_id=1924079947]
 material = SubResource("ShaderMaterial_8dnnj")
@@ -128,13 +142,6 @@ expand_mode = 1
 process_callback = 0
 wait_time = 20.0
 autostart = true
-
-[node name="TextureRect" type="TextureRect" parent="Butter" unique_id=88744107]
-layout_mode = 0
-offset_left = 62.0
-offset_top = 79.0
-offset_right = 227.0
-offset_bottom = 174.0
 
 [node name="Control" type="Control" parent="." unique_id=1445080907]
 layout_mode = 3

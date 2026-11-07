@@ -100,7 +100,7 @@ func _populate_releasables(player_country: String) -> void:
 	for child in releasable_laws_grid.get_children():
 		child.queue_free()
 
-	var releasables = MapManager.get_all_releasables(player_country)
+	var releasables = MapManager.GetAllReleasables(player_country)
 
 	if releasables.is_empty():
 		var lbl = Label.new()
@@ -272,7 +272,7 @@ func _on_return_territory_pressed(country_id: String, pids: PackedInt32Array) ->
 	if current_country.political_power >= 50:
 		current_country.political_power -= 50
 		for pid in pids:
-			MapManager.transfer_ownership(pid, country_id)
+			MapManager.TransferOwnership(pid, country_id)
 		# Refresh UI
 		_populate_releasables(current_country.country_name)
 	else:

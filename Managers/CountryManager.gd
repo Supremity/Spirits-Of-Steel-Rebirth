@@ -9,8 +9,6 @@ var player_country: CountryData
 var Releasables: Array[ReleasableData] = []
 var dead_countries: Dictionary[String, CountryData] = {}
 
-const SEA_COUNTRY := CountryData.new()
-
 #var mutexer: Mutex = Mutex.new()
 
 func _on_hour_passed() -> void:

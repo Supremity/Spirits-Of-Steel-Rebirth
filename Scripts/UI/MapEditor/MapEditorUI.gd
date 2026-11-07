@@ -266,7 +266,7 @@ func _handle_click(_screenPos: Vector2, a_button: Drag) -> void:
 									MapManager.DeoccupyProvince(hovered_pid)
 					Tool.PAINT_SECONDARY:
 						if MapManager.province_objects[hovered_pid].country != "Sea" && selectedCountry in CountryManager.countries:
-							MapManager.transfer_ownership(hovered_pid, selectedCountry)
+							MapManager.TransferOwnership(hovered_pid, selectedCountry)
 							original_pid_color = CountryManager.countries[selectedCountry].country_color
 					Tool.MULTI_SELECT:
 						match a_button:
@@ -710,12 +710,12 @@ func m_OnProvinceOwnerSubmitted(new_text: String) -> void:
 		Tool.NONE:
 			if selected_pid in MapManager.province_objects && CountryManager.countries.has(new_text):
 				#if (new_text == MapManager.province_objects[selected_pid].occupier):
-				MapManager.transfer_ownership(selected_pid, new_text)
+				MapManager.TransferOwnership(selected_pid, new_text)
 		Tool.MULTI_SELECT:
 			for pid: int in multiSelectPID:
 				if pid in MapManager.province_objects && CountryManager.countries.has(new_text):
 					#if (new_text == MapManager.province_objects[selected_pid].occupier):
-					MapManager.transfer_ownership(pid, new_text)
+					MapManager.TransferOwnership(pid, new_text)
 	
 
 func m_OnProvinceOccupierSubmitted(new_text: String) -> void:

@@ -559,7 +559,7 @@ func _deploy_initial_force(divisions: Array[DivisionData]) -> void:
 		return
 
 	# Get cities specifically to look more "organized"
-	var cities = MapManager.get_cities_province_country(country_name)
+	var cities = MapManager.GetCitiesProvinceCountry(country_name)
 	var deploy_targets = cities if not cities.is_empty() else provinces
 
 	# If we have a lot of divisions, split them into small stacks (e.g., 5 per stack)

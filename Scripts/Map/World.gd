@@ -69,7 +69,7 @@ func DoSetup(a_progress: Array) -> void:
 
 	print("World: Map is ready -> configuring visuals...")
 
-	MapManager.all_cities = MapManager.get_all_cities()
+	MapManager.all_cities = MapManager.GetAllCities()
 	a_progress[0] = 0.21
 
 	if !CountryManager.player_country:
@@ -176,7 +176,7 @@ func load_map_data(mapData: Dictionary):
 	TroopManager.set_custom_flag_path(start_folder + "flags/")
 	
 	CountryManager.initialize_countries(mapData.get("polities", []) as Array)
-	MapManager.loadCountryData(regions_tex, mapData.get("provinces", {}) as Dictionary, [0])
+	MapManager.LoadCountryData(regions_tex, mapData.get("provinces", {}) as Dictionary, [0])
 	
 	# Restore Clock
 	if clock:
@@ -190,7 +190,7 @@ func load_map_data(mapData: Dictionary):
 	WarManager.load_original_territories(mapData.get("original_territories", {}))
 	WarManager.check_for_new_battles()
 	
-	MapManager.buildLookupTexture()
+	MapManager.BuildLookupTexture()
 	FactionManager.Initialize(mapData.get("factions", []))
 	
 	if mapData.has("significant_figures"):
@@ -320,8 +320,8 @@ func _create_ghost_map(offset: Vector2, p_material: ShaderMaterial) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
-			MapManager.handle_click_down(get_global_mouse_position(), map_sprite)
+			MapManager.HandleClickDown(get_global_mouse_position(), map_sprite)
 		else:
-			MapManager.handle_click(get_global_mouse_position(), map_sprite)
+			MapManager.HandleClick(get_global_mouse_position(), map_sprite)
 	if event is InputEventMouseMotion:
-		MapManager.handleHover(get_global_mouse_position(), map_sprite)
+		MapManager.HandleHover(get_global_mouse_position(), map_sprite)

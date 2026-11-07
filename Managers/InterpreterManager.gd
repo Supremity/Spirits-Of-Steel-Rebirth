@@ -358,7 +358,7 @@ func get_function(block, country: CountryData = null):
 				result = true
 		"annex":
 			if evaled_args.size() >= 2:
-				MapManager.annex_country(evaled_args[0], evaled_args[1])
+				MapManager.AnnexCountry(evaled_args[0], evaled_args[1])
 				result = true
 		"add_ideology_drift":
 			var country_obj: CountryData = CountryManager.countries[evaled_args[0]]

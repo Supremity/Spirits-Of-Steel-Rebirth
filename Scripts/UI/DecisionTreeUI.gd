@@ -117,7 +117,7 @@ func _zoom_at_mouse(factor: float):
 
 
 # --- LOGIC ---
-func open_menu():
+func OpenMenu():
 	show()
 	_rebuild_tabs()
 	_load_category(current_category)
@@ -130,7 +130,7 @@ func open_menu():
 	_toggle_pause(true)
 
 
-func close_menu():
+func CloseMenu():
 	hide()
 	GameState.decision_menu_open = false
 	_toggle_pause(false)
@@ -470,12 +470,12 @@ func _get_node_center(nodes: Array, id: String) -> Vector2:
 	return Vector2.ZERO
 
 
-func refresh_status_only():
+func RefreshStatusOnly():
 	if not visible:
 		return
-	var player = CountryManager.player_country
-	var country_categories = DecisionManager.get_country_categories(player.country_name)
-	var nodes = country_categories.get(current_category, [])
+	var player: CountryData = CountryManager.player_country
+	var country_categories: Dictionary = DecisionManager.get_country_categories(player.country_name)
+	var nodes: Array = country_categories.get(current_category, [])
 	for btn in node_buttons.values():
 		if is_instance_valid(btn):
 			_apply_node_style(btn, nodes[btn.get_meta("idx")], player)

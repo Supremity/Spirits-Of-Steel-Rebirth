@@ -485,7 +485,7 @@ func get_province_midpoint(pid1: int, pid2: int) -> Vector2:
 
 
 func check_country_collapse(country_name: String, victor_name: String):
-	if MapManager.get_cities_province_country(country_name).size() == 0:
+	if MapManager.GetCitiesProvinceCountry(country_name).size() == 0:
 		_handle_total_collapse(country_name, victor_name)
 
 
@@ -567,11 +567,11 @@ func _handle_total_collapse(fallen_name: String, victor_name: String) -> void:
 		for pid in MapManager.country_to_owned_provinces.get(fallen_name).duplicate():
 			if MapManager.province_objects[pid].occupier == "":
 				#print("%d is going to victor " % pid + victor_name)
-				MapManager.transfer_ownership(pid, victor_name)
+				MapManager.TransferOwnership(pid, victor_name)
 				#original_territories[victor_name].append(pid)
 			else:
 				#print("%d is going to occupier " % pid + MapManager.province_objects[pid].occupier)
-				MapManager.transfer_ownership(pid, MapManager.province_objects[pid].occupier)
+				MapManager.TransferOwnership(pid, MapManager.province_objects[pid].occupier)
 				#original_territories[MapManager.province_objects[pid].country].append(pid)
 			
 		original_territories.erase(fallen_name)

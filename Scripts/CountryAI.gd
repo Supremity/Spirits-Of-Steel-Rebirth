@@ -272,7 +272,7 @@ func _execute_war() -> bool:
 		# We add a bit of randomness to the score so it's not always the same neighbor
 		var score: float = (ratio - 1.0) * personality["war"]["score"]["strength"] \
 			+ target_data.money * personality["war"]["score"]["money_factor"] \
-			+ min(MapManager.get_cities_province_country(target_name).size(), personality["war"]["score"]["max_cities"]) * personality["war"]["score"]["cities"] \
+			+ min(MapManager.GetCitiesProvinceCountry(target_name).size(), personality["war"]["score"]["max_cities"]) * personality["war"]["score"]["cities"] \
 			+ randf_range(-0.5, 0.5)
 
 		if score > best_score && score > WAR_SCORE_THRESHOLD:
@@ -356,7 +356,7 @@ func _execute_frontline():
 	for city in MapManager.all_cities:
 		city_dict[city.id] = true
 
-	for my_pid in MapManager.get_provinces_bordering_enemies(country.country_name, enemies):
+	for my_pid in MapManager.GetProvincesBorderingEnemies(country.country_name, enemies):
 		#if country == GameState.game_ui.selected_country:
 		#	print("Border Province: %d" % my_pid)
 		for n_id in MapManager.province_graph.get_point_connections(my_pid):
@@ -505,7 +505,7 @@ func _execute_call_to_arms() -> bool:
 
 func _get_peace_hubs() -> Array:
 	# Check if we have a valid list of all cities
-	var cities: Array = MapManager.get_cities_province_country(country.country_name)
+	var cities: Array = MapManager.GetCitiesProvinceCountry(country.country_name)
 	
 	return MapManager.country_to_provinces.get(country.country_name, []) if cities.is_empty() else cities
 

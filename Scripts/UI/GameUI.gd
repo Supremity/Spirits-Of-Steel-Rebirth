@@ -1068,7 +1068,7 @@ func _on_steal_money_pressed() -> void:
 		selected_country.money -= 1_000
 
 func _on_annex_country_pressed() -> void:
-	MapManager.annex_country(CountryManager.player_country.country_name, selected_country.country_name)
+	MapManager.AnnexCountry(CountryManager.player_country.country_name, selected_country.country_name)
 
 func _on_call_to_arms_pressed() -> void:
 	WarManager.call_to_arms(CountryManager.player_country, selected_country)

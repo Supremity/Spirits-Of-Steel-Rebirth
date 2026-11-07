@@ -361,7 +361,7 @@ func _update_summary():
 func _on_confirm_pressed():
 	for pid in provinces_to_take:
 		var recipient = provinces_to_take[pid]
-		MapManager.transfer_ownership(pid, recipient.country_name)
+		MapManager.TransferOwnership(pid, recipient.country_name)
 	
 	for puppet in puppeting:
 		# Use the first winner (usually the war leader/player) to puppet

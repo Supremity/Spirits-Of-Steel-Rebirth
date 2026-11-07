@@ -105,7 +105,7 @@ func _complete_construction(pid: int, project: Dictionary):
 		#EventManager.show_alert("economy", country, null, "Construction of %s complete!" % type.capitalize())
 		if GameState.industry_building:
 			MusicManager.play_sfx(MusicManager.SFX.CLAPPING)
-		MapManager.province_updated()
+		MapManager.ProvinceUpdated()
 
 func is_province_building(pid: int) -> bool:
 	return construction_queue.has(pid)

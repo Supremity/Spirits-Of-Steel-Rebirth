@@ -250,7 +250,7 @@ func m_RandomFigure(country, budget) -> void:
 	CountryManager.countries[country].figures.append(figure.name)
 
 func _show_releasables_country(country):
-	var releasables = MapManager.get_all_releasables(country).map(func(x): return x.country)
+	var releasables = MapManager.GetAllReleasables(country).map(func(x): return x.country)
 	Console.print_info(JSON.stringify(releasables))
 
 
@@ -280,7 +280,7 @@ func _peace_treaty(country):
 
 func _annex(annexer: String, annexee) -> void:
 	if CountryManager.countries.has(annexee):
-		MapManager.annex_country(annexer, annexee)
+		MapManager.AnnexCountry(annexer, annexee)
 		CountryManager.cleanup_empty_countries()
 		return
 
