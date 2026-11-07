@@ -100,7 +100,7 @@ func _init(_country: CountryData) -> void:
 	personality["war"]["probability"]["base"] *= (1.0 + extremism)
 	personality["war"]["probability"]["tension_factor"] = (2.0 + extremism * 5.0) * randf()
 	
-	if MapManager.is_inside_tree():
+	if MapManager != null && MapManager.is_inside_tree():
 		MapManager.province_ownership_changed.connect(_on_province_ownership_changed)
 
 func _on_province_ownership_changed(_pid: int, _old_owner: String, _new_owner: String) -> void:

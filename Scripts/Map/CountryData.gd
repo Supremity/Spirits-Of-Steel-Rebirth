@@ -1,5 +1,7 @@
 class_name CountryData extends Resource
 
+static var SEA_COUNTRY_DATA: CountryData = CountryData.new()
+
 var economy_law_penalty: float = 0.0 # 0.10 means 10% income loss
 var army_composition_cache: Dictionary = {"infantry": 0, "tank": 0, "artillery": 0}
 #region --- Configuration & Constants ---
@@ -10,8 +12,8 @@ const BASE_ARMY_COST := 20
 #endregion
 
 #region --- Properties ---
-var country_name: String
-var display_name: String
+var country_name: String = "Sea"
+var display_name: String = "Sea"
 var capital: String
 var country_color: Color
 var is_player: bool = false
