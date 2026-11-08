@@ -900,9 +900,9 @@ func _open_faction():
 
 func open_manage_country():
 	if logistics.visible:
-		logistics.CloseSideMenu()
+		logistics.CloseMenu()
 	else:
-		logistics.OpenSideMenu(CountryManager.player_country)
+		logistics.OpenMenu(CountryManager.player_country)
 
 	#GameState.current_world.set_process(false)
 	#GameState.current_world.clock.set_process(false)

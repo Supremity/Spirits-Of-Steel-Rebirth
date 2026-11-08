@@ -244,9 +244,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Ethnicity"
 
-[node name="InputPop" type="SpinBox" parent="PanelContainer/VBoxContainer/TabContainer/Province/MarginContainer/VBoxContainer/Population/VBoxContainer/Template/MarginContainer/HBoxContainer" unique_id=789657053]
+[node name="InputCulName" type="LineEdit" parent="PanelContainer/VBoxContainer/TabContainer/Province/MarginContainer/VBoxContainer/Population/VBoxContainer/Template/MarginContainer/HBoxContainer" unique_id=373605074]
 layout_mode = 2
 size_flags_horizontal = 3
+placeholder_text = "Culture"
+
+[node name="InputPop" type="SpinBox" parent="PanelContainer/VBoxContainer/TabContainer/Province/MarginContainer/VBoxContainer/Population/VBoxContainer/Template/MarginContainer/HBoxContainer" unique_id=789657053]
+layout_mode = 2
 max_value = 2000000000.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/TabContainer/Province/MarginContainer/VBoxContainer/Population/VBoxContainer" unique_id=1672469653]
