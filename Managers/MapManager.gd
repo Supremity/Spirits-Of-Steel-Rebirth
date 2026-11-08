@@ -1621,12 +1621,12 @@ func _build_global_registry():
 func allow_pids(accesser: CountryData, accessee: CountryData):
 	if !allowed_pids.has(accesser.country_name):
 		allowed_pids[accesser.country_name] = []
-	for province: Province in country_to_provinces[accessee.country_name]:
+	for province: int in country_to_provinces[accessee.country_name]:
 		allowed_pids[accesser.country_name].append(province)
 
 
 func unallow_pids(unaccesser: CountryData, unaccessee: CountryData):
-	for province: Province in country_to_provinces[unaccessee.country_name]:
+	for province: int in country_to_provinces[unaccessee.country_name]:
 		allowed_pids[unaccesser.country_name].erase(province)
 	
 

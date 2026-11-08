@@ -286,7 +286,7 @@ func _execute_war() -> bool:
 		WarManager.declare_war(country, CountryManager.countries[best_target])
 		
 		# Aggressive/Extreme countries cause more tension
-		MapManager.increaseWorldTension(0.02 + _get_extremism() * 0.03 + personality["aggression"] * 0.01)
+		MapManager.IncreaseWorldTension(0.02 + _get_extremism() * 0.03 + personality["aggression"] * 0.01)
 
 		_last_declare_frame = frame_now
 	
