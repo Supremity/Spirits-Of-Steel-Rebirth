@@ -25,7 +25,7 @@ func _ready() -> void:
 	_populate_military()
 	_populate_economy()
 
-func open_menu(country: CountryData, cat: Category = Category.MILITARY) -> void:
+func OpenMenu(country: CountryData, cat: Category = Category.MILITARY) -> void:
 	if current_country and current_country.ideology_changed.is_connected(_refresh_full_data):
 		current_country.ideology_changed.disconnect(_refresh_full_data)
 
@@ -39,7 +39,7 @@ func open_menu(country: CountryData, cat: Category = Category.MILITARY) -> void:
 	_refresh_full_data()
 	show()
 
-func close_menu() -> void:
+func CloseMenu() -> void:
 	hide()
 
 func _process(delta: float) -> void:

@@ -259,7 +259,7 @@ func _ready() -> void:
 	GameState.game_ui = self
 
 	MapManager.country_clicked.connect(_on_province_clicked)
-	MapManager.close_sidemenu.connect(closeSideMenu)
+	MapManager.close_sidemenu.connect(CloseSideMenu)
 
 	var world: World = GameState.current_world
 	if world and world.clock:
@@ -493,7 +493,7 @@ func _on_province_clicked(country_name: String) -> void:
 
 func ToggleSideMenu() -> void:
 	if is_open:
-		closeSideMenu()
+		CloseSideMenu()
 	else:
 		OpenSideMenu()
 
@@ -738,7 +738,7 @@ func _update_flag() -> void:
 	nation_flag.texture = TroopManager.get_flag(CountryManager.player_country.country_name, CountryManager.player_country.ideology_name)
 	#_update_relations_visuals.call_deferred()
 
-func closeSideMenu() -> void:
+func CloseSideMenu() -> void:
 	if is_open:
 		MusicManager.play_sfx(MusicManager.SFX.CLOSE_MENU)
 	GameState.reset_industry_building()
@@ -856,7 +856,7 @@ func _force_puppet():
 	
 	CountryManager.make_puppet(CountryManager.player_country, selected_country)
 	_update_context_actions_visuals()
-	closeSideMenu()
+	CloseSideMenu()
 
 func _on_release_puppet_pressed():
 	var cost = action_costs["_release_puppet"].call(CountryManager.player_country, selected_country)["cost"]
@@ -866,7 +866,7 @@ func _on_release_puppet_pressed():
 	
 	CountryManager.release_puppet(CountryManager.player_country, selected_country)
 	_update_context_actions_visuals()
-	closeSideMenu()
+	CloseSideMenu()
 
 func _improve_relations():
 	var cost = action_costs["_improve_relations"].call(CountryManager.player_country, selected_country)["cost"]
@@ -900,7 +900,7 @@ func _open_faction():
 
 func open_manage_country():
 	if logistics.visible:
-		logistics.closeSideMenu()
+		logistics.CloseSideMenu()
 	else:
 		logistics.OpenSideMenu(CountryManager.player_country)
 

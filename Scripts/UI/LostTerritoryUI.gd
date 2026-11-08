@@ -123,7 +123,7 @@ func m_CreateHostNationButton(a_nation: CountryData, a_player: CountryData) -> P
 # --- Logic & Integration ---
 
 
-func open_menu(player: CountryData):
+func OpenMenu(player: CountryData):
 	for child in hosts.get_children().duplicate():
 		hosts.remove_child(child)
 	for country in player.relations.keys():

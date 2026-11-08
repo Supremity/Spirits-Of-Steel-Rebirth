@@ -4062,11 +4062,12 @@
 			"color": "#91B2BE",
 			"display_name": "Nicaragua",
 			"figures": [
-				"KruygloaskeadweadhAystygroylgelkoepieqay"
+				"JoseDanielOrtegaSaavedra",
+				"RosarioMariaMurilloZambrana"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "KruygloaskeadweadhAystygroylgelkoepieqay"
+				"Leader": "JoseDanielOrtegaSaavedra"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -4370,11 +4371,11 @@
 			"color": "#C86496",
 			"display_name": "Venezuela",
 			"figures": [
-				"TteaspruypheyTchoottaydd"
+				"NicholasMaduro"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "TteaspruypheyTchoottaydd"
+				"Leader": "NicholasMaduro"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -5996,11 +5997,11 @@
 			"color": "#9B656B",
 			"display_name": "Chile",
 			"figures": [
-				"LgoidwiompiostraoEycheiseerpul"
+				"GabrielBoricFont"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "LgoidwiompiostraoEycheiseerpul"
+				"Leader": "GabrielBoricFont"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -6025,11 +6026,11 @@
 			"color": "#889DBC",
 			"display_name": "Botswana",
 			"figures": [
-				"OutrauzooYaoccoewulvAchiourgouspl"
+				"DumaGideonBoko"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "OutrauzooYaoccoewulvAchiourgouspl"
+				"Leader": "DumaGideonBoko"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -122597,9 +122598,23 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "KruygloaskeadweadhAystygroylgelkoepieqay",
+			"name": "JoseDanielOrtegaSaavedra",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Nicaragua/JoseDanielOrtegaSaavedra.png",
+			"skills": {},
+			"status": 0,
+			"traits": []
+		},
+		{
+			"allegiance": "Nicaragua",
+			"ideology": [
+				0,
+				0
+			],
+			"legitimacy": 0,
+			"name": "RosarioMariaMurilloZambrana",
+			"occupation": "",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Nicaragua/RosarioMariaMurilloZambrana.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -122751,9 +122766,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "TteaspruypheyTchoottaydd",
+			"name": "NicholasMaduro",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Venezuela/NicholasMaduro.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -123549,9 +123564,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "LgoidwiompiostraoEycheiseerpul",
+			"name": "GabrielBoricFont",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Chile/GabrielBoricFont.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -123563,9 +123578,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "OutrauzooYaoccoewulvAchiourgouspl",
+			"name": "DumaGideonBoko",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Botswana/DumaGideonBoko.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
