@@ -87,7 +87,6 @@ static func FromDict(a_data: Dictionary) -> Province:
 			province.buildings.append(BuildingData.FromDict(buildingData))
 		for populationData: Dictionary in a_data.get("populations", []):
 			province.populations.append(PopulationData.FromDict(populationData))
-		print(a_data.get("claims", []))
 		province.claims = [province.country] if a_data.get("claims", []).is_empty() else a_data.get("claims", [])
 		# province.claims = a_data.get("claims", [])
 		province.gdp = a_data.get("gdp", 1000)

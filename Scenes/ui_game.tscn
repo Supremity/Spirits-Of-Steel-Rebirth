@@ -166,8 +166,8 @@ faction_prompt = NodePath("Control/CenterStuff/CreateFaction")
 military_access_label = NodePath("Control/SIDEBAR/SidemenuBG/Content/HBoxContainer/Label")
 puppetBadge = NodePath("Control/SIDEBAR/SidemenuBG/Content/HBoxContainer/PuppetBadge")
 warBadge = NodePath("Control/SIDEBAR/SidemenuBG/Content/HBoxContainer/WarBadge")
-accepted_cultures = NodePath("Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/AcceptedCultures/ScrollContainer/VBoxContainer")
-unaccepted_cultures = NodePath("Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/UnacceptedCultures/ScrollContainer/VBoxContainer")
+accepted_cultures = NodePath("Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/Body/AcceptedCultures/ScrollContainer/VBoxContainer")
+unaccepted_cultures = NodePath("Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/Body/UnacceptedCultures/ScrollContainer/VBoxContainer")
 select_player_stat = NodePath("Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/Select/ScrollContainer/VBoxContainer/ActionsList")
 radio_list = NodePath("Control/Radios/Radios/RadioList")
 now_playing = NodePath("Control/Radios/Radios/ScrollContainer/NowPlaying")
@@ -710,7 +710,7 @@ modulate = Color(0.1764706, 0.1764706, 0.1764706, 1)
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("26_0c8l0")
+texture = ExtResource("19_2igyl")
 expand_mode = 3
 stretch_mode = 5
 
@@ -721,18 +721,17 @@ size_flags_vertical = 3
 theme = ExtResource("13_sdmnd")
 theme_type_variation = &"InfoTabContainer"
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ilaaa")
-current_tab = 5
+current_tab = 0
 tabs_visible = false
 
 [node name="PlayerTabs" type="TabContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons" unique_id=1238660091]
 unique_name_in_owner = true
-visible = false
 use_parent_material = true
 layout_mode = 2
 theme = ExtResource("13_sdmnd")
 theme_type_variation = &"InfoTabContainer"
 tab_alignment = 1
-current_tab = 2
+current_tab = 3
 clip_tabs = false
 tab_0/icon = ExtResource("5_0e43j")
 tab_1/icon = ExtResource("7_lpwmk")
@@ -961,6 +960,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Military" type="Control" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs" unique_id=148025030]
+visible = false
 use_parent_material = true
 layout_mode = 2
 metadata/_tab_index = 2
@@ -1199,61 +1199,71 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Cultures" type="HBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs" unique_id=1315655306]
-visible = false
+[node name="Cultures" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs" unique_id=992805009]
 use_parent_material = true
 layout_mode = 2
 metadata/_tab_index = 3
 metadata/_tab_name = ""
 
-[node name="AcceptedCultures" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures" unique_id=114737541]
+[node name="Header" type="HBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures" unique_id=1318299185]
+use_parent_material = true
+layout_mode = 2
+
+[node name="Accepted" type="Label" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/Header" unique_id=1207119508]
 use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/AcceptedCultures" unique_id=1207119508]
-use_parent_material = true
-layout_mode = 2
 theme_override_styles/normal = ExtResource("25_2a76p")
 text = "Accepted"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/AcceptedCultures" unique_id=895736875]
-use_parent_material = true
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/AcceptedCultures/ScrollContainer" unique_id=41053949]
+[node name="Demonized" type="Label" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/Header" unique_id=957078040]
 use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="VSeparator" type="VSeparator" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures" unique_id=802127427]
-use_parent_material = true
-layout_mode = 2
-theme_override_constants/separation = 4
-theme_override_styles/separator = SubResource("StyleBoxLine_pvldk")
-
-[node name="UnacceptedCultures" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures" unique_id=470564074]
-use_parent_material = true
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/UnacceptedCultures" unique_id=957078040]
-use_parent_material = true
-layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_styles/normal = ExtResource("26_ubr8q")
 text = "Demonized"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/UnacceptedCultures" unique_id=1846953765]
+[node name="Body" type="HBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures" unique_id=1259920758]
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/UnacceptedCultures/ScrollContainer" unique_id=1864884055]
+[node name="AcceptedCultures" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/Body" unique_id=114737541]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/Body/AcceptedCultures" unique_id=895736875]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/Body/AcceptedCultures/ScrollContainer" unique_id=41053949]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VSeparator" type="VSeparator" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/Body" unique_id=802127427]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/separation = 4
+theme_override_styles/separator = SubResource("StyleBoxLine_pvldk")
+
+[node name="UnacceptedCultures" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/Body" unique_id=470564074]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/Body/UnacceptedCultures" unique_id=1846953765]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons/PlayerTabs/Cultures/Body/UnacceptedCultures/ScrollContainer" unique_id=1864884055]
 use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -2025,6 +2035,7 @@ text = "Kindly Ask For Manpower"
 script = ExtResource("29_0c8l0")
 
 [node name="Select" type="VBoxContainer" parent="Control/SIDEBAR/SidemenuBG/Content/ContextAndButtons" unique_id=1473921671]
+visible = false
 use_parent_material = true
 layout_mode = 2
 theme_override_constants/separation = 4
