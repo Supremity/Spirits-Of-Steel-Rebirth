@@ -893,7 +893,7 @@ func open_research_tree():
 	print("Opening Research")
 
 func open_decisions_tree():
-	get_tree().root.find_child("DecisionTreeUI", true, false).OpenSideMenu()
+	get_tree().root.find_child("DecisionTreeUI", true, false).OpenMenu()
 
 func _open_faction():
 	faction_prompt.visible = !faction_prompt.visible

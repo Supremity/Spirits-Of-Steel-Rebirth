@@ -265,7 +265,7 @@ fit_content = true
 [connection signal="pressed" from="StaticUI/Header/HBoxContainer/EditingButtons/AddDecision" to="." method="_on_add_decision_pressed"]
 [connection signal="pressed" from="StaticUI/Header/HBoxContainer/EditingButtons/SaveDecisions" to="." method="_on_save_decisions_pressed"]
 [connection signal="toggled" from="StaticUI/Header/HBoxContainer/EditMode" to="." method="_on_edit_mode_toggled"]
-[connection signal="pressed" from="StaticUI/Header/HBoxContainer/CloseButton" to="." method="close_menu"]
+[connection signal="pressed" from="StaticUI/Header/HBoxContainer/CloseButton" to="." method="CloseMenu"]
 [connection signal="value_changed" from="StaticUI/InfoPanel/TabContainer/EditDecisions/HBoxContainer/EditDays" to="." method="_on_edit_days_value_changed"]
 [connection signal="value_changed" from="StaticUI/InfoPanel/TabContainer/EditDecisions/HBoxContainer/PPCost" to="." method="_on_edit_ppcost_value_changed"]
 [connection signal="text_changed" from="StaticUI/InfoPanel/TabContainer/EditDecisions/HBoxcontainer/EditLabel" to="." method="_on_edit_label_text_changed"]
