@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://c1jnrhadjfe68" path="res://font/Google_Sans/static/GoogleSans-Regular.ttf" id="1_i44u3"]
 [ext_resource type="Material" uid="uid://btordm7082cxn" path="res://Materials/damaged.tres" id="1_lhmql"]
 [ext_resource type="Theme" uid="uid://c38ivksvf4is0" path="res://main_theme.tres" id="2_lhmql"]
+[ext_resource type="FontFile" uid="uid://b8ixegawdqn82" path="res://font/Noto_Sans_Mono/static/NotoSansMono-Bold.ttf" id="4_6kysc"]
 [ext_resource type="Texture2D" uid="uid://c55xrkqv8k1vg" path="res://assets/ui/the_rock.png" id="5_j2dne"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6kysc"]
@@ -23,6 +24,29 @@ content_margin_right = 14.0
 content_margin_bottom = 14.0
 bg_color = Color(0.08627451, 0.08627451, 0.08627451, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vr2p"]
+bg_color = Color(0.24840015, 0.24840018, 0.24840012, 1)
+shadow_color = Color(0, 0, 0, 0.28235295)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f60ng"]
+bg_color = Color(0.4045111, 0.40451115, 0.4045111, 1)
+shadow_color = Color(0, 0, 0, 0.47058824)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bismi"]
+bg_color = Color(0.2665752, 0.26657522, 0.26657507, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+shadow_color = Color(0, 0, 0, 0.5921569)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgw85"]
+bg_color = Color(0.09019608, 0.09019608, 0.09019608, 1)
+shadow_color = Color(0, 0, 0, 0.13333334)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aaqfp"]
 content_margin_left = 14.0
 content_margin_top = 14.0
@@ -30,7 +54,7 @@ content_margin_right = 14.0
 content_margin_bottom = 14.0
 bg_color = Color(0.08627451, 0.08627451, 0.08627451, 1)
 
-[node name="Settings" type="PanelContainer" unique_id=1223466696 node_paths=PackedStringArray("save_list", "line_edit", "tab_container", "save_settings", "graphics_path", "sfx_slider", "music_slider", "ui_upper_slider", "ui_lower_slider", "ui_dirt_slider", "scanlines_slider", "vignette_lower_slider", "vignette_upper_slider", "provinceBorderThicknessSlider", "province_borders_slider", "daynight_contrast_slider", "daynight_smoothness_slider", "clouds_slider", "edgeness_slider", "map_effects_btn", "debug_mode_btn")]
+[node name="Settings" type="PanelContainer" unique_id=1223466696 node_paths=PackedStringArray("save_list", "line_edit", "saveButton", "tab_container", "save_settings", "graphics_path", "sfx_slider", "music_slider", "ui_upper_slider", "ui_lower_slider", "ui_dirt_slider", "scanlines_slider", "vignette_lower_slider", "vignette_upper_slider", "provinceBorderThicknessSlider", "province_borders_slider", "daynight_contrast_slider", "daynight_smoothness_slider", "clouds_slider", "edgeness_slider", "map_effects_btn", "debug_mode_btn")]
 material = ExtResource("1_lhmql")
 use_parent_material = true
 offset_right = 1051.0
@@ -39,6 +63,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_6kysc")
 script = ExtResource("1_aaqfp")
 save_list = NodePath("VBoxContainer/TabContainer/Saves/VBoxContainer/ScrollContainer/savelist")
 line_edit = NodePath("VBoxContainer/TabContainer/Saves/VBoxContainer/HBoxContainer/TextEdit")
+saveButton = NodePath("VBoxContainer/TabContainer/Saves/VBoxContainer/HBoxContainer/SaveGame")
 tab_container = NodePath("VBoxContainer/TabContainer")
 save_settings = NodePath("VBoxContainer/SaveSettings")
 graphics_path = NodePath("VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/MapEffectOptions")
@@ -94,13 +119,24 @@ custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
-placeholder_text = "Search"
+placeholder_text = "Search/Name"
 
 [node name="SaveGame" type="Button" parent="VBoxContainer/TabContainer/Saves/VBoxContainer/HBoxContainer" unique_id=530483480]
 material = ExtResource("1_lhmql")
 use_parent_material = true
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme = ExtResource("2_lhmql")
+theme_type_variation = &"IndentButton"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.24705882, 0.24705882, 0.24705882, 1)
+theme_override_fonts/font = ExtResource("4_6kysc")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_6vr2p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f60ng")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bismi")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rgw85")
+disabled = true
 text = "Save"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Saves/VBoxContainer" unique_id=1129944237]
@@ -431,6 +467,7 @@ theme = ExtResource("2_lhmql")
 text = "Save Settings"
 
 [connection signal="tab_changed" from="VBoxContainer/TabContainer" to="." method="_on_tab_container_tab_changed"]
+[connection signal="text_changed" from="VBoxContainer/TabContainer/Saves/VBoxContainer/HBoxContainer/TextEdit" to="." method="m_OnTextEditTextChanged"]
 [connection signal="pressed" from="VBoxContainer/TabContainer/Saves/VBoxContainer/HBoxContainer/SaveGame" to="." method="_on_save_game_pressed"]
 [connection signal="value_changed" from="VBoxContainer/TabContainer/Audio/GridContainer/SFX" to="." method="_on_sfx_changed"]
 [connection signal="value_changed" from="VBoxContainer/TabContainer/Audio/GridContainer/Music" to="." method="_on_music_changed"]

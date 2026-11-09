@@ -2,6 +2,7 @@ extends Control
 
 @export var save_list: VBoxContainer
 @export var line_edit: TextEdit
+@export var saveButton: Button
 
 enum Section {SAVE, AUDIO, GRAPHICS, EXIT}
 var settings = {}
@@ -172,7 +173,6 @@ func _on_save_game_pressed():
 	GameState.current_world.save_game(line_edit.text.strip_edges())
 	_refresh_saves()
 
-
 func _on_scanlines_changed(value: float) -> void:
 	SettingsManager.settings.scanlines = value
 	SettingsManager.apply_settings()
@@ -272,3 +272,7 @@ func _update_tabs_visibility():
 	if tab_container:
 		var is_menu = SceneSwitcher._current_type == SceneSwitcher.Type.MENU
 		tab_container.set_tab_hidden(Section.EXIT, is_menu)
+
+
+func m_OnTextEditTextChanged() -> void:
+	saveButton.disabled = line_edit.text.is_empty()
