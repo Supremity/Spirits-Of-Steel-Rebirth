@@ -29,6 +29,7 @@ kanban-plugin: board
 
 - [ ] typing moving in decisions menu
 - [ ] enter and clicking a country opens the sidemenu differently
+- [ ] unpausing while selecting country breaks everything
 
 
 ## Implementing
