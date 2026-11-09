@@ -4,7 +4,7 @@ signal player_country_changed
 
 var countries: Dictionary[String, CountryData] = {}
 var countryNames: PackedStringArray = []
-var player_country: CountryData
+var player_country: CountryData = CountryData.new()
 
 var Releasables: Array[ReleasableData] = []
 var dead_countries: Dictionary[String, CountryData] = {}
@@ -39,7 +39,7 @@ func initialize_countries(a_countriesData: Array) -> void:
 	countries.clear()
 	countryNames.clear()
 	dead_countries.clear()
-	player_country = null
+	# player_country = null
 	
 	if GameState.is_loading_game:
 		print("CountryManager: Initializing from save data...")

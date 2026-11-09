@@ -18,12 +18,18 @@ const LAYOUT = {"flag_width": 24.0, "flag_height": 20.0, "min_text_width": 16.0,
 const ZOOM_LIMITS = {"min_scale": 0.05, "max_scale": 0.5}
 const STACKING_OFFSET_Y := 20.0
 
+const BASE_DOT_RADIUS = 4.0
+const BASE_FONT_SIZE = 24
+const OFFSET = Vector2(10, BASE_FONT_SIZE * 0.3)
+
+
 # --- Variables ---
 var _font: Font = preload("res://font/arial.TTF")
 var map_sprite: Sprite2D
 var map_width: float = 0.0
 var _current_inv_zoom := 1.0
 var _screen_rect: Rect2
+var _citiesRID: Array[RID] = []
 
 # Reference to the GPU node
 var troop_multimesh: MultiMeshInstance2D
@@ -55,7 +61,7 @@ func _process(_delta: float) -> void:
 
 	_update_multimesh_buffer()
 
-	queue_redraw()
+	# queue_redraw()
 
 
 # --- MultiMesh Setup ---
@@ -111,7 +117,7 @@ func _update_multimesh_buffer():
 	if mm.instance_count != needed:
 		mm.instance_count = needed
 
-	var player_country = CountryManager.player_country.country_name if CountryManager.player_country else ""
+	var player_country = CountryManager.player_country.country_name
 	var selected_troops = TroopManager.troop_selection.selected_troops
 	var groups = _group_troops_by_visual_position(TroopManager.troops)
 	var idx = 0
@@ -155,7 +161,7 @@ func _draw() -> void:
 
 
 func _draw_troops() -> void:
-	if _current_inv_zoom > 1.5:
+	if _current_inv_zoom >= 0.5:
 		return # LOD optimization
 
 	# Use the same grouping logic but account for movement
@@ -189,23 +195,23 @@ func _draw_troop(troop: TroopData, pos: Vector2) -> void:
 
 	# Position text relative to the flag's right edge
 
-	draw_texture_rect(
-		TroopManager.get_flag(
-			troop.country_name,
-			troop.country_obj.ideology_name if troop.country_obj else ""
-		),
+	TroopManager.get_flag(
+		troop.country_name,
+		troop.country_obj.ideology_name if troop.country_obj else ""
+	).draw_rect(
+		get_canvas_item(),
 		Rect2(
 			top_left,
 			Vector2(
 				LAYOUT.flag_width,
 				LAYOUT.flag_height
 			)
-		).grow(-1.0),
-		false
+		).grow(-1),
+		false,
 	)
 
-	draw_string(
-		_font,
+	_font.draw_string(
+		get_canvas_item(),
 		Vector2(
 			top_left.x + LAYOUT.flag_width + (LAYOUT.min_text_width - text_size.x) * 0.5,
 			text_size.y * 0.3
@@ -294,16 +300,33 @@ func _update_screen_rect():
 	).grow(200.0)
 
 
+func _record_cities() -> void:
+	for city_data in MapManager.all_cities:
+		var pid = city_data["id"]
+		var city_name = city_data["city"]
+		var base_pos = MapManager.province_centers[pid]
+		var color: Color = Color.RED if CountryManager.countries[MapManager.province_objects[pid].country].capital == city_name else Color.WHITE 
+		var cityRID = RenderingServer.canvas_item_create()
+		_citiesRID.append(cityRID)
+		RenderingServer.canvas_item_set_parent(cityRID, get_canvas_item())
+		RenderingServer.canvas_item_add_circle(
+			cityRID,
+			base_pos + map_sprite.position,
+			BASE_DOT_RADIUS * _current_inv_zoom,
+			color,
+		)
+
+
 func _draw_cities() -> void:
-	if !MapManager.id_map_image:
-		return
-
 	var hovered_pid = MapManager.current_hovered_pid
-	const base_dot_radius = 4.0
-	const base_font_size = 24
-	const offset = Vector2(10, base_font_size * 0.3)
-
 	var zoom_vec = Vector2(_current_inv_zoom, _current_inv_zoom)
+
+	var _transform = Transform2D(0, zoom_vec, 0, Vector2(0, 0))
+	for cityRID in _citiesRID:
+		RenderingServer.canvas_item_set_transform(
+			cityRID,
+			_transform
+		)
 
 	for city_data in MapManager.all_cities:
 		var pid = city_data["id"]
@@ -313,39 +336,39 @@ func _draw_cities() -> void:
 
 		if base_pos == Vector2.ZERO:
 			continue
-		base_pos += map_sprite.position
+
+		RenderingServer.canvas_item_add_circle(
+			get_canvas_item(),
+			base_pos + map_sprite.position,
+			BASE_DOT_RADIUS * _current_inv_zoom,
+			color,
+		)
 
 		for j in range(-1, 2):
 			var world_pos = base_pos + Vector2(map_width * j, 0)
 			if !_screen_rect.has_point(world_pos):
 				continue
 
-			draw_set_transform_matrix(Transform2D(0, zoom_vec, 0, world_pos))
-
-			draw_circle(Vector2.ZERO, base_dot_radius, color)
-
 			if pid == hovered_pid:
-				draw_string_outline(
-					_font,
-					offset,
+				_font.draw_string_outline(
+					get_canvas_item(),
+					OFFSET,
 					city_name,
 					HORIZONTAL_ALIGNMENT_LEFT,
 					-1,
-					base_font_size,
+					BASE_FONT_SIZE,
 					4,
-					Color(0, 0, 0, 0.8)
+					Color(0, 0, 0, 1.0),
 				)
-				draw_string(
-					_font,
-					offset,
+				_font.draw_string(
+					get_canvas_item(),
+					OFFSET,
 					city_name,
 					HORIZONTAL_ALIGNMENT_LEFT,
 					-1,
-					base_font_size,
-					color
+					BASE_FONT_SIZE,
+					color,
 				)
-
-	draw_set_transform_matrix(Transform2D.IDENTITY)
 
 
 func draw_battles():

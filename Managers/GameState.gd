@@ -2,7 +2,7 @@ extends Node
 
 enum IndustryType { DEFAULT = 0, FACTORY = 1, PORT = 2, INFRASTRUCTURE = 3 }
 
-var current_world: World
+var current_world: World = World.new()
 var current_start: String
 # var current_scenario_path: String
 

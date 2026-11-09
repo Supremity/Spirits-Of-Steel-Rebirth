@@ -529,7 +529,7 @@ func _on_apply_pressed() -> void:
 	print("MapEditor: Applied changes and updated colors for ", new_country)
 
 func _on_export_pressed() -> void:
-	MapManager.exportScenarioData("user://map_data.json")
+	MapManager.SaveMapData("user://")
 
 func m_OnTabContainerTabChanged(tab: int) -> void:
 	m_NoneTool()

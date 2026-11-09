@@ -11,6 +11,12 @@ signal close_sidemenu
 # The exact colors you provided
 const SEA_MAIN: Color = Color("#7e8e9e")
 const SEA_RASTER: Color = Color("#697684")
+const ALL_DIRECTIONS: Array[Vector2i] = [
+	Vector2i(1, 0),
+	Vector2i(-1, 0),
+	Vector2i(0, 1),
+	Vector2i(0, -1),
+]
 
 var hoveredCountry: String = "Sea"
 
@@ -60,13 +66,13 @@ func IncreaseWorldTension(a_amount: float) -> void:
 	world_tension = clamp(world_tension + a_amount, 0.1, 1.0)
 const CACHE_FOLDER = "res://map_data/"
 
-@export var region_texture: Texture2D
-@export var culture_texture: Texture2D
+@export var region_texture:     Texture2D
+@export var culture_texture:    Texture2D
 @export var population_texture: Texture2D
-@export var city_texture: Texture2D
-@export var gdp_texture: Texture2D
-@export var ethnicity_texture: Texture2D
-@export var claims_texture: Texture2D
+@export var city_texture:       Texture2D
+@export var gdp_texture:        Texture2D
+@export var ethnicity_texture:  Texture2D
+@export var claims_texture:     Texture2D
 
 @export var MAP_WIDTH: int = 0
 @export var MAP_HEIGHT: int = 625
@@ -119,7 +125,7 @@ func GetResourceIcon(a_resourceType: String):
 
 	return null
 
-func _clear_internal_data() -> void:
+func _ClearInternalData() -> void:
 	all_cities.clear()
 	unique_regions.clear()
 	province_objects.clear()
@@ -138,8 +144,12 @@ func _clear_internal_data() -> void:
 	last_hovered_pid = -1
 	hoveredCountry = "Sea"
 
-func Initialize(a_map: Texture2D, a_provinceData: Dictionary, a_progress: Array) -> void:
-	_clear_internal_data()
+func Initialize(
+	a_map: Texture2D,
+	a_provinceData: Dictionary,
+	a_progress: Array,
+) -> void:
+	_ClearInternalData()
 	
 	MAP_WIDTH = a_map.get_width()
 	MAP_HEIGHT = a_map.get_height()
@@ -160,7 +170,7 @@ func Initialize(a_map: Texture2D, a_provinceData: Dictionary, a_progress: Array)
 		var y: int = i / MAP_WIDTH
 		var r_color: Color = mapImage.get_pixel(x, y)
 
-		var index: String = "%d" % (r_color.to_rgba32() >> 8) # I hate alpha.
+		var index := (r_color.to_rgba32() >> 8) # I hate alpha.
 
 
 		# Check for Borders/Grid (ID 1)
@@ -172,7 +182,7 @@ func Initialize(a_map: Texture2D, a_provinceData: Dictionary, a_progress: Array)
 		if !unique_regions.has(index):
 			unique_regions[index] = next_id
 
-			var province_dict: Dictionary = a_provinceData.get(index, {})
+			var province_dict: Dictionary = a_provinceData.get("%d"%index, {})
 			var province: Province = Province.FromDict(province_dict)
 			province.id = next_id
 
@@ -181,7 +191,11 @@ func Initialize(a_map: Texture2D, a_provinceData: Dictionary, a_progress: Array)
 			next_id += 1
 
 		# Write the unique ID to your id_map_image
-		id_map_image.set_pixel(x, y, Color.hex((unique_regions[index] << 8) | 0x000000FF))
+		id_map_image.set_pixel(
+			x,
+			y,
+			Color.hex((unique_regions[index] << 8) | 0x000000FF),
+		)
 		
 	max_province_id = next_id - 1
 	BuildLookupTexture()
@@ -204,21 +218,18 @@ func Initialize(a_map: Texture2D, a_provinceData: Dictionary, a_progress: Array)
 	a_progress[0] += 0.025
 
 
-func LoadCountryData(region_map: CompressedTexture2D, a_provinceData: Dictionary, a_progress: Array) -> void:
-	Initialize(region_map, a_provinceData, a_progress)
+func LoadCountryData(
+	region_map: CompressedTexture2D,
+	a_provinceData: Dictionary,
+	a_progress: Array,
+) -> void:
+	Initialize(
+		region_map,
+		a_provinceData,
+		a_progress,
+	)
 
-func save_map_data():
-	var map_data: MapData = MapData.new()
-	map_data.province_centers = province_centers.duplicate()
-	# map_data.adjacency_list = adjacency_list.duplicate(true)
-	map_data.country_to_provinces = country_to_provinces.duplicate()
-	map_data.max_province_id = max_province_id
-	map_data.id_map_image = id_map_image.duplicate()
-	map_data.province_objects = province_objects.duplicate()
-
-	ResourceSaver.save(map_data, MAP_DATA_PATH)
-
-func save_country_data() -> Dictionary:
+func SaveCountryData() -> Dictionary:
 	var provinces: Dictionary = {}
 	for index in unique_regions:
 		var next_id: int = unique_regions[index]
@@ -247,29 +258,38 @@ func SaveBuildingData() -> Dictionary:
 			returnBuildings[I_country].append(I_building.ToDict());
 	return returnBuildings;
 
-func export_scenario_data(path: String) -> void:
+func SaveMapData(path: String) -> void:
 	var fig_dicts: Array[Dictionary] = []
 	for x: ImportantFigure in significantFigures.values():
 		fig_dicts.append(x.ToDict())
-	var export = {
+	var export_map_data = {
 		"clock": GameState.current_world.clock.ToDict() if GameState.current_world.clock else {},
 		"buildings": SaveBuildingData(),
 		"resources": SaveResourcesData(),
 		"biomes": SaveBiomeData(),
-		"provinces": save_country_data(),
-		"polities": CountryManager.save_countries(),
 		"ideologies": IdeologyManager.ideologies,
+	}
+
+	var export_scenario = {
+		"polities": CountryManager.save_countries(),
 		"factions": FactionManager.save_factions(),
 		"significant_figures": fig_dicts
 	}
 
-	var file: FileAccess = FileAccess.open(path, FileAccess.WRITE)
+	var export_province = SaveCountryData()
+
+	_SaveJSON(path, "map_data.json",      export_map_data)
+	_SaveJSON(path, "provinces.json",     export_province)
+	_SaveJSON(path, "scenario_data.json", export_scenario)
+	
+func _SaveJSON(path, filename, string):
+	var file: FileAccess = FileAccess.open(path+filename, FileAccess.WRITE)
 	if file:
-		file.store_string(JSON.stringify(export , "\t"))
+		file.store_string(JSON.stringify(string , "\t"))
 		file.close()
 		print("Scenario exported to: ", path)
 	else:
-		push_error("Failed to export scenario to: ", path)
+		push_error("Failed to export_mapdata scenario to: ", path)
 
 func _try_load_cached_data() -> bool:
 	if not ResourceLoader.exists(MAP_DATA_PATH):
@@ -753,7 +773,7 @@ func _build_adjacency_list(a_progress: Array) -> void:
 
 		# 4-directional neighbors
 
-		for d: Vector2i in [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1)]:
+		for d: Vector2i in ALL_DIRECTIONS:
 			var nx = x + d.x
 			var ny = y + d.y
 			if nx < 0 || ny < 0 || nx >= MAP_WIDTH || ny >= MAP_HEIGHT:

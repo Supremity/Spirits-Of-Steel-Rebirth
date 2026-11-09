@@ -157,7 +157,7 @@ func _sample_province_under_mouse() -> void:
 	if right_path.size() >= max_path_length:
 		return
 
-	var pid = MapManager.getProvinceAtPos(get_global_mouse_position(), map_sprite)
+	var pid = MapManager.GetProvinceAtPos(get_global_mouse_position(), map_sprite)
 
 	# if pid <= 0 || MapManager.province_objects[pid].type == Province.SEA:
 	# 	return

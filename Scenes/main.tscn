@@ -114,6 +114,7 @@ texture = ExtResource("5_hibaj")
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2107605688]
+position = Vector2(1, 0)
 anchor_mode = 0
 limit_enabled = false
 drag_horizontal_enabled = true

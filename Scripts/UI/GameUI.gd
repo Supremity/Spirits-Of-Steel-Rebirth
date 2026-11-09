@@ -358,7 +358,7 @@ func _update_ideology_from_mouse(local_pos: Vector2, do_save: bool) -> void:
 	DoUpdateSidemenuVisuals()
 	
 	if do_save and SettingsManager.settings.debug_mode:
-		MapManager.exportScenarioData("user://map_data.json")
+		MapManager.SaveMapData("user://map_data.json")
 
 func _update_radio_visuals() -> void:
 	for child in radio_list.get_children():
@@ -638,7 +638,7 @@ func _on_menu_button_button_up(_menu_index: int) -> void:
 			for buildingTemplateName: String in EconomyManager.building_designs.get_or_add(CountryManager.player_country.country_name, {}):
 				building_dropdown.add_item(buildingTemplateName)
 		else:
-			MapManager.setCountryColor(CountryManager.player_country.country_name, Color.TRANSPARENT)
+			MapManager.SetCountryColor(CountryManager.player_country.country_name, Color.TRANSPARENT)
 			GameState.industry_building = GameState.IndustryType.DEFAULT
 			MapManager.ShowCountriesMap()
 
