@@ -1,0 +1,13 @@
+- [ ] assassination
+- [ ] research
+- [ ] state owners??
+- [ ] espionage
+	 - [ ] instilling govs
+	 - [ ] diplomacy stuff
+- [ ] generals/field marshals
+	 - [ ] template troops
+		  - [ ] mercenary
+		  - [ ] race hiring - slave armies??
+		  - [ ] tasks (moddable) like kill ppl burn shit fuck school
+	 - [ ] airforce??
+	 - [ ] navy?

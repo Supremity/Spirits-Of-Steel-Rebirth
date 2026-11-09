@@ -1,0 +1,2 @@
+- **Shift+Middle-Click:** Deletes decision
+- **Right-Click:** Connects decisions

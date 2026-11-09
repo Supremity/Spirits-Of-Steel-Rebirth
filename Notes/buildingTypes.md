@@ -1,0 +1,18 @@
+- [ ]  oil rigs
+- [ ]  mines
+- [ ]  crafts
+- [ ]  supply?
+- [ ]  food - famine
+	- [ ]  genocide???
+- [ ]  radar
+- [ ]  air defence
+- [ ]  unis
+- [ ]  town hall???
+- [ ]  market
+- [x]  hospital
+- [ ]  points of interests
+	- [ ] tourism & tax havens
+- [ ] add factories
+ - [ ] equipment
+  - [ ] bombs
+  - [ ] nukes

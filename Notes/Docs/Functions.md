@@ -1,0 +1,3 @@
+- **add_ideology_drift**(country_name, target_id, IdeologyDrift)
+- **set_country_attr**(attr_name, attr_value)
+	- display_name: the name displayed
