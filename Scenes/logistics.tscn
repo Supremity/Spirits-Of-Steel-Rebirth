@@ -60,10 +60,9 @@ text = "Dismiss"
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 2
+current_tab = 0
 
 [node name="Military" type="HBoxContainer" parent="VBoxContainer/TabContainer" unique_id=1862816020]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -139,6 +138,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Country" type="PanelContainer" parent="VBoxContainer/TabContainer" unique_id=377458166]
+visible = false
 use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
