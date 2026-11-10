@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "animations.md",
+                "file": "buildingTypes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "animations"
+              "title": "buildingTypes"
             }
           }
         ]
@@ -183,7 +183,6 @@
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
@@ -192,22 +191,22 @@
   },
   "active": "109964d363217577",
   "lastOpenFiles": [
+    "civilWars.md",
+    "animations.md",
     "achievements.md",
+    "sigFigs.md",
+    "resourcesMakeWorkGood.md",
+    "promoteToYoutube.md",
+    "multiplayer.md",
+    "makeCharactersDoStuff.md",
+    "Kanban.md",
+    "interpreterManager.md",
+    "filipsFocus.md",
+    "buildingTypes.md",
     "Docs/ImportantFigureSkillsReference.md",
     "Docs/Functions.md",
     "Docs/Decision Docs.md",
-    "sigFigs.md",
-    "Kanban.md",
-    "resourcesMakeWorkGood.md",
     "TODOs.md",
-    "multiplayer.md",
-    "makeCharactersDoStuff.md",
-    "animations.md",
-    "filipsFocus.md",
-    "interpreterManager.md",
-    "civilWars.md",
-    "promoteToYoutube.md",
-    "buildingTypes.md",
     "Untitled.base",
     "todo.md",
     "Docs",

@@ -28,5 +28,6 @@
   "publish": false,
   "sync": false,
   "bases": true,
-  "webviewer": false
+  "webviewer": false,
+  "markdown-importer": false
 }

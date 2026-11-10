@@ -110,8 +110,8 @@ custom_minimum_size = Vector2(132, 132)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/HSplitContainer/SideBar/ScrollContainer/HBoxContainer/PanelContainer/VBoxContainer/Image" unique_id=519726736]
-clip_contents = true
 custom_minimum_size = Vector2(132, 132)
+clip_contents = true
 layout_mode = 2
 texture = ExtResource("2_av13s")
 expand_mode = 5
@@ -247,8 +247,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(132, 132)
 layout_mode = 2
 texture = ExtResource("14_av13s")
-expand_mode = 1
-stretch_mode = 6
+expand_mode = 5
 
 [node name="PanelContainer" type="PanelContainer" parent="PanelContainer/HSplitContainer/SideBar/ScrollContainer/HBoxContainer/PanelContainer2/VBoxContainer/Image/TextureRect" unique_id=261187553]
 layout_mode = 1

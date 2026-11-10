@@ -1,1 +1,1 @@
-- [ ] add characters frm interpretermanager
+- [ ] Add characters from InterpreterManager.

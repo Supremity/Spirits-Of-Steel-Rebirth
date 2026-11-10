@@ -1,8 +1,13 @@
 extends Control
 
+var m_politburo: int = 0
+@export var ussr: Array[Texture]
+@export var avatarImage: TextureRect
 
-@export var USSR: Array[Texture]
-@export var AvatarImage: TextureRect
+func _ready() -> void:
+	await avatarImage.ready
+	avatarImage.texture = ussr[m_politburo]
 
 func OnTimerTimeout() -> void:
-	AvatarImage.texture = USSR.pick_random()
+	m_politburo = (m_politburo + 1) % ussr.size()
+	avatarImage.texture = ussr[m_politburo]
