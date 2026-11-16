@@ -413,7 +413,7 @@ func get_function(block, country: CountryData = null):
 				elif pids is Array:
 					for p in pids:
 						pids_typed.append(int(p))
-				MapManager.change_province_types(pids_typed, int(evaled_args[1]), str(evaled_args[2]))
+				MapManager.ChangeProvinceTypes(pids_typed, int(evaled_args[1]), str(evaled_args[2]))
 
 	if store_key != "":
 		heap[store_key] = result

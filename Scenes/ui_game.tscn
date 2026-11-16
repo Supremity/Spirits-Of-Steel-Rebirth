@@ -96,14 +96,20 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
-shadow_color = Color(0, 0, 0, 0.3137255)
-shadow_size = 7
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsn4r"]
 content_margin_left = 6.0
 content_margin_right = 6.0
 bg_color = Color(0.24840015, 0.24840018, 0.24840012, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 shadow_color = Color(0, 0, 0, 0.28235295)
 shadow_size = 8
 
@@ -111,6 +117,10 @@ shadow_size = 8
 content_margin_left = 6.0
 content_margin_right = 6.0
 bg_color = Color(0.4045111, 0.40451115, 0.4045111, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 corner_detail = 5
 shadow_color = Color(0, 0, 0, 0.47058824)
 shadow_size = 6
@@ -119,6 +129,10 @@ shadow_size = 6
 content_margin_left = 6.0
 content_margin_right = 6.0
 bg_color = Color(0.4045111, 0.40451115, 0.4045111, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 corner_detail = 5
 shadow_color = Color(0, 0, 0, 0.47058824)
 shadow_size = 6
@@ -518,7 +532,7 @@ use_parent_material = true
 layout_mode = 2
 
 [node name="Country1" type="TextureRect" parent="Control/SIDEBAR/SidemenuBG/Content/RelationsHbox" unique_id=814244579]
-use_parent_material = true
+show_behind_parent = true
 custom_minimum_size = Vector2(42, 26)
 layout_mode = 2
 texture = ExtResource("18_hx7os")

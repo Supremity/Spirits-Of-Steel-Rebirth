@@ -358,7 +358,7 @@ func _update_ideology_from_mouse(local_pos: Vector2, do_save: bool) -> void:
 	DoUpdateSidemenuVisuals()
 	
 	if do_save and SettingsManager.settings.debug_mode:
-		MapManager.SaveMapData("user://map_data.json")
+		MapData.SaveMapData("user://map_data.json")
 
 func _update_radio_visuals() -> void:
 	for child in radio_list.get_children():
@@ -845,7 +845,7 @@ func _request_access():
 	CountryManager.player_country.political_power -= cost
 	
 	CountryManager.player_country.allowedCountries.append(selected_country.country_name)
-	MapManager.allow_pids(CountryManager.player_country, selected_country)
+	MapManager.AllowPids(CountryManager.player_country, selected_country)
 	_update_context_actions_visuals()
 
 func _force_puppet():
@@ -1156,38 +1156,7 @@ func _on_deploy_all_pressed():
 		troop.pressed.emit()
 
 func _on_map_changed(tab: int) -> void:
-	match tab:
-		KeyboardManager.MapView.COUNTRIES:
-			MapManager.ShowCountriesMap()
-			print("Map Mode: Countries")
-
-		KeyboardManager.MapView.POPULATION:
-			MapManager.ShowPopulationMap()
-			print("Map Mode: Population")
-
-		KeyboardManager.MapView.INFRASTRUCTURE:
-			MapManager.ShowInfrastructureMap()
-			print("Map Mode: Infrastructure")
-			
-		KeyboardManager.MapView.GDP:
-			MapManager.ShowGdpMap()
-			print("Map Mode: GDP")
-
-		KeyboardManager.MapView.ETHNICITY:
-			MapManager.ShowEthnicMap()
-			print("Map Mode: Ethnicity")
-
-		KeyboardManager.MapView.FACTION:
-			MapManager.ShowFactionMap()
-			print("Map Mode: Factions")
-
-		KeyboardManager.MapView.RESOURCES:
-			MapManager.ShowResourcesMap()
-			print("Map Mode: Resources")
-
-		KeyboardManager.MapView.BIOMES:
-			MapManager.ShowBiomesMap()
-			print("Map Mode: Biomes")
+	MapManager.SetMapMode(tab)
 
 
 func _on_building_designer_pressed():

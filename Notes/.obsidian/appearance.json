@@ -4,5 +4,6 @@
   "accentColor": "#ff0000",
   "interfaceFontFamily": "",
   "textFontFamily": "0xProto Nerd Font",
-  "monospaceFontFamily": "0xProto Nerd Font Mono"
+  "monospaceFontFamily": "0xProto Nerd Font Mono",
+  "showRibbon": true
 }

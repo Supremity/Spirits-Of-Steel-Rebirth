@@ -86,7 +86,7 @@ func generate_missing_leaders() -> void:
 		_ensure_country_has_leader(country)
 		country.InitializeCabinet()
 
-func save_countries() -> Array:
+func SaveCountries() -> Array:
 	var polities: Array = []
 	for country: CountryData in countries.values():
 		polities.append(country.ToDict())
@@ -277,8 +277,8 @@ func make_puppet(puppeter: CountryData, puppetee: CountryData):
 	puppeter.puppets.append(puppetee.country_name)
 	puppeter.allowedCountries.append(puppetee.country_name)
 	puppetee.allowedCountries.append(puppeter.country_name)
-	MapManager.allow_pids(puppeter, puppetee)
-	MapManager.allow_pids(puppetee, puppeter)
+	MapManager.AllowPids(puppeter, puppetee)
+	MapManager.AllowPids(puppetee, puppeter)
 	puppetee.is_puppet = true
 	puppetee.owner = puppeter.country_name
 	puppetee.ideology = puppeter.ideology
@@ -289,7 +289,7 @@ func make_puppet(puppeter: CountryData, puppetee: CountryData):
 	MapManager.ShowCountriesMap()
 
 func release_puppet(puppeter: CountryData, puppetee: CountryData):
-	MapManager.unallow_pids(puppeter, puppetee)
+	MapManager.UnallowPids(puppeter, puppetee)
 	puppeter.puppets.erase(puppetee.country_name)
 	puppeter.allowedCountries.erase(puppetee.country_name)
 	puppetee.allowedCountries.erase(puppeter.country_name)

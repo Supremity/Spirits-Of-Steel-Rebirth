@@ -1,6 +1,11 @@
 extends Node
 
-enum IndustryType { DEFAULT = 0, FACTORY = 1, PORT = 2, INFRASTRUCTURE = 3 }
+enum IndustryType {
+	DEFAULT = 0,
+	FACTORY = 1,
+	PORT = 2,
+	INFRASTRUCTURE = 3,
+}
 
 var current_world: World = World.new()
 var current_start: String

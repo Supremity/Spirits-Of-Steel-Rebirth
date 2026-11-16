@@ -529,7 +529,7 @@ func _on_apply_pressed() -> void:
 	print("MapEditor: Applied changes and updated colors for ", new_country)
 
 func _on_export_pressed() -> void:
-	MapManager.SaveMapData("user://")
+	World.SaveMapData("user://")
 
 func m_OnTabContainerTabChanged(tab: int) -> void:
 	m_NoneTool()
@@ -795,7 +795,7 @@ func m_PaintFactionTool() -> void:
 			for pid: int in multiSelectPID:
 				MapManager.ResetProvinceColor(pid)
 			multiSelectPID = []
-	MapManager.ShowFactionMap()
+	MapManager._ShowFactionMap()
 	currentTool = Tool.PAINT_PRIMARY
 
 func m_PaintBiomeTool() -> void:
@@ -804,7 +804,7 @@ func m_PaintBiomeTool() -> void:
 			for pid: int in multiSelectPID:
 				MapManager.ResetProvinceColor(pid)
 			multiSelectPID = []
-	MapManager.ShowBiomesMap()
+	MapManager._ShowBiomesMap()
 	currentTool = Tool.PAINT_PRIMARY
 
 func m_MultiSelectTool() -> void:

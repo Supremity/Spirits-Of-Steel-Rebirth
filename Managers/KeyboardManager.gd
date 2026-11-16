@@ -1,18 +1,6 @@
 extends Node
 
 # Use the same names as your MapManager functions for clarity
-enum MapView {
-	COUNTRIES,
-	POPULATION,
-	INFRASTRUCTURE,
-	GDP,
-	ETHNICITY,
-	FACTION,
-	RESOURCES,
-	BIOMES,
-}
-var current_view = MapView.COUNTRIES
-
 var settings: CanvasLayer
 
 func _ready() -> void:
@@ -67,35 +55,4 @@ func _process(_delta: float) -> void:
 
 
 func _cycle_map_mode(shift: bool) -> void:
-	match (current_view + (1 if shift else -1) + MapView.size()) % MapView.size():
-		MapView.COUNTRIES:
-			MapManager.ShowCountriesMap()
-			print("Map Mode: Countries")
-
-		MapView.POPULATION:
-			MapManager.ShowPopulationMap()
-			print("Map Mode: Population")
-
-		MapView.INFRASTRUCTURE:
-			MapManager.ShowInfrastructureMap()
-			print("Map Mode: Infrastructure")
-			
-		MapView.GDP:
-			MapManager.ShowGdpMap()
-			print("Map Mode: GDP")
-
-		MapView.ETHNICITY:
-			MapManager.ShowEthnicMap()
-			print("Map Mode: Ethnicity")
-
-		MapView.FACTION:
-			MapManager.ShowFactionMap()
-			print("Map Mode: Factions")
-
-		MapView.RESOURCES:
-			MapManager.ShowResourcesMap()
-			print("Map Mode: Resources")
-			
-		MapView.BIOMES:
-			MapManager.ShowBiomesMap()
-			print("Map Mode: Biomes")
+	MapManager.CycleMapMode(shift)
