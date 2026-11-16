@@ -12,7 +12,7 @@ func Initialize(a_factionData: Array) -> void:
 				country.factions.append(factionData["name"])
 
 
-func save_factions() -> Array:
+func SaveFactions() -> Array:
 	var factions_array = []
 	for faction in factions:
 		factions_array.append(FactionManager.factions[faction].ToDict())
@@ -37,8 +37,8 @@ func clear_faction(country: CountryData):
 
 
 func invite_faction(inviter: CountryData, invitee: CountryData) -> void:
-	MapManager.allow_pids(inviter, invitee)
-	MapManager.allow_pids(invitee, inviter)
+	MapManager.AllowPids(inviter, invitee)
+	MapManager.AllowPids(invitee, inviter)
 	# NOTE(soi): we should add an option to choose which faction to invite to
 	var inviter_factions_copy = inviter.factions.duplicate()
 	for faction in inviter_factions_copy:
@@ -62,7 +62,7 @@ func in_faction(inviter: CountryData, invitee: CountryData) -> bool:
 
 
 func kick_faction(kicker: CountryData, kickee: CountryData) -> void:
-	MapManager.unallow_pids(kicker, kickee)
+	MapManager.UnallowPids(kicker, kickee)
 	for faction in kicker.factions:
 		var faction_data: FactionData = factions[faction]
 		var kicker_index = faction_data.members.find_custom(func(m): return m.polity == kicker.country_name)

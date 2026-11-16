@@ -54,7 +54,7 @@ var world_tension: float = 0.1 # Global tension level (0.1 to 1.0)
 
 var all_cities: Array[Dictionary] = []
 
-const MAP_DATA_PATH = "res://map_data/MapData.tres"
+# const MAP_DATA_PATH = "res://map_data/MapData.tres"
 
 @onready var significantFigures: Dictionary[String, ImportantFigure] = {}
 
@@ -66,6 +66,7 @@ func IncreaseWorldTension(a_amount: float) -> void:
 	world_tension = clamp(world_tension + a_amount, 0.1, 1.0)
 const CACHE_FOLDER = "res://map_data/"
 
+# NOTE(soi): these should probably be in like world or smthng
 @export var region_texture:     Texture2D
 @export var culture_texture:    Texture2D
 @export var population_texture: Texture2D
@@ -214,11 +215,11 @@ func Initialize(
 	_build_country_to_provinces()
 	a_progress[0] += 0.025
 	_build_adjacency_list(a_progress)
-	_build_global_registry()
+	_BuildGlobalRegistry()
 	a_progress[0] += 0.025
 
 
-func LoadCountryData(
+func LoadProvinces(
 	region_map: CompressedTexture2D,
 	a_provinceData: Dictionary,
 	a_progress: Array,
@@ -229,7 +230,7 @@ func LoadCountryData(
 		a_progress,
 	)
 
-func SaveCountryData() -> Dictionary:
+func SaveProvinces() -> Dictionary:
 	var provinces: Dictionary = {}
 	for index in unique_regions:
 		var next_id: int = unique_regions[index]
@@ -258,55 +259,22 @@ func SaveBuildingData() -> Dictionary:
 			returnBuildings[I_country].append(I_building.ToDict());
 	return returnBuildings;
 
-func SaveMapData(path: String) -> void:
-	var fig_dicts: Array[Dictionary] = []
-	for x: ImportantFigure in significantFigures.values():
-		fig_dicts.append(x.ToDict())
-	var export_map_data = {
-		"clock": GameState.current_world.clock.ToDict() if GameState.current_world.clock else {},
-		"buildings": SaveBuildingData(),
-		"resources": SaveResourcesData(),
-		"biomes": SaveBiomeData(),
-		"ideologies": IdeologyManager.ideologies,
-	}
-
-	var export_scenario = {
-		"polities": CountryManager.save_countries(),
-		"factions": FactionManager.save_factions(),
-		"significant_figures": fig_dicts
-	}
-
-	var export_province = SaveCountryData()
-
-	_SaveJSON(path, "map_data.json",      export_map_data)
-	_SaveJSON(path, "provinces.json",     export_province)
-	_SaveJSON(path, "scenario_data.json", export_scenario)
-	
-func _SaveJSON(path, filename, string):
-	var file: FileAccess = FileAccess.open(path+filename, FileAccess.WRITE)
-	if file:
-		file.store_string(JSON.stringify(string , "\t"))
-		file.close()
-		print("Scenario exported to: ", path)
-	else:
-		push_error("Failed to export_mapdata scenario to: ", path)
-
-func _try_load_cached_data() -> bool:
-	if not ResourceLoader.exists(MAP_DATA_PATH):
-		return false
-	var loaded: MapData = ResourceLoader.load(MAP_DATA_PATH) as MapData
-	if not loaded:
-		return false
-
-	province_centers = loaded.province_centers
-	# adjacency_list = loaded.adjacency_list
-	country_to_provinces = loaded.country_to_provinces
-	max_province_id = loaded.max_province_id
-	id_map_image = loaded.id_map_image
-	province_objects.assign(loaded.province_objects)
-
-	BuildLookupTexture()
-	return true
+# func _try_load_cached_data() -> bool:
+# 	if not ResourceLoader.exists(MAP_DATA_PATH):
+# 		return false
+# 	var loaded: MapData = ResourceLoader.load(MAP_DATA_PATH) as MapData
+# 	if not loaded:
+# 		return false
+#
+# 	province_centers = loaded.province_centers
+# 	# adjacency_list = loaded.adjacency_list
+# 	country_to_provinces = loaded.country_to_provinces
+# 	max_province_id = loaded.max_province_id
+# 	id_map_image = loaded.id_map_image
+# 	province_objects.assign(loaded.province_objects)
+#
+# 	BuildLookupTexture()
+# 	return true
 
 # NOTE(soi): where was this even used for???
 func draw_province_centroids(image: Image, color: Color = Color(0, 1, 0, 1)) -> void:
@@ -490,6 +458,7 @@ func HandleHover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 
 	var highlight_color: Color = _get_contextual_highlight(pid)
 
+	# NOTE(soi): AHHHHH THIS MUCH NESTING IS MAKING MY EYES HURT
 	if pid != last_hovered_pid:
 		if GameState.selectingCountry:
 			if (last_hovered_pid in province_objects
@@ -529,10 +498,10 @@ func HandleHover(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 			_reset_last_hover() # Clean up the old one
 
 			if pid > 1:
-				match KeyboardManager.current_view:
-					KeyboardManager.MapView.COUNTRIES:
+				match current_view:
+					MapView.COUNTRIES:
 						GameState.tooltip.SwitchTooltip(1)
-					KeyboardManager.MapView.RESOURCES:
+					MapView.RESOURCES:
 						GameState.tooltip.SwitchTooltip(0)
 					_:
 						GameState.tooltip.SwitchTooltip(-1)
@@ -587,6 +556,10 @@ func HandleClickDown(_global_pos: Vector2, _map_sprite: Sprite2D) -> void:
 
 	TroopManager.troop_selection.deselect_all()
 
+func GetRelativeCountryRelation(a_country1: CountryData, a_country2: CountryData):
+		var is_player_owned: bool = a_country1.country_name == CountryManager.player_country.country_name
+		var is_puppet_owned: bool = a_country1.country_name in CountryManager.player_country.puppets
+
 func HandleClick(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 	if _is_mouse_over_ui() or Console.is_visible() or GameState.in_peace_process:
 		return
@@ -607,12 +580,40 @@ func HandleClick(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 		ShowCountriesMap()
 	else:
 		var player_country_name: String = CountryManager.player_country.country_name
+		# NOTE(soi): soo
+		# this could either be like
+		# Player                         = 00
+		# Puppet  & (Ally)               = 10
+		# Neutral & (Neutral|Ally|Enemy) = 01 | 11 | 101
+
+		# Meaning
+		# first bit represents Neutral
+		# second and third bit represents Ally
+
+		# Player                 = 000
+		# Neutral & Neutral      = 001
+		# Puppet  & Ally         = 010
+		# Neutral & Ally         = 011
+		# Neutral & Enemy        = 101
+		# Neutral & Ally & Enemy = 111
+
+		# Player  = 000
+		# Neutral = 111
+		# Puppet  = 010
+
+		# Neutral = 001
+		# Ally    = 011
+		# Enemy   = 101
+
+
+
+
 		var is_player_owned: bool = MapManager.province_objects[pid].GetFunctionalOwner() == player_country_name
 		var is_puppet_owned: bool = MapManager.province_objects[pid].GetFunctionalOwner() in CountryManager.player_country.puppets
 
 		if GameState.choosing_deploy_city:
 			if is_player_owned and province_objects[pid].city != "":
-				_execute_deployment(pid, player_country_name)
+				_ExecuteDeployment(pid, player_country_name)
 			else:
 				print("Action Failed: Province not owned by player or not a city.")
 
@@ -621,12 +622,12 @@ func HandleClick(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 				print("Action Failed: Already building there.")
 			else:
 				if is_player_owned:
-					if _province_build_industry(pid, player_country_name, GameState.industry_building):
+					if _ProvinceBuildIndustry(pid, player_country_name, GameState.industry_building):
 						_cleanup_interaction_state()
 						ShowIndustryCountry(player_country_name)
 						country_clicked.emit(player_country_name)
 				elif is_puppet_owned:
-					if _province_build_industry(pid, province_objects[pid].GetFunctionalOwner(), GameState.industry_building):
+					if _ProvinceBuildIndustry(pid, province_objects[pid].GetFunctionalOwner(), GameState.industry_building):
 						_cleanup_interaction_state()
 						ShowIndustryCountry(province_objects[pid].GetFunctionalOwner())
 						country_clicked.emit(province_objects[pid].GetFunctionalOwner())
@@ -640,13 +641,14 @@ func HandleClick(global_pos: Vector2, map_sprite: Sprite2D) -> void:
 			country_clicked.emit(province_objects[pid].GetFunctionalOwner())
 			#print("Post Emit Click")
 
-func _execute_deployment(pid: int, player_name: String) -> void:
+# move this to CountryManager?
+func _ExecuteDeployment(pid: int, player_name: String) -> void:
 	country_clicked.emit(player_name)
 	CountryManager.player_country.deploy_pid = pid
 	GameState.choosing_deploy_city = false
 	_cleanup_interaction_state()
 
-func _province_build_industry(pid: int, a_countryName: String, type: GameState.IndustryType) -> bool:
+func _ProvinceBuildIndustry(pid: int, a_countryName: String, type: GameState.IndustryType) -> bool:
 	var province: Province = province_objects[pid]
 
 	# 1. Safety Check: Is there already something there or currently building?
@@ -1042,7 +1044,7 @@ func _get_heatmap_color(pop: int, max_pop: float) -> Color:
 	return col
 
 # soilad aneurysm time
-func ShowFactionMap() -> void:
+func _ShowFactionMap() -> void:
 	var faction_color: Color = Color.GRAY
 	if province_objects.is_empty():
 		return
@@ -1066,11 +1068,11 @@ func ShowFactionMap() -> void:
 		state_color_image.set_pixel(pid, 1, faction_color / total)
 
 	state_color_texture.update(state_color_image)
-	KeyboardManager.current_view = KeyboardManager.MapView.FACTION
-	GameState.game_ui.map_tabs.current_tab = KeyboardManager.current_view
+	current_view = MapView.FACTION
+	GameState.game_ui.map_tabs.current_tab = current_view
 	print("MapManager: Faction View Updated")
 
-func ShowPopulationMap() -> void:
+func _ShowPopulationMap() -> void:
 	if province_objects.is_empty():
 		return
 	var current_max_pop: float = 1.0
@@ -1085,12 +1087,10 @@ func ShowPopulationMap() -> void:
 		state_color_image.set_pixel(pid, 0, color)
 		state_color_image.set_pixel(pid, 1, color)
 
-	KeyboardManager.current_view = KeyboardManager.MapView.POPULATION
-	GameState.game_ui.map_tabs.current_tab = KeyboardManager.current_view
 	state_color_texture.update(state_color_image)
 	print("MapManager: Population View Updated. Max Pop found: ", current_max_pop)
 
-func ShowInfrastructureMap() -> void:
+func _ShowInfrastructureMap() -> void:
 	if province_objects.is_empty():
 		return
 
@@ -1111,7 +1111,7 @@ func ShowInfrastructureMap() -> void:
 	state_color_texture.update(state_color_image)
 	print("MapManager: Infrastructure View Updated.")
 
-func ShowEthnicMap() -> void:
+func _ShowEthnicMap() -> void:
 	if province_objects.is_empty():
 		return
 
@@ -1135,8 +1135,6 @@ func ShowEthnicMap() -> void:
 		state_color_image.set_pixel(pid, 0, display_color)
 		state_color_image.set_pixel(pid, 1, display_color)
 
-	KeyboardManager.current_view = KeyboardManager.MapView.ETHNICITY
-	GameState.game_ui.map_tabs.current_tab = KeyboardManager.current_view
 	state_color_texture.update(state_color_image)
 	print("MapManager: Ethnic View Updated.")
 
@@ -1158,7 +1156,7 @@ func _get_gdp_heatmap_color(gdp: int, max_gdp: float) -> Color:
 
 	return col
 
-func ShowGDPMap() -> void:
+func _ShowGDPMap() -> void:
 	if province_objects.is_empty():
 		return
 
@@ -1176,8 +1174,6 @@ func ShowGDPMap() -> void:
 		state_color_image.set_pixel(pid, 1, color)
 
 	state_color_texture.update(state_color_image)
-	KeyboardManager.current_view = KeyboardManager.MapView.GDP
-	GameState.game_ui.map_tabs.current_tab = KeyboardManager.current_view
 	print("MapManager: GDP View Updated. Max GDP: ", current_max_gdp)
 
 func GetCountryDisplayColor(a_countryName: String) -> Color:
@@ -1201,10 +1197,8 @@ func ShowCountriesMap() -> void:
 		state_color_image.set_pixel(pid, 1, GetCountryDisplayColor(province_objects[pid].GetFunctionalOwner()))
 
 	state_color_texture.update(state_color_image)
-	KeyboardManager.current_view = KeyboardManager.MapView.COUNTRIES
-	GameState.game_ui.map_tabs.current_tab = KeyboardManager.current_view
 
-func ShowResourcesMap() -> void:
+func _ShowResourcesMap() -> void:
 	state_color_image.set_pixel(0, 0, SEA_MAIN) # ID 0: Sea
 	state_color_image.set_pixel(1, 0, Color.BLACK) # ID 1: Borders/Grid
 
@@ -1216,10 +1210,8 @@ func ShowResourcesMap() -> void:
 		state_color_image.set_pixel(pid, 1, GetCountryDisplayColor(province_objects[pid].GetFunctionalOwner()))
 
 	state_color_texture.update(state_color_image)
-	KeyboardManager.current_view = KeyboardManager.MapView.RESOURCES
-	GameState.game_ui.map_tabs.current_tab = KeyboardManager.current_view
 
-func ShowBiomesMap() -> void:
+func _ShowBiomesMap() -> void:
 	state_color_image.set_pixel(0, 0, SEA_MAIN) # ID 0: Sea
 	state_color_image.set_pixel(1, 0, Color.BLACK) # ID 1: Borders/Grid
 
@@ -1233,8 +1225,6 @@ func ShowBiomesMap() -> void:
 		state_color_image.set_pixel(pid, 1, biomeColor)
 
 	state_color_texture.update(state_color_image)
-	KeyboardManager.current_view = KeyboardManager.MapView.BIOMES
-	GameState.game_ui.map_tabs.current_tab = KeyboardManager.current_view
 
 func ProvinceUpdated():
 	if GameState.industry_building:
@@ -1271,8 +1261,6 @@ func ShowIndustryCountry(country_name: String) -> void:
 		state_color_image.set_pixel(pid, 1, color)
 
 
-	KeyboardManager.current_view = KeyboardManager.MapView.INFRASTRUCTURE
-	GameState.game_ui.map_tabs.current_tab = KeyboardManager.current_view
 	state_color_texture.update(state_color_image)
 
 func TransferOwnership(pid: int, new_owner_name: String) -> void:
@@ -1325,7 +1313,11 @@ func TransferOwnership(pid: int, new_owner_name: String) -> void:
 	
 	province.occupier = ""
 
-	UpdateLookup(pid, CountryManager.GetCountryColor(new_owner_name, Color.GRAY), CountryManager.GetCountryColor(new_owner_name, Color.GRAY))
+	UpdateLookup(
+		pid,
+		CountryManager.GetCountryColor(new_owner_name, Color.GRAY),
+		CountryManager.GetCountryColor(new_owner_name, Color.GRAY),
+	)
 	province_ownership_changed.emit(pid, old_owner_name, new_owner_name)
 
 func OccupyProvince(pid: int, new_owner_name: String) -> void:
@@ -1629,7 +1621,7 @@ func AnnexCountry(annexer: String, annexee: String) -> void:
 	#playerobj.reset_manpower()
 	print("ANNEXATION COMPLETE: ", annexer, " has taken all of ", annexee)
 
-func _build_global_registry():
+func _BuildGlobalRegistry():
 	global_claims_registry.clear()
 	for obj: Province in province_objects.values():
 		for country_name: String in obj.claims:
@@ -1638,32 +1630,32 @@ func _build_global_registry():
 			global_claims_registry[country_name].append(obj.id)
 
 
-func allow_pids(accesser: CountryData, accessee: CountryData):
+func AllowPids(accesser: CountryData, accessee: CountryData):
 	if !allowed_pids.has(accesser.country_name):
 		allowed_pids[accesser.country_name] = []
 	for province: int in country_to_provinces[accessee.country_name]:
 		allowed_pids[accesser.country_name].append(province)
 
 
-func unallow_pids(unaccesser: CountryData, unaccessee: CountryData):
+func UnallowPids(unaccesser: CountryData, unaccessee: CountryData):
 	for province: int in country_to_provinces[unaccessee.country_name]:
 		allowed_pids[unaccesser.country_name].erase(province)
 	
 
-func change_province_types(pids: Array[int], type: int, country_name: String = ""):
+func ChangeProvinceTypes(pids: Array[int], type: int, country_name: String = ""):
 	for pid: int in pids:
 		var province: Province = province_objects[pid]
 		province.type = type
 		province.country = country_name
 		print(province.type)
 		print(province.country)
-	_set_type_map(
+	_SetTypeMap(
 		GameState.current_world.mat,
 		GameState.current_world.type_img,
 		)
 
 
-func _set_type_map(mat: Material, type_img: Image):
+func _SetTypeMap(mat: Material, type_img: Image):
 	var uncertain_pixels := []
 
 	# --- PASS 1: Direct Mapping ---
@@ -1709,3 +1701,62 @@ func _set_type_map(mat: Material, type_img: Image):
 			# If it only touches sea (or nothing), it's a Sea Grid/Open Water
 			type_img.set_pixel(pos.x, pos.y, Color(0, 0, 0))
 	mat.set_shader_parameter("type_map", ImageTexture.create_from_image(type_img))
+
+enum MapView {
+	COUNTRIES,
+	POPULATION,
+	INFRASTRUCTURE,
+	GDP,
+	ETHNICITY,
+	FACTION,
+	RESOURCES,
+	BIOMES,
+}
+var current_view = MapView.COUNTRIES
+
+func CycleMapMode(shift: bool) -> void:
+	SetMapMode(
+		(
+			current_view 
+			+ (1 if shift else -1) 
+			+ MapView.size()
+		)
+		% MapView.size()
+	 )
+
+func SetMapMode(a_mapView: MapView):
+	current_view = a_mapView
+	GameState.game_ui.map_tabs.current_tab = current_view
+	match a_mapView:
+		MapView.COUNTRIES:
+			ShowCountriesMap()
+			print("Map Mode: Countries")
+
+		MapView.POPULATION:
+			_ShowPopulationMap()
+			print("Map Mode: Population")
+
+		MapView.INFRASTRUCTURE:
+			_ShowInfrastructureMap()
+			print("Map Mode: Infrastructure")
+			
+		MapView.GDP:
+			_ShowGDPMap()
+			print("Map Mode: GDP")
+
+		MapView.ETHNICITY:
+			_ShowEthnicMap()
+			print("Map Mode: Ethnicity")
+
+		MapView.FACTION:
+			_ShowFactionMap()
+			print("Map Mode: Factions")
+
+		MapView.RESOURCES:
+			_ShowResourcesMap()
+			print("Map Mode: Resources")
+			
+		MapView.BIOMES:
+			_ShowBiomesMap()
+			print("Map Mode: Biomes")
+

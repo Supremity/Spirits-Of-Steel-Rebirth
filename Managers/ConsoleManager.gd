@@ -163,7 +163,7 @@ func m_StartRevolution(a_pid, a_name, a_count) -> void:
 	var	country: String = MapManager.province_objects[int(a_pid)].country
 	QuickFill(int(a_pid), a_name, int(a_count))
 	WarManager.declare_war(CountryManager.countries[a_name], CountryManager.countries[country])
-	MapManager.allow_pids(CountryManager.countries[a_name], CountryManager.countries[country])
+	MapManager.AllowPids(CountryManager.countries[a_name], CountryManager.countries[country])
 
 func QuickFill(a_pid, a_name, a_count) -> CountryData:
 	var results = MultiFill([a_pid], [a_name], a_count)
@@ -373,7 +373,7 @@ func _instabuild():
 
 func _sink_rise(pid, type, country_name: String):
 	print("skibidi")
-	MapManager.change_province_types([int(pid)], int(type), country_name)
+	MapManager.ChangeProvinceTypes([int(pid)], int(type), country_name)
 
 
 func _set_attr(country: String, attr: String, val: Variant):

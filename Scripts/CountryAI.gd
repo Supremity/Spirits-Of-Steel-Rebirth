@@ -168,7 +168,7 @@ func _execute_factory() -> bool:
 	var provincesToDo: Array = MapManager.country_to_owned_provinces[country.country_name].filter(func (pid: int): return MapManager.province_objects[pid].buildings.size() < 4 && ! pid in EconomyManager.construction_queue)
 	if provincesToDo.is_empty():
 		return false
-	MapManager._province_build_industry(provincesToDo.pick_random(), country.country_name, GameState.IndustryType.FACTORY)
+	MapManager._ProvinceBuildIndustry(provincesToDo.pick_random(), country.country_name, GameState.IndustryType.FACTORY)
 	return true
 
 

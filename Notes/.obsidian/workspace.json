@@ -4,21 +4,31 @@
     "type": "split",
     "children": [
       {
-        "id": "d9d045b69b29f2ba",
+        "id": "66ebebe20c1b778c",
         "type": "tabs",
         "children": [
           {
-            "id": "109964d363217577",
+            "id": "f42eee1cb7a509d3",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "kanban",
               "state": {
-                "file": "buildingTypes.md",
-                "mode": "source",
-                "source": false
+                "file": "Kanban.md",
+                "kanbanViewState": {
+                  "kanban-plugin": "board",
+                  "list-collapse": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
               },
-              "icon": "lucide-file",
-              "title": "buildingTypes"
+              "icon": "lucide-trello",
+              "title": "Kanban"
             }
           }
         ]
@@ -55,7 +65,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "state",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -189,24 +199,26 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "109964d363217577",
+  "active": "f42eee1cb7a509d3",
   "lastOpenFiles": [
-    "civilWars.md",
+    "NodeDependencies.md",
+    "buildingTypes.md",
     "animations.md",
-    "achievements.md",
-    "sigFigs.md",
-    "resourcesMakeWorkGood.md",
-    "promoteToYoutube.md",
-    "multiplayer.md",
-    "makeCharactersDoStuff.md",
     "Kanban.md",
     "interpreterManager.md",
+    "sigFigs.md",
     "filipsFocus.md",
-    "buildingTypes.md",
+    "Untitled Kanban.md",
+    "achievements.md",
     "Docs/ImportantFigureSkillsReference.md",
     "Docs/Functions.md",
     "Docs/Decision Docs.md",
+    "resourcesMakeWorkGood.md",
     "TODOs.md",
+    "multiplayer.md",
+    "makeCharactersDoStuff.md",
+    "civilWars.md",
+    "promoteToYoutube.md",
     "Untitled.base",
     "todo.md",
     "Docs",

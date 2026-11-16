@@ -61,7 +61,7 @@ func DoSetup(a_progress: Array) -> void:
 
 	# NOTE(soi): this is here bcuz sometimes main menu is used and im too lazy to comment this out
 	if MapManager.province_objects.is_empty() or GameState.is_loading_game:
-		LoadMapData(path, a_progress)
+		MapData.LoadMapData(path, a_progress)
 	
 	if GameState.is_loading_game:
 		GameState.is_loading_game = false
@@ -80,7 +80,7 @@ func DoSetup(a_progress: Array) -> void:
 	# For debugging purposes. Create some troops first
 	# MapManager.force_bidirectional_connections()
 	a_progress[0] = 0.30
-	MapManager._build_global_registry()
+	MapManager._BuildGlobalRegistry()
 	a_progress[0] = 0.35
 	var map_width: int = MapManager.MAP_WIDTH
 	var map_height: int = MapManager.MAP_HEIGHT
@@ -94,7 +94,7 @@ func DoSetup(a_progress: Array) -> void:
 	type_img = Image.create_empty(map_width, map_height, false, Image.FORMAT_L8)
 
 	print(map_width, map_height)
-	MapManager._set_type_map(mat, type_img)
+	MapManager._SetTypeMap(mat, type_img)
 
 	var noise = FastNoiseLite.new()
 	noise.seed = randi()
@@ -149,81 +149,6 @@ func _refresh_map_visuals() -> void:
 	if mat and MapManager.state_color_texture:
 		mat.set_shader_parameter("state_colors", MapManager.state_color_texture)
 
-func _LoadJSON(path: String):
-	return JSON.parse_string(FileAccess.open(path, FileAccess.READ).get_as_text())
-
-func LoadMapData(a_start_path: String, a_percent: Array = [0]):
-	var map_data:      Dictionary = _LoadJSON("%s/map_data.json"%a_start_path)
-	var provinces:     Dictionary = _LoadJSON("%s/provinces.json"%a_start_path)
-	var scenario_data: Dictionary = _LoadJSON("%s/scenario_data.json"%a_start_path)
-
-# print(map_data)
-	# print(provinces)
-	# print(scenario_data)
-
-	var regions_tex: Texture2D = load("%s/regions.png"%a_start_path)
-	print("%s/regions.png"%a_start_path)
-
-	# GameState.current_start = a_text
-	a_percent[0] = 0.01
-	EconomyManager.initialize(a_start_path + "building_functions.json")
-	a_percent[0] = 0.02
-	PlansManager.load_plans_from_path(a_start_path + "plans.json")
-	a_percent[0] = 0.06
-	EventManager.load_super_events(a_start_path + "superevents.json")
-	a_percent[0] = 0.18
-
-	var b_data = map_data.get("biomes", [])
-	MapManager.LoadBiomes(b_data)
-	
-	var r_data = map_data.get("resources", [])
-	MapManager.LoadResources(r_data)
-	
-	var buildingData = map_data.get("buildings")
-	EconomyManager.LoadBuildings(buildingData if buildingData is Dictionary else {})
-	
-	var i_data = map_data.get("ideologies", {})
-	IdeologyManager.Initialize(i_data)
-	a_percent[0] = 0.3
-	
-	
-	DecisionManager.load_decisions_from_path("%s/decisions/"%a_start_path)
-	a_percent[0] = 0.2
-	TroopManager.set_custom_flag_path("%s/flags/"%a_start_path)
-	a_percent[0] = 0.12
-	CountryManager.initialize_countries(scenario_data.get("polities", []) as Array)
-	a_percent[0] = 0.75
-	MapManager.LoadCountryData(
-		regions_tex,
-		provinces,
-		a_percent,
-	)
-	a_percent[0] = 0.6
-	
-	# Restore Clock
-	if clock:
-		if map_data.has("clock"):
-			clock.FromDict(map_data["clock"])
-		else:
-			# Default start date for scenarios/new games
-			clock.FromDict({"hour": 0, "date": {"year": 2010, "month": 1, "day": 1}})
-	
-	WarManager.load_wars(map_data.get("wars", []))
-	WarManager.load_original_territories(map_data.get("original_territories", {}))
-	WarManager.check_for_new_battles()
-	
-	MapManager.BuildLookupTexture()
-	a_percent[0] = 0.85
-	FactionManager.Initialize(scenario_data.get("factions", []))
-	a_percent[0] = 0.9
-	
-	for fig in scenario_data.get("significant_figures", []):
-		MapManager.significantFigures[fig["name"]] = ImportantFigure.FromDict(fig)
-	CountryManager.generate_missing_leaders()
-	CountryManager.cleanup_empty_countries()
-	
-	Console.add_command_autocomplete_list("tag", CountryManager.countries.keys())
-
 
 func save_game(slot: String):
 	# Construct a unified save dictionary
@@ -232,10 +157,10 @@ func save_game(slot: String):
 		"resources": MapManager.SaveResourcesData(),
 		"biomes": MapManager.SaveBiomeData(),
 		"buildings": MapManager.SaveBuildingData(),
-		"provinces": MapManager.SaveCountryData(),
-		"polities": CountryManager.save_countries(),
+		"provinces": MapManager.SaveProvinces(),
+		"polities": CountryManager.SaveCountries(),
 		"ideologies": IdeologyManager.ideologies,
-		"factions": FactionManager.save_factions(),
+		"factions": FactionManager.SaveFactions(),
 		"wars": WarManager.save_wars(),
 		"original_territories": WarManager.save_original_territories(),
 		"scheduled_events": EventManager.save_events()
@@ -296,7 +221,7 @@ func load_game(save_name: String):
 	CountryManager.initialize_countries(save_data.get("polities", []) as Array)
 	
 	# B. Map/Provinces/Troops next (they need the countries above)
-	LoadMapData(save_data)
+	MapData.LoadMapData(save_data)
 	
 	# C. Factions/Clock/etc last
 	FactionManager.Initialize(save_data.get("factions", []) as Array)

@@ -1,1 +1,6 @@
-- [ ] add filips focus trees
+- [ ] Sweden
+- [ ] India
+- [ ] Brazil
+- [ ] Turkey
+- [ ] Romania
+- [ ] Chinese
