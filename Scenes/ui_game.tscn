@@ -533,6 +533,7 @@ layout_mode = 2
 
 [node name="Country1" type="TextureRect" parent="Control/SIDEBAR/SidemenuBG/Content/RelationsHbox" unique_id=814244579]
 show_behind_parent = true
+use_parent_material = true
 custom_minimum_size = Vector2(42, 26)
 layout_mode = 2
 texture = ExtResource("18_hx7os")
