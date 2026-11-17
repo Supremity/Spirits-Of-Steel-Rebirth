@@ -72,12 +72,12 @@ func initialize_countries(a_countriesData: Array) -> void:
 	print("CountryManager: Initialized %d countries." % countries.size())
 
 func _ensure_country_has_leader(country: CountryData) -> void:
-	if !MapManager.significantFigures.get(country.governmentPositions["Leader"]):
+	if country.governmentPositions["Leader"].size() <= 0:
 		var new_figure = ImportantFigure.FromRandom(country.country_name)
 		new_figure.occupation = "Leader"
 		MapManager.significantFigures[new_figure.name] = new_figure
 		country.figures.append(new_figure.name)
-		country.governmentPositions["Leader"] = new_figure.name
+		country.governmentPositions["Leader"].append(new_figure.name)
 		print("CountryManager: Assigned random leader %s to %s" % [new_figure.name, country.country_name])
 
 func generate_missing_leaders() -> void:

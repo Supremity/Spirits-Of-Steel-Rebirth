@@ -1759,4 +1759,3 @@ func SetMapMode(a_mapView: MapView):
 		MapView.BIOMES:
 			_ShowBiomesMap()
 			print("Map Mode: Biomes")
-

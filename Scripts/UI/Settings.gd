@@ -170,7 +170,7 @@ func _add_save_row(parent: Node, save_name: String, file_path: String) -> void:
 
 
 func _on_save_game_pressed():
-	GameState.current_world.save_game(line_edit.text.strip_edges())
+	GameState.current_world.SaveGame(line_edit.text.strip_edges())
 	_refresh_saves()
 
 func _on_scanlines_changed(value: float) -> void:

@@ -112,8 +112,8 @@ var dirty_manpower: bool = true
 var enemies: Array = []
 
 var figures: PackedStringArray = []
-var governmentPositions: Dictionary[String, String] = {
-	"Leader": ""
+var governmentPositions: Dictionary[String, PackedStringArray] = {
+	"Leader": []
 }
 
 #region --- Inner Classes ---
@@ -204,7 +204,9 @@ static func FromDict(a_data: Dictionary) -> CountryData:
 	country.hostedGovernments = a_data.get("hosted_governments", [])
 	country.allowedCountries.append_array([country.country_name, "Sea"])
 	country.figures = a_data.get("figures", [])
-	country.governmentPositions.merge(a_data.get("government_positions", {}), true)
+	var tempGovernmentPositions: Dictionary = a_data.get("government_positions", {})
+	for I_position: String in tempGovernmentPositions:
+		country.governmentPositions.get_or_add(I_position, []).append_array([tempGovernmentPositions[I_position]] if tempGovernmentPositions[I_position] is String else tempGovernmentPositions[I_position])
 	country.is_player = a_data.get("is_player", false)
 	country.finished_decisions = Array(a_data.get("finished_decisions", []), TYPE_STRING, &"", null)
 	
@@ -225,32 +227,33 @@ static func FromDict(a_data: Dictionary) -> CountryData:
 
 func InitializeCabinet() -> void:
 	for position: String in governmentPositions:
-		var figure: ImportantFigure = MapManager.significantFigures.get(governmentPositions[position])
-		if figure:
-			for skill: String in figure.skills:
-				match skill:
-					"stability":
-						stability += figure.skills[skill]
-					"warSupport":
-						war_support += figure.skills[skill]
-					"dailyPPGain":
-						daily_pp_gain += figure.skills[skill]
-					"divCostMod":
-						divCostMod *= figure.skills[skill]
-					"troopSpeed":
-						troopSpeedExtra += figure.skills[skill]
-					"troopAttackAdd":
-						troopAttackAdd += figure.skills[skill]
-					"troopAttackMod":
-						troopAttackMod *= figure.skills[skill]
-					"troopDefendAdd":
-						troopDefendAdd += figure.skills[skill]
-					"troopDefendMod":
-						troopDefendMod *= figure.skills[skill]
-					"attackerAttackMitigation":
-						attacker_attack_mitigation *= figure.skills[skill]
-					"defenderAttackMitigation":
-						defender_attack_mitigation *= figure.skills[skill]
+		for I_figure: String in governmentPositions[position]:
+			var figure: ImportantFigure = MapManager.significantFigures.get(I_figure)
+			if figure:
+				for skill: String in figure.skills:
+					match skill:
+						"stability":
+							stability += figure.skills[skill]
+						"warSupport":
+							war_support += figure.skills[skill]
+						"dailyPPGain":
+							daily_pp_gain += figure.skills[skill]
+						"divCostMod":
+							divCostMod *= figure.skills[skill]
+						"troopSpeed":
+							troopSpeedExtra += figure.skills[skill]
+						"troopAttackAdd":
+							troopAttackAdd += figure.skills[skill]
+						"troopAttackMod":
+							troopAttackMod *= figure.skills[skill]
+						"troopDefendAdd":
+							troopDefendAdd += figure.skills[skill]
+						"troopDefendMod":
+							troopDefendMod *= figure.skills[skill]
+						"attackerAttackMitigation":
+							attacker_attack_mitigation *= figure.skills[skill]
+						"defenderAttackMitigation":
+							defender_attack_mitigation *= figure.skills[skill]
 
 func process_hour() -> void:
 	if _is_loading:
@@ -402,9 +405,8 @@ func get_defense_efficiency() -> float:
 	return (troopDefendAdd + 1.0 + (stability * 0.15) + (army_level * 0.05)) * (0.8 if money < 0 else 1.0) * troopDefendMod
 
 #endregion
-
-func RemoveGovernmentPosition(a_position: String) -> void:
-	var currentFigure: ImportantFigure = MapManager.significantFigures.get(governmentPositions[a_position], null)
+func RemoveGovernmentPositionFigure(a_position: String, a_figure: String) -> void:
+	var currentFigure: ImportantFigure = MapManager.significantFigures.get(a_figure, null)
 	if currentFigure:
 		for skill: String in currentFigure.skills:
 			match skill:
@@ -431,11 +433,15 @@ func RemoveGovernmentPosition(a_position: String) -> void:
 				"defenderAttackMitigation":
 					defender_attack_mitigation /= currentFigure.skills[skill]
 		currentFigure.occupation = ""
-	governmentPositions[a_position] = ""
+	governmentPositions[a_position].erase(currentFigure.name)
+	
+func RemoveGovernmentPositions(a_position: String) -> void:
+	for I_figure: String in governmentPositions.get(a_position, []):
+		RemoveGovernmentPositionFigure(a_position, I_figure)
 
 func SetGovernmentPosition(a_position: String, a_figure: ImportantFigure) -> void:
-	RemoveGovernmentPosition(a_position)
-	governmentPositions[a_position] = a_figure.name
+	RemoveGovernmentPositionFigure(a_figure.occupation, a_figure.name)
+	governmentPositions[a_position].append(a_figure.name)
 	for skill: String in a_figure.skills:
 		match skill:
 			"stability":

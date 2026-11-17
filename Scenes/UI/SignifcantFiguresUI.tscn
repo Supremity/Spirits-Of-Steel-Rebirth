@@ -44,7 +44,7 @@ anti_aliasing = false
 [sub_resource type="LabelSettings" id="LabelSettings_otta5"]
 font_size = 48
 
-[node name="SignifcantFiguresUi" type="CanvasLayer" unique_id=351622279]
+[node name="SignifcantFiguresUI" type="CanvasLayer" unique_id=351622279]
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=275634422]
 anchors_preset = 15

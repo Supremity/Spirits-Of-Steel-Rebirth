@@ -6,16 +6,18 @@
 [ext_resource type="Theme" uid="uid://c38ivksvf4is0" path="res://main_theme.tres" id="2_theme"]
 [ext_resource type="Texture2D" uid="uid://dfsodrjldvwq5" path="res://assets/ui/ariect2.png" id="3_68uam"]
 [ext_resource type="Shader" uid="uid://di44vounul5l7" path="res://Scenes/conveyorpet.gdshader" id="4_68uam"]
+[ext_resource type="Texture2D" uid="uid://07witxacco24" path="res://starts/ModernDay/assets/loading/load_1.png" id="4_a8804"]
+[ext_resource type="Texture2D" uid="uid://dok5614ac4gl4" path="res://starts/ModernDay/assets/loading/load_2.png" id="5_aivxv"]
+[ext_resource type="Texture2D" uid="uid://c0ph447xe7bcy" path="res://starts/ModernDay/assets/loading/load_3.png" id="6_cr3uy"]
 [ext_resource type="Script" uid="uid://bkclpbbspngc8" path="res://Scripts/UI/AvatarOfHate.gd" id="6_suj04"]
 [ext_resource type="Texture2D" uid="uid://dxagea0m3wa61" path="res://assets/ui/petpet.png" id="7_634pj"]
-[ext_resource type="Texture2D" uid="uid://07witxacco24" path="res://starts/soilads shitty mod/assets/loading/load_1.png" id="7_e27xy"]
-[ext_resource type="Texture2D" uid="uid://dok5614ac4gl4" path="res://starts/soilads shitty mod/assets/loading/load_2.png" id="8_rmj2b"]
-[ext_resource type="Texture2D" uid="uid://cybfxqyvm0u3" path="res://starts/soilads shitty mod/assets/loading/load_4.png" id="9_a8804"]
-[ext_resource type="Texture2D" uid="uid://do46cph7hyeqe" path="res://starts/soilads shitty mod/assets/loading/load_6.png" id="10_aivxv"]
-[ext_resource type="Texture2D" uid="uid://drfhnwyayncll" path="res://starts/soilads shitty mod/assets/loading/load_5.png" id="10_e27xy"]
-[ext_resource type="Texture2D" uid="uid://bwj3bsf2f8ne" path="res://starts/soilads shitty mod/assets/loading/load_7.png" id="11_cr3uy"]
-[ext_resource type="Texture2D" uid="uid://c0ph447xe7bcy" path="res://starts/soilads shitty mod/assets/loading/load_3.png" id="11_rmj2b"]
-[ext_resource type="Texture2D" uid="uid://behj8wgd68j2u" path="res://starts/soilads shitty mod/assets/loading/load_9.png" id="12_wqgu2"]
+[ext_resource type="Texture2D" uid="uid://cybfxqyvm0u3" path="res://starts/ModernDay/assets/loading/load_4.png" id="7_wqgu2"]
+[ext_resource type="Texture2D" uid="uid://drfhnwyayncll" path="res://starts/ModernDay/assets/loading/load_5.png" id="8_12fbd"]
+[ext_resource type="Texture2D" uid="uid://dok5614ac4gl4" path="res://starts/ModernEmpires/assets/loading/load_2.png" id="8_rmj2b"]
+[ext_resource type="Texture2D" uid="uid://do46cph7hyeqe" path="res://starts/ModernDay/assets/loading/load_6.png" id="9_jsyga"]
+[ext_resource type="Texture2D" uid="uid://bwj3bsf2f8ne" path="res://starts/ModernDay/assets/loading/load_7.png" id="10_bj3x8"]
+[ext_resource type="Texture2D" uid="uid://cqv7jjsh8ckii" path="res://starts/ModernDay/assets/loading/load_8.png" id="11_n2anu"]
+[ext_resource type="Texture2D" uid="uid://behj8wgd68j2u" path="res://starts/ModernDay/assets/loading/load_9.png" id="12_ahew1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6p6t7"]
 shader = ExtResource("4_68uam")
@@ -49,7 +51,7 @@ expand_mode = 2
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Butter" type="Control" parent="." unique_id=866918775 node_paths=PackedStringArray("AvatarImage")]
+[node name="Butter" type="Control" parent="." unique_id=866918775 node_paths=PackedStringArray("avatarImage")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,8 +59,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_suj04")
-USSR = Array[Texture]([ExtResource("7_e27xy"), ExtResource("8_rmj2b"), ExtResource("9_a8804"), ExtResource("10_aivxv"), ExtResource("11_cr3uy"), ExtResource("12_wqgu2"), ExtResource("10_e27xy"), ExtResource("11_rmj2b")])
-AvatarImage = NodePath("Avatar")
+sankara = true
+ussr = Array[Texture]([ExtResource("4_a8804"), ExtResource("5_aivxv"), ExtResource("6_cr3uy"), ExtResource("7_wqgu2"), ExtResource("8_12fbd"), ExtResource("9_jsyga"), ExtResource("10_bj3x8"), ExtResource("11_n2anu"), ExtResource("12_ahew1")])
+avatarImage = NodePath("Avatar")
 
 [node name="Avatar" type="TextureRect" parent="Butter" unique_id=341935476]
 layout_mode = 1

@@ -150,7 +150,7 @@ func _refresh_map_visuals() -> void:
 		mat.set_shader_parameter("state_colors", MapManager.state_color_texture)
 
 
-func save_game(slot: String):
+func SaveGame(slot: String):
 	# Construct a unified save dictionary
 	var save_data: Dictionary = {
 		"clock": clock.ToDict() if clock else {},

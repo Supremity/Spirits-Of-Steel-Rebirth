@@ -428,12 +428,11 @@ func DoUpdateSidemenuVisuals() -> void:
 		MapManager.ShowCountriesMap()
 
 	if selected_country.governmentPositions["Leader"]:
-		sidemenu_leader_portrait.texture = ImportantFigure.GetPortrait(
-			MapManager.significantFigures.get(
-				selected_country.governmentPositions["Leader"]
-				)
-			)
-		sidemenu_leader_portrait.tooltip_text = MapManager.significantFigures[selected_country.governmentPositions["Leader"]].GetDisplayString()
+		sidemenu_leader_portrait.ussr.clear()
+		for I_leader: String in selected_country.governmentPositions["Leader"]:
+			sidemenu_leader_portrait.ussr.append(ImportantFigure.GetPortrait(MapManager.significantFigures.get(I_leader)))
+		sidemenu_leader_portrait.ForceReset()
+		sidemenu_leader_portrait.tooltip_text = MapManager.significantFigures[selected_country.governmentPositions["Leader"][0]].GetDisplayString()
 	
 	sidemenu_pointer.position.x = remap(selected_country.ideology[0], -100, 100, 3, 97)
 	sidemenu_pointer.position.y = remap(selected_country.ideology[1], -100, 100, 3, 97)

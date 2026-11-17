@@ -623,7 +623,7 @@ position = Vector2(49.999992, 50)
 scale = Vector2(0.038297877, 0.038297873)
 texture = ExtResource("21_lpwmk")
 
-[node name="Leader" type="TextureRect" parent="Control/SIDEBAR/SidemenuBG/Content/PanelContainer/HBoxContainer" unique_id=569434129]
+[node name="Leader" type="TextureRect" parent="Control/SIDEBAR/SidemenuBG/Content/PanelContainer/HBoxContainer" unique_id=569434129 node_paths=PackedStringArray("avatarImage")]
 use_parent_material = true
 custom_minimum_size = Vector2(120, 90)
 layout_mode = 2
@@ -633,6 +633,7 @@ texture = ExtResource("25_pvldk")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("23_ekg1n")
+avatarImage = NodePath(".")
 
 [node name="Timer" type="Timer" parent="Control/SIDEBAR/SidemenuBG/Content/PanelContainer/HBoxContainer/Leader" unique_id=1332008409]
 autostart = true

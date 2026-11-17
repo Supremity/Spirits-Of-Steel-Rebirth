@@ -69,17 +69,17 @@ static func LoadMapData(a_start_path: String, a_percent: Array = [0]):
 	EventManager.load_super_events(a_start_path + "superevents.json")
 	a_percent[0] = 0.18
 
-	var b_data = map_data.get("biomes", [])
+	var b_data: Array = map_data.get("biomes", [])
 	MapManager.LoadBiomes(b_data)
 	
-	var r_data = map_data.get("resources", [])
+	var r_data: Array = map_data.get("resources", [])
 	MapManager.LoadResources(r_data)
 	
 	var buildingData = map_data.get("buildings")
 	EconomyManager.LoadBuildings(buildingData if buildingData is Dictionary else {})
 	
-	var i_data = map_data.get("ideologies", {})
-	IdeologyManager.Initialize(i_data)
+	var ideologyData = map_data.get("ideologies", {})
+	IdeologyManager.Initialize(ideologyData)
 	a_percent[0] = 0.3
 	
 	
@@ -119,4 +119,3 @@ static func LoadMapData(a_start_path: String, a_percent: Array = [0]):
 	CountryManager.cleanup_empty_countries()
 	
 	Console.add_command_autocomplete_list("tag", CountryManager.countries.keys())
-

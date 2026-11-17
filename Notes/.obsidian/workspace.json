@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "66ebebe20c1b778c",
+        "id": "75bf2e4f6b176084",
         "type": "tabs",
         "children": [
           {
-            "id": "f42eee1cb7a509d3",
+            "id": "d94dbff6502c5a39",
             "type": "leaf",
             "state": {
               "type": "kanban",
@@ -199,12 +199,12 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "f42eee1cb7a509d3",
+  "active": "d94dbff6502c5a39",
   "lastOpenFiles": [
     "NodeDependencies.md",
+    "Kanban.md",
     "buildingTypes.md",
     "animations.md",
-    "Kanban.md",
     "interpreterManager.md",
     "sigFigs.md",
     "filipsFocus.md",

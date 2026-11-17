@@ -583,11 +583,11 @@
 			"color": "#C35C6D",
 			"display_name": "Canada",
 			"figures": [
-				"EaulpassingEuthoildyxuilm"
+				"MarkJosephCarney"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "EaulpassingEuthoildyxuilm"
+				"Leader": "MarkJosephCarney"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -658,8 +658,7 @@
 			"color": "#386038",
 			"display_name": "Russia",
 			"figures": [
-				"VladimirPutin",
-				"EoldialiolpEethroisplauss"
+				"VladimirPutin"
 			],
 			"finished_decisions": [],
 			"government_positions": {
@@ -862,11 +861,11 @@
 			"color": "#C8385D",
 			"display_name": "United_kingdom",
 			"figures": [
-				"Keir_Starmer"
+				"KeirStarmer"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "Keir_Starmer"
+				"Leader": "KeirStarmer"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1118,8 +1117,7 @@
 			"color": "#A7575A",
 			"display_name": "China",
 			"figures": [
-				"XiJinping",
-				"DdiangoofuakroysnudwIastrouggunteikkaebraukkNtospoortoeschucciu"
+				"XiJinping"
 			],
 			"finished_decisions": [],
 			"government_positions": {
@@ -1374,11 +1372,11 @@
 			"color": "#4E7D73",
 			"display_name": "Hungary",
 			"figures": [
-				"EmmuiskiaghoystroommyttaoldSluouyeygayhooghtiaghaytheauTweaxefluybiu"
+				"VictorOrban"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "EmmuiskiaghoystroommyttaoldSluouyeygayhooghtiaghaytheauTweaxefluybiu"
+				"Leader": "VictorOrban"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3900,11 +3898,15 @@
 			"color": "#91B2BE",
 			"display_name": "Nicaragua",
 			"figures": [
-				"KruygloaskeadweadhAystygroylgelkoepieqay"
+				"JoseDanielOrtegaSaavedra",
+				"RosarioMariaMurilloZambrana"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "KruygloaskeadweadhAystygroylgelkoepieqay"
+				"Leader": [
+					"JoseDanielOrtegaSaavedra",
+					"RosarioMariaMurilloZambrana"
+				]
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -4208,11 +4210,11 @@
 			"color": "#C86496",
 			"display_name": "Venezuela",
 			"figures": [
-				"TteaspruypheyTchoottaydd"
+				"NicolasMaduroMoros"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "TteaspruypheyTchoottaydd"
+				"Leader": "NicolasMaduroMoros"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -5725,11 +5727,11 @@
 			"color": "#9B656B",
 			"display_name": "Chile",
 			"figures": [
-				"LgoidwiompiostraoEycheiseerpul"
+				"GabrielBoricFont"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "LgoidwiompiostraoEycheiseerpul"
+				"Leader": "GabrielBoricFont"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -5754,11 +5756,11 @@
 			"color": "#889DBC",
 			"display_name": "Botswana",
 			"figures": [
-				"OutrauzooYaoccoewulvAchiourgouspl"
+				"DumaGideonBoko"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "OutrauzooYaoccoewulvAchiourgouspl"
+				"Leader": "DumaGideonBoko"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -6459,9 +6461,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "EaulpassingEuthoildyxuilm",
+			"name": "MarkJosephCarney",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Canada/MarkJosephCarney.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6476,20 +6478,6 @@
 			"name": "AistreanuoschausiuswOesplaytwouEatragreippeerpoo",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {},
-			"status": 0,
-			"traits": []
-		},
-		{
-			"allegiance": "Russia",
-			"ideology": [
-				0,
-				0
-			],
-			"legitimacy": 0,
-			"name": "EoldialiolpEethroisplauss",
-			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6571,9 +6559,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "Keir_Starmer",
+			"name": "KeirStarmer",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/UnitedKingdom/Keir_Starmer.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/UnitedKingdom/KeirStarmer.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6686,20 +6674,6 @@
 			"name": "UybruikounoylpAuscoiduantuizzaowaygoeOynuythruyguefoigliaskoe",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {},
-			"status": 0,
-			"traits": []
-		},
-		{
-			"allegiance": "China",
-			"ideology": [
-				0,
-				0
-			],
-			"legitimacy": 0,
-			"name": "DdiangoofuakroysnudwIastrouggunteikkaebraukkNtospoortoeschucciu",
-			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6823,9 +6797,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "EmmuiskiaghoystroommyttaoldSluouyeygayhooghtiaghaytheauTweaxefluybiu",
+			"name": "VictorOrban",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Hungary/VictorOrban.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8069,9 +8043,23 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "KruygloaskeadweadhAystygroylgelkoepieqay",
+			"name": "JoseDanielOrtegaSaavedra",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Nicaragua/JoseDanielOrtegaSaavedra.png",
+			"skills": {},
+			"status": 0,
+			"traits": []
+		},
+		{
+			"allegiance": "Nicaragua",
+			"ideology": [
+				0,
+				0
+			],
+			"legitimacy": 0,
+			"name": "RosarioMariaMurilloZambrana",
+			"occupation": "Leader",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Nicaragua/RosarioMariaMurilloZambrana.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8223,9 +8211,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "TteaspruypheyTchoottaydd",
+			"name": "NicolasMaduroMoros",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Venezuela/NicolasMaduroMoros.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -9021,9 +9009,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "LgoidwiompiostraoEycheiseerpul",
+			"name": "GabrielBoricFont",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Chile/GabrielBoricFont.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -9035,9 +9023,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "OutrauzooYaoccoewulvAchiourgouspl",
+			"name": "DumaGideonBoko",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Botswana/DumaGideonBoko.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
