@@ -104,6 +104,8 @@ func switch_to(scene_type: Type, init_callback: Callable = Callable()) -> void:
 			bingo.start(next_scene.DoSetup.bind(progress))
 			
 			while bingo.is_alive():
+				if progress.size() <= 0:
+					progress = [0]
 				_loading_screen.set_progress(progress[0])
 				await get_tree().process_frame
 

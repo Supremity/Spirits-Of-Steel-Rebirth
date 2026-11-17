@@ -62,7 +62,7 @@ static func LoadMapData(a_start_path: String, a_percent: Array = [0]):
 
 	# GameState.current_start = a_text
 	a_percent[0] = 0.01
-	EconomyManager.initialize(a_start_path + "building_functions.json")
+	EconomyManager.initialize(a_start_path + "/building_functions.json")
 	a_percent[0] = 0.02
 	PlansManager.load_plans_from_path(a_start_path + "plans.json")
 	a_percent[0] = 0.06

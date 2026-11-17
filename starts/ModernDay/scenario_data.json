@@ -611,11 +611,11 @@
 			"color": "#99745D",
 			"display_name": "Denmark",
 			"figures": [
-				"AistreanuoschausiuswOesplaytwouEatragreippeerpoo"
+				"MetteFrederiksen"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "AistreanuoschausiuswOesplaytwouEatragreippeerpoo"
+				"Leader": "MetteFrederiksen"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -747,11 +747,13 @@
 			"color": "#C2C6D7",
 			"display_name": "Finland",
 			"figures": [
-				"UolkybRmeeneasloSirlio"
+				"CaiGoranAlexanderStubb"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "UolkybRmeeneasloSirlio"
+				"Leader": [
+					"CaiGoranAlexanderStubb"
+				]
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -774,11 +776,11 @@
 			"color": "#2484F7",
 			"display_name": "Sweden",
 			"figures": [
-				"IuffypteociudrauphauspaiqQuuylayAezzuouboygraps"
+				"UlfHjalmarKristersson"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "IuffypteociudrauphauspaiqQuuylayAezzuouboygraps"
+				"Leader": "UlfHjalmarKristersson"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -801,11 +803,11 @@
 			"color": "#445171",
 			"display_name": "Iceland",
 			"figures": [
-				"EurmaewhiagaskoystaynkucuoSlioughoistreummaextiuIrpou"
+				"KristrunMjollFrostadottir"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "EurmaewhiagaskoystaynkucuoSlioughoistreummaextiuIrpou"
+				"Leader": "KristrunMjollFrostadottir"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -828,11 +830,11 @@
 			"color": "#3287AF",
 			"display_name": "Estonia",
 			"figures": [
-				"OastiouleazearluossuyskiJuolpaeddaurpRguounkeesheudwoesprustai"
+				"AlarKaris"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "OastiouleazearluossuyskiJuolpaeddaurpRguounkeesheudwoesprustai"
+				"Leader": "AlarKaris"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -889,11 +891,11 @@
 			"color": "#4B4DBA",
 			"display_name": "Latvia",
 			"figures": [
-				"IouyiSmuiphiold"
+				"EvikaSilina"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "IouyiSmuiphiold"
+				"Leader": "EvikaSilina"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -917,11 +919,11 @@
 			"color": "#DBDB77",
 			"display_name": "Lithuania",
 			"figures": [
-				"UokkailgSpaydweo"
+				"GintautasPaluckas"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "UokkailgSpaydweo"
+				"Leader": "GintautasPaluckas"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -972,11 +974,11 @@
 			"color": "#509F5A",
 			"display_name": "Ireland",
 			"figures": [
-				"HafrosmayckauckeeshaoflyflRduexteessoosk"
+				"CatherineMartinaAnnConnolly"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "HafrosmayckauckeeshaoflyflRduexteessoosk"
+				"Leader": "CatherineMartinaAnnConnolly"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1000,11 +1002,11 @@
 			"color": "#58A1C1",
 			"display_name": "Kazakhstan",
 			"figures": [
-				"BbauyaestriaghtuophaulmeormLduoulkiawoedwiurleyrduygoomm"
+				"KassymJomartKemelulyTokayev"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "BbauyaestriaghtuophaulmeormLduoulkiawoedwiurleyrduygoomm"
+				"Leader": "KassymJomartKemelulyTokayev"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1055,11 +1057,11 @@
 			"color": "#C55C6A",
 			"display_name": "Poland",
 			"figures": [
-				"ThruirgeibiEingoacAerpeecceaunesouptientoe"
+				"KarolTadeuszNawrocki"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "ThruirgeibiEingoacAerpeecceaunesouptientoe"
+				"Leader": "KarolTadeuszNawrocki"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1082,11 +1084,11 @@
 			"color": "#C78749",
 			"display_name": "Netherlands",
 			"figures": [
-				"UybruikounoylpAuscoiduantuizzaowaygoeOynuythruyguefoigliaskoe"
+				"RobArnoldusAdrianusJetten"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "UybruikounoylpAuscoiduantuizzaowaygoeOynuythruyguefoigliaskoe"
+				"Leader": "RobArnoldusAdrianusJetten"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1174,11 +1176,11 @@
 			"color": "#A38E4B",
 			"display_name": "Mongolia",
 			"figures": [
-				"GeevUykkyschuflierpoowriStruedrountyrgay"
+				"UkhnaagiinKhurelsukh"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "GeevUykkyschuflierpoowriStruedrountyrgay"
+				"Leader": "UkhnaagiinKhurelsukh"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1202,11 +1204,11 @@
 			"color": "#C1AB08",
 			"display_name": "Belgium",
 			"figures": [
-				"OedheattaoldiaflompiowhUavi"
+				"BartAlbertLilianeDeWever"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "OedheattaoldiaflompiowhUavi"
+				"Leader": "BartAlbertLilianeDeWever"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1264,11 +1266,11 @@
 			"color": "#36A79C",
 			"display_name": "Czechia",
 			"figures": [
-				"StroesweauDdoynniolkeawhaisk"
+				"AndrejBabis"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "StroesweauDdoynniolkeawhaisk"
+				"Leader": "AndrejBabis"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1291,11 +1293,11 @@
 			"color": "#55E4E9",
 			"display_name": "Luxembourg",
 			"figures": [
-				"EyttualmoimpyffRkuihioulmaestriupeorkeaupiouCeazzuofuadwoo"
+				"XavierBettel"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "EyttualmoimpyffRkuihioulmaestriupeorkeaupiouCeazzuofuadwoo"
+				"Leader": "XavierBettel"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1318,11 +1320,11 @@
 			"color": "#795C9F",
 			"display_name": "Slovakia",
 			"figures": [
-				"AwhuyEultoyxteiRlourmeaulgui"
+				"PeterPellegrini"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "AwhuyEultoyxteiRlourmeaulgui"
+				"Leader": "PeterPellegrini"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1345,11 +1347,11 @@
 			"color": "#A8AEC6",
 			"display_name": "Austria",
 			"figures": [
-				"UitaixteikkeesproerruyzEozzaoppoorkeetcheepreyrdea"
+				"ChristianStocker"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "UitaixteikkeesproerruyzEozzaoppoorkeetcheepreyrdea"
+				"Leader": "ChristianStocker"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1400,11 +1402,11 @@
 			"color": "#866E52",
 			"display_name": "Moldova",
 			"figures": [
-				"KkeulymoyntaopuapeygleyBlioulmoocc"
+				"MaiaSandu"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "KkeulymoyntaopuapeygleyBlioulmoocc"
+				"Leader": "MaiaSandu"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1428,11 +1430,11 @@
 			"color": "#D7C448",
 			"display_name": "Romania",
 			"figures": [
-				"NylgiouHeespleaurroiplympoantiuxteiEodwau"
+				"NicusorDanielDan"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "NylgiouHeespleaurroiplympoantiuxteiEodwau"
+				"Leader": "NicusorDanielDan"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1456,11 +1458,11 @@
 			"color": "#2A1618",
 			"display_name": "Transnistria",
 			"figures": [
-				"AutruzzuesplynnuabyluikkIulaorraudheoffaymmNneibriou"
+				"VadimNikolayevichKrasnoselsky"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "AutruzzuesplynnuabyluikkIulaorraudheoffaymmNneibriou"
+				"Leader": "VadimNikolayevichKrasnoselsky"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1486,11 +1488,11 @@
 			"color": "#E00505",
 			"display_name": "Switzerland",
 			"figures": [
-				"EvuouwreyluodwuyUorkeihoelmUaquayciuxiormeiceimmio"
+				"KarinMariaKellerSutter"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "EvuouwreyluodwuyUorkeihoelmUaquayciuxiormeiceimmio"
+				"Leader": "KarinMariaKellerSutter"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1542,11 +1544,11 @@
 			"color": "#437F3F",
 			"display_name": "Italy",
 			"figures": [
-				"EaustaulmioufeasoampuittaiUequoschoytwulkuallaeUougreekea"
+				"GiorgiaMeloni"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "EaustaulmioufeasoampuittaiUequoschoytwulkuallaeUougreekea"
+				"Leader": "GiorgiaMeloni"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1569,11 +1571,11 @@
 			"color": "#4F6F96",
 			"display_name": "Slovenia",
 			"figures": [
-				"YdueckouvadruytrOulpuowoippiampymEauspaoli"
+				"NatasaPircMusar"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "YdueckouvadruytrOulpuowoippiampymEauspaoli"
+				"Leader": "NatasaPircMusar"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1596,11 +1598,11 @@
 			"color": "#2A2D60",
 			"display_name": "Croatia",
 			"figures": [
-				"LpaozzeynkeuwOeyoltuouvirguascoyzzais"
+				"ZoranMilanovic"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "LpaozzeynkeuwOeyoltuouvirguascoyzzais"
+				"Leader": "ZoranMilanovic"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1624,11 +1626,11 @@
 			"color": "#9A6867",
 			"display_name": "Serbia",
 			"figures": [
-				"UoutchoybluardoangielmioswuweoXteobroikreoscee"
+				"AleksandarVucic"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "UoutchoybluardoangielmioswuweoXteobroikreoscee"
+				"Leader": "AleksandarVucic"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1652,11 +1654,17 @@
 			"color": "#DFC087",
 			"display_name": "Bosnia_and_herzegovina",
 			"figures": [
-				"AnnoyzUeflilpaollaip"
+				"DenisBecirovic",
+				"ZeljkaCvijanovic",
+				"DarijanaFilipovic"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "AnnoyzUeflilpaollaip"
+				"Leader": [
+					"DenisBecirovic",
+					"ZeljkaCvijanovic",
+					"DarijanaFilipovic"
+				]
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1679,11 +1687,11 @@
 			"color": "#CACEFD",
 			"display_name": "Uzbekistan",
 			"figures": [
-				"GhtoyrkoogroantooggeessouxuoIelpoetruofloirpoytrShaossuilaytaidwuy"
+				"ShavkatMiromonovichMirziyoyev"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "GhtoyrkoogroantooggeessouxuoIelpoetruofloirpoytrShaossuilaytaidwuy"
+				"Leader": "ShavkatMiromonovichMirziyoyev"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1733,11 +1741,11 @@
 			"color": "#339B00",
 			"display_name": "Bulgaria",
 			"figures": [
-				"EytwuaquayseiRliggiruarpyqueujempauStreuxteildappeistroustaybreausc"
+				"RumenGeorgievRadev"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "EytwuaquayseiRliggiruarpyqueujempauStreuxteildappeistroustaybreausc"
+				"Leader": "RumenGeorgievRadev"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1791,11 +1799,15 @@
 			"color": "#62B0C6",
 			"display_name": "San_marino",
 			"figures": [
-				"IughtaeyoutriawuOeptuosmuykioUajue"
+				"DaliborRiccardi",
+				"FrancescaCiverchia"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "IughtaeyoutriawuOeptuosmuykioUajue"
+				"Leader": [
+					"DaliborRiccardi",
+					"FrancescaCiverchia"
+				]
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1818,11 +1830,11 @@
 			"color": "#EDA2BA",
 			"display_name": "Monaco",
 			"figures": [
-				"TcholeequaozugreaucciadwEartoiLdiouvokuyjiongeyxtoinkuy"
+				"AlbertAlexandreLouisPierreGrimaldi"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "TcholeequaozugreaucciadwEartoiLdiouvokuyjiongeyxtoinkuy"
+				"Leader": "AlbertAlexandreLouisPierreGrimaldi"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1845,11 +1857,11 @@
 			"color": "#3F1F2D",
 			"display_name": "Abkhazia",
 			"figures": [
-				"EolpauptogreestruistOugeijotrUagguazistiexaurteullupr"
+				"BadraZurabovichGunba"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "EolpauptogreestruistOugeijotrUagguazistiexaurteullupr"
+				"Leader": "BadraZurabovichGunba"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1872,11 +1884,11 @@
 			"color": "#FC7279",
 			"display_name": "Montenegro",
 			"figures": [
-				"AsweaustriuPheyppeequeascuaxtimmuscutr"
+				"JakovMilatovic"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "AsweaustriuPheyppeequeascuaxtimmuscutr"
+				"Leader": "JakovMilatovic"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1899,11 +1911,11 @@
 			"color": "#768EBA",
 			"display_name": "Kosovo",
 			"figures": [
-				"ScioupriabeonnoeggLkultuelteaskeorg"
+				"VjosaOsmaniSadriu"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "ScioupriabeonnoeggLkultuelteaskeorg"
+				"Leader": "VjosaOsmaniSadriu"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1926,11 +1938,11 @@
 			"color": "#EFE4E8",
 			"display_name": "Georgia",
 			"figures": [
-				"TruehoxaetwaiswouknoyffNkouwrOaspreulkuefeaseauthroascayck"
+				"MikheilKavelashvili"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "TruehoxaetwaiswouknoyffNkouwrOaspreulkuefeaseauthroascayck"
+				"Leader": "MikheilKavelashvili"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1953,11 +1965,11 @@
 			"color": "#F43D6F",
 			"display_name": "Kyrgyzstan",
 			"figures": [
-				"LpiaroafyYnnoudeoswiaz"
+				"SadyrNurgojoUuluJaparov"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "LpiaroafyYnnoudeoswiaz"
+				"Leader": "SadyrNurgojoUuluJaparov"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -1980,11 +1992,11 @@
 			"color": "#C90001",
 			"display_name": "Andorra",
 			"figures": [
-				"AydaunuoggOazzadhuadheelpeyrgoyPyghaywhaelkyffuatoup"
+				"XavierEspotZamora"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "AydaunuoggOazzadhuadheelpeyrgoyPyghaywhaelkyffuatoup"
+				"Leader": "XavierEspotZamora"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2007,11 +2019,11 @@
 			"color": "#C29657",
 			"display_name": "South_ossetia",
 			"figures": [
-				"OotchongealdaidwuounteypluiRuoureeUelgeulv"
+				"AlanEduardovichGagloyev"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "OotchongealdaidwuounteypluiRuoureeUelgeulv"
+				"Leader": "AlanEduardovichGagloyev"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2035,11 +2047,11 @@
 			"color": "#BD8C6E",
 			"display_name": "Turkmenistan",
 			"figures": [
-				"UoffefaoZuowiasprablupreau"
+				"SerdarGurbangulyyewicBerdimuhamedow"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "UoffefaoZuowiasprablupreau"
+				"Leader": "SerdarGurbangulyyewicBerdimuhamedow"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2089,11 +2101,11 @@
 			"color": "#952D66",
 			"display_name": "Albania",
 			"figures": [
-				"GloelluobloympeydraiCkiephoybroingJaummao"
+				"BajramBegaj"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "GloelluobloympeydraiCkiephoybroingJaummao"
+				"Leader": "BajramBegaj"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2117,11 +2129,11 @@
 			"color": "#CA9576",
 			"display_name": "North_macedonia",
 			"figures": [
-				"AequorliuhuoustriodwSceippeybloeAfrefrioulm"
+				"GordanaSiljanovskaDavkova"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "AequorliuhuoustriodwSceippeybloeAfrefrioulm"
+				"Leader": "GordanaSiljanovskaDavkova"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2144,11 +2156,11 @@
 			"color": "#728CD9",
 			"display_name": "Azerbaijan",
 			"figures": [
-				"ArgouprKiashouLmoykkurrempiujayj"
+				"IlhamHeydarOghluAliyev"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "ArgouprKiashouLmoykkurrempiujayj"
+				"Leader": "IlhamHeydarOghluAliyev"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2171,11 +2183,11 @@
 			"color": "#277446",
 			"display_name": "Portugal",
 			"figures": [
-				"EaumpoildairguouchannIsciudhRdiotraeviolteeprou"
+				"MarceloNunoDuarteRebeloDeSousa"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "EaumpoildairguouchannIsciudhRdiotraeviolteeprou"
+				"Leader": "MarceloNunoDuarteRebeloDeSousa"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2200,11 +2212,11 @@
 			"color": "#A63443",
 			"display_name": "Turkey",
 			"figures": [
-				"TtoospEautchaikoafoplualizou"
+				"RecepTayyipErdogan"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "TtoospEautchaikoafoplualizou"
+				"Leader": "RecepTayyipErdogan"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2227,11 +2239,11 @@
 			"color": "#C4B582",
 			"display_name": "Vatican_city",
 			"figures": [
-				"OglanetcheuxteasoesyplioEewreoploiphyblaerdioSmifleaustroadw"
+				"PopeLeoXIV"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "OglanetcheuxteasoesyplioEewreoploiphyblaerdioSmifleaustroadw"
+				"Leader": "PopeLeoXIV"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2254,11 +2266,11 @@
 			"color": "#5DB5E3",
 			"display_name": "Greece",
 			"figures": [
-				"EeppoulmeeHiowharluwhoykkeyrdeaup"
+				"KonstantinosTasoulas"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "EeppoulmeeHiowharluwhoykkeyrdeaup"
+				"Leader": "KonstantinosTasoulas"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2281,11 +2293,11 @@
 			"color": "#F6A286",
 			"display_name": "Armenia",
 			"figures": [
-				"RmiusplayZziaspleyscaggyfl"
+				"NikolVovayiPashinyan"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "RmiusplayZziaspleyscaggyfl"
+				"Leader": "NikolVovayiPashinyan"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2308,11 +2320,11 @@
 			"color": "#6D9482",
 			"display_name": "Tajikistan",
 			"figures": [
-				"OangeaulpaischiarkeauwhusheegRkeuggaiziggaospioulgKnioussuyppietchaesnui"
+				"EmomaliRahmon"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "OangeaulpaischiarkeauwhusheegRkeuggaiziggaospioulgKnioussuyppietchaesnui"
+				"Leader": "EmomaliRahmon"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2341,11 +2353,11 @@
 			"color": "#5A8F7B",
 			"display_name": "Iran",
 			"figures": [
-				"OesmauDhooddeinaspregluifeot"
+				"MasoudPezeshkian"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "OesmauDhooddeinaspregluifeot"
+				"Leader": "MasoudPezeshkian"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2425,11 +2437,11 @@
 			"color": "#B9566A",
 			"display_name": "Tunisia",
 			"figures": [
-				"OogloarpaurmayploeplokniBbaottuoultauspreemuoujoeph"
+				"QaysSuAyyid"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "OogloarpaurmayploeplokniBbaottuoultauspreemuoujoeph"
+				"Leader": "QaysSuAyyid"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2454,11 +2466,11 @@
 			"color": "#B27263",
 			"display_name": "Iraq",
 			"figures": [
-				"AstoyrduipsaorduonnuedhiuSeukroakkoeghtoufleyschoiqu"
+				"AliFalihKadhimAlZaidi"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "AstoyrduipsaorduonnuedhiuSeukroakkoeghtoufleyschoiqu"
+				"Leader": "AliFalihKadhimAlZaidi"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2482,11 +2494,11 @@
 			"color": "#374E5C",
 			"display_name": "Syria",
 			"figures": [
-				"OobuiwroiOermoethreostruoLgiuggoatch"
+				"AhmedHusseinAlSharaa"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "OobuiwroiOermoethreostruoLgiuggoatch"
+				"Leader": "AhmedHusseinAlSharaa"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2516,11 +2528,11 @@
 			"color": "#002917",
 			"display_name": "Pakistan",
 			"figures": [
-				"MmoynteychiesteyruykkIacusploelgidr"
+				"AasifAliZardari"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "MmoynteychiesteyruykkIacusploelgidr"
+				"Leader": "AasifAliZardari"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2544,11 +2556,11 @@
 			"color": "#0A2B24",
 			"display_name": "Algeria",
 			"figures": [
-				"PpiaxtiuSceauruycuabroosneyrleontoabIuyiedruiddeo"
+				"AbdelmadjidTebboune"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "PpiaxtiuSceauruycuabroosneyrleontoabIuyiedruiddeo"
+				"Leader": "AbdelmadjidTebboune"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2600,11 +2612,11 @@
 			"color": "#D9D9D9",
 			"display_name": "Malta",
 			"figures": [
-				"AezzalvoyssasteaSchiourm"
+				"RobertAbela"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "AezzalvoyssasteaSchiourm"
+				"Leader": "RobertAbela"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2627,11 +2639,11 @@
 			"color": "#5C4D32",
 			"display_name": "Turkish_cyprus",
 			"figures": [
-				"OuthroinkarmuoubrProodraoluikniulkEempakn"
+				"TufanErhurman"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "OuthroinkarmuoubrProodraoluikniulkEempakn"
+				"Leader": "TufanErhurman"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2712,11 +2724,11 @@
 			"color": "#DEB51B",
 			"display_name": "Cyprus",
 			"figures": [
-				"SchoengQouthrasmuSlaefrikkodouthreubroahuy"
+				"NikosChristodoulides"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "SchoengQouthrasmuSlaefrikkodouthreubroahuy"
+				"Leader": "NikosChristodoulides"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2739,11 +2751,11 @@
 			"color": "#549C8B",
 			"display_name": "Lebanon",
 			"figures": [
-				"LveoscaompoikkedreespraoAixoymeeckeuspreafrioudoujee"
+				"JosephKhalilAoun"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "LveoscaompoikkedreespraoAixoymeeckeuspreafrioudoujee"
+				"Leader": "JosephKhalilAoun"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2767,11 +2779,11 @@
 			"color": "#2A7054",
 			"display_name": "Libya",
 			"figures": [
-				"PhuoupUispreiseaulkouppiouduyskottSkeisseausluoulkuyghuefee"
+				"KhalifaHaftar"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "PhuoupUispreiseaulkouppiouduyskottSkeisseausluoulkuyghuefee"
+				"Leader": "KhalifaHaftar"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2822,11 +2834,11 @@
 			"color": "#E3989C",
 			"display_name": "Jordan",
 			"figures": [
-				"FiraEegispralawroaskYwevizepech"
+				"AbdullahBinHussein"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "FiraEegispralawroaskYwevizepech"
+				"Leader": "AbdullahBinHussein"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2903,11 +2915,11 @@
 			"color": "#564857",
 			"display_name": "Palestine",
 			"figures": [
-				"EostoyrdeuffeubrayrgakaiWralpoipsayjerpiuj"
+				"MahmoudRidaAbbas"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "EostoyrdeuffeubrayrgakaiWralpoipsayjerpiuj"
+				"Leader": "MahmoudRidaAbbas"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2930,11 +2942,11 @@
 			"color": "#AFA358",
 			"display_name": "Egypt",
 			"figures": [
-				"RgaoghootraypsRuackadwioukioudaurreyTwyrguigiuwoychaemeosceo"
+				"AbdelFattahSaeedHusseinKhalilElSisi"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "RgaoghootraypsRuackadwioukioudaurreyTwyrguigiuwoychaemeosceo"
+				"Leader": "AbdelFattahSaeedHusseinKhalilElSisi"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2957,11 +2969,11 @@
 			"color": "#003893",
 			"display_name": "Nepal",
 			"figures": [
-				"AoroeplybeisloeAilveejioyeySiakeau"
+				"SushilaKarki"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "AoroeplybeisloeAilveejioyeySiakeau"
+				"Leader": "SushilaKarki"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -2984,11 +2996,11 @@
 			"color": "#5A402A",
 			"display_name": "Kuwait",
 			"figures": [
-				"RmoazeaufrutwioupleylvoelgaexRleiforpualoasyflulmuemmTreyhiu"
+				"MishalAlAhmadAlJaberAlSabah"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "RmoazeaufrutwioupleylvoelgaexRleiforpualoasyflulmuemmTreyhiu"
+				"Leader": "MishalAlAhmadAlJaberAlSabah"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3011,11 +3023,11 @@
 			"color": "#79645F",
 			"display_name": "Bhutan",
 			"figures": [
-				"UepeedriukoeryOunkuisloystreisuefiffou"
+				"TsheringTobgay"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "UepeedriukoeryOunkuisloystreisuefiffou"
+				"Leader": "TsheringTobgay"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3038,11 +3050,11 @@
 			"color": "#3B714F",
 			"display_name": "Myanmar",
 			"figures": [
-				"IastruarguarrDouvoy"
+				"MinAungHlaing"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "IastruarguarrDouvoy"
+				"Leader": "MinAungHlaing"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3065,11 +3077,11 @@
 			"color": "#C5AE78",
 			"display_name": "Western_sahara",
 			"figures": [
-				"OytyldPpaiswegg"
+				"BrahimGhali"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "OytyldPpaiswegg"
+				"Leader": "BrahimGhali"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3119,11 +3131,11 @@
 			"color": "#3A414B",
 			"display_name": "Bahrain",
 			"figures": [
-				"LtiurperUdhouboyflionneucc"
+				"HamadBinIsaBinSalmanAlKhalifa"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "LtiurperUdhouboyflionneucc"
+				"Leader": "HamadBinIsaBinSalmanAlKhalifa"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3146,11 +3158,11 @@
 			"color": "#002A30",
 			"display_name": "Bangladesh",
 			"figures": [
-				"EipruyslippuoutrieckeakeauOrdeylmialveampyppaipabrau"
+				"TariqueRahman"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "EipruyslippuoutrieckeakeauOrdeylmialveampyppaipabrau"
+				"Leader": "TariqueRahman"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3173,11 +3185,11 @@
 			"color": "#6F2373",
 			"display_name": "Qatar",
 			"figures": [
-				"CceolmoaghiejoIuruemmeuspluorEywruypsoodhioutchuecuourrie"
+				"TamimBinHamadBinKhalifaAlThani"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "CceolmoaghiejoIuruemmeuspluorEywruypsoodhioutchuecuourrie"
+				"Leader": "TamimBinHamadBinKhalifaAlThani"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3200,11 +3212,11 @@
 			"color": "#815458",
 			"display_name": "Oman",
 			"figures": [
-				"AippemmuountuoulkoigryviouUibroyptuckeaudwuplualdieIoddugrerdeasuoffoegrouy"
+				"HaithamBinTariqAlSaid"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "AippemmuountuoulkoigryviouUibroyptuckeaudwuplualdieIoddugrerdeasuoffoegrouy"
+				"Leader": "HaithamBinTariqAlSaid"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3227,11 +3239,11 @@
 			"color": "#5B4D5C",
 			"display_name": "Taiwan",
 			"figures": [
-				"AspluobonurryflazTrioltoslieproppisleelpoispr"
+				"LaiChingTe"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "AspluobonurryflazTrioltoslieproppisleelpoispr"
+				"Leader": "LaiChingTe"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3285,11 +3297,11 @@
 			"color": "#279678",
 			"display_name": "United_arab_emirates",
 			"figures": [
-				"IokkairluiphuyzziphoubbAeldeiffaiwCheufoiwhouphiuthygeasci"
+				"MohamedBinZayedAlNahyan"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "IokkairluiphuyzziphoubbAeldeiffaiwCheufoiwhouphiuthygeasci"
+				"Leader": "MohamedBinZayedAlNahyan"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3342,11 +3354,11 @@
 			"color": "#9744B0",
 			"display_name": "Cuba",
 			"figures": [
-				"UoxtuouOothreulpiourriaffaupseuz"
+				"MiguelDiazCanelBermudez"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "UoxtuouOothreulpiourriaffaupseuz"
+				"Leader": "MiguelDiazCanelBermudez"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3429,11 +3441,11 @@
 			"color": "#C6BE75",
 			"display_name": "Vietnam",
 			"figures": [
-				"IourdaeghtuybbNkealuppiergoastiekk"
+				"ToLam"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "IourdaeghtuybbNkealuppiergoastiekk"
+				"Leader": "ToLam"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3456,11 +3468,11 @@
 			"color": "#594D3F",
 			"display_name": "Laos",
 			"figures": [
-				"OrkialgeaurrooschoadhTchuelpagitriesmeenteRkaevayraegrouspaokkuaknobb"
+				"ThonglounSisoulith"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "OrkialgeaurrooschoadhTchuelpagitriesmeenteRkaevayraegrouspaokkuaknobb"
+				"Leader": "ThonglounSisoulith"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3487,11 +3499,11 @@
 			"color": "#142D4C",
 			"display_name": "Thailand",
 			"figures": [
-				"TroepRdeaheaulpeotweortuycOspaongaofruasnee"
+				"AnutinCharnvirakul"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "TroepRdeaheaulpeotweortuycOspaongaofruasnee"
+				"Leader": "AnutinCharnvirakul"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3514,11 +3526,11 @@
 			"color": "#A5746F",
 			"display_name": "Haiti",
 			"figures": [
-				"NgienkuygrelgRmaixtiwoskeuxeuckOmieschoetheyplyknaobbiathuo"
+				"LaurentSaintCyr"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "NgienkuygrelgRmaixtiwoskeuxeuckOmieschoetheyplyknaobbiathuo"
+				"Leader": "LaurentSaintCyr"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3541,11 +3553,11 @@
 			"color": "#728877",
 			"display_name": "Dominican_republic",
 			"figures": [
-				"EukraufuycoaOaffuoubriacEeschoebinoeffuoudhayrpeau"
+				"LuisRodolfoAbinaderCorona"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "EukraufuycoaOaffuoubriacEeschoebinoeffuoudhayrpeau"
+				"Leader": "LuisRodolfoAbinaderCorona"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3568,11 +3580,11 @@
 			"color": "#823214",
 			"display_name": "Belize",
 			"figures": [
-				"GreapruwoyrreughEzziofoypOusto"
+				"JohnAntonioBriceno"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "GreapruwoyrreughEzziofoypOusto"
+				"Leader": "JohnAntonioBriceno"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3595,11 +3607,11 @@
 			"color": "#4E3235",
 			"display_name": "Yemen",
 			"figures": [
-				"PhayxuespruaglosaebruinnUebrueskeelduitaizzussientAutaoroexoergukniarpee"
+				"RashadMuhammadAlAlimi"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "PhayxuespruaglosaebruinnUebrueskeelduitaizzussientAutaoroexoergukniarpee"
+				"Leader": "RashadMuhammadAlAlimi"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3622,11 +3634,11 @@
 			"color": "#8BDC0A",
 			"display_name": "Jamaica",
 			"figures": [
-				"QoedaethreipleelkialgoyGhtiarruympilmuigaipheu"
+				"AndrewMichaelHolness"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "QoedaethreipleelkialgoyGhtiarruympilmuigaipheu"
+				"Leader": "AndrewMichaelHolness"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3649,11 +3661,11 @@
 			"color": "#7255A6",
 			"display_name": "Philippines",
 			"figures": [
-				"GgesmoashieffuouEermoi"
+				"FerdinandBongbongRomualdezMarcosJr"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "GgesmoashieffuouEermoi"
+				"Leader": "FerdinandBongbongRomualdezMarcosJr"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3676,11 +3688,11 @@
 			"color": "#48306D",
 			"display_name": "Guatemala",
 			"figures": [
-				"OasplealpeaudwaytchAigruytcheispreariakoYsuystust"
+				"CesarBernardoArevaloDeLeon"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "OasplealpeaudwaytchAigruytcheispreariakoYsuystust"
+				"Leader": "CesarBernardoArevaloDeLeon"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3757,11 +3769,11 @@
 			"color": "#3B3800",
 			"display_name": "St_kitts_and_nevis",
 			"figures": [
-				"RgaesmiesliosliespluoucheyqXiofruydruibbausloeryCcunkiouknaosm"
+				"TerranceMichaelDrew"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "RgaesmiesliosliespluoucheyqXiofruydruibbausloeryCcunkiouknaosm"
+				"Leader": "TerranceMichaelDrew"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3814,11 +3826,11 @@
 			"color": "#99B04A",
 			"display_name": "Honduras",
 			"figures": [
-				"IouppiuWoukruoudaeheauxtiakneldiou"
+				"IrisXiomaraCastroSarmiento"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "IouppiuWoukruoudaeheauxtiakneldiou"
+				"Leader": "IrisXiomaraCastroSarmiento"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3871,11 +3883,11 @@
 			"color": "#9F88C6",
 			"display_name": "El_salvador",
 			"figures": [
-				"ZeuccooquyfoelpieLtoackae"
+				"NayibArmandoBukeleOrtez"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "ZeuccooquyfoelpieLtoackae"
+				"Leader": "NayibArmandoBukeleOrtez"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3961,11 +3973,11 @@
 			"color": "#E2B490",
 			"display_name": "Cambodia",
 			"figures": [
-				"RraigeedassailtiffTreuzzuiffiouhiouldeauppoe"
+				"HunSen"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "RraigeedassailtiffTreuzzuiffiouhiouldeauppoe"
+				"Leader": "HunSen"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -3988,11 +4000,11 @@
 			"color": "#7670B2",
 			"display_name": "Dominica",
 			"figures": [
-				"EekoytwiothuatuepoaOapleostaidraeckuyflBezzioldeyphynteekiogipr"
+				"SylvanieBurton"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "EekoytwiothuatuepoaOapleostaidraeckuyflBezzioldeyphynteekiogipr"
+				"Leader": "SylvanieBurton"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -4071,11 +4083,11 @@
 			"color": "#FCD116",
 			"display_name": "Barbados",
 			"figures": [
-				"TraoweoghyblEaskeequoUestuywruybbiawrue"
+				"MiaAmorMottley"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "TraoweoghyblEaskeequoUestuywruybbiawrue"
+				"Leader": "MiaAmorMottley"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -4098,11 +4110,11 @@
 			"color": "#5DB7E6",
 			"display_name": "St_lucia",
 			"figures": [
-				"UouspreyeskaiviolpiouNuiggaontuoutteintaughuidr"
+				"PhilipJosephPierre"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "UouspreyeskaiviolpiouNuiggaontuoutteintaughuidr"
+				"Leader": "PhilipJosephPierre"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -4183,11 +4195,11 @@
 			"color": "#DEBB5B",
 			"display_name": "Colombia",
 			"figures": [
-				"KreapoeshialviextueScuisneephoybre"
+				"GustavoFranciscoPetroUrrego"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "KreapoeshialviextueScuisneephoybre"
+				"Leader": "GustavoFranciscoPetroUrrego"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -4237,11 +4249,11 @@
 			"color": "#007B5F",
 			"display_name": "Grenada",
 			"figures": [
-				"ScoistaextiapaebuoumyEofriuxoustreyssuepuifruiy"
+				"DickonAmissThomasMitchell"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "ScoistaextiapaebuoumyEofriuxoustreyssuepuifruiy"
+				"Leader": "DickonAmissThomasMitchell"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -4434,11 +4446,11 @@
 			"color": "#A78C2A",
 			"display_name": "Costa_rica",
 			"figures": [
-				"NtiogguerpauprioxuingeaIefreaumpihiacciarmittoanneyPriespr"
+				"LauraVirginiaFernandezDelgado"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "NtiogguerpauprioxuingeaIefreaumpihiacciarmittoanneyPriespr"
+				"Leader": "LauraVirginiaFernandezDelgado"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -4489,11 +4501,11 @@
 			"color": "#929BA2",
 			"display_name": "Maldives",
 			"figures": [
-				"OuroordoukkuoSkipsoafrairdeeSeoplapreubleyskiarde"
+				"MohamedMuizzu"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "OuroordoukkuoSkipsoafrairdeeSeoplapreubleyskiarde"
+				"Leader": "MohamedMuizzu"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -4573,11 +4585,11 @@
 			"color": "#F05A27",
 			"display_name": "Trinidad_and_tobago",
 			"figures": [
-				"UouffueSceylmuzaiYrmae"
+				"KamlaSusheilaPersadBissessar"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "UouffueSceylmuzaiYrmae"
+				"Leader": "KamlaSusheilaPersadBissessar"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -4658,11 +4670,11 @@
 			"color": "#3C3558",
 			"display_name": "Panama",
 			"figures": [
-				"FfaoxtuydwReecua"
+				"JoseRaulMulinoQuintero"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "FfaoxtuydwReecua"
+				"Leader": "JoseRaulMulinoQuintero"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -4685,11 +4697,11 @@
 			"color": "#564B39",
 			"display_name": "Sri_lanka",
 			"figures": [
-				"ZzuschiokniuccuyPsoerkeutrioumpiarluofr"
+				"AnuraKumaraDissanayake"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "ZzuschiokniuccuyPsoerkeutrioumpiarluofr"
+				"Leader": "AnuraKumaraDissanayake"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -4739,11 +4751,11 @@
 			"color": "#B49678",
 			"display_name": "Guyana",
 			"figures": [
-				"LviethreirpeecyngooschoithreiOegguadhiouckiouphyrroi"
+				"MohamedIrfaanAli"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "LviethreirpeecyngooschoithreiOegguadhiouckiouphyrroi"
+				"Leader": "MohamedIrfaanAli"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -4766,11 +4778,11 @@
 			"color": "#FFC90E",
 			"display_name": "Palau",
 			"figures": [
-				"AopteauckaurkaermelveadwaedruaVaorpiuscousleontaifoi"
+				"SurangleSamuelWhippsJr"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "AopteauckaurkaermelveadwaedruaVaorpiuscousleontaifoi"
+				"Leader": "SurangleSamuelWhippsJr"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -4794,11 +4806,11 @@
 			"color": "#292F85",
 			"display_name": "Nauru",
 			"figures": [
-				"AifleinkeelmoirdeuddiouEighiousceebuourleiddu"
+				"DavidRanibokWaiauAdeang"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "AifleinkeelmoirdeuddiouEighiousceebuourleiddu"
+				"Leader": "DavidRanibokWaiauAdeang"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -4821,11 +4833,11 @@
 			"color": "#C56064",
 			"display_name": "Malaysia",
 			"figures": [
-				"OilpuocizeaupliutheuphoyglCciouppeauph"
+				"AnwarBinIbrahim"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "OilpuocizeaupliutheuphoyglCciouppeauph"
+				"Leader": "AnwarBinIbrahim"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -4848,11 +4860,11 @@
 			"color": "#803754",
 			"display_name": "Suriname",
 			"figures": [
-				"IouyoyEedhipeolv"
+				"JenniferGeerlingsSimons"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "IouyoyEedhipeolv"
+				"Leader": "JenniferGeerlingsSimons"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -4893,11 +4905,11 @@
 			"color": "#DDBEC4",
 			"display_name": "Indonesia",
 			"figures": [
-				"IrmouptiaPsayspleaummeauntooccoe"
+				"PrabowoSubiantoDjojohadikusumo"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "IrmouptiaPsayspleaummeauntooccoe"
+				"Leader": "PrabowoSubiantoDjojohadikusumo"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -5016,11 +5028,11 @@
 			"color": "#3C6E55",
 			"display_name": "Brunei",
 			"figures": [
-				"UywhybraokkoosEoxysnaulloeffauRdiohaemmeiyiappinuablao"
+				"HassanalBolkiahMuizZaddinWadDaulah"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "UywhybraokkoosEoxysnaulloeffauRdiohaemmeiyiappinuablao"
+				"Leader": "HassanalBolkiahMuizZaddinWadDaulah"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -5160,11 +5172,11 @@
 			"color": "#F99262",
 			"display_name": "Ecuador",
 			"figures": [
-				"IourruydruahaurmoephaeIafluongiephiazzermuouhiu"
+				"DanielRoyGilchristNoboaAzin"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "IourruydruahaurmoephaeIafluongiephiazzermuouhiu"
+				"Leader": "DanielRoyGilchristNoboaAzin"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -5214,11 +5226,11 @@
 			"color": "#C4BDCC",
 			"display_name": "Peru",
 			"figures": [
-				"EuntiouAothruidhaepoestruahuouFleaurmuardoull"
+				"DinaErciliaBoluarteZegarra"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "EuntiouAothruidhaepoestruahuouFleaurmuardoull"
+				"Leader": "DinaErciliaBoluarteZegarra"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -5331,11 +5343,11 @@
 			"color": "#2B385A",
 			"display_name": "Papua_new_guinea",
 			"figures": [
-				"IghiopruerkeespluippayGiepl"
+				"JamesMarape"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "IghiopruerkeespluippayGiepl"
+				"Leader": "JamesMarape"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -5387,11 +5399,11 @@
 			"color": "#A11E24",
 			"display_name": "Seychelles",
 			"figures": [
-				"IesloiduffirkeyzuevuysooThoiltiachestight"
+				"PatrickHerminie"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "IesloiduffirkeyzuevuysooThoiltiachestight"
+				"Leader": "PatrickHerminie"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -5414,11 +5426,11 @@
 			"color": "#E20C0C",
 			"display_name": "Solomon_islands",
 			"figures": [
-				"AetchuyluihOefretruarreupteappioutwaeOikaurdoutteaprusleaulvicc"
+				"MatthewCooperWale"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "AetchuyluihOefretruarreupteappioutwaeOikaurdoutteaprusleaulvicc"
+				"Leader": "MatthewCooperWale"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -5470,11 +5482,11 @@
 			"color": "#28AA4C",
 			"display_name": "East_timor",
 			"figures": [
-				"AobbuawhaikraoEaudwoiblZauppuaspoobbuikkoaspraytr"
+				"JoseManuelRamosHorta"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "AobbuawhaikraoEaudwoiblZauppuaspoobbuikkoaspraytr"
+				"Leader": "JoseManuelRamosHorta"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -5585,11 +5597,11 @@
 			"color": "#398F61",
 			"display_name": "Australia",
 			"figures": [
-				"AzzaepsiouccoykraezzuetweighoTrayo"
+				"AnthonyNormanAlbanese"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "AzzaepsiouccoykraezzuetweighoTrayo"
+				"Leader": "AnthonyNormanAlbanese"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -5640,11 +5652,11 @@
 			"color": "#EDA720",
 			"display_name": "Vanuatu",
 			"figures": [
-				"NgeentiurgiattykriUouyuy"
+				"JothamNapat"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "NgeentiurgiattykriUouyuy"
+				"Leader": "JothamNapat"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -5783,11 +5795,11 @@
 			"color": "#3971E4",
 			"display_name": "Paraguay",
 			"figures": [
-				"AuscuougialkiorrairgeilgiouquXtierduyrguordioubbea"
+				"SantiagoPenaPalacios"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "AuscuougialkiorrairgeilgiouquXtierduyrguordioubbea"
+				"Leader": "SantiagoPenaPalacios"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -5810,11 +5822,11 @@
 			"color": "#B39500",
 			"display_name": "Mauritius",
 			"figures": [
-				"OeltaedwiogruyyounEeckaird"
+				"DharambeerGokhool"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "OeltaedwiogruyyounEeckaird"
+				"Leader": "DharambeerGokhool"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -5837,12 +5849,11 @@
 			"color": "#919DEC",
 			"display_name": "Argentina",
 			"figures": [
-				"UrNammu",
-				"RgierdairtaywrokkuischiOaphuouswuophotwaextuoMmuermynkuogayghtypl"
+				"JavierGerardoMilei"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "UrNammu"
+				"Leader": "JavierGerardoMilei"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -5954,12 +5965,11 @@
 			"color": "#AEC09C",
 			"display_name": "Uruguay",
 			"figures": [
-				"JoshPaulraj",
-				"EatchoedweoppiupeypsorraythStuopreermuaghteauTaeck"
+				"YamanduRamonAntonioOrsiMartinez"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "JoshPaulraj"
+				"Leader": "YamanduRamonAntonioOrsiMartinez"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -5982,11 +5992,11 @@
 			"color": "#DAD1E9",
 			"display_name": "New_zealand",
 			"figures": [
-				"AyghaidhieveiAurgierdyjaolveoghturdathuaGluamuit"
+				"ChristopherMarkLuxon"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "AyghaidhieveiAurgierdyjaolveoghturdathuaGluamuit"
+				"Leader": "ChristopherMarkLuxon"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -6007,12 +6017,11 @@
 			"color": "#FDFDFD",
 			"display_name": "Antartica",
 			"figures": [
-				"BenitoMussolini",
-				"OelpuyEafrutriesmoaghtorruextoefSleiscuyrpeaustei"
+				"AlbertLluberasBonaba"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "BenitoMussolini"
+				"Leader": "AlbertLluberasBonaba"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -6033,12 +6042,11 @@
 			"color": "#22617E",
 			"display_name": "Donetsk",
 			"figures": [
-				"YukawaHideki",
-				"OyspreythreimpOaglieMpempeauspang"
+				"DenisVladimirovichPushilin"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "YukawaHideki"
+				"Leader": "DenisVladimirovichPushilin"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -6059,12 +6067,11 @@
 			"color": "#2D6458",
 			"display_name": "Luhansk",
 			"figures": [
-				"BenjaminFranklin",
-				"PokaessiettiouryAugleauxteerkoyAygrioulteoffoelmuis"
+				"LeonidIvanovichPasechnik"
 			],
 			"finished_decisions": [],
 			"government_positions": {
-				"Leader": "BenjaminFranklin"
+				"Leader": "LeonidIvanovichPasechnik"
 			},
 			"hostedGovernments": [],
 			"ideology": [
@@ -6259,34 +6266,6 @@
 			"traits": []
 		},
 		{
-			"allegiance": "Argentina",
-			"ideology": [
-				0,
-				0
-			],
-			"legitimacy": 100,
-			"name": "UrNammu",
-			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
-			"skills": {},
-			"status": 0,
-			"traits": []
-		},
-		{
-			"allegiance": "Antartica",
-			"ideology": [
-				0,
-				0
-			],
-			"legitimacy": 100,
-			"name": "BenitoMussolini",
-			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
-			"skills": {},
-			"status": 0,
-			"traits": []
-		},
-		{
 			"allegiance": "Eswatini",
 			"ideology": [
 				0,
@@ -6324,20 +6303,6 @@
 			"name": "JaneAustenCassandra",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
-			"skills": {},
-			"status": 0,
-			"traits": []
-		},
-		{
-			"allegiance": "Donetsk",
-			"ideology": [
-				0,
-				0
-			],
-			"legitimacy": 100,
-			"name": "YukawaHideki",
-			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6385,20 +6350,6 @@
 			"traits": []
 		},
 		{
-			"allegiance": "Uruguay",
-			"ideology": [
-				0,
-				0
-			],
-			"legitimacy": 100,
-			"name": "JoshPaulraj",
-			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
-			"skills": {},
-			"status": 0,
-			"traits": []
-		},
-		{
 			"allegiance": "China",
 			"ideology": [
 				0,
@@ -6422,20 +6373,6 @@
 			"name": "VolodymyrZelenskyy",
 			"occupation": "Leader",
 			"portrait_path": "res://starts/ModernDay/assets/portraits/Ukraine/VolodymyrZelenskyy.png",
-			"skills": {},
-			"status": 0,
-			"traits": []
-		},
-		{
-			"allegiance": "Luhansk",
-			"ideology": [
-				0,
-				0
-			],
-			"legitimacy": 100,
-			"name": "BenjaminFranklin",
-			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6475,9 +6412,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "AistreanuoschausiuswOesplaytwouEatragreippeerpoo",
+			"name": "MetteFrederiksen",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Denmark/MetteFrederiksen.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6503,9 +6440,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "UolkybRmeeneasloSirlio",
+			"name": "CaiGoranAlexanderStubb",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Finland/CaiGoranAlexanderStubb.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6517,9 +6454,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "IuffypteociudrauphauspaiqQuuylayAezzuouboygraps",
+			"name": "UlfHjalmarKristersson",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Sweden/UlfHjalmarKristersson.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6531,9 +6468,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "EurmaewhiagaskoystaynkucuoSlioughoistreummaextiuIrpou",
+			"name": "KristrunMjollFrostadottir",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Iceland/KristrunMjollFrostadottir.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6545,9 +6482,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "OastiouleazearluossuyskiJuolpaeddaurpRguounkeesheudwoesprustai",
+			"name": "AlarKaris",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Estonia/AlarKaris.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6573,9 +6510,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "IouyiSmuiphiold",
+			"name": "EvikaSilina",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Latvia/EvikaSilina.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6587,9 +6524,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "UokkailgSpaydweo",
+			"name": "GintautasPaluckas",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Lithuania/GintautasPaluckas.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6615,9 +6552,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "HafrosmayckauckeeshaoflyflRduexteessoosk",
+			"name": "CatherineMartinaAnnConnolly",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Ireland/CatherineMartinaAnnConnolly.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6629,9 +6566,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "BbauyaestriaghtuophaulmeormLduoulkiawoedwiurleyrduygoomm",
+			"name": "KassymJomartKemelulyTokayev",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Kazakhstan/KassymJomartKemelulyTokayev.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6657,9 +6594,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "ThruirgeibiEingoacAerpeecceaunesouptientoe",
+			"name": "KarolTadeuszNawrocki",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Poland/KarolTadeuszNawrocki.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6671,9 +6608,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "UybruikounoylpAuscoiduantuizzaowaygoeOynuythruyguefoigliaskoe",
+			"name": "RobArnoldusAdrianusJetten",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Netherlands/RobArnoldusAdrianusJetten.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6699,9 +6636,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "GeevUykkyschuflierpoowriStruedrountyrgay",
+			"name": "UkhnaagiinKhurelsukh",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Mongolia/UkhnaagiinKhurelsukh.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6713,9 +6650,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "OedheattaoldiaflompiowhUavi",
+			"name": "BartAlbertLilianeDeWever",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Belgium/BartAlbertLilianeDeWever.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6741,9 +6678,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "StroesweauDdoynniolkeawhaisk",
+			"name": "AndrejBabis",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Czechia/AndrejBabis.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6755,9 +6692,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "EyttualmoimpyffRkuihioulmaestriupeorkeaupiouCeazzuofuadwoo",
+			"name": "XavierBettel",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Luxembourg/XavierBettel.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6769,9 +6706,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "AwhuyEultoyxteiRlourmeaulgui",
+			"name": "PeterPellegrini",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Slovakia/PeterPellegrini.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6783,9 +6720,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "UitaixteikkeesproerruyzEozzaoppoorkeetcheepreyrdea",
+			"name": "ChristianStocker",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Austria/ChristianStocker.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6811,9 +6748,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "KkeulymoyntaopuapeygleyBlioulmoocc",
+			"name": "MaiaSandu",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Moldova/MaiaSandu.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6825,9 +6762,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "NylgiouHeespleaurroiplympoantiuxteiEodwau",
+			"name": "NicusorDanielDan",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Romania/NicusorDanielDan.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6839,9 +6776,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "AutruzzuesplynnuabyluikkIulaorraudheoffaymmNneibriou",
+			"name": "VadimNikolayevichKrasnoselsky",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Transnistria/VadimNikolayevichKrasnoselsky.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6853,9 +6790,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "EvuouwreyluodwuyUorkeihoelmUaquayciuxiormeiceimmio",
+			"name": "KarinMariaKellerSutter",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Switzerland/KarinMariaKellerSutter.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6881,9 +6818,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "EaustaulmioufeasoampuittaiUequoschoytwulkuallaeUougreekea",
+			"name": "GiorgiaMeloni",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Italy/GiorgiaMeloni.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6895,9 +6832,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "YdueckouvadruytrOulpuowoippiampymEauspaoli",
+			"name": "NatasaPircMusar",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Slovenia/NatasaPircMusar.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6909,9 +6846,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "LpaozzeynkeuwOeyoltuouvirguascoyzzais",
+			"name": "ZoranMilanovic",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Croatia/ZoranMilanovic.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6923,9 +6860,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "UoutchoybluardoangielmioswuweoXteobroikreoscee",
+			"name": "AleksandarVucic",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Serbia/AleksandarVucic.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6937,9 +6874,37 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "AnnoyzUeflilpaollaip",
+			"name": "DenisBecirovic",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/BosniaAndHerzegovina/DenisBecirovic.png",
+			"skills": {},
+			"status": 0,
+			"traits": []
+		},
+		{
+			"allegiance": "Bosnia_and_herzegovina",
+			"ideology": [
+				0,
+				0
+			],
+			"legitimacy": 0,
+			"name": "ZeljkaCvijanovic",
+			"occupation": "Leader",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/BosniaAndHerzegovina/ZeljkaCvijanovic.png",
+			"skills": {},
+			"status": 0,
+			"traits": []
+		},
+		{
+			"allegiance": "Bosnia_and_herzegovina",
+			"ideology": [
+				0,
+				0
+			],
+			"legitimacy": 0,
+			"name": "DarijanaFilipovic",
+			"occupation": "Leader",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/BosniaAndHerzegovina/DarijanaFilipovic.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6951,9 +6916,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "GhtoyrkoogroantooggeessouxuoIelpoetruofloirpoytrShaossuilaytaidwuy",
+			"name": "ShavkatMiromonovichMirziyoyev",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Uzbekistan/ShavkatMiromonovichMirziyoyev.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -6979,9 +6944,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "EytwuaquayseiRliggiruarpyqueujempauStreuxteildappeistroustaybreausc",
+			"name": "RumenGeorgievRadev",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Bulgaria/RumenGeorgievRadev.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7007,9 +6972,23 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "IughtaeyoutriawuOeptuosmuykioUajue",
+			"name": "FrancescaCiverchia",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/SanMarino/FrancescaCiverchia.png",
+			"skills": {},
+			"status": 0,
+			"traits": []
+		},
+		{
+			"allegiance": "San_marino",
+			"ideology": [
+				0,
+				0
+			],
+			"legitimacy": 0,
+			"name": "DaliborRiccardi",
+			"occupation": "Leader",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/SanMarino/DaliborRiccardi.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7021,9 +7000,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "TcholeequaozugreaucciadwEartoiLdiouvokuyjiongeyxtoinkuy",
+			"name": "AlbertAlexandreLouisPierreGrimaldi",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Monaco/AlbertAlexandreLouisPierreGrimaldi.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7035,9 +7014,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "EolpauptogreestruistOugeijotrUagguazistiexaurteullupr",
+			"name": "BadraZurabovichGunba",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Abkhazia/BadraZurabovichGunba.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7049,9 +7028,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "AsweaustriuPheyppeequeascuaxtimmuscutr",
+			"name": "JakovMilatovic",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Montenegro/JakovMilatovic.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7063,9 +7042,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "ScioupriabeonnoeggLkultuelteaskeorg",
+			"name": "VjosaOsmaniSadriu",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Kosovo/VjosaOsmaniSadriu.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7077,9 +7056,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "TruehoxaetwaiswouknoyffNkouwrOaspreulkuefeaseauthroascayck",
+			"name": "MikheilKavelashvili",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Georgia/MikheilKavelashvili.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7091,9 +7070,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "LpiaroafyYnnoudeoswiaz",
+			"name": "SadyrNurgojoUuluJaparov",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Kyrgyztan/SadyrNurgojoUuluJaparov.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7105,9 +7084,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "AydaunuoggOazzadhuadheelpeyrgoyPyghaywhaelkyffuatoup",
+			"name": "XavierEspotZamora",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Andorra/XavierEspotZamora.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7119,9 +7098,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "OotchongealdaidwuounteypluiRuoureeUelgeulv",
+			"name": "AlanEduardovichGagloyev",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/SouthOssetia/AlanEduardovichGagloyev.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7133,9 +7112,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "UoffefaoZuowiasprablupreau",
+			"name": "SerdarGurbangulyyewicBerdimuhamedow",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Turkmenistan/SerdarGurbangulyyewicBerdimuhamedow.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7161,9 +7140,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "GloelluobloympeydraiCkiephoybroingJaummao",
+			"name": "BajramBegaj",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Albania/BajramBegaj.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7175,9 +7154,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "AequorliuhuoustriodwSceippeybloeAfrefrioulm",
+			"name": "GordanaSiljanovskaDavkova",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/NorthMacedonia/GordanaSiljanovskaDavkova.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7189,9 +7168,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "ArgouprKiashouLmoykkurrempiujayj",
+			"name": "IlhamHeydarOghluAliyev",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Azerbaijan/IlhamHeydarOghluAliyev.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7203,9 +7182,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "EaumpoildairguouchannIsciudhRdiotraeviolteeprou",
+			"name": "MarceloNunoDuarteRebeloDeSousa",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Portugal/MarceloNunoDuarteRebeloDeSousa.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7217,9 +7196,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "TtoospEautchaikoafoplualizou",
+			"name": "RecepTayyipErdogan",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Turkiye/RecepTayyipErdogan.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7231,9 +7210,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "OglanetcheuxteasoesyplioEewreoploiphyblaerdioSmifleaustroadw",
+			"name": "PopeLeoXIV",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/VaticanCity/PopeLeoXIV.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7245,9 +7224,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "EeppoulmeeHiowharluwhoykkeyrdeaup",
+			"name": "KonstantinosTasoulas",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Greece/KonstantinosTasoulas.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7259,9 +7238,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "RmiusplayZziaspleyscaggyfl",
+			"name": "NikolVovayiPashinyan",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Armenia/NikolVovayiPashinyan.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7273,9 +7252,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "OangeaulpaischiarkeauwhusheegRkeuggaiziggaospioulgKnioussuyppietchaesnui",
+			"name": "EmomaliRahmon",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Tajikistan/EmomaliRahmon.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7287,9 +7266,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "OesmauDhooddeinaspregluifeot",
+			"name": "MasoudPezeshkian",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Iran/MasoudPezeshkian.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7329,9 +7308,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "OogloarpaurmayploeplokniBbaottuoultauspreemuoujoeph",
+			"name": "QaysSuAyyid",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Tunisia/QaysSuAyyid.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7343,9 +7322,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "AstoyrduipsaorduonnuedhiuSeukroakkoeghtoufleyschoiqu",
+			"name": "AliFalihKadhimAlZaidi",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Iraq/AliFalihKadhimAlZaidi.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7357,9 +7336,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "OobuiwroiOermoethreostruoLgiuggoatch",
+			"name": "AhmedHusseinAlSharaa",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Syria/AhmedHusseinAlSharaa.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7371,9 +7350,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "MmoynteychiesteyruykkIacusploelgidr",
+			"name": "AasifAliZardari",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Pakistan/AasifAliZardari.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7385,9 +7364,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "PpiaxtiuSceauruycuabroosneyrleontoabIuyiedruiddeo",
+			"name": "AbdelmadjidTebboune",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Algeria/AbdelmadjidTebboune.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7413,9 +7392,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "AezzalvoyssasteaSchiourm",
+			"name": "RobertAbela",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Malta/RobertAbela.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7427,9 +7406,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "OuthroinkarmuoubrProodraoluikniulkEempakn",
+			"name": "TufanErhurman",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/TurkishCyprus/TufanErhurman.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7455,9 +7434,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "SchoengQouthrasmuSlaefrikkodouthreubroahuy",
+			"name": "NikosChristodoulides",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Cyprus/NikosChristodoulides.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7469,9 +7448,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "LveoscaompoikkedreespraoAixoymeeckeuspreafrioudoujee",
+			"name": "JosephKhalilAoun",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Lebanon/JosephKhalilAoun.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7483,9 +7462,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "PhuoupUispreiseaulkouppiouduyskottSkeisseausluoulkuyghuefee",
+			"name": "KhalifaHaftar",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Libya/KhalifaHaftar.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7539,9 +7518,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "EostoyrdeuffeubrayrgakaiWralpoipsayjerpiuj",
+			"name": "MahmoudRidaAbbas",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Palestine/MahmoudRidaAbbas.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7553,9 +7532,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "RgaoghootraypsRuackadwioukioudaurreyTwyrguigiuwoychaemeosceo",
+			"name": "AbdelFattahSaeedHusseinKhalilElSisi",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Egypt/AbdelFattahSaeedHusseinKhalilElSisi.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7567,9 +7546,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "AoroeplybeisloeAilveejioyeySiakeau",
+			"name": "SushilaKarki",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Nepal/SushilaKarki.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7581,9 +7560,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "RmoazeaufrutwioupleylvoelgaexRleiforpualoasyflulmuemmTreyhiu",
+			"name": "MishalAlAhmadAlJaberAlSabah",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Kuwait/MishalAlAhmadAlJaberAlSabah.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7595,9 +7574,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "UepeedriukoeryOunkuisloystreisuefiffou",
+			"name": "TsheringTobgay",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Bhutan/TsheringTobgay.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7609,9 +7588,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "IastruarguarrDouvoy",
+			"name": "MinAungHlaing",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Myanmar/MinAungHlaing.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7623,9 +7602,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "OytyldPpaiswegg",
+			"name": "BrahimGhali",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/WesternSahara/BrahimGhali.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7651,9 +7630,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "LtiurperUdhouboyflionneucc",
+			"name": "HamadBinIsaBinSalmanAlKhalifa",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Bahrain/HamadBinIsaBinSalmanAlKhalifa.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7665,9 +7644,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "EipruyslippuoutrieckeakeauOrdeylmialveampyppaipabrau",
+			"name": "TariqueRahman",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Bangladesh/TariqueRahman.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7679,9 +7658,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "CceolmoaghiejoIuruemmeuspluorEywruypsoodhioutchuecuourrie",
+			"name": "TamimBinHamadBinKhalifaAlThani",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Qatar/TamimBinHamadBinKhalifaAlThani.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7693,9 +7672,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "AippemmuountuoulkoigryviouUibroyptuckeaudwuplualdieIoddugrerdeasuoffoegrouy",
+			"name": "HaithamBinTariqAlSaid",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Oman/HaithamBinTariqAlSaid.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7707,9 +7686,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "AspluobonurryflazTrioltoslieproppisleelpoispr",
+			"name": "LaiChingTe",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Taiwan/LaiChingTe.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7735,9 +7714,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "IokkairluiphuyzziphoubbAeldeiffaiwCheufoiwhouphiuthygeasci",
+			"name": "MohamedBinZayedAlNahyan",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/UnitedArabEmirates/MohamedBinZayedAlNahyan.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7763,9 +7742,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "UoxtuouOothreulpiourriaffaupseuz",
+			"name": "MiguelDiazCanelBermudez",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Cuba/MiguelDiazCanelBermudez.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7805,9 +7784,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "IourdaeghtuybbNkealuppiergoastiekk",
+			"name": "ToLam",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Vietnam/ToLam.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7819,9 +7798,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "OrkialgeaurrooschoadhTchuelpagitriesmeenteRkaevayraegrouspaokkuaknobb",
+			"name": "ThonglounSisoulith",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Laos/ThonglounSisoulith.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7833,9 +7812,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "TroepRdeaheaulpeotweortuycOspaongaofruasnee",
+			"name": "AnutinCharnvirakul",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Thailand/AnutinCharnvirakul.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7847,9 +7826,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "NgienkuygrelgRmaixtiwoskeuxeuckOmieschoetheyplyknaobbiathuo",
+			"name": "LaurentSaintCyr",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Haiti/LaurentSaintCyr.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7861,9 +7840,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "EukraufuycoaOaffuoubriacEeschoebinoeffuoudhayrpeau",
+			"name": "LuisRodolfoAbinaderCorona",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/DominicanRepublic/LuisRodolfoAbinaderCorona.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7875,9 +7854,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "GreapruwoyrreughEzziofoypOusto",
+			"name": "JohnAntonioBriceno",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Belize/JohnAntonioBriceno.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7889,9 +7868,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "PhayxuespruaglosaebruinnUebrueskeelduitaizzussientAutaoroexoergukniarpee",
+			"name": "RashadMuhammadAlAlimi",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Yemen/RashadMuhammadAlAlimi.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7903,9 +7882,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "QoedaethreipleelkialgoyGhtiarruympilmuigaipheu",
+			"name": "AndrewMichaelHolness",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Jamaica/AndrewMichaelHolness.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7917,9 +7896,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "GgesmoashieffuouEermoi",
+			"name": "FerdinandBongbongRomualdezMarcosJr",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Philippines/FerdinandBongbongRomualdezMarcosJr.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7931,9 +7910,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "OasplealpeaudwaytchAigruytcheispreariakoYsuystust",
+			"name": "CesarBernardoArevaloDeLeon",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Guatemala/CesarBernardoArevaloDeLeon.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -7973,9 +7952,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "RgaesmiesliosliespluoucheyqXiofruydruibbausloeryCcunkiouknaosm",
+			"name": "TerranceMichaelDrew",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/StKittsAndNevis/TerranceMichaelDrew.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8001,9 +7980,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "IouppiuWoukruoudaeheauxtiakneldiou",
+			"name": "IrisXiomaraCastroSarmiento",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Honduras/IrisXiomaraCastroSarmiento.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8029,9 +8008,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "ZeuccooquyfoelpieLtoackae",
+			"name": "NayibArmandoBukeleOrtez",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/ElSalvador/NayibArmandoBukeleOrtez.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8085,9 +8064,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "RraigeedassailtiffTreuzzuiffiouhiouldeauppoe",
+			"name": "HunSen",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Cambodia/HunSen.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8099,9 +8078,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "EekoytwiothuatuepoaOapleostaidraeckuyflBezzioldeyphynteekiogipr",
+			"name": "SylvanieBurton",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/ChevalierDEon.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Dominica/SylvanieBurton.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8141,9 +8120,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "TraoweoghyblEaskeequoUestuywruybbiawrue",
+			"name": "MiaAmorMottley",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Barbados/MiaAmorMottley.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8155,9 +8134,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "UouspreyeskaiviolpiouNuiggaontuoutteintaughuidr",
+			"name": "PhilipJosephPierre",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/StLucia/PhilipJosephPierre.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8197,9 +8176,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "KreapoeshialviextueScuisneephoybre",
+			"name": "GustavoFranciscoPetroUrrego",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Colombia/GustavoFranciscoPetroUrrego.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8225,9 +8204,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "ScoistaextiapaebuoumyEofriuxoustreyssuepuifruiy",
+			"name": "DickonAmissThomasMitchell",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Grenada/DickonAmissThomasMitchell.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8323,9 +8302,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "NtiogguerpauprioxuingeaIefreaumpihiacciarmittoanneyPriespr",
+			"name": "LauraVirginiaFernandezDelgado",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/CostaRica/LauraVirginiaFernandezDelgado.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8351,9 +8330,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "OuroordoukkuoSkipsoafrairdeeSeoplapreubleyskiarde",
+			"name": "MohamedMuizzu",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Maldives/MohamedMuizzu.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8393,9 +8372,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "UouffueSceylmuzaiYrmae",
+			"name": "KamlaSusheilaPersadBissessar",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/TrinidadAndTobago/KamlaSusheilaPersadBissessar.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8435,9 +8414,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "FfaoxtuydwReecua",
+			"name": "JoseRaulMulinoQuintero",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Panama/JoseRaulMulinoQuintero.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8449,9 +8428,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "ZzuschiokniuccuyPsoerkeutrioumpiarluofr",
+			"name": "AnuraKumaraDissanayake",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/SriLanka/AnuraKumaraDissanayake.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8477,9 +8456,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "LviethreirpeecyngooschoithreiOegguadhiouckiouphyrroi",
+			"name": "MohamedIrfaanAli",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Guyana/MohamedIrfaanAli.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8491,9 +8470,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "AopteauckaurkaermelveadwaedruaVaorpiuscousleontaifoi",
+			"name": "SurangleSamuelWhippsJr",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Palau/SurangleSamuelWhippsJr.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8505,9 +8484,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "AifleinkeelmoirdeuddiouEighiousceebuourleiddu",
+			"name": "DavidRanibokWaiauAdeang",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Nauru/DavidRanibokWaiauAdeang.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8519,9 +8498,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "OilpuocizeaupliutheuphoyglCciouppeauph",
+			"name": "AnwarBinIbrahim",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Malaysia/AnwarBinIbrahim.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8533,9 +8512,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "IouyoyEedhipeolv",
+			"name": "JenniferGeerlingsSimons",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Suriname/JenniferGeerlingsSimons.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8547,9 +8526,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "IrmouptiaPsayspleaummeauntooccoe",
+			"name": "PrabowoSubiantoDjojohadikusumo",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Indonesia/PrabowoSubiantoDjojohadikusumo.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8603,9 +8582,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "UywhybraokkoosEoxysnaulloeffauRdiohaemmeiyiappinuablao",
+			"name": "HassanalBolkiahMuizZaddinWadDaulah",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Brunei/HassanalBolkiahMuizZaddinWadDaulah.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8687,9 +8666,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "IourruydruahaurmoephaeIafluongiephiazzermuouhiu",
+			"name": "DanielRoyGilchristNoboaAzin",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Ecuador/DanielRoyGilchristNoboaAzin.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8715,9 +8694,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "EuntiouAothruidhaepoestruahuouFleaurmuardoull",
+			"name": "DinaErciliaBoluarteZegarra",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Peru/DinaErciliaBoluarteZegarra.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8771,9 +8750,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "IghiopruerkeespluippayGiepl",
+			"name": "JamesMarape",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/PapuaNewGuinea/JamesMarape.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8799,9 +8778,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "IesloiduffirkeyzuevuysooThoiltiachestight",
+			"name": "PatrickHerminie",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenjaminFranklin.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Seychelles/PatrickHerminie.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8813,9 +8792,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "AetchuyluihOefretruarreupteappioutwaeOikaurdoutteaprusleaulvicc",
+			"name": "MatthewCooperWale",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/SolomonIslands/MatthewCooperWale.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8841,9 +8820,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "AobbuawhaikraoEaudwoiblZauppuaspoobbuikkoaspraytr",
+			"name": "JoseManuelRamosHorta",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/EastTimor/JoseManuelRamosHorta.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8911,9 +8890,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "AzzaepsiouccoykraezzuetweighoTrayo",
+			"name": "AnthonyNormanAlbanese",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Australia/AnthonyNormanAlbanese.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -8939,9 +8918,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "NgeentiurgiattykriUouyuy",
+			"name": "JothamNapat",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/DaleyJohnOttersbach.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Vanuata/JothamNapat.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -9037,9 +9016,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "AuscuougialkiorrairgeilgiouquXtierduyrguordioubbea",
+			"name": "SantiagoPenaPalacios",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JaneAustenCassandra.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Paraguay/SantiagoPenaPalacios.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -9051,9 +9030,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "OeltaedwiogruyyounEeckaird",
+			"name": "DharambeerGokhool",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/JoshPaulraj.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Mauritius/DharambeerGokhool.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -9079,9 +9058,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "RgierdairtaywrokkuischiOaphuouswuophotwaextuoMmuermynkuogayghtypl",
+			"name": "JavierGerardoMilei",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Argentina/JavierGerardoMilei.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -9135,9 +9114,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "EatchoedweoppiupeypsorraythStuopreermuaghteauTaeck",
+			"name": "YamanduRamonAntonioOrsiMartinez",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/YukawaHideki.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Uruguay/YamanduRamonAntonioOrsiMartinez.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -9149,9 +9128,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "AyghaidhieveiAurgierdyjaolveoghturdathuaGluamuit",
+			"name": "ChristopherMarkLuxon",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/NewZealand/ChristopherMarkLuxon.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -9163,9 +9142,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "OelpuyEafrutriesmoaghtorruextoefSleiscuyrpeaustei",
+			"name": "AlbertLluberasBonaba",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/BenitoMussolini.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Antarctica/AlbertLluberasBonaba.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -9177,9 +9156,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "OyspreythreimpOaglieMpempeauspang",
+			"name": "DenisVladimirovichPushilin",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Donetsk/DenisVladimirovichPushilin.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -9191,9 +9170,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "PokaessiettiouryAugleauxteerkoyAygrioulteoffoelmuis",
+			"name": "LeonidIvanovichPasechnik",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/TrofimLysenko.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Luhansk/LeonidIvanovichPasechnik.png",
 			"skills": {},
 			"status": 0,
 			"traits": []
@@ -9205,9 +9184,9 @@
 				0
 			],
 			"legitimacy": 0,
-			"name": "FiraEegispralawroaskYwevizepech",
+			"name": "AbdullahBinHussein",
 			"occupation": "Leader",
-			"portrait_path": "res://starts/ModernDay/assets/portraits/random/UrNammu.png",
+			"portrait_path": "res://starts/ModernDay/assets/portraits/Jordan/AbdullahBinHussein.png",
 			"skills": {
 				"attackerAttackMitigation": 1.01,
 				"defenderAttackMitigation": 1.01,

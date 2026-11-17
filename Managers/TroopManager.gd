@@ -38,6 +38,9 @@ func _update_moving_troop(troop: TroopData, delta: float) -> void:
 	if troop.country_obj == null:
 		troop.country_obj = CountryManager.countries.get(troop.country_name)
 	
+	if troop.path.is_empty():
+		return
+	
 	var targetPID = troop.path.front()
 	var enemies = troops_by_province.get(targetPID, []).filter(
 		func(t):
