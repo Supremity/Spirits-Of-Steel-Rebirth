@@ -11,24 +11,14 @@
             "id": "d94dbff6502c5a39",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "Kanban.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false,
-                    false,
-                    false,
-                    false,
-                    false
-                  ]
-                }
+                "file": "NodeDependencies.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-trello",
-              "title": "Kanban"
+              "icon": "lucide-file",
+              "title": "NodeDependencies"
             }
           }
         ]
@@ -201,6 +191,7 @@
   },
   "active": "d94dbff6502c5a39",
   "lastOpenFiles": [
+    "Kanban.md",
     "NodeDependencies.md",
     "Kanban.md",
     "buildingTypes.md",
